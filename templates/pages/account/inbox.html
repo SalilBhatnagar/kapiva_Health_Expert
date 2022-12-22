@@ -1,0 +1,29 @@
+{{#partial "page"}}
+
+{{!-- <h1 class="page-heading">{{lang 'account.messages.heading' }}</h1> --}}
+ <div class="top-page">
+       <p class="left-text">My account<br/></p>
+       <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+   </div>
+<div class="order-page"> 
+    {{> components/account/navigation account_page='messages'}}
+
+    <div class="account account--fixed">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <div class="account-body">
+            <section class="account-content">
+                {{#if forms.inbox.error}}
+                    {{> components/common/alert/alert-error forms.inbox.error}}
+                {{/if}}
+                {{#if forms.inbox.success}}
+                    {{> components/common/alert/alert-success forms.inbox.success}}
+                {{/if}}
+                {{> components/account/messages-list messages=customer.inbox.messages}}
+                {{> components/account/messages-form}}
+            </section>
+        </div>
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

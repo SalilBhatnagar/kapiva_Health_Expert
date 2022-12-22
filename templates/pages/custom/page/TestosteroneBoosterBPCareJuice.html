@@ -1,0 +1,868 @@
+{{#partial "page"}}
+
+<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} -->
+
+<section class="page swpageHeading">
+    {{#unless theme_settings.hide_page_heading }}
+        <h1 class="page-heading ">Namaste! Here is your solution</h1>
+    {{/unless}}
+
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            {{{page.content}}}
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</section>
+
+{{/partial}}
+{{#partial "bottom-full"}}
+    <div class="sexualwellnesspage">
+        <div class="container">
+            <section class="welnesspagemain">
+                <div class="leftwelness">
+                   <div class="leftwelnessinner">
+                        <div class="drbanner">
+                            <!-- mobile -->
+                            <div class="drbannertextinner mobile">
+                                <div class="name">
+                                    <p class="first">Your Problem Area</p>
+                                    <p>Boost testosterone levels</p>
+                                </div>
+                                <span class="kapivaline"></span>
+                                <div class="name">
+                                    <p class="first">Health Issues</p>
+                                    <p>High Blood Pressure</p>
+                                </div>
+                            </div>
+                            <!-- <p class="namesolution mobiles">Your personalized wellness package will have</p> -->
+                            
+                            
+                            <div class="welnessbanner desk">
+                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/drmainimages.png'}}" class="img-fluid lazyload" alt="welness banner">
+                            </div>
+                             <!-- mobile -->
+                             <!-- desk -->
+                            <div class="Mobiledrbanner">
+                                <div class="welnessbanner">
+                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/drmainimages.png'}}" class="img-fluid lazyload" alt="welness banner">
+                                </div>
+                                <div class="mobile">
+                                    <p class="advice">Based on your answers, Kapiva's doctors have curated a <span>Personalized Wellness Package </span>which will show results in <span>2-3 months</span></p>
+                                    <!-- <ul class="review">
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="20" height="20" viewBox="0 0 23.813 17.906">
+                                            <path d="M8.985,17.892 C8.724,17.892 8.473,17.788 8.287,17.604 L0.287,9.650 C-0.102,9.263 -0.105,8.634 0.281,8.244 C0.666,7.854 1.294,7.852 1.684,8.238 L8.933,15.445 L22.057,0.338 C22.415,-0.076 23.042,-0.120 23.456,0.241 C23.869,0.602 23.912,1.230 23.552,1.644 L9.733,17.550 C9.553,17.758 9.296,17.881 9.022,17.891 C9.010,17.892 8.998,17.892 8.985,17.892 Z" class="cls-1"/>
+                                          </svg>100% Natural</li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="20" height="20" viewBox="0 0 23.813 17.906">
+                                            <path d="M8.985,17.892 C8.724,17.892 8.473,17.788 8.287,17.604 L0.287,9.650 C-0.102,9.263 -0.105,8.634 0.281,8.244 C0.666,7.854 1.294,7.852 1.684,8.238 L8.933,15.445 L22.057,0.338 C22.415,-0.076 23.042,-0.120 23.456,0.241 C23.869,0.602 23.912,1.230 23.552,1.644 L9.733,17.550 C9.553,17.758 9.296,17.881 9.022,17.891 C9.010,17.892 8.998,17.892 8.985,17.892 Z" class="cls-1"/>
+                                          </svg>Effective</li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="20" height="20" viewBox="0 0 23.813 17.906">
+                                            <path d="M8.985,17.892 C8.724,17.892 8.473,17.788 8.287,17.604 L0.287,9.650 C-0.102,9.263 -0.105,8.634 0.281,8.244 C0.666,7.854 1.294,7.852 1.684,8.238 L8.933,15.445 L22.057,0.338 C22.415,-0.076 23.042,-0.120 23.456,0.241 C23.869,0.602 23.912,1.230 23.552,1.644 L9.733,17.550 C9.553,17.758 9.296,17.881 9.022,17.891 C9.010,17.892 8.998,17.892 8.985,17.892 Z" class="cls-1"/>
+                                          </svg>Long Term</li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="20" height="20" viewBox="0 0 23.813 17.906">
+                                            <path d="M8.985,17.892 C8.724,17.892 8.473,17.788 8.287,17.604 L0.287,9.650 C-0.102,9.263 -0.105,8.634 0.281,8.244 C0.666,7.854 1.294,7.852 1.684,8.238 L8.933,15.445 L22.057,0.338 C22.415,-0.076 23.042,-0.120 23.456,0.241 C23.869,0.602 23.912,1.230 23.552,1.644 L9.733,17.550 C9.553,17.758 9.296,17.881 9.022,17.891 C9.010,17.892 8.998,17.892 8.985,17.892 Z" class="cls-1"/>
+                                          </svg>Customized</li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                            <!-- desk -->
+                            <div class="DRadviceMain mobiles">
+                                <ul class="DRadvice row">
+                                    <li class="col-lg-6 Drwrap">
+                                        <span>1</span>
+                                        <p>Curated Products</p>
+                                    </li>
+                                    <li class="col-lg-6 Drwrap">
+                                        <span>2</span>
+                                        <p>Lifestyle Regime</p>
+                                    </li>
+                                    <li class="col-lg-6 Drwrap">
+                                        <span>3</span>
+                                        <p>Handcrafted Diet Plan</p>
+                                    </li>
+                                    <li class="col-lg-6 Drwrap">
+                                        <span>4</span>
+                                        <p>100% Private Consultation</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="drbannerleft">
+                                <div class="drbannertextinner desk">
+                                    <div class="name">
+                                        <p class="first">Your Problem Area</p>
+                                        <p>Boost testosterone levels</p>
+                                    </div>
+                                    <span class="kapivaline"></span>
+                                    <div class="name">
+                                        <p class="first">Health Issues</p>
+                                        <p>High Blood Pressure</p>
+                                    </div>
+                                </div>
+                                <div class="drtextbottom">
+                                    <p class="advice desk">Based on your answers, Kapiva's doctors have curated a personalized wellness package for you</span></p>
+                                    <ul class="review desk">
+                                        <li>1. 100% Natural</li>
+                                        <li>2. Effective</li>
+                                        <li>3. Long Term</li>
+                                        <li>4. Customized</li>
+                                    </ul>
+                                    <p class="namesolution desks">Your personalized wellness package will have</p>
+                                    <div class="DRadviceMain desks">
+                                        <ul class="DRadvice row">
+                                            <li class="col-lg-6 Drwrap">
+                                                <span>1</span>
+                                                <p>Curated products</p>
+                                            </li>
+                                            <li class="col-lg-6 Drwrap">
+                                                <span>2</span>
+                                                <p>Ayurvedic Lifestyle Regime</p>
+                                            </li>
+                                            <li class="col-lg-6 Drwrap">
+                                                <span>3</span>
+                                                <p>Handcrafted Diet Plan</p>
+                                            </li>
+                                            <li class="col-lg-6 Drwrap">
+                                                <span>4</span>
+                                                <p>100% Private Consultation</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="productIconMain">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-3">
+                                                <div class="icon">
+                                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/icon/v1.png?v1'}}" class="img-fluid lazyload" alt="icon">
+                                                </div>
+                                                <!-- <div class="label">
+                                                    <p>Lab tested for purity</p>
+                                                </div> -->
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="icon">
+                                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/icon/v2.png?v1'}}" class="img-fluid lazyload" alt="icon">
+                                                </div>
+                                                <!-- <div class="label">
+                                                    <p>Premium Quality</p>
+                                                </div> -->
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="icon">
+                                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/icon/v3.png?v1'}}" class="img-fluid lazyload" alt="icon">
+                                                </div>
+                                                <!-- <div class="label">
+                                                    <p>Natural & Safe</p>
+                                                </div> -->
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="icon">
+                                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/icon/v4.png?v1'}}" class="img-fluid lazyload" alt="icon">
+                                                </div>
+                                                <!-- <div class="label">
+                                                    <p>Vegan</p>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                   </div>
+                </div>
+                <div class="rightwelness">
+                    <div class="rightwelnessinner">
+                        <h3 class="rightmainheading"><span class="NumberKapivaHeading">1</span>Curated Products</h3>
+                        <div class="ProductDetaMain">
+                            <div class="leftDeta">
+                                <div class="cardswelness">
+                                    <div class="card-figures">
+                                        <a href="https://www.kapiva.in/solution/sexual-wellness/testosterone-booster-capsules-bp-care-juice-combo/?showHidden=true" class="card-figure__link small overflow-hidden">
+                                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/2TestosteroneBoosterBPCareJuice/ComboProductImages.webp?v1'}}" class="img-fluid lazyload" alt="Testosterone Booster + BP Care Juice" title="Testosterone Booster + BP Care Juice">
+                                        </a>
+                                    </div>
+                                    <div class="cardbody">
+                                        <div class="form-action Buynowmobile">
+                                           <button class="button button--primary add_to_cart_product" type="button" value="Buy Now" data-product-id="701" onclick="staticbuynow(this)">
+                                              Buy Now
+                                            </button>
+                                            <button id="form-action-addToCart" class="button button--primary add_to_cart_product" type="submit" value="" data-product-id="701" onclick="staticaddtocart(this)"><span class="addTocartText">Add to cart</span><div id="countinnermain" class="Count"></div>
+                                           </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightdeta">
+                               <div class="cardwrap">
+                                    <h3>Testosterone Booster + BP Care Juice</h3>
+                                        <ul class="subheading">
+                                            
+                                             <li><span class="BoldHeading">Increases </span>sperm count </li>
+                                             <li>Build <span class="BoldHeading"> healthy bone and muscle mass </span></li>
+                                             <li><span class="BoldHeading"> Boost RBC </span>production </li>
+                                             <li>Keep <span class="BoldHeading"> chronic issues in check </span></li>
+                                             <li><span class="BoldHeading"> Fight hypertension & relax </span>your mind</li>
+                                        </ul>
+                                    <div class="pdpiconmain">
+                                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/pdpiconnew.png'}}" class="img-fluid lazyload" alt="welness banner">
+                                    </div>
+                                    <div class="productreview">
+                                        <span class="reviewicon">
+                                            <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                            </svg>
+                                        </span>
+                                        <span class="reviewicon">
+                                            <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                </svg>
+                                        </span>
+                                        <span class="reviewicon">
+                                            <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                </svg>
+                                        </span>
+                                        <span class="reviewicon">
+                                            <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                </svg>
+                                        </span>
+                                        <span class="reviewicon">
+                                            <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                </svg>
+                                        </span>
+                                        <span class="reviewcount">
+                                            (33 Customer reviews)
+                                        </span>
+                                    </div>   
+                                    <div class="price">
+                                        <p class="pricetext">MRP (incl. of all taxes)</p>
+                                        <p class="priceold"><span class="linethrough">₹1448</span><span class="pricenew"> ₹1303</span><span class="discount" data-id="701"> ( 10% OFF )</span></p>
+                                    </div> 
+                               </div>
+                            </div>
+                        </div>
+                        <div class="solutionwork">
+                            <div class="solutionworkinner">
+                                <h4>Why will this solution work?</h4>
+                                <ul>
+                                    <li>Kapiva's solutions are backed by<span class="BoldHeading"> thorough research</span></li>
+                                    <li><span class="BoldHeading">8/9 </span>customers reported positive changes after consuming the product regularly</li>
+                                    <li>All ingredients are <span class="BoldHeading">natural, fresh </span> & of <span class="BoldHeading">high quality</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+            </section>
+            <section class="productsection">
+                <div class="WrapMainProduct">
+                    <div class="insideproductsection">
+                        <h4>Science behind ingredients</h4>
+                    
+                        <div class="innerwrapsection">
+                            <div class="splide ProductHealth" aria-label="Basic Structure Example">
+                                <div class="splide__track">
+                                    <div class="splide__list">
+                                        <div class="splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Shilajit.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Shilajit</h6>
+                                                <p>Shilajit helps in boosting libido and also aids in building high endurance levels.</p>
+                                            </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Goshokra.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Gokshura</h6>
+                                                <p>Helps in increasing testosterone levels and impacts erectile function with an increase in sex hormones.</p>
+                                            </div>
+                                        </div>
+                                        <div class="splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Kaunchbeej.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Kaunch Beej</h6>
+                                                <p>Kaunch beej is found to improve semen volume, pH of semen, and sperms motility. It also helps in increasing the desire for sex, penile rigidity, erection, and quantity of semen ejaculated during orgasm.</p>
+                                            </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Akarkara.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Akarakara</h6>
+                                                <p>The roots of Akarakara are known to increase fructose levels in seminal vesicles which is necessary for normal sperm motility and helps in increasing sperm count.</p>
+                                            </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/sarpagandha.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Sarpagandha</h6>
+                                                <p>This ayurvedic herb helps in relaxing blood vessels & regulating nerve function in the muscles, thereby improving the quality of sleep.</p>
+                                            </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Safedmusali.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Safed Musali</h6>
+                                                <p>Safed musli increases the quality and quantity of the semen due to the mucilaginous content present in it thus improving sexual performance.</p>
+                                            </div>
+                                        </div>
+                                        <div class="splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Ashwagandha.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Ashwagandha</h6>
+                                                <p>Ashwagandha helps in increasing sperm count with improved sperm quality and reducing cortisol levels linked to stress. This further helps in improving fertility.</p>
+                                                </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Brahmi.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Brahmi</h6>
+                                                <p>An Ayurvedic herb that is known to improve brain health & lower blood pressure by making it a good immunity booster.</p>
+                                                </div>
+                                        </div>
+                                        <div class="splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Arjuna.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Arjuna</h6>
+                                                <p>Arjuna helps in strengthening heart muscles & has the anti-hypertensive property that helps reduce the levels of high blood pressure</p>
+                                            </div>
+                                        </div>
+                                        <div class="splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/ChotiElaichi.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Chhoti Elaichi</h6>
+                                                <p>Cardamom is quite a known aphrodisiac and could promote sexual desire in men.,serving even as an alternative to Viagra.</p>
+                                            </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Ajwain.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Ajwain</h6>
+                                                <p>Ajwain contains the active ingredient "Thymol" which helps in increasing libido and helps in conditions of premature ejaculation.</p>
+                                            </div>
+                                        </div>
+                                        <div class=" splide__slide col-lg-3">
+                                            <div class="icons">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/ingredientsimage/Garlic.webp?v1'}}" class="img-fluid lazyload" alt="image inside product">
+                                            </div>
+                                            <div class="label">
+                                                <h6>Lahsun</h6>
+                                                <p>Garlic helps in improving cardiovascular health by reducing arterial stiffness, elevated cholesterol levels, and high blood pressure.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="insidework">
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="insideright">
+                                    <p class="aharHeading"><span class="NumberKapivaHeading">2</span></p>
+                                    <!-- <ul>
+                                        <li>Mainting a specific pattern of 'Aahar' helps in improving overall wellness.</li>
+                                        <li>This is why we've curated a unique diet plan for you.</li>
+                                    </ul> -->
+                                    <!-- <div class="dietplane">
+                                        <p>Click Here</p>
+                                        <div class="rows">
+                                            <a href="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/Diateplane.pdf'}}" target="_blank"><img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/dietplaneimage.webp'}}" class="img-fluid lazyload" alt="image inside product"></a>
+                                        </div>
+                                    </div> -->
+                                    <div class="rows">
+                                        <a href="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/2TestosteroneBoosterBPCareJuice/TBP.pdf'}}" target="_blank"><img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/Diet-Plan-Banner.webp'}}" class="img-fluid lazyload" alt="image inside product"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="insideleft">
+                                     <h4><span class="NumberKapivaHeading">3</span>Vihar: Ayurvedic Lifestyle</h4>
+                                     <ul>
+                             
+
+                                        <li>Maintain BP with an <span class="BoldHeading"> oil massage everyday</span></li>
+                                        <li><span class="BoldHeading"> Avoid dry & fast food</span></li>
+                                        <li>Perform <span class="BoldHeading"> Uttanasana & Viparita Karani</span></li>
+                                        
+                                     </ul>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="drconsultHealth">
+                        <a href="/consult-a-doctor/">
+                           <div class="Doctorwrap">
+                                <div class="doctorimage">
+                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/swpage1/DRImagehire.webp'}}" class="img-fluid lazyload" alt="icon">
+                                </div>
+                                <div class="doctordata">
+                                    <!-- <p class="doctorname"></p> -->
+                                    <h5><span class="NumberKapivaHeading">4</span>100% Private Consultation</h5>
+                                    <div>
+                                        <p class="desk">Free<span> | </span>Anonymous<span> | </span>Private</p>
+                                    </div>
+                                    <div class="mobile Doctorspce">
+                                        <p >Free<span> | </span>Anonymous<span></p>
+                                    </div>
+                                    <div class="Doctorbtn">
+                                        <p class="drbtn">Book Now</p>
+                                    </div>
+                                    <p class="doctorname desk">Dr. Irfan Ali</p>
+                                </div>
+                                
+                           </div>
+                           <p class="doctorname mobile">Dr. Irfan Ali<br>(B.A.M.S, Ayurvedacharya)</p>
+                       </a>
+                    </div>
+                    <div class="bottomProducts">
+                        <h4>Learn about our products</h4>
+                        <div class="IndivisualProducts">
+                            <div class="ProductsInner">
+                                <ul class="row">
+                                    <li class="cardswelness col-lg-4">
+                                        <div class="card-figures">
+                                            <a href="https://www.kapiva.in/solution/mens-care/testosterone-boost-60-capsules/?showHidden=true" class="card-figure__link small overflow-hidden">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/2TestosteroneBoosterBPCareJuice/01comboimage.webp?v1'}}" class="img-fluid lazyload" alt="Testosterone Booster" title="Testosterone Booster">
+                                            </a>
+                                        </div>
+                                        <div class="cardwrap">
+                                            <h3>Testosterone Booster</h3>
+                                            <div class="productreview">
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewcount">
+                                                    (15 Customer reviews)
+                                                </span>
+                                            </div>   
+                                            <div class="price">
+                                                <p class="pricetext">MRP (incl. of all taxes)</p>
+                                                <p class="priceold"><span class="linethrough">₹799</span><span class="pricenew"> ₹719</span><span class="discount"> ( 10% OFF )</span></p>
+                                            </div> 
+                                        </div>
+                                    </li>
+                                    <li class="cardswelness col-lg-4">
+                                        <div class="card-figures">
+                                            <a href="https://www.kapiva.in/bp-care-juice-with-10-potent-herbs/" class="card-figure__link small overflow-hidden">
+                                                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/sexualwellness/2TestosteroneBoosterBPCareJuice/02comboimage.webp'}}" class="img-fluid lazyload" alt="BP Care Juice" title="BP Care Juice">
+                                            </a>
+                                        </div>
+                                        <div class="cardwrap">
+                                            <h3>BP Care Juice</h3>
+                                            <div class="productreview">
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewicon">
+                                                    <svg viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.54894 0.927052C4.8483 0.00574136 6.1517 0.0057404 6.45106 0.927051L6.95934 2.49139C7.09321 2.90341 7.47717 3.18237 7.9104 3.18237H9.55524C10.524 3.18237 10.9267 4.42199 10.143 4.99139L8.81232 5.9582C8.46183 6.21285 8.31518 6.66422 8.44905 7.07624L8.95733 8.64058C9.25669 9.56189 8.20221 10.328 7.41849 9.75861L6.08779 8.7918C5.7373 8.53715 5.2627 8.53715 4.91221 8.7918L3.58151 9.75861C2.7978 10.328 1.74331 9.56189 2.04267 8.64058L2.55095 7.07624C2.68483 6.66422 2.53817 6.21285 2.18768 5.9582L0.856976 4.99139C0.0732617 4.42199 0.476037 3.18237 1.44476 3.18237H3.0896C3.52283 3.18237 3.90678 2.90341 4.04066 2.49139L4.54894 0.927052Z"></path>
+                                                        </svg>
+                                                </span>
+                                                <span class="reviewcount">
+                                                    (829 Customer reviews)
+                                                </span>
+                                            </div>   
+                                            <div class="price">
+                                                <p class="pricetext">MRP (incl. of all taxes)</p>
+                                                <p class="priceold"><span class="pricenew"> ₹649</span></p>
+                                            </div> 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonialHealthtach">
+                        <div class="splide ProductTestimonial" aria-label="Basic Structure Example">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve">
+                                            <div>
+                                                <p class="reviewdeta">36 | M | Bombay</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">I can see a major shift in my performance after using this combo.Fortunately,my sugar levels are in check after consuming this product which is helping me feel all the more active!</p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve gray">
+                                            <div>
+                                                <p class="reviewdeta">42 | M | Bengaluru</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">Due to a lot of work and personal stress, my BP levels used to reduce at an erratic rate. Thanks to the doctors, I found this combo that helps in more vigour and stamina and regulate my blood levels.</p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve">
+                                            <div>
+                                                <p class="reviewdeta">30 | M | Delhi</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">I choose to write this review after 1 month of  trying Kapiva's sexual health products! These have helped me power up & now I'm able to last longer and also perfom better in bed.</p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve  gray">
+                                            <div>
+                                                <p class="reviewdeta">38 | M | Delhi</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">I was quite worried about my erectile dysfunction that was happening due to my sleep disorders. I'd totally recommend this combo that has helped me calm my mind, get better stress-relief and good sleep.</p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve">
+                                            <div>
+                                                <p class="reviewdeta">46 | M | Bengaluru</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">Super happy with the curated products! Now I'm so much more active in my sexual life and this makes me feel really good.</p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve  gray">
+                                            <div>
+                                                <p class="reviewdeta">33 | M | Chennai</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">Some of the products I recently tried from Kapiva have helped me in lasting longer in bed. The products have rich ingredients and minerals that is boosting my metabolism and stamina.</p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve">
+                                            <div>
+                                                <p class="reviewdeta">29 | M | Hyderabad</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">Not being able to perform in bed was my biggest fear!! I used to consume alcohol almost every other day till a really close friend of mine recommended this combo. I must say that this is life changing! </p>
+                                        </div>
+                                    </li>
+                                    <li class="splide__slide Testimonial-Slides">
+                                        <div class="kapiva-curve  gray">
+                                            <div>
+                                                <p class="reviewdeta">41 | M | Bhopal</p>
+                                            </div>
+                                            <div class="starrating">
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="textReview">Having a satisfactory sex life is so important for me. Kapiva's combo for stamina and sexual health helped me achieve that in just 2 months of regular consumption!</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="product-faqs ingredients-tab-section" id="faqs">
+                        <h3 class="common-title">FAQs</h3>
+                          
+                          {{{region name="product_custom_faqs"}}}
+                      
+                    </div>
+                </div>
+            </section>
+        </div>
+
+   
+    </div>
+
+    {{/partial}}
+{{> layout/base}}
+<input type="hidden" value="701" class="productId">
+<script>
+     document.addEventListener( 'DOMContentLoaded', function() {
+
+        if(document.querySelectorAll(".splide.ProductHealth").length > 0){
+            var healthkapivaProducts = new Splide( '.splide.ProductHealth', {
+                perPage: 4,
+                perMove: 4,
+                breakpoints: {
+                    768: {
+                    perPage: 2,
+                    perMove: 2,
+                    },
+                    480: {
+                    perPage: 1,
+                    perMove: 1,
+                    },
+                },
+            
+        });
+        healthkapivaProducts.mount();
+            }
+
+            if(document.querySelectorAll(".splide.ProductTestimonial").length > 0){
+            var healthkapivaProductstestimonial = new Splide( '.splide.ProductTestimonial', {
+                perPage: 4,
+                perMove: 4,
+                breakpoints: {
+                    1024: {
+                    perPage: 3,
+                    perMove: 3,
+                    },
+                    768: {
+                    perPage: 2,
+                    perMove: 2,
+                    },
+                    480: {
+                    perPage: 1,
+                    perMove: 1,
+                    },
+                },
+            
+        });
+        healthkapivaProductstestimonial.mount();
+            }
+             //fetch the addtocart count
+         let pro_id = document.querySelectorAll(".productId")[0].value;
+          fetch('/api/storefront/carts?include=',
+              {
+                  'credentials': 'include',
+                  'headers': {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  }
+              }).then(function (response) {
+                  response.json().then(function (data) {
+                    if (data.length != 0) {
+                          var getid = data[0]['lineItems']['physicalItems'];
+                          
+                              getid.forEach(function (value,key) {
+                                var pid = value.productId;
+                              var qty = value.quantity;
+                              if (pid != undefined && pid == pro_id){
+                                let selector = document.querySelectorAll("button#form-action-addToCart[data-product-id='"+pid+"']");
+                                console.log(selector[0]);
+                                selector[0].querySelectorAll('.Count')[0].textContent = qty;
+                                selector[0].classList.add("");
+                                selector[0].querySelectorAll('.Count')[0].classList.add("fill-count");
+                              }
+                            });
+                        }
+                        });
+                    });
+     });
+    
+</script>

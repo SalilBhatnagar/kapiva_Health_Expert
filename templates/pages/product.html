@@ -1,0 +1,98 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject 'productId' product.id}}
+ 
+{{#partial "hero"}}
+<div class="container is-srOnly">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+</div>
+<div itemscope itemtype="https://schema.org/Product">
+  <div class="container">
+    {{#each product.shipping_messages}} 
+      {{> components/common/alert/alert-info message}}
+    {{/each}}
+  </div>
+  <div class="productviewMainHead">
+    <div class="container">
+      {{> components/kapiva/product-viewnew schema=true }} 
+      {{{region name="product_below_content"}}}
+      <!-- {{#if product.videos.list.length}}
+              {{> components/products/videos product.videos}}
+          {{/if}} -->
+      {{!> components/products/tabs}}
+    </div>
+  </div>
+  
+  {{> components/kapiva/product-contentnew}}
+
+ 
+</div>
+<div class="vue-ai-pdp-widget" style="display:none;"></div>
+{{/partial}}
+{{> layout/base}}
+<input type="hidden" class="customer_data" value="{{customer.name}}">
+<input type="hidden" class="Product_Id" value="{{product.id}}">
+<input type="hidden" class="product_details" price="" sale_price="" quantity="" category_name="" category_id="">
+<input type="hidden" class="stickey_data" title="{{product.title}}" id="{{product.id}}"
+  sale_price="{{product.price.with_tax.formatted}}" actual_price="{{product.price.non_sale_price_with_tax.formatted}}"
+  price_val="{{product.price.non_sale_price_with_tax.value}}" sku="{{product.sku}}" category="{{product.category}}">
+
+<script>
+  //datalayer events
+  var category = document.querySelector(".stickey_data").getAttribute("category");
+  var product_id = document.querySelector(".stickey_data").getAttribute("id");
+  var pro_title = document.querySelector(".stickey_data").getAttribute("title");
+  var pro_sku = document.querySelector(".stickey_data").getAttribute("sku");
+  var pro_sale_price = document.querySelector(".stickey_data").getAttribute("sale_price").replace(/\D+/g, '');
+  var pro_actual_price = document.querySelector(".stickey_data").getAttribute("actual_price").replace(/\D+/g, '');
+  
+  var myArray = category.split(",");
+
+  var elmnt = myArray[myArray.length - 1];
+  var finalCategory = elmnt.split("/");
+
+    window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+         'event': 'view_item',
+       })
+        window.dataLayer.push({
+      'product-category': finalCategory[1]
+      });
+      window.dataLayer.push({
+      'productId': product_id
+      });
+          //////////////////////////////Updated:Code Start GTM Code////////////////////////////////////
+            window.dataLayer = window.dataLayer || [];
+      dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  'event': "view_item",
+  'ecommerce': {
+    'items': [
+    {
+      'item_id': pro_sku,
+      'item_name': pro_title,
+      'currency': "INR",
+      'discount': pro_actual_price-pro_sale_price,
+		  'item_brand': "Kapiva",
+      'item_category': document.getElementsByClassName("breadcrumb")[1].textContent.replace(/[\n\r\s\t]+/g, ''),
+      'item_category2': document.getElementsByClassName("breadcrumb")[2].textContent.replace(/[\n\r\s\t]+/g, ''),
+      'item_variant': "green",
+      'price': pro_sale_price,
+      'quantity': 1
+    }
+    ]
+  }
+});
+      //////////////////////////////////Updated:Code End GTM Code////////////////////////////////
+   
+
+</script>

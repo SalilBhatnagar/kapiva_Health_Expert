@@ -1,0 +1,243 @@
+
+{{#partial "hero"}}
+
+
+<main class="full-page">    
+
+    {{{region name="page_builder_content"}}}
+
+    
+        {{#replace '%%Syndicate%%' page.content}}
+           {{> components/page/rss_feed}}
+         {{else}}
+           <p>{{{page.content}}}</p>
+        {{/replace}} 
+        
+
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+<script>
+
+        
+document.addEventListener("DOMContentLoaded", function(event) { 
+        
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+        'page-type': 'consult-a-doctor'
+        });
+ if (document.querySelectorAll(".tabs-content .tab-content-ingr").length > 0 && document.querySelectorAll(".ingredients-block").length > 0) {
+	document.querySelectorAll(".ingredients-block")[0].style.display = "none";
+}
+
+var items = document.querySelectorAll(".tabs-list.CatSlider-Wrap .productCarousel li"),
+tab = [], _currIndex;
+
+// add values to the array
+for(var i = 0; i < items.length; i++){
+   tab.push(items[i].innerHTML);
+ }
+document.querySelectorAll(".tabs-list.CatSlider-Wrap .productCarousel li").forEach(item => {
+    item.addEventListener('click', function (event) {
+        _currIndex = tab.indexOf(this.innerHTML);
+       
+        document.querySelectorAll(".tabs-list.CatSlider-Wrap .productCarousel li.active")[0].classList.remove('active');
+        this.classList.add('active');
+          document.querySelectorAll(".tabs-content .tab-content-ingr").forEach(classadd => {
+                classadd.classList.add('d-none');
+            }); 
+            document.querySelectorAll('.tabs-content .tab-content-ingr')[_currIndex].classList.remove('d-none');
+
+});    
+});
+document.querySelectorAll(".tabs-content .tab-content-ingr").forEach(classadd => {
+   
+    classadd.classList.add('d-none');
+
+});
+if(document.querySelectorAll(".tabs-content .tab-content-ingr").length > 0)
+document.querySelectorAll(".tabs-content .tab-content-ingr")[0].classList.remove("d-none");
+if(document.querySelectorAll(".tabs-list.CatSlider-Wrap .productCarousel li").length > 0)
+document.querySelectorAll(".tabs-list.CatSlider-Wrap .productCarousel li")[0].classList.add("active");
+
+});
+    
+</script>
+<script>
+
+ if(document.querySelectorAll(".KapivaBnnerMain .splide").length > 0){
+        var splideweightbanner = new Splide( '.KapivaBnnerMain .splide', {
+    type   : 'fade',
+    speed: 0,
+    autoplay: 'true',
+    rewind: true,
+   autoScroll: {
+    speed: 0,
+  },
+  });
+   splideweightbanner.mount();
+}
+ 
+  if(document.querySelectorAll(".splide.bannerKapivaReview").length > 0){
+  var splideimmunitytbanner = new Splide( '.splide.bannerKapivaReview', {
+    type   : 'fade',
+    speed: 0,
+    autoplay: 'true',
+    rewind: true,
+   autoScroll: {
+    speed: 0,
+  },
+  });
+  splideimmunitytbanner.mount();
+    }
+  
+  if(document.querySelectorAll(".juice.splide").length > 0){
+ var combo = new Splide( '.juice.splide', {
+      perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    combo.mount();  
+}
+if(document.querySelectorAll(".shake.splide").length > 0){
+ var juice = new Splide( '.shake.splide', {
+      perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    juice.mount();  
+}
+if(document.querySelectorAll(".gummies.splide").length > 0){
+ var gummies = new Splide( '.gummies.splide', {
+      perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    gummies.mount();  
+}
+if(document.querySelectorAll(".acidity.splide").length > 0){
+ var acidity = new Splide( '.acidity.splide', {
+      perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    acidity.mount();  
+}
+if(document.querySelectorAll(".indigation.splide").length > 0){
+ var indigation = new Splide( '.indigation.splide', {
+      perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    indigation.mount();  
+}
+if(document.querySelectorAll(".constipation.splide").length > 0){
+ var constipation = new Splide( '.constipation.splide', {
+      perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    constipation.mount();  
+}
+if(document.querySelectorAll(".routines.splide").length > 0){
+ var routines = new Splide( '.routines.splide', {
+    perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    routines.mount();  
+}
+if(document.querySelectorAll(".combos-section .splide").length > 0){
+ var combo = new Splide( '.combos-section .splide', {
+    perPage: 3,
+      perMove: 3,
+      breakpoints: {
+    768: {
+      perPage: 2,
+      perMove: 2,
+    },
+    480: {
+      perPage: 1,
+      perMove: 1,
+    },
+  },
+    });
+    combo.mount();  
+}
+
+   </script>
+</main>
+
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,741 @@
+{{#partial "page"}}
+
+
+
+<section class="page">
+    <!--{{#unless theme_settings.hide_page_heading }}-->
+    <!--    <h1 class="page-heading weightlossHeading">{{ page.title }}</h1>-->
+    <!--{{/unless}}-->
+
+    <!--{{#if page.sub_pages}}-->
+    <!--<nav class="navBar navBar--sub">-->
+    <!--    <ul class="navBar-section account-navigation">-->
+    <!--    {{#each page.sub_pages}}-->
+    <!--        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>-->
+    <!--    {{/each}}-->
+    <!--    </ul>-->
+    <!--</nav> -->
+    <!--{{/if}}-->
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</section>
+
+{{/partial}}
+{{#partial "bottom-full"}}
+    <div class="healthTechPage">
+    <section class="container">
+        <div class="bannerSection">
+            <div class="mobileKapivaHealth">
+                <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/bannerhealth.webp'}}" class="img-fluid lazyload" alt="Health tech banner">
+                </a>
+                </div>
+                <div>
+                    <div class="deskKapivaHealth">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/bannerHealthKapivanewnew.webp'}}" class="img-fluid lazyload" alt="Health tech banner">
+                        </a>
+                    </div>
+                    <div class="bannerTextHeader">
+                        <div class="bannerMainText">
+                            <h3 class="banerHeading">Try the ayurvedic way to manage your weight</h3>
+                            <p class="banertext">Easy to follow, sustainable plans!</p>
+                            <div class="bannerbutton">
+                                <a href="javascript:void(0)" class="bannerBtn" onclick="signupform()">Take our 1 minute quiz for free</a>
+                            </div>
+                            <p class="bannertextsubheading">Trusted by over 1,00,000 Indians</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="bannertext">
+                <p class="bannerpera">Why Wait to Loose Weight</p>
+            </div>
+        </div>        
+    </section>
+    <section class="classFeatureProducts">
+            <h3 class="FeatureHeading"><span class="featuresubHeading KapivaCommanHeading">Featured In</span></h3>
+        <div class="FeaturesectionMain">
+            <div class="container"> 
+                <div class="Featuresection desk">
+                    <ul class="example featureWrapMain CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example100" data-snap-slider-start="middle">
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/01desk.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/02desk.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/03desk.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/05desk.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/06desk.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="Featuresection mobile">
+                    <ul class="example featureWrapMain CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example100" data-snap-slider-start="middle">
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R1.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R2.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R3.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R4.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R5.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="Featuresection mobile">
+                    <ul class="example featureWrapMain2 CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example101" data-snap-slider-start="middle">
+                        <li class="FeatureWrap2 example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R4.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap2 example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R5.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                        <li class="FeatureWrap2 example__slide">
+                            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                            <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/R6.webp'}}" class="img-fluid lazyload" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="FeatureHeading"></h3>
+    </section>
+    <section class="weightLossing">
+        <h3 class="weightlossHeading KapivaCommanHeading">What's Stopping You From Losing Weight?</h3>
+        <div class="container">
+            <ul class="weightlosswrap desk">
+                <li class="">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/losingweight01.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+                <li class="">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/losingweight02.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+            </ul>
+            <ul class="weightlosswrap mobile">
+                <li class="">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/losingweight01desk.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+                <li class="">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/losingweight02desk.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+            </ul>
+        </div>
+    </section>
+    <section class="weightlossstep">
+        <h3 class="weightlossHeading KapivaCommanHeading desk">What's Stopping You From Losing Weight?</h3>
+        <h3 class="weightlossHeading KapivaCommanHeading mobile">Sign Up To Enjoy Benefits</h3>
+        <div class="container Lossstep">
+            <div class="desk">
+                <ul class="example featureWrapMain CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example100" data-snap-slider-start="middle">
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep1.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep2.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep3.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <!-- <li class="FeatureWrap example__slide">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep4.webp'}}" class="img-fluid lazyload" alt="">
+                    </li> -->
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep5.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile">
+                <ul class="example featureWrapMain CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example100" data-snap-slider-start="middle">
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep1mobile.png'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep2mobile.png'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep3mobile.png'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <!-- <li class="FeatureWrap example__slide">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep4mobile.png'}}" class="img-fluid lazyload" alt="">
+                    </li> -->
+                    <li class="FeatureWrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightlossstep5mobile.png'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="bannerbutton">
+                <a href="javascript:void(0)" class="bannerBtn" onclick="signupform()">Get a personalised plan</a>
+            </div>
+        </div>
+    </section>
+    <section class="AyurvedaSection">
+        <h3 class="KapivaCommanHeading">Secret Of Ayurveda</h3>
+        <div class="mobile">
+            <ul class="example AyurvedaSectionwrap CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example205" data-snap-slider-start="middle">
+                <li class="Ayurvedawrap example__slide">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda1.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+                </li>
+                <li class="Ayurvedawrap example__slide">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda2.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+                </li>
+                <li class="Ayurvedawrap example__slide">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda3.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+                </li>
+                <li class="Ayurvedawrap example__slide">
+                    <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda4.webp'}}" class="img-fluid lazyload" alt="">
+                    </a>
+                </li>
+                <!-- <li class="Ayurvedawrap example__slide">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda5.webp'}}" class="img-fluid lazyload" alt="">
+                </li> -->
+            </ul>
+            <ul class="example-nav" data-snap-slider-nav="center-example205">
+                <li><button class="example-nav__button" type="button">1</button></li>
+                <li><button class="example-nav__button" type="button">2</button></li>
+                <li><button class="example-nav__button" type="button">3</button></li>
+                <li><button class="example-nav__button" type="button">4</button></li>
+                <!-- <li><button class="example-nav__button" type="button">5</button></li> -->
+              </ul>
+        </div>
+        <div class="desk">
+            <div class="container">
+                <ul class="example CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example106" data-snap-slider-start="middle">
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda1desk.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda2desk.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda3desk.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda4desk.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <!-- <li class="Ayurvedawrap example__slide">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/ayurveda5desk.webp'}}" class="img-fluid lazyload" alt="">
+                    </li> -->
+                </ul>
+                <ul class="example-nav AyurvedaSection-Nav" data-snap-slider-nav="center-example106">
+                    <li><button class="example-nav__button" type="button">1</button></li>
+                    <li><button class="example-nav__button AyurvedaSection-NavButton" type="button">2</button></li>
+                    <li><button class="example-nav__button" type="button">3</button></li>
+                    <li><button class="example-nav__button " type="button">4</button></li>
+                    <li><button class="example-nav__button AyurvedaSection-NavButton" type="button">5</button></li>
+                  </ul>
+            </div>
+        </div>
+    </section>
+    <section class="sneakPickSection">
+        <h3 class="KapivaCommanHeading">Sneak Peak For You!</h3>
+        <div class="container">
+            <div class="desk">
+                <ul class="sneakPickSectionWrap">
+                    <li>
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/sneakpeak01.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/sneakpeak02.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="mobile">
+                <ul  class="example CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example107" data-snap-slider-start="middle">
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/sneakpeak01mobile.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/sneakpeak02mobile.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="example-nav AyurvedaSection-Nav" data-snap-slider-nav="center-example107">
+                    <li><button class="example-nav__button" type="button">1</button></li>
+                    <li><button class="example-nav__button" type="button">2</button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="testimonialKapivaHealth">
+        <h3 class="KapivaCommanHeading">Check Out Why Customers Love Us!</h3>
+        <div class="container">
+            <ul class="testimonialKapivaHealthWrap">
+                <ul  class="example CommanSection example--center scrollfix u-full-width@mobile"data-snap-slider="center-example107" data-snap-slider-start="middle">
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/01customerreview.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/02customerreview.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/03customerreview.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="example-nav AyurvedaSection-Nav" data-snap-slider-nav="center-example107">
+                    <li><button class="example-nav__button" type="button">1</button></li>
+                    <li><button class="example-nav__button" type="button">2</button></li>
+                    <li><button class="example-nav__button" type="button">3</button></li>
+                </ul>
+            </ul>
+        </div>
+    </section>
+    <section class="DoctorNutrist">
+        <h3 class="KapivaCommanHeading">Speak to Our Nutritionist Now</h3>
+        <div class="container">
+            <div class="DoctorInnerWrpa">
+                <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                  <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/doctor2.webp'}}" class="img-fluid lazyload" alt=""></a>  
+            </div>
+            <div class="bannerbutton">
+                <a href="https://www.kapiva.in/consult-a-doctor/?utm_source=pwm&utm_medium=nutritionist" class="bannerBtn">Consult Now</a>
+            </div>
+        </div>
+    </section>
+    <section class="wightJourney">
+        <div class="mobile">
+            <div class="">
+                <ul  class="example CommanSection wightJourneymobile example--center scrollfix u-full-width@mobile"data-snap-slider="center-example10000" data-snap-slider-start="middle">
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney01mobile.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney02mobile.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney03mobile.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrap example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney04mobile.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="example-nav AyurvedaSection-Nav" data-snap-slider-nav="center-example10000">
+                    <li><button class="example-nav__button" type="button">1</button></li>
+                    <li><button class="example-nav__button" type="button">2</button></li>
+                    <li><button class="example-nav__button" type="button">3</button></li>
+                    <li><button class="example-nav__button" type="button">4</button></li>
+                  </ul>
+            </div>
+        </div> 
+        <div class="desk">
+            <div class="container">
+                <ul  class="example CommanSection"data-snap-slider="center-example410">
+                    <li class="Ayurvedawrapdesk example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney01.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrapdesk example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney02.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrapdesk example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney03.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                    <li class="Ayurvedawrapdesk example__slide">
+                        <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program">
+                        <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/weightjourney041.webp'}}" class="img-fluid lazyload" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="example-nav AyurvedaSection-Nav" data-snap-slider-nav="center-example410">
+                    <li><button class="example-nav__button" type="button">1</button></li>
+                    <li><button class="example-nav__button" type="button">3</button></li>
+                  </ul>
+            </div>
+        </div>
+    </section>
+    <section class="FixedButtonMobile">
+        <div class="bannerbutton">
+            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness?utm_source=ww-program" class="bannerBtn">Take assessment</a>
+        </div>
+    </section>
+    <div class="FormHealthTAchPage KapivaFormHealth">
+        <div class="swal2-container swal2-center swal2-backdrop-show FormHealth CommanHealthkapiva" style="overflow-y: auto;">
+            <div class="swal2-popup swal2-modal swal2-icon-warning swal2-show Showfrom CommanHealthkapiva">
+                <div class="cancal">
+                  
+                    <button type="button" class="" aria-label="" onclick="closepopupkapiva()" style="display: inline-block;">  <span  class="cancalButton">
+                        <svg><use xlink:href="#icon-close"></use></svg>
+                    </span></button>
+                </div>
+                <div class="kapivaFormWrap">
+                    <h3 class="KapivaCommanHeading">Our health expert will call you to book your appointment with our nutritionist</h3>
+                    <div ></div>
+                    <form>
+                        <div class="KapivaFormHealthTach">
+                            <div class="formname Formcomman">
+                                <label for="name" id="name-label" class="lablename">Name</label>
+                                <input type="text" id="name" class="commaninpute">
+                                <label id="form-name-error" class="error" style="display: none;" for="form-name"></label>
+                            </div>
+                            <div class="formnumber Formcomman">
+                                <label for="phone" id="phone-label" class="lablename">Phone No</label>
+                                <input type="tel" id="phone" class="commaninpute" name="phone">
+                                <label id="form-phone-error" class="error" style="display: none;" for="form-phone"></label>
+                            </div>
+                            <div class="PhoneEmail Formcomman">
+                                <label for="email" id="email-label" class="lablename">Email-ID</label>
+                                <input type="email" id="email" class="commaninpute">
+                                <label id="form-email-error" class="error" style="display: none;" for="form-email"></label>
+                            </div>
+                            <div class="Gender">
+                                <div class="genderbox">
+                                    <p class="Gendertext">Gender</p>
+                                    <span class="linegender"></span>
+                                </div>
+                                <div class="definegender ">
+                                    <div>
+                                        <input type="radio" id="recommed-1" name="recommed" class="comangender" value="Male"></input>
+                                        <label for="recommed-1" class="Formcomman radio-label">Male</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="recommed-2" name="recommed"  class="comangender" value="Female"></input>
+                                        <label for="recommed-2" class="Formcomman radio-label">Female</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="recommed-3" name="recommed" class="comangender" value="Transgender"></input>
+                                        <label for="recommed-3" class="Formcomman radio-label">Transgender</label>
+                                    
+                                    </div>
+                                </div>
+                                 <label id="form-gender-error" class="error" style="display: none;" for="form-gender"></label>
+                            </div>
+                        </div>
+                        <div class="bannerbutton">
+                            <button type="button" value="button" class="bannerBtn" onclick="HealthTechsubmit()">SUBMIT</button>
+                        </div>
+                    </form>
+                    <!--<div class="Thankyoupage">-->
+                    <!--    <div class="thankyouinnerpage">-->
+                    <!--        <p>" Thank you, our health expert will call you shortly" Take our Ayur Assessment test to get a personalised solution</p>-->
+                    <!--        <div class="thankyouimage">-->
+                    <!--            <a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness">-->
+                    <!--                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/thankyouimage.webp'}}" class="img-fluid lazyload" alt="Health tech banner">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {{/partial}}
+{{> layout/base}}
+<script class="snapslider" src="https://cdn11.bigcommerce.com/s-5h8rqg02f8/content/js/snap-slider.min.js">
+
+
+
+
+<script>
+
+    function signupform(){
+        doctorform()
+    }
+    function doctorform(){
+        document.querySelectorAll(".FormHealth .Showfrom")[0].classList.add("CommanHealthkapiva");
+        document.querySelectorAll(".FormHealthTAchPage div.FormHealth")[0].classList.add("swal2-container");
+        document.querySelectorAll(".FormHealthTAchPage div.FormHealth")[0].classList.add("swal2-noanimation");
+        document.querySelectorAll(".FormHealth")[0].classList.add("CommanHealthkapiva");
+        document.querySelectorAll(".FormHealthTAchPage")[0].classList.remove("KapivaFormHealth");
+    }
+  
+    function buttonform(){
+        
+        let kapivahealthtect = document.querySelectorAll(".FormHealth .Showfrom")[0].classList.contains("CommanHealthkapiva");
+        if(kapivahealthtect){
+            document.querySelectorAll(".FormHealth .Showfrom")[0].classList.remove("CommanHealthkapiva");
+            document.querySelectorAll(".FormHealth")[0].classList.remove("CommanHealthkapiva");
+        }
+        else{
+            document.querySelectorAll(".FormHealth .Showfrom")[0].classList.add("CommanHealthkapiva");
+            document.querySelectorAll(".FormHealth")[0].classList.add("CommanHealthkapiva");
+        }
+    }
+
+    function closepopupkapiva(){
+        document.querySelectorAll(".FormHealth .Showfrom")[0].classList.remove("CommanHealthkapiva");
+        document.querySelectorAll(".FormHealthTAchPage .swal2-container")[0].classList.remove("swal2-container");
+        document.querySelectorAll(".FormHealthTAchPage .swal2-noanimation")[0].classList.remove("swal2-noanimation");
+        document.querySelectorAll(".FormHealth")[0].classList.remove("CommanHealthkapiva");
+            
+    }
+     document.querySelectorAll('#name').forEach(item => {
+                item.onkeyup = function(event) {
+                    var name=this.value;
+                    var regEx = /^[a-zA-Z\s]*$/g;
+                    if(name == ''){
+                        document.querySelectorAll("#form-name-error")[0].style.display = "block";
+                        document.querySelectorAll("#form-name-error")[0].textContent = "Please enter your Name";
+                    }else
+                    if(!name.match(regEx)){
+                        document.querySelectorAll("#form-name-error")[0].style.display = "block";
+                        document.querySelectorAll("#form-name-error")[0].textContent = "Please Enter Letters Only";
+                    }else{
+                        document.querySelectorAll("#form-name-error")[0].style.display = "none";
+                        document.querySelectorAll("#form-name-error")[0].textContent = "";  
+                    }
+                };
+                });
+                document.querySelectorAll('#email').forEach(item => {
+                item.onkeyup = function(event) {
+                    var email=this.value;
+                    var emailsval = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if(email == '' || email.match(emailsval) == null){
+                        document.querySelectorAll("#form-email-error")[0].style.display = "block";
+                        document.querySelectorAll("#form-email-error")[0].textContent = "Please enter a valid email address";
+                    }else{
+                        document.querySelectorAll("#form-email-error")[0].style.display = "none";
+                        document.querySelectorAll("#form-email-error")[0].textContent = "";  
+                    }
+                };
+                });
+                document.querySelectorAll('#phone').forEach(item => {
+                item.onkeyup = function(event) {
+                    var phone=this.value;
+                    var phonelength = phone.length;
+                    var numbers = /^[0-9]+$/; 
+                    if(phone == ''){
+                        document.querySelectorAll("#form-phone-error")[0].style.display = "block";
+                        document.querySelectorAll("#form-phone-error")[0].textContent = "Please enter your contact number";
+                    }else
+                    if(phone.match(numbers) == null || phonelength != 10){
+                        document.querySelectorAll("#form-phone-error")[0].style.display = "block";
+                        document.querySelectorAll("#form-phone-error")[0].textContent = "Invalid phone number";
+                    }else{
+                        document.querySelectorAll("#form-phone-error")[0].style.display = "none";
+                        document.querySelectorAll("#form-phone-error")[0].textContent = "";  
+                    }
+                };
+                }); 
+    function HealthTechsubmit(){
+       
+         let name = document.getElementById("name").value;
+         let phone = document.getElementById("phone").value;
+         let email = document.getElementById("email").value;
+          let date = new Date()
+          let datetime = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate()+' '+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds(); 
+         let ele = document.getElementsByName('recommed');
+         let gender = '';    
+            for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked)
+                gender = ele[i].value;
+            }
+            var regEx = /^[a-zA-Z\s]*$/g;
+       
+                var namelength = '';
+                if(name == ''){
+                    namelength = 0;
+                    document.querySelectorAll("#form-name-error")[0].style.display = "block";
+                    document.querySelectorAll("#form-name-error")[0].textContent = "Please enter your Name";
+                }else
+               
+               if(!name.match(regEx)){
+                    namelength = 0;
+                     document.querySelectorAll("#form-name-error")[0].style.display = "block";
+                     document.querySelectorAll("#form-name-error")[0].textContent = "Please Enter Letters Only";
+                 }else{
+                    namelength = 1;
+                    document.querySelectorAll("#form-name-error")[0].style.display = "none";
+                     document.querySelectorAll("#form-name-error")[0].textContent = "";  
+                 }
+                 var numbers = /^[0-9]+$/; 
+                 var phonelength = '';
+                 var phonenumberlength = phone.length;
+                if(phone == ''){
+                    phonelength = 0;
+                    document.querySelectorAll("#form-phone-error")[0].style.display = "block";
+                    document.querySelectorAll("#form-phone-error")[0].textContent = "Please enter your contact number";
+                }else
+                 if(phone.match(numbers) == null || phonenumberlength != 10){
+                    phonelength = 0;
+                     document.querySelectorAll("#form-phone-error")[0].style.display = "block";
+                     document.querySelectorAll("#form-phone-error")[0].textContent = "Invalid phone number";
+                 }else{
+                    phonelength = 1;
+                    document.querySelectorAll("#form-phone-error")[0].style.display = "none";
+                     document.querySelectorAll("#form-phone-error")[0].textContent = "";  
+                 }
+                 var emailsval = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var emaillength = '';
+                 if(email == '' || email.match(emailsval) == null){
+                    emaillength = 0;
+                    document.querySelectorAll("#form-email-error")[0].style.display = "block";
+                    document.querySelectorAll("#form-email-error")[0].textContent = "Please enter a valid email address";
+                 }else{
+                    emaillength = 1;
+                    document.querySelectorAll("#form-email-error")[0].style.display = "none";
+                     document.querySelectorAll("#form-email-error")[0].textContent = "";  
+                 }
+                 var genderlength = '';
+                 if(gender == ''){
+                    genderlength = 0;
+                    document.querySelectorAll("#form-gender-error")[0].style.display = "block";
+                    document.querySelectorAll("#form-gender-error")[0].textContent = "Please select valid gender";
+                 }else{
+                    genderlength = 1;
+                    document.querySelectorAll("#form-gender-error")[0].style.display = "none";
+                     document.querySelectorAll("#form-gender-error")[0].textContent = "";  
+                 }
+                 if(namelength && phonelength && emaillength && genderlength == 1)
+                  {
+                      webengage.track("health tech weight management", {
+                            "Name": name,
+                            "Email": phone,
+                            "Phone": email,
+                            "Gender": gender
+                  
+                          });
+                     axios.get('https://bg-sync-api-dev.kapiva.in/pages/healthTech/healthTech-form.php', {
+                        params: {
+                            name: name,
+                            phone: phone,
+                            email: email,
+                            gender: gender
+                
+                        }
+                        })
+                        .then(function (response) {
+                            if(response.data.status == "success"){
+                                let html = '';
+                                  html+='<div class="Thankyoupage">'
+                                     html+='<div class="thankyouinnerpage">'
+                                         html+='<p>" Thank you, our health expert will call you shortly" Take our Ayur Assessment test to get a personalised solution</p>'
+                                         html+='<div class="thankyouimage">'
+                                             html+='<a href="https://kapiva-ayurveda.pro.typeform.com/weight-wellness">'
+                                                html+='<img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/HealthTech/thankyouimage.webp'}}" class="img-fluid lazyload" alt="Health tech banner">'
+                                             html+='</a>'
+                                         html+='</div>'
+                                     html+='</div>'
+                                 html+='</div>'
+                                 var healthtech = document.getElementsByClassName("kapivaFormWrap");
+                                 healthtech[0].innerHTML = html; 
+                            } 
+                        });
+                   
+                  }
+    }
+
+ 
+                
+</script>

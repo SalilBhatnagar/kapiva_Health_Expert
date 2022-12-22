@@ -1,0 +1,159 @@
+---
+cart: true
+---
+{{inject 'cancelButtonText' (lang 'common.cancel')}}
+{{#partial "page"}}
+{{inject 'invalidEntryMessage' (lang 'cart.invalid_entry_message')}}
+<div class="page">
+
+    <div class="page-content" data-cart>
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+        {{> components/cart/page-title}}
+
+        <div data-cart-status>
+            {{> components/cart/status-messages}}
+        </div>
+
+        {{#if cart.items.length}}
+        <div class="loadingOverlay"></div>
+
+        <div data-cart-content class="">
+            {{> components/cart/content}}
+        </div>
+        <div class="cart-bottom">
+            <div>
+
+
+                <div class="coupon-section">
+                    {{#if cart.coupons}}
+                    {{else}}
+                    <div class="cart-total">
+                        <div class="cart-total-label">
+                            <strong>{{lang 'cart.coupon_code'}}:</strong>
+                        </div>
+                        {{> components/cart/coupon-input}}
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="total-section">
+                <div data-cart-totals class="cart-content-padding-right">
+                    {{> components/cart/totals}}
+                </div>
+
+                {{{region name="cart_below_totals"}}}
+
+                {{#if cart.show_primary_checkout_button}}
+                <div class="cart-actions cart-content-padding-right">
+                    <a class="button button--primary" href="{{urls.checkout.single_address}}"
+                        title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                    {{#if cart.show_multiple_address_shipping}}
+                    <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
+                        {{lang 'cart.preview.checkout_multiple'}}
+                    </a>
+                    {{/if}}
+                </div>
+                {{else}}
+                <div class="cart-actions cart-content-padding-right">
+                    <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang
+                        'cart.continue_shopping'}}</a>
+                </div>
+                {{/if}}
+
+                {{#if cart.additional_checkout_buttons}}
+                <div class="cart-additionalCheckoutButtons cart-content-padding-right">
+                    {{#each cart.additional_checkout_buttons}}
+                    {{{this}}}
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        {{else}}
+        <h3 tabindex="0">{{lang 'cart.checkout.empty_cart'}}</h3>
+        {{/if}}
+
+    </div>
+
+</div>
+{{/partial}}
+{{> layout/base}}
+
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+
+        /*Load*/
+        const load = document.querySelector(".load");
+        const content = document.querySelector(".loaded");
+        document.querySelectorAll(".load").forEach(item => {
+
+            item.classList.add("hide");
+            item.querySelectorAll(".loaded")[0].classList.add("shown");
+        });
+    });
+
+    fetch('/api/storefront/carts?include=',
+        {
+            'credentials': 'include',
+            'headers': {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(function (response) {
+            response.json().then(function (data) {
+                if (data.length != 0) {
+                    var getid = data[0]['lineItems']['physicalItems'];
+                    var cartitems = [];
+                    var googleAnalyticsList=[];
+                    var totalPrice = data[0]['cartAmount'];
+                
+                    getid.forEach(function (value, key) {
+
+                        //////////////////Updated:Code Start GTM Code//////////////
+                        var obj = {
+                            "id": value.productId,
+                            "price": value.salePrice,
+                            "quantity": value.quantity,
+                            "sku": value.sku
+                        };
+
+                        var googleAnalyticsobj = {
+                            "item_id": value.productId,
+                            "item_name": "",
+                            "price": value.salePrice,
+                            "item_brand": "Kapiva",
+                            "quantity": value.quantity,
+                            "sku": value.sku
+                        };
+                        cartitems.push(obj);
+                        googleAnalyticsList.push(googleAnalyticsobj);
+                    }
+
+
+                    );
+                    window.dataLayer = window.dataLayer || [];
+
+                    window.dataLayer.push({
+                        'cartItems': cartitems
+                    });
+
+
+
+                    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+                    dataLayer.push({
+                        event: "view_cart",
+                        ecommerce: {
+                            currency: "INR",
+                            value: totalPrice,
+                            items: googleAnalyticsList
+                        }
+                    });
+                    //////////////////Updated:Code End GTM Code//////////////
+                }
+            });
+        });
+</script>

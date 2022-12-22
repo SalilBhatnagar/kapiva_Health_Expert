@@ -1,0 +1,150 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="CatBanner">
+	{{#if category.image}}
+        <a href="#">
+    	    {{> components/common/responsive-img
+    	        image=category.image
+    	        fallback_size=theme_settings.zoom_size
+    	        lazyload=theme_settings.lazyload_mode
+    	        class="category-header-image"
+    	    }}
+        </a>
+	{{/if}}    
+</div>
+{{#unless theme_settings.hide_category_page_heading }}
+    <h1 class="page-heading is-srOnly">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
+{{/unless}}
+{{{category.description}}}
+<div class="page">
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}}
+
+    <div class="page-content" id="product-listing-container">
+        {{> components/category/product-listing}}
+        {{{region name="category_below_content"}}}
+    </div>
+    <div class="" id="searchModal">
+        <div class="filter-bar hidden-desktop">
+            <div id="sortFilter" class="sortFilterCon"><div class="sort_h" onclick="sortBy()"><span class="tabIcon sortIcon"></span> <span class="filter-applied-ellip" style="display: none;"></span> <span class="disInBlock">Sort by</span></div> <div class="filter_h" onclick="filterBy()"><span class="tabIcon filterIcon"></span> <span class="filter-applied-ellip" style="display: none;"></span> <span class="disInBlock">Filter by</span></div></div></div>
+    </div>
+</div>
+<script>
+       // start category rating filter
+       scrollLoad = function(){setTimeout( function(){
+        if(document.getElementsByClassName('jdgm-widget jdgm-preview-badge')[0].childElementCount==0)
+        { setTimeout(function() {jdgmCacheServer.reloadPreviewBadges()}, 2000);   }
+        }, 2000);}
+    document.addEventListener("click", scrollLoad);
+    // end category rating filter
+ ////////////////////Updated:Code Start GTM Code//////////////
+
+var gtm_product_id = '';
+var gtm_sku_id = '';
+var listedItems = [];
+document.querySelectorAll('.productGrid .product').forEach(item => {
+    var pid = item.querySelectorAll(".card")[0].getAttribute("data-product-id");
+    var sku = item.querySelectorAll(".card")[0].getAttribute("data-test-product-sku");
+    var cartItemsObject = {
+    "id": pid,
+    "sku": sku
+};
+listedItems.push(cartItemsObject);
+});
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+   
+    'listedItems':listedItems
+});
+////////////////////Updated:Code End GTM Code//////////////
+  
+    webengage.track("Category Viewed", {
+        "Category_ID" : {{category.id}},
+        "Category_Name" : '{{category.name}}',
+        "Total_products available" : {{category.total_products}}
+    });
+</script> 
+{{/partial}}
+{{> layout/base}}
+<input type="hidden" class="cat_id" value="{{category.name}}">
+
+<script>
+    function closesortby(){
+    document.querySelectorAll(".SortWrap .st-overlay-active")[0].style.display = "none" ;
+   }
+   function sortBy(){
+    document.querySelectorAll(".SortWrap .st-overlay-active.hide-desktop")[0].style.display = "block" ;
+    }
+
+function filterBy(){
+    document.querySelectorAll(".page-sidebar")[0].style.display = "block" ;
+    document.querySelectorAll("body")[0].style.overflow = "hidden";
+  };
+    function closeFilterPopup(){
+    document.querySelectorAll(".page-sidebar")[0].style.display = "none" ;
+    document.querySelectorAll("body")[0].style.overflow = "scroll";
+  };
+  
+   var cat_id = document.querySelectorAll(".cat_id")[0].value;
+  var product_id = '';
+   var total = 0;
+  document.querySelectorAll('.productGrid .product').forEach(item => {
+      var pid = item.querySelectorAll(".card")[0].getAttribute("data-product-id");
+      if(total < 3){
+      if(product_id == ''){
+        product_id = pid;
+      }else{
+        product_id = product_id+','+pid;
+      }
+      total++;
+    }
+  });
+      var productList = {
+    "items": [product_id],
+    "category": ""+cat_id+"",
+    "keywords": null 
+    } 
+
+        window.dataLayer = window.dataLayer || [];    
+                   window.dataLayer.push({
+                  'productList': productList
+               });
+
+</script>
+<style>
+.st-overlay-active.hide-desktop{
+   display: none;
+}
+</style>

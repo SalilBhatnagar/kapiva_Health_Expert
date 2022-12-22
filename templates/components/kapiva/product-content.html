@@ -1,0 +1,2178 @@
+{{{region name="product_custom_whoisforthis"}}}
+
+<header class="product-sub-section-nav">
+  <div class="holder">
+    <div class="wrap">
+      <ul>
+        {{#if product.warranty}}
+        <li class="active" data-anchor="overview" id="nav1">Overview</li>
+        {{/if}}
+        <li data-anchor="ingredients" id="nav2">Ingredients</li>
+        <li data-anchor="reviews">Reviews</li>
+        <li data-anchor="how-to-use">How to use</li>
+        <li data-anchor="faqs">FAQ</li> 
+      </ul>
+    </div>
+  </div>
+</header>
+<section class="product-overview ingredients-tab-section" id="overview"> 
+  {{#if product.warranty}}
+  {{{product.warranty}}}
+  {{/if}}
+</section>
+
+
+<section class="product-ingredients ingredients-tab-section" id="ingredients">
+  {{{region name="product_custom_ingredients"}}}
+
+  <!-- start --> 
+  <div class="wrap">
+    <div class="icon-top-right"><img src="{{cdn 'assets/img/loading.svg'}}"
+        data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/beat-root.webp'}}" class="img-fluid lazyload" alt=""></div>
+    <div class="icon-bottom-left"><img src="{{cdn 'assets/img/loading.svg'}}"
+        data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/leaf-bottom.webp'}}" class="img-fluid lazyload" alt=""></div>
+    <div class="icon-bottom-right"><img src="{{cdn 'assets/img/loading.svg'}}"
+        data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/kiwi.webp'}}" class="img-fluid lazyload" alt=""></div>
+    <div class="stamp-ingredients"><img src="{{cdn 'assets/img/loading.svg'}}"
+        data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/ingredients-stamp.webp'}}" class="img-fluid lazyload" alt=""></div>
+    <div class="row align-items-center">
+      <div class="col-lg-9 ingredients-tab-content">
+        {{#each product.custom_fields}}
+        {{#if name '==' "Ingredient"}}
+          {{#if value '===' "Giloy"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Giloy</h3>
+                <p>Helps in controlling extreme blood sugar fluctuations. Also known as Guduchi, Giloy is an Ayurvedic creeper plant/herb that has anti-inflammatory properties.
+                </p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Giloy.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid seal-animation lazyload"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Ashwagandha"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Ashwagandha</h3>
+                <p>A well known Ayurvedic herb, it increases stamina and improves muscle strength. It also has calming
+                  properties that may help combat stress.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Ashwagandha.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Tulsi"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Tulsi</h3>
+                <p>Tulsi is a prominent Ayurvedic herb that can be used to alleviate infections and allergies. It is also
+                  used to treat eye diseases.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Tulsi.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Wheatgrass"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Wheatgrass</h3>
+                <p>We make sure our wheatgrass is harvested on the 8th day so that the chlorophyll content is the maximum.
+                  Wheatgrass is a well-known detoxifier and it also supports digestion by boosting metabolism.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Wheatgrass.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Aloe Vera"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Aloe Vera</h3>
+                <p>Aloe Vera is an Ayurvedic herb, very well-known for providing skin benefits. It helps in skin hydration, has anti-inflammatory properties, and boosts overall skin health.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Aloe Vera.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+         {{/if}}
+          {{#if value '===' "Amla"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Amla</h3>
+                <p>Amla, also known as Indian Gooseberry, is a rich source of Vitamin C that helps in improving digestion & metabolism. It is a well-known immunity-booster that fights infections and promotes weight management.
+                </p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Amla.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Shilajeet"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Shilajeet</h3>
+                <p>Shilajit is sourced from the higher altitudes of the Himalayan mountains. It is a wonderful ingredient
+                  to boost stamina and revitalize your body.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Shilajit.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Plant Protein"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Plant Protein</h3>
+                <p></p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Plant Protein.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Apple Cider Vinegar"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Apple Cider Vinegar</h3>
+                <p>Apple Cider Vinegar has been used in Ayurveda since centuries. ACV has multiple health benefits ranging
+                  from helping in weight management to keeping the heart-healthy.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Apple Cider Vinegar.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Karela"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Karela</h3>
+                <p>Relished for its diabetes regulation benefits and despised for its bitter taste, Karela or Bitter Gourd is beneficial for regulating blood sugar levels. It has a compound called Polypeptide-P which acts like Insulin.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Karela.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Garcinia"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Garcina</h3>
+                <p>Garcinia suppresses your appetite and makes you feel full. It also blocks the production of new fat in
+                  your body.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Noni"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Noni</h3>
+                <p>Noni is a small evergreen tree found in India that often grows among lava flows. It helps reduce
+                  inflammation in lungs and also has antibacterial and immunity-boosting properties.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Noni.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Moringa"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Moringa</h3>
+                <p>Moringa or Drumstick has been used as a medicinal plant as it has antifungal and antibacterial
+                  properties.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Moringa.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Neem"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Neem</h3>
+                <p>Neem has been used in traditional Ayurvedic processes for treating indigestion, supporting improved
+                  eyesight, fighting skin disorders using fresh Rajasthani Neem leaves (no dry leaves are used)</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Neem.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Honey"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Honey</h3>
+                <p>Procured from the dense forests of the Himalayan foothills, unfiltered wild honey works as a great
+                  anti-bacterial agent. It also has a delightfully sweet taste.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Honey.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Turmeric"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Turmeric</h3>
+                <p>A popular Indian staple, turmeric is rich in curcumin, a compound that has anti-inflammatory properties
+                  to support strong immunity.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Turmeric.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Brahmi"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Brahmi</h3>
+                <p>It is an Ayurvedic herb that is known to improve brain health & lower blood pressure. It also contains antioxidants which make it a good immunity-booster.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Brahmi.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Ajwain"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Ajwain</h3>
+                <p>Ajwain, also known as Carom Seeds, contain active enzymes that help in the secretion of gastric juices that improve digestion and promote a better gut health.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Ajwain.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Arjun"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Arjun</h3>
+                <p>It is an antioxidant, anti-inflammatory, and antimicrobial agent. Arjun Chhal strengthens the heart muscles and aids its functioning.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Arjun.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Ashok"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Ashok</h3>
+                <p>It has calming properties which could help in relieving painful periods. It can also strengthen the uterus and boost stamina in menstruating women.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Baheda"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Baheda</h3>
+                <p>Baheda helps with detoxification of the liver and fights discomfort caused by stones.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Bhringraj"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Bhringraj</h3>
+                <p>Bhringraj can activate the hair follicles, which enhances hair growth. It also increases blood circulation to the scalp and roots.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Bosswellia"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Bosswellia</h3>
+                <p>Boswellia helps in calming inflammation and also helps in weight management by increased caloric burn.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Castor"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Castor</h3>
+                <p>Castor Plant is the herb of choice for all kinds of vata disorders. It is widely used to maintain healthy muscles and joints.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Cinnamon"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Cinnamon</h3>
+                <p>Cinnamon is a spice obtained from the inner bark of Cinnamomum tea. It helps control blood sugar and lowers the risk of heart disease.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Coconut"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Coconut</h3>
+                <p>Pure coconut oil has benefits for skin and hair, and it also helps in boosting the immune system. It improves digestion and is used for weight loss as well.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Coconut.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Cow Milk"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Cow Milk</h3>
+                <p>Milk is extracted from the Gir cows which is an indigenous breed in the Thar Desert of India. These cows are grass-fed and not factory farmed and free from any cross-breeding.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Cranberry"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Cranberry</h3>
+                <p>Cranberry is a superfood which is rich in fibre and Vitamin C and is loaded up with antioxidants that prepare the body to fight against illnesses.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Darharidra"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Darharidra</h3>
+                <p>Darharidra, also known as Indian Barberry or Tree Turmeric has anti-inflammatory and anti-fungal properties.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Dhania"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Dhania</h3>
+                <p>Dhania or Coriander is an evergreen herb with a characteristic aroma. It is filled with fibres that improve digestion.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Erandmool"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Erandmool</h3>
+                <p></p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Garlic"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Garlic</h3>
+                <p>Garlic is low in calories and high in nutrition. The strong taste of this herb adds a punch to your diet and lowers cholesterol.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Ginger"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Ginger</h3>
+                <p>A flowering plant whose root is widely used as a spice and folk medicine for building immunity.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Ginseng"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Ginseng</h3>
+                <p>Ginseng is a prominent Ayurvedic herb known to boost energy levels and fight fatigue. It also supports better protein absorption by muscles.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Gokhru"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Gokhru</h3>
+                <p>Also known as Gokshura, Gokhru helps elevate stamina.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Garlilc"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Garlilc</h3>
+                <p></p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Green Coffee Bean"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Green Coffee Bean</h3>
+                <p>Green coffee beans are helpful in weight management. They are rich in chlorogenic acid which is an effective fat burner.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Green Tea"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Green Tea</h3>
+                <p>Green tea is a rich source of catechins which help you break the visceral fat in your body. The catechins also boost metabolism and break down the excess fat.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/green_tea.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Guggul"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Guggul</h3>
+                <p>Guggul is an Ayurvedic resin that has been used in Ayurvedic medicines for centuries due to its anti-inflammatory properties. It is known for helping to treat arthritis and improving joint flexibility.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Gymnema Sylvestre"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Gymnema Sylvestre</h3>
+                <p>This plant stimulates insulin secretion and might help you fight sugar cravings.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Harad"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Harad</h3>
+                <p>The healing properties of Harad help relieve burning sensation while urinating and trouble caused by abdominal gas.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Haritaki"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Haritaki</h3>
+                <p>Combating indigestion and constipation, this herb supports your digestive system.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Hing"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Hing</h3>
+                <p>Hing works wonderfully in improving digestion. It can help you keep bloating and gas at bay!</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Indian Bael"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Indian Bael</h3>
+                <p>An ancient Indian herb, it is anti-inflammatory in nature and has antioxidant properties. It is used in relieving cold, cough and boosting immunity. </p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Jamun Seeds"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Jamun Seeds</h3>
+                <p>Jamun or black plum is a nutritious fruit, however major of its medicinal benefits are in its seed. It helps in regulating blood sugar levels.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Jeera"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Jeera</h3>
+                <p>Jeera, also known as Cumin Seeds, helps in speeding up the production of bile acids in Liver to digest fats and help in overall digestion.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Jeera.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Kalmegh"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kalmegh</h3>
+                <p>Kalmegh is also known as the “King of Bitters” and is bitter in taste. It is mainly used for liver problems as it protects the liver against damage caused by free radicals due to its antioxidant and anti-inflammatory activity.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Kaunch Beej"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kaunch Beej</h3>
+                <p>Kaunch beej is the seed of Kapikacchu herb which has numerous health benefits. It is rich in antioxidants and protein that boost your stamina.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Kaunch-Beej.webp?V2'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Khus"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Khus</h3>
+                <p>Khus is an Ayurvedic ingredient that might help to reduce the symptoms of piles. It improves digestion and reduces the burning and pain while passing stools.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Kutki"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kutki</h3>
+                <p>Kutki is a traditional Ayurvedic herb which has hepatoprotective, detoxifying and anti-inflammatory properties. These properties collectively help to keep liver health in check.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Lodhra"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Lodhra</h3>
+                <p>This herb has astringent and hemostatic properties that could help to control heavy menstrual bleeding.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Manjistha"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Manjistha</h3>
+                <p>A famous herb for blood detoxification, Manjistha flushes toxins out of the body.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Methi"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Methi</h3>
+                <p>Fenugreek seeds are high in soluble fiber. It helps manage sugar by slowing down digestion and absorption of carbs</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Milk Thistle"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Milk Thistle</h3>
+                <p></p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Mulethi"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Mulethi</h3>
+                <p>It has antispasmodic properties that help to relax muscles. Thus, this herb could effectively comfort you during your periods.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Mustard"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Mustard</h3>
+                <p>Mustard Oil is one of the healthy options to be used for cooking as it is beneficial in many ways. People suffering from heart ailments, Arthritis, or experiencing issues with their skin and hair, find this oil very beneficial.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Nagkeshwar"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Nagkeshwar</h3>
+                <p>Nagkeshar is also known as Ironwood is an Ayurvedic herb that is used to treat piles and abnormal bleeding from the uterus.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Papaya"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Papaya</h3>
+                <p>Papaya leaves have therapeutic properties that help prepare the body and shield them against these diseases. They also act as cleansing agents for the liver and maintains healthy functioning of the same.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Pashan Bedh"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Pashan Bedh</h3>
+                <p>Popular for its diuretic properties, Pashan Bedh is widely used to treat renal problems. It also helps alleviate the symptoms of kidney stones.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Rasna"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Rasna</h3>
+                <p>This Ayurvedic herb is used to treat Vata issues. It helps nourish the skin and tissue layers thereby reducing inflammation. Also, it acts as an analgesic and helps alleviate dryness in joints, subsequently improving joint mobility.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Rose"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Rose</h3>
+                <p>Rose is rich in polyphenols, that helps in reducing UV induced skin damage, and hydrates the skin from within</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Rose.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Safed Musli"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Safed Musli</h3>
+                <p>Safed Musli is used in traditional systems of Ayurveda. It can boost your stamina, vitality, and performance.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/safed-musali.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "San Beej"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>San Beej</h3>
+                <p>San Beej or Flax Seeds are superfoods with high Omega-3 healthy fats and may have a mild laxative effect.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Sandalwood"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Sandalwood</h3>
+                <p>Sandalwood and its oil have been used as a traditional medicine in Ayurveda to fight the cold, digestive disorders, and muscle disorders. This oil is also used in aromatherapy as it has calming properties that help combat stress.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Sarpagandha"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Sarpagandha</h3>
+                <p>This his ayurvedic herb helps in relaxing blood vessels & regulating nerve function in the muscles leading to the heart, thereby lowering blood pressure and improving sound sleep.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Sarpagandha.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Sesame Seed"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Sesame Seed</h3>
+                <p>Sesame oil is a healthy oil enriched with Omega-6 fatty acids. It has antioxidant and anti-inflammatory properties which makes it beneficial for heart and skin health.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Shankhpushpi"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Shankhpushpi</h3>
+                <p>A herb that is popular in Ayurvedic Medicine, Shankhpushpi is a blood purifier. It also boosts memory and improves focus.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Shatavari"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Shatavari</h3>
+                <p>Shatavari increases Glutathione synthesis that leads to a brighter skin, and boosts skin hydration</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Shatavari.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Spirulina"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Spirulina</h3>
+                <p>Spirulina contains high levels of iron, thus increasing the production of red blood cells that promote the circulation of oxygen and gives an instant energy boost.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Tagara"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Tagara</h3>
+                <p>Scientifically known as Valeriana Wallichii, this Ayurvedic herb helps combat psychological and digestive disorders. It calms the mind and prevents convulsions, thus helping you sleep better.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "White Musli"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>White Musli</h3>
+                <p></p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/aloe-vera-ingredients.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if value '===' "Kesar"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kesar</h3>
+               <p>Kapiva Kashmiri Kesar is 100% natural and handpicked from the lush fields of Pampore.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Kesar.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+            {{#if value '===' "Pomegranate"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Pomegranate</h3>
+               <p>Pomegranate is rich in Vitamin C, that helps in boosting collagen production, and fights hyperpigmentation</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Pomegranate.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+           {{#if value '===' "Arjuna"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Arjuna</h3>
+               <p>Arjuna helps in strengthening the heart muscles & has anti-hypertensive property that helps reduce the levels of high blood pressure</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Arjuna.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+
+
+           {{#if value '===' "Lahsun"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Lahsun</h3>
+               <p>Lahsun (Garlic) helps in improving cardiovascular health by reducing arterial stiffness, elevated cholesterol levels and high blood pressure.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Lahsun.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+
+        {{#if value '===' "Swarna Bhasma"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Swarna Bhasma</h3>
+               <p>Swarna Bhasma:  24 Karat Gold made with special Ayurvedic Marana Process.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Swarna_bhasm.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+
+          {{#if value '===' "Gokshura"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Gokshura</h3>
+               <p>Gokshura Helps in muscle recovery & improves physical strength.</p>
+              </div>
+              
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Gokshura.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+
+        {{#if value '===' "Black Musli"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Black Musli</h3>
+               <p>Black Musli Helps in tissue rejuvenation & is a rare herb which is a very potent aphrodisiac. Please find the ingredient image attached with this Task.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Black_Musli.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+
+        {{#if value '===' "Brahmi Oil"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Brahmi Oil</h3>
+               <p>Brahmi Oil Creates a natural protective layer around hair follicles to keep the fibers healthy, reducing split ends, & making the entire mane lustrous.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Brahmi_Oil.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if value '===' "Kalonji"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kalonji</h3>
+               <p>Kalonji Contains omega-3 & 6, encouraging blood circulation, especially in the head. It is known to promote rapid hair growth within weeks.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Kalomji.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if value '===' "Hibiscus"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Hibiscus</h3>
+               <p>Hibiscus contains amino acids that stimulate keratin production in the cells of your hair follicles, encouraging healthy hair growth.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Hibiscus.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+
+        
+
+        {{#if value '===' "Guggulu"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Guggulu</h3>
+               <p>Guggulu Provides relief from painful urination due to its analgesic, anti-  inflammatory, anti-microbial properties.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Gugglu.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        {{#if value '===' "Punarnava"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Punarnava</h3>
+               <p>Punarnava Helps in removing toxins from the body due to diuretic properties.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Punarnava.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        {{#if value '===' "Shweta Parpati"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Shweta Parpati</h3>
+               <p>Shweta Parpati improves urine flow and reduces burning sensation during urination.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Shweta_parpati.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        {{#if value '===' "Methika"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Methika</h3>
+               <p>Methika helps in reducing the size of cysts.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/methika.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        {{#if value '===' "Kachnar"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kachnar</h3>
+               <p>Kachnar Helps in balancing hormones.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Kachnar.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        {{#if value '===' "Vijayasar"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Vijayasar</h3>
+               <p>Reduces diabetes-related symptoms like frequent urination, fatigue, joint pain etc due to its diuretic properties. It also helps in improving the health of ovaries.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Vijaysar.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Gajar Beej"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Gajar Beej</h3>
+               <p>Gajar Beej Helps relieve pain and induces periods.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/Gajar_beej.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        
+        {{#if value '===' "Kachha Aam"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kachha Aam</h3>
+               <p>Kachha Aam Keeps body cool and hydrated.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/kaccha_aam.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Cumin (Jeera)"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Cumin (Jeera)</h3>
+               <p>Cumin (Jeera) Improves digestion and gut health.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/cumin_jeera.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Mint (Pudina)"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Mint (Pudina)</h3>
+               <p>Mint (Pudina) Reduces body heat naturally.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/mint_pudina.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Turmeric"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Turmeric</h3>
+               <p>Turmeric Builds immunity.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/turmeric.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Ashwagandha"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Ashwagandha</h3>
+               <p>Ashwagandha protects against telomere loss & potentially delays aging.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/ashwagandha.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Bakuchi Oil"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Bakuchi Oil</h3>
+               <p>Bakuchi Oil improves skin health without the usual retinol-therapy side effects.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/bakuchi_oil.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Chirata Actives"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Chirata Actives</h3>
+               <p>Chirata Actives bioactive that stimulates stem cells, growth factor production & epidermis regeneration in 7 days.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/chirata_actives.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Apricot Oil"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Apricot Oil</h3>
+               <p>Apricot Oil has triglycerides, phospholipids, FFAs, phenolic compounds, & antioxidants for skin wellness.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/apricot_oil.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Kumkumadi Tailam"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kumkumadi Tailam</h3>
+               <p>Kumkumadi Tailam is an Ayurvedic product which is excellent for skin treatment especially for skin lightening.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/kumkumadi_tailam.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Jojoba Seed oil"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Jojoba Seed oil</h3>
+               <p>Jojoba Seed oil helps increase skin luminosity and decreases redness just 1hr after application.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/jojoba_seed_oil.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        
+        {{#if value '===' "Green Tea"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Green Tea</h3>
+               <p>Green Tea contributes to skin lightening due to the presence of antioxidants which benefits skin complexion.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/green_tea.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Shata Dhauta Ghee"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Shata Dhauta Ghee</h3>
+               <p>Shata Dhauta Ghee is high in glycerol, rich in Omega 3, 9 fatty acids, Vitamin A, D, E & K. Provides deep moisturization.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/shata_dhauta_ghee.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Raktachandan"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Raktachandan</h3>
+               <p>Raktachandan is a rare ingredient, potent in antioxidants for radiance & an even skin tone.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/raktachandan.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        {{#if value '===' "Almond Oil"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Almond Oil</h3>
+               <p>Almond Oil has Vitamin E with antioxidant properties, prevents cell damage & reduces UV damage.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/almond_oil.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        
+        
+        {{#if value '===' "Kumkumadi oil"}}
+          <div class="tab-content-ingr">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3>Kumkumadi oil</h3>
+               <p>Kumkumadi oil has higher bioactive content compared to other kesar variants.</p>
+              </div>
+              <div class="col-lg-6 pl-lg-5"> <img src="{{cdn 'assets/img/loading.svg'}}"
+                  data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Ingredient/kumkumadi_oil.webp'}}" class="img-fluid lazyload" alt="">
+                <div class="seal"><img src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/oraganic-seal.webp'}}" class="img-fluid lazyload seal-animation"
+                    alt=""></div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+
+
+
+        {{/if}}
+        {{/each}}
+      </div>
+      <div class="col-lg-2 offset-lg-1 tabs-head">
+        <ul class="ingredients-tab-header">
+          {{#each product.custom_fields}}
+          {{#if name '===' "Ingredient"}}
+          {{#if value '===' "Giloy"}}
+          <li>Giloy</li>
+          {{/if}}
+          {{#if value '===' "Ashwagandha"}}
+          <li>Ashwagandha</li>
+          {{/if}}
+          {{#if value '===' "Tulsi"}}
+          <li>Tulsi</li>
+          {{/if}}
+          {{#if value '===' "Wheatgrass"}}
+          <li>Wheatgrass</li>
+          {{/if}}
+          {{#if value '===' "Aloe Vera"}}
+          <li>Aloe Vera</li>
+          {{/if}}
+          {{#if value '===' "Amla"}}
+          <li>Amla</li>
+          {{/if}}
+          {{#if value '===' "Shilajeet"}}
+          <li>Shilajeet</li>
+          {{/if}}
+          {{#if value '===' "Plant Protein"}}
+          <li>Plant Protein</li>
+          {{/if}}
+          {{#if value '===' "Apple Cider Vinegar"}}
+          <li>Apple Cider Vinegar</li>
+          {{/if}}
+          {{#if value '===' "Karela"}}
+          <li>Karela</li>
+          {{/if}}
+          {{#if value '===' "Garcinia"}}
+          <li>Garcinia</li>
+          {{/if}}
+          {{#if value '===' "Noni"}}
+          <li>Noni</li>
+          {{/if}}
+          {{#if value '===' "Moringa"}}
+          <li>Moringa</li>
+          {{/if}}
+          {{#if value '===' "Neem"}}
+          <li>Neem</li>
+          {{/if}}
+          {{#if value '===' "Honey"}}
+          <li>Honey</li>
+          {{/if}}
+          {{#if value '===' "Turmeric"}}
+          <li>Turmeric</li>
+          {{/if}}
+          {{#if value '===' "Brahmi"}}
+          <li>Brahmi</li>
+          {{/if}}
+          {{#if value '===' "Ajwain"}}
+          <li>Ajwain</li>
+          {{/if}}
+          {{#if value '===' "Arjun"}}
+          <li>Arjun</li>
+          {{/if}}
+          {{#if value '===' "Ashok"}}
+          <li>Ashok</li>
+          {{/if}}
+          {{#if value '===' "Baheda"}}
+          <li>Baheda</li>
+          {{/if}}
+          {{#if value '===' "Bhringraj"}}
+          <li>Bhringraj</li>
+          {{/if}}
+          {{#if value '===' "Bosswellia"}}
+          <li>Bosswellia</li>
+          {{/if}}
+          {{#if value '===' "Castor"}}
+          <li>Castor</li>
+          {{/if}}
+          {{#if value '===' "Cinnamon"}}
+          <li>Cinnamon</li>
+          {{/if}}
+          {{#if value '===' "Coconut"}}
+          <li>Coconut</li>
+          {{/if}}
+          {{#if value '===' "Cow Milk"}}
+          <li>Cow Milk</li>
+          {{/if}}
+          {{#if value '===' "Cranberry"}}
+          <li>Cranberry</li>
+          {{/if}}
+          {{#if value '===' "Darharidra"}}
+          <li>Darharidra</li>
+          {{/if}}
+          {{#if value '===' "Dhania"}}
+          <li>Dhania</li>
+          {{/if}}
+          {{#if value '===' "Erandmool"}}
+          <li>Erandmool</li>
+          {{/if}}
+          {{#if value '===' "Garlic"}}
+          <li>Garlic</li>
+          {{/if}}
+          {{#if value '===' "Ginger"}}
+          <li>Ginger</li>
+          {{/if}}
+          {{#if value '===' "Ginseng"}}
+          <li>Ginseng</li>
+          {{/if}}
+          {{#if value '===' "Gokhru"}}
+          <li>Gokhru</li>
+          {{/if}}
+          {{#if value '===' "Garlilc"}}
+          <li>Garlilc</li>
+          {{/if}}
+          {{#if value '===' "Green Coffee Bean"}}
+          <li>Green Coffee Bean</li>
+          {{/if}}
+          {{#if value '===' "Green Tea"}}
+          <li>Green Tea</li>
+          {{/if}}
+          {{#if value '===' "Guggul"}}
+          <li>Guggul</li>
+          {{/if}}
+          {{#if value '===' "Gymnema Sylvestre"}}
+          <li>Gymnema Sylvestre</li>
+          {{/if}}
+          {{#if value '===' "Harad"}}
+          <li>Harad</li>
+          {{/if}}
+          {{#if value '===' "Haritaki"}}
+          <li>Haritaki</li>
+          {{/if}}
+          {{#if value '===' "Hing"}}
+          <li>Hing</li>
+          {{/if}}
+          {{#if value '===' "Indian Bael"}}
+          <li>Indian Bael</li>
+          {{/if}}
+          {{#if value '===' "Jamun Seeds"}}
+          <li>Jamun Seeds</li>
+          {{/if}}
+          {{#if value '===' "Jeera"}}
+          <li>Jeera</li>
+          {{/if}}
+          {{#if value '===' "Kalmegh"}}
+          <li>Kalmegh</li>
+          {{/if}}
+          {{#if value '===' "Kaunch Beej"}}
+          <li>Kaunch Beej</li>
+          {{/if}}
+          {{#if value '===' "Khus"}}
+          <li>Khus</li>
+          {{/if}}
+          {{#if value '===' "Kutki"}}
+          <li>Kutki</li>
+          {{/if}}
+          {{#if value '===' "Lodhra"}}
+          <li>Lodhra</li>
+          {{/if}}
+          {{#if value '===' "Manjistha"}}
+          <li>Manjistha</li>
+          {{/if}}
+          {{#if value '===' "Methi"}}
+          <li>Methi</li>
+          {{/if}}
+          {{#if value '===' "Milk Thistle"}}
+          <li>Milk Thistle</li>
+          {{/if}}
+          {{#if value '===' "Mulethi"}}
+          <li>Mulethi</li>
+          {{/if}}
+          {{#if value '===' "Mustard"}}
+          <li>Mustard</li>
+          {{/if}}
+          {{#if value '===' "Nagkeshwar"}}
+          <li>Nagkeshwar</li>
+          {{/if}}
+          {{#if value '===' "Papaya"}}
+          <li>Papaya</li>
+          {{/if}}
+          {{#if value '===' "Pashan Bedh"}}
+          <li>Pashan Bedh</li>
+          {{/if}}
+          {{#if value '===' "Rasna"}}
+          <li>Rasna</li>
+          {{/if}}
+          {{#if value '===' "Rose"}}
+          <li>Rose</li>
+          {{/if}}
+          {{#if value '===' "Safed Musli"}}
+          <li>Safed Musli</li>
+          {{/if}}
+          {{#if value '===' "San Beej"}}
+          <li>San Beej</li>
+          {{/if}}
+          {{#if value '===' "Sandalwood"}}
+          <li>Sandalwood</li>
+          {{/if}}
+          {{#if value '===' "Sarpagandha"}}
+          <li>Sarpagandha</li>
+          {{/if}}
+          {{#if value '===' "Sesame Seed"}}
+          <li>Sesame Seed</li>
+          {{/if}}
+          {{#if value '===' "Shankhpushpi"}}
+          <li>Shankhpushpi</li>
+          {{/if}}
+          {{#if value '===' "Shatavari"}}
+          <li>Shatavari</li>
+          {{/if}}
+          {{#if value '===' "Spirulina"}}
+          <li>Spirulina</li>
+          {{/if}}
+          {{#if value '===' "Tagara"}}
+          <li>Tagara</li>
+          {{/if}}
+          {{#if value '===' "White Musli"}}
+          <li>White Musli</li>
+          {{/if}}
+          {{#if value '===' "Kesar"}}
+          <li>Kesar</li>
+          {{/if}}
+          {{#if value '===' "Pomegranate"}}
+          <li>Pomegranate</li>
+          {{/if}}
+          {{#if value '===' "Arjuna"}}
+          <li>Arjuna</li>
+          {{/if}}
+          
+          {{#if value '===' "Lahsun"}}
+          <li>Lahsun</li>
+          {{/if}}
+
+          {{#if value '===' "Swarna Bhasma"}}
+          <li>Swarna Bhasma</li>
+          {{/if}}
+
+          {{#if value '===' "Gokshura"}}
+          <li>Gokshura</li>
+          {{/if}}
+
+          {{#if value '===' "Black Musli"}}
+          <li>Black Musli</li>
+          {{/if}}
+
+
+          {{#if value '===' "Brahmi Oil"}}
+          <li>Brahmi Oil</li>
+          {{/if}}
+
+          {{#if value '===' "Kalonji"}}
+          <li>Kalonji</li>
+          {{/if}}
+
+          {{#if value '===' "Hibiscus"}}
+          <li>Hibiscus</li>
+          {{/if}}
+
+
+
+          {{#if value '===' "Guggulu"}}
+          <li>Guggulu</li>
+          {{/if}}
+          {{#if value '===' "Punarnava"}}
+          <li>Punarnava</li>
+          {{/if}}
+          {{#if value '===' "Shweta Parpati"}}
+          <li>Shweta Parpati</li>
+          {{/if}}
+          {{#if value '===' "Methika"}}
+          <li>Methika</li>
+          {{/if}}
+          {{#if value '===' "Kachnar"}}
+          <li>Kachnar</li>
+          {{/if}}
+          {{#if value '===' "Vijayasar"}}
+          <li>Vijayasar</li>
+          {{/if}}
+          {{#if value '===' "Gajar Beej"}}
+          <li>Gajar Beej</li>
+          {{/if}}
+          
+          
+          
+          {{#if value '===' "Kachha Aam"}}
+          <li>Kachha Aam</li>
+          {{/if}}
+          
+          {{#if value '===' "Cumin (Jeera)"}}
+          <li>Cumin (Jeera)</li>
+          {{/if}}
+          
+          {{#if value '===' "Mint (Pudina)"}}
+          <li>Mint (Pudina)</li>
+          {{/if}}
+          
+          {{#if value '===' "Turmeric"}}
+          <li>Turmeric</li>
+          {{/if}}
+          
+          
+          
+          {{#if value '===' "Bakuchi Oil"}}
+          <li>Bakuchi Oil</li>
+          {{/if}}
+          
+          {{#if value '===' "Chirata Actives"}}
+          <li>Chirata Actives</li>
+          {{/if}}
+          
+          {{#if value '===' "Apricot Oil"}}
+          <li>Apricot Oil</li>
+          {{/if}}
+          
+          {{#if value '===' "Kumkumadi Tailam"}}
+          <li>Kumkumadi Tailam</li>
+          {{/if}}
+          
+          {{#if value '===' "Jojoba Seed oil"}}
+          <li>Jojoba Seed oil</li>
+          {{/if}}
+          
+          {{#if value '===' "Green Tea"}}
+          <li>Green Tea</li>
+          {{/if}}
+          
+          {{#if value '===' "Shata Dhauta Ghee"}}
+          <li>Shata Dhauta Ghee</li>
+          {{/if}}
+          
+          {{#if value '===' "Raktachandan"}}
+          <li>Raktachandan</li>
+          {{/if}}
+          
+          {{#if value '===' "Almond Oil"}}
+          <li>Almond Oil</li>
+          {{/if}}
+
+          
+           {{#if value '===' "Kumkumadi oil"}}
+          <li>Kumkumadi oil</li>
+          {{/if}}
+          
+          
+          
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End -->
+
+</section>
+
+
+<section class="product-reviews ingredients-tab-section" id="reviews">
+  {{{region name="product_custom_reviews"}}}
+  <div class="container">
+    <div class="heading-wrap">
+      <div class="curve"><img src="{{cdn 'assets/img/loading.svg'}}"
+          data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/curve-arrow.webp'}}" class="img-fluid lazyload" alt=""></div>
+      <div class="heading">Reviews</div>
+      <h3 class="common-title">Why our customers love us?</h3>
+    </div>
+    <div class="product-reviews-slider-wrap">
+      <div class="row" data-list-name="{{list}}" data-slick='{
+                    "arrows": false,
+                    "infinite": false,
+                    "mobileFirst": false,
+                    "slidesToShow": 3,
+                    "slidesToScroll": 1,
+                    "autoplay": false,
+                    "dots": true,
+                    "slide": ".product-reviews-slider",
+                    "responsive": [
+                        {
+                            "breakpoint": 800,
+                            "settings": {
+                              "arrows": false,
+                                "slidesToShow": 2,
+                                "slidesToScroll": 1
+                            }
+                        },
+                        {
+                            "breakpoint": 550,
+                            "settings": {
+                              "arrows": false,
+                                "slidesToShow": 1,
+                                "slidesToScroll": 1
+                            }
+                        }
+                    ]
+                }'>
+        {{#each product.custom_fields}}
+        {{#if name '===' "Youtube Review"}}
+        <div class="col-md-3 product-reviews-slider">
+          <div class="product-reviews-box">
+            <div class="video-wrap-box" data-embed="{{value}}">
+              <div class="play-button">
+                <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M17.8617 8.75256C19.2313 9.51502 19.2313 11.485 17.8617 12.2474L2.97334 20.5363C1.64025 21.2784 0.000489169 20.3146 0.000489236 18.7888L0.000489961 2.21118C0.000490028 0.685415 1.64025 -0.278437 2.97334 0.463736L17.8617 8.75256Z"
+                    fill="#DCE9D7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="CatSlider-Wrap RelatedWrap ingredients-tab-section" id="how-to-use-section">
+  <div class="container">
+    {{{region name="product_custom_howtouse"}}}
+  </div>
+</section>
+
+<section class="product-faqs ingredients-tab-section" id="faqs">
+  <div class="container">
+    <h3 class="common-title">FAQ</h3>
+    {{{region name="product_custom_faqs"}}}
+  </div>
+</section>
+
+<section class="product-details" id="pd-details">{{{region name="product_custom_reg_information"}}}</section>
+
+<input type="hidden" name="product_id" class="product_id" value="{{product.id}}" />
+<input type="hidden" name="product_id" class="productid" value="{{product.id}}" />
+<input type="hidden" name="dataid" class="dataid" value="" />
+<input type="hidden" name="customer_id" class="customer_id" value="{{customer.id}}" />

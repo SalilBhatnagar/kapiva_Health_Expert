@@ -1,0 +1,810 @@
+/*Footer*/
+.default_temp{
+  .footer{
+    margin-top: 40px;
+    @include breakpoint("large") {
+      margin-top:100px;
+    }
+    @include breakpoint("xlarge") {
+      margin-top: 160px;
+    }
+  }
+}
+.footer {
+    padding: 0;
+    border: 0;
+    // margin-top: 150px;
+    background-color:#ffffff;
+    @include breakpoint("small") {
+      background-color:#f0eee7;
+    }
+    @include breakpoint("xlarge") {
+    //   margin-top: 160px;
+    }
+    .footer-flower-image{
+      position: absolute;
+      left:0;
+      top: -12%;
+      z-index: 1;
+      width: 87px;
+      @include breakpoint("medium"){
+        width:200px;
+        top: -27%;
+      }
+      @include breakpoint("xxlarge") {
+        top: -45%;
+        width:auto;
+      }
+    }
+    .unlockbannerinner{
+        background-image:url("https://cdn11.bigcommerce.com/s-ad1xf4xgb0/content/images/Homepage/unlockbanner.webp");
+        background-repeat: no-repeat;
+        width: 100%;
+        background-position: center;
+        padding: 20px 0 15px 0;
+        position: relative;
+        @include breakpoint("small"){
+          padding:90px 0;
+        }
+        @include breakpoint("medium"){
+          padding: 120px 0;
+        }
+    }
+    .bannerline{
+      background-color: rgb( 93, 116, 41 );
+      height: 7px;
+      @include breakpoint("small"){
+        height: 10px;
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+    }
+    .Kapivaunlockhome{
+      max-width:340px;
+      padding:0 20px;
+      margin:0 auto;
+      text-align: center;
+      @include breakpoint("small"){
+        padding:0;
+        max-width:inherit;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+      }
+      @include breakpoint("medium"){
+          top:45%;
+      }
+      #form-phone-error{
+        margin-top:10px;
+      }
+      .coupontext{
+        .textdiscount,.pdpCuoponCode,.code-copy{
+          color: #fff2ed;
+          font-family: 'Playfair Display';
+          font-weight: 900;
+          font-style: italic;
+          font-size: 14px;
+          padding: 2px 5px;
+          @include breakpoint("small"){
+            font-size:20px;
+          }
+          @include breakpoint("large"){
+            font-size:28px;
+          }
+        }
+        .textdiscount{
+          margin-bottom:5px;
+          @include breakpoint("large"){
+            margin-bottom: 10px;
+          }
+        }
+        .code-copy,.copyAndClose{
+          &:hover{
+            // background-color: #99b949;
+            @include buttoncolornew();
+          }
+        }
+        .copyAndClose{
+          border-radius:0;
+          background-color: #94bcb5;
+          color: #fff2ed;
+          font-size:14px;
+          @include breakpoint("large"){
+            font-size:18px;
+          }
+        }
+      }
+      .heading,.subheading{
+          font-family: 'Playfair Display';
+          color:#fff2ed;
+          font-size:20px;
+          font-weight: 900;
+          font-style: italic;
+          text-transform: inherit;
+          margin:0;
+          line-height:1;
+          @include breakpoint("small"){
+            font-size:27px;
+          }
+          @include breakpoint("medium"){
+              font-size:42px;
+          }
+      }
+      .subheading{
+          margin-bottom:10px;
+          @include breakpoint("medium"){
+            margin-bottom:20px;
+        }
+      }
+      .form{
+        margin:0;
+        .phonenumber{
+          background-color: rgb( 255, 249, 244 );
+          border: 0;
+          padding:2px 0;
+          color:#000000;
+          text-indent:5px;
+          width: 245px;
+          @include breakpoint("medium"){
+            text-indent:15px;
+            padding:14px 0;
+            width:485px;
+          }
+        }
+        input[type="tel"]::placeholder{
+          text-align: left;
+        }
+        input[type="tel"]::-ms-input-placeholder{
+          text-align: left;
+        }
+        input[type="tel"]::-moz-placeholder{
+          text-align: left;
+        }
+        input[type="tel"]::-webkit-placeholder{
+          text-align: left;
+        } 
+        .forminner{
+          @include displayflexaligncenter();
+        }
+        .unlocknumber{
+          @include displayflexaligncenter();
+          span{
+            max-width: 50px;
+            min-height:40px;
+            padding: 9px 8px;
+            border-right: 0;
+            font-size:14px;
+            border-radius: 4px 0 0 4px;
+            border:1px solid #cccccc;
+            border-right:0;
+          }
+        }
+        .unlockkapiva{
+          background-color:#94bcb5;
+          border-radius:0px;
+          display: inherit;
+          padding: 6px 12px;
+          margin-left:5px;
+          position: relative;
+          transition: all 0.3s ease;
+          @include breakpoint("medium"){
+            padding: 9px 22px;
+          }
+          svg{
+            width:23px;
+            height:15px;
+            fill:#1f5047;
+            @include breakpoint("medium"){
+                width: 50px;
+                height:32px;
+            }
+          }
+          &.lockkapivadiscount{
+            background-color: #708c34;
+            pointer-events:all;
+          }
+          &:after {
+            content: "";
+            display: block;
+            width: 1.2em;
+            height: 1.2em;
+            position: absolute;
+            left: calc(50% - 0.75em);
+            top: calc(50% - 0.75em);
+            border: 0.15em solid transparent;
+            border-right-color: white;
+            border-radius: 50%;
+            animation: button-anim 0.7s linear infinite;
+            opacity: 0;
+          }
+          @keyframes button-anim {
+            from {
+              transform: rotate(0);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          &.sendloadingunlockpdp {
+            color: transparent;
+            background-image: none;
+          }
+          &.sendloadingunlockpdp::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .container-fluid {
+      max-width:1700px;
+      margin: 0 auto;
+      padding:0 20px;
+    }
+    .logo {
+      width: 124px;
+      height: 40px;
+      @include breakpoint("medium") {
+        width: 165px;
+        height: 54px;
+      }
+      svg {
+        width: 100%;
+      }
+    }
+    .top-section {
+      @include displayflexjustifycenter();
+      @include breakpoint("small"){
+        justify-content:flex-end;
+      }
+      .social-icons {
+        .label {
+          text-align: right;
+          text-transform:uppercase;
+          font-size: 16px;
+          font-weight:600;
+          color: #262626;
+          font-family: 'Jost';
+          margin:10px 0 5px 0;
+          @include breakpoint("medium"){
+            font-size: 16px;
+            margin:10px 0 10px 0;
+          }
+          @include breakpoint("large"){
+            font-size: 18px;
+            margin:30px 0 10px 0;
+          }
+        }
+        .socialLinks {
+          line-height: 1;
+          .socialLinks-item {
+            margin-right: 10px;
+            margin-bottom:0;
+            &:last-child {
+              margin-right: 0px;
+            }
+            @include breakpoint("medium") {
+              margin-right:15px;
+            }
+            @include breakpoint("xlarge") {
+              margin-right: 25px;
+            }
+            .icon {
+              height:20px;
+              width:20px;
+              @include breakpoint("medium") {
+                height:25px;
+                width:25px;
+              }
+              @include breakpoint("xlarge"){
+                height: 40px;
+                width: 40px;
+              }
+              &:hover{
+                svg{
+                  fill:#708c34;
+                }
+              }
+              svg {
+                fill:#ffffff;
+                @include breakpoint("small"){
+                  fill:#17312b;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .footer-info {
+      margin:0;
+      margin-top:27px;
+      @include displayflexaligncenterwrap();
+      align-items: start;
+      @include breakpoint("small"){
+        margin-top: 20px;
+      }
+      @include breakpoint("large"){
+        margin-top:50px;
+      }
+      .footer-info-col {
+        padding:0;
+        margin:0;
+      }
+      .footer-Col-1{
+        width:100%;
+        order:2;
+        margin: 27px 0 0 0;
+        @include breakpoint("small"){
+          order:1;
+          width:100%;
+          margin:0;
+        }
+        @include breakpoint("medium"){
+          width:250px;
+        }
+        @include breakpoint("large"){
+          width:360px;
+        }
+        .Mobile-Bottom-address{
+          margin:10px 0 0 0;
+          justify-content:space-between;
+          @include displayflexaligncenter();
+          @include breakpoint("small"){
+            justify-content:inherit;
+            margin:15px 0 30px 0;
+          }
+          @include breakpoint("medium"){
+            display:inherit;
+          }
+        }
+        .mobile-Address-col-1{
+          width:180px;
+          @include breakpoint("small"){
+            width:50%;
+          }
+          @include breakpoint("medium"){
+            width:auto;
+          }
+          @include breakpoint("large"){
+            width: 355px;
+          }
+        }
+        .mobile-Address-col-2{
+          width: 45%;
+          @include breakpoint("small"){
+            width:auto;
+          }
+        }
+      }
+      .footer-Col-2{
+        width:100%;
+        order:1;
+        @include breakpoint("small"){
+          order:2;
+          width:100%;
+        }
+        @include breakpoint("medium"){
+          width:calc(100% - 250px);
+        }
+        @include breakpoint("large"){
+          width:calc(100% - 360px);
+        }
+      }
+      .footer-infoInner{
+        @include displayflexaligncenterwrap();
+        align-items:inherit;
+      }
+    }
+    .Footer-mobile-view-page{
+      .kapiva-icon-border{
+        border-bottom:1px solid #ffffff;
+        padding:8px 0;
+      }
+    }
+    .footer-menu-left{
+      width:100%;
+      @include displayflexaligncenter();
+        flex-wrap: wrap;
+        align-items: start;
+        margin:0 0 20px 0;
+        @include breakpoint("small"){
+          margin:0;
+          // margin:30px 0 20px 0;
+          width:50%;
+        }
+        @include breakpoint("xxlarge"){
+          width:calc(100% - 610px);
+        }
+        @include breakpoint("medium"){
+          padding: 0 0px 0 25px;
+        }
+        @include breakpoint("xlarge"){
+          padding: 0 0px 0 60px;
+        }
+        @include breakpoint("xxlarge"){
+          padding: 0 0 0 75px;
+        }
+      ul {
+        @include spacenone();
+        width:100%;
+        @include breakpoint("small"){
+          width:50%;
+        }
+        li {
+          list-style: none;
+          &:last-child{
+            a{
+              @include breakpoint("small"){
+                margin-bottom:0;
+              }
+             
+            }
+          }
+          a {
+            font-size:16px;
+            font-weight:600;
+            color: #ffffff;
+            font-family: 'Jost';
+            text-decoration: none;
+            margin:5px 0;
+            display: inline-block;
+            text-transform: uppercase;
+            &:hover {
+              @include hovereffectbuttoncomman();
+            }
+            @include breakpoint("small"){
+              color: #333333;
+              margin:0px 0 8px 0;
+              font-size:15px;
+            }
+            @include breakpoint("large"){
+              margin:0 0 18px 0;
+            }
+            @include breakpoint("xlarge"){
+              margin:0 0 20px 0;
+              font-size:18px;
+            }
+            @include breakpoint("xxlarge"){
+              margin:0 0 27px 0;
+              
+            }
+          }
+        }
+      }
+    }
+    .footer-menu-right{
+      width:100%;
+      @include breakpoint("small"){
+        width:50%;
+      }
+      @include breakpoint("xxlarge"){
+        width:610px;
+      }
+      .footer-kapiva-news{
+        margin:30px 0 0 0;
+      }
+      .footer-info-heading{
+        margin:0;
+        font-size:25px;
+        font-weight:600;
+        color: #ffffff;
+        font-family: 'Jost';
+        margin:10px 0 10px 0;
+        @include breakpoint("small"){
+          color: #333333;
+          margin:0 0 10px 0;
+          font-size:18px;
+        }
+        @include breakpoint("large"){
+          margin:0 0 15px 0;
+        }
+      }
+      .form{
+        margin:0;
+        .form-field{
+          margin:0;
+          padding:0;
+          .form-input{
+            height: auto;
+            border-radius:0;
+            border:1px solid rgb( 3, 5, 4 );
+            padding:0;
+            text-indent:5px;
+            height:27px;
+            width:275px;
+            background-color:#f0eee7;
+            @include breakpoint("small"){
+              height:35px;
+              width:300px;
+            }
+            @include breakpoint("medium"){
+              height: 39px;
+            }
+            @include breakpoint("xxlarge"){
+              height: 50px;
+              width: 535px;
+            }
+          }
+          .button{
+            height:auto;
+            background-color:#17312b;
+            border:none;
+            padding: 4px 10px;
+            border-radius:0;
+            margin-left:5px;
+            width:auto;
+            @include breakpoint("small"){
+              padding:6px 10px;
+            }
+            @include breakpoint("large"){
+              margin-left:8px;
+              padding:6px 13px;
+            }
+            &:hover{
+              background-color: #708c34;
+            }
+            svg{
+              width:20px;
+              height:15px;
+              fill:#fff2ed;
+              @include breakpoint("medium"){
+                width:30px;
+                height:25px;
+              }
+              @include breakpoint("xxlarge"){
+                width:43px;
+                height:28px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .Fname {
+      @include breakpoint("medium"){
+        padding:10px 0 15px 0;
+      }
+      @include breakpoint("large"){
+        padding: 25px 0 20px 0;
+      }
+      p{
+        font-family: 'Jost';
+        font-size: 8.87px;
+        margin:0;
+        font-weight: normal;
+        color: #000000;
+        text-align:left;
+        letter-spacing: 0.71px;
+        @include breakpoint("small"){
+          font-size:12px;
+          letter-spacing:1px;
+        }
+        @include breakpoint("xlarge"){
+          font-size:18px;
+        }
+      }
+    }
+    .Fcall{
+      margin-bottom: 13px;
+      @include breakpoint("medium"){
+        margin-bottom:0px;
+      }
+      svg{
+        width:18px;
+        height: 15px;
+        @include breakpoint("small"){
+          width:23px;
+          height:22px;
+        }
+        @include breakpoint("xlarge"){
+          width:33px;
+          height:31px;
+        }
+      }
+    }
+    .Fmail{
+      svg{
+        width: 21px;
+        height: 14px;
+        @include breakpoint("small"){
+          width:25px;
+          height:15px;
+        }
+        @include breakpoint("xlarge"){
+          width:40px;
+          height:25px;
+        }
+      }
+    }
+    .Fcall,.Fmail {
+      @include displayflexaligncenter();
+      @include breakpoint("medium"){
+        margin-top: 1rem;
+      }
+      a {
+        color: #000000;
+        font-family: 'Jost';
+        font-size:12.59px;
+        font-weight:800;
+        color:#000000;
+        margin-left:5px;
+        letter-spacing: 1.26px;
+        @include breakpoint("small"){
+          font-size:16px;
+          margin-left:8px;
+        }
+        @include breakpoint("xlarge"){
+          font-size:25px;
+          margin-left: 10px;
+        }
+        &:hover {
+          @include hovereffectbuttoncomman();
+        }
+      }
+    }
+    .Payment{
+      @include breakpoint("small"){
+        margin-top:30px;
+      }
+      @include breakpoint("xxlarge"){
+        margin-top:56px;
+      }
+      h6{
+        font-size: 12px;
+        font-weight:400;
+        color: #000000;
+        font-family: 'Jost';
+        text-transform: inherit;
+        margin:0 0 5px 0;
+        text-align:left;
+        @include breakpoint("small") {
+          text-align:inherit;
+        }
+        @include breakpoint("medium") {
+          font-size: 16px;
+          margin:0 0 10px 0;
+        }
+        @include breakpoint("xxlarge") {
+          margin:0 0 20px 0;
+        }
+      }
+      .pay-icon {
+        @include displayflexjustialigncenterwrap();
+        justify-content: left;
+        svg,img {
+          width:14%;
+          padding: 0 3px;
+          
+          @include breakpoint("medium") {
+            width: 13.5%;
+            margin-bottom: 10px;
+          }
+        }
+        img {
+          max-width: 55px;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      span{
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+        width: 78%;
+        @include breakpoint("xxsmall") {
+          width: 50%;
+        }
+        @include breakpoint("small") {
+          width: 45%;
+        }
+      }
+      .flipcart{
+        margin:0 10px;
+      }
+      .flipcart,.jiomart{
+        width: 48%;
+        padding: 0;
+        @include breakpoint("xxsmall") {
+          width: 23%;
+          float: none;
+          display: inline-block;
+          padding: 0 5px;
+        }
+        @include breakpoint("small") {
+          width:20%;
+          padding: 0;
+        }
+      }
+      .Box-market{
+        .Box-market-inner{
+          @include displayflexaligncenter();
+        }
+      }
+    }
+    .Links {
+      width: 100%;
+      ul {
+        @include spacenone();
+        @include displayflexwrap();
+        justify-content:space-between;
+        @include breakpoint("medium") {
+          justify-content: flex-end;
+          width:100%;
+        }
+        li {
+          list-style: none;
+          a {
+            font-size:7px;
+            color: #030504;
+            font-weight:400;
+            letter-spacing:0.7px;
+            font-family: 'Jost';
+            @include breakpoint("small"){
+              font-size: 12px;
+              letter-spacing:3px;
+            }
+            @include breakpoint("medium") {
+              margin-left:40px;
+            }
+            @include breakpoint("xxlarge") {
+              font-size: 15px;
+              margin-left: 130px;
+            }
+            &:hover {
+              @include hovereffectbuttoncomman();
+            }
+          }
+        }
+      }
+    }
+    .Ftr-BottommWrap {
+      margin:10px 0;
+      @include breakpoint("small") {
+        margin:15px 0;
+      }
+      @include breakpoint("xxlarge") {
+        margin: 47px 0 20px 0;
+      }
+    }
+    .bottom-block {
+      background: #255a3a;
+      color: #fff;
+      padding: 8px 0 8px 0;
+        .left-text {
+          margin:0;
+          text-align:center;
+          font-size:8px;
+          color: #fff5f1;
+          font-family: 'Jost';
+          font-weight:400;
+          letter-spacing:0.67px;
+          @include breakpoint("small") {
+            font-size: 11px;
+            letter-spacing:2px;
+          }
+          @include breakpoint("xxlarge") {
+            font-size: 14px;
+            letter-spacing: 6px;
+          }
+        }
+    }
+  }
+  .Footer-webpage{
+    transition: all 0.8s ease-in-out;
+  }
+  .Footer-menu-toggle{
+    display:none;
+  }
+  .desk-footer{
+    display:none;
+    @include breakpoint("small") {
+      display:block;
+    }
+  }
+  .mobile-footer{
+    @include breakpoint("small") {
+      display:none;
+    }
+  }

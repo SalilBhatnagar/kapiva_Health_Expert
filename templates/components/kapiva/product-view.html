@@ -1,0 +1,756 @@
+<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}"
+    data-name="{{product.title}}"
+    data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
+    data-product-brand="{{product.brand.name}}"
+    data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}"
+    data-product-variant="single-product-option" {{/if}}>
+    {{#each product.reviews.messages}}
+    {{#if error}}
+    {{> components/common/alert/alert-error error}}
+    {{/if}}
+    {{#if success}}
+    {{> components/common/alert/alert-success success}}
+    {{/if}}
+    {{/each}}
+    <section class="productView-images desk ProductViewImageMain" data-image-gallery>
+        {{!--
+            Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
+            for variant/rule image replacement
+        --}}
+        {{#if product.images.length '>' 1 }}
+        {{> components/carousel-content-announcement}}
+        {{/if}}
+        
+        <div class="productView-image-main show">
+            <!--<img class="kesar-free" src="https://cdn11.bigcommerce.com/s-5h8rqg02f8/content/images/Free-Aloe-vera-Gel.png" alt="kesar-free" />-->
+            <figure class="productView-image"
+                    id="figure-image"
+                    data-image-gallery-main
+                    {{#if product.main_image}}
+                    data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
+                    {{/if}}>
+                    
+                    <div class="main-slider">
+                       {{#if product.main_image}}
+                       <a class="fancythumb" href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}" target="_blank" {{#if schema}} itemprop="image"{{/if}}>   
+                       {{/if}}
+
+                       <img class="productView-image--default-custom" data-sizes="auto" src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                           alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                          
+                       {{#if product.main_image}}
+                           </a>
+                       {{/if}}
+                        
+                        <div class="tag-section">
+                            {{#each product.custom_fields}}
+                            {{#if name '===' 'Product Tag'}}
+                                <span class="groupBox">                        
+                                    <span class="productView-info-value">{{{ sanitize value}}}</span>
+                                </span>  
+                                {{/if}}
+                            {{/each}}
+
+                            {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}  
+                                {{> components/kapiva/sale-tag price=product.price}}
+                            {{/or}}
+	                    </div>
+                        
+                    </div>
+                    
+            </figure> 
+            <a class="play-button" style="display: none;" href="javascript:void(0)">
+                <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.8617 8.75256C19.2313 9.51502 19.2313 11.485 17.8617 12.2474L2.97334 20.5363C1.64025 21.2784 0.000489169 20.3146 0.000489236 18.7888L0.000489961 2.21118C0.000490028 0.685415 1.64025 -0.278437 2.97334 0.463736L17.8617 8.75256Z" fill="#DCE9D7"></path>
+                </svg>
+            </a>
+            <div class="mobileProductImageIcon">
+                <div class="imageIconProduct">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/productimageicon.png'}}" class="img-fluid lazyload" alt="Product image icon" loading="lazy" width="29px" height="22px">
+                </div>
+                <div class="ProductViewtext imageIconProduct">
+                    <p class="Wrpatext">100% Organic</p>
+                </div>
+                <div class="imageIconProduct">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/productimageicon.png'}}" class="img-fluid lazyload" alt="Product image icon" loading="lazy" width="29px" height="22px">
+                </div>
+                <div class="ProductViewtext imageIconProduct">
+                    <p class="Wrpatext">100% Organic</p>
+                </div>
+                <div class="imageIconProduct">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/productimageicon.png'}}" class="img-fluid lazyload" alt="Product image icon" loading="lazy" width="29px" height="22px">
+                </div>
+            </div>
+            <div class="slider-video" id="figure-video"
+            style="display:none">
+                <iframe width="100%" height="100%" loading="lazy" src=""
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen class="big"
+                        id="iframe-video"
+                        ></iframe>
+            </div>  
+                
+       </div>
+           
+       <ul class="triggerlist">
+           {{#each product.images}}
+               <li>
+                   <a
+                       rel="gallery"
+                       data-fancybox="gallery1"
+                       data-options='{"loop" : true}'
+                       style="display:none;"
+                       data-caption="{{this.alt}}"
+                       class="hiddengallery fancybox-hidden-img fancythumb-img {{#if @index '==' 0}}currentGalleryImage{{/if}}"
+                       href="{{stripQuerystring (getImage this (cdn ../theme_settings.default_image_product))}}" rel="nofollow">
+                   </a>
+               </li>
+           {{/each}}
+           {{#each product.videos.list}}
+           {{#if @index '<' '1'}}
+           
+           <li >
+            <a rel="gallery"
+            data-fancybox="gallery1"
+            data-options='{"loop" : true}'
+            style="display:none;"
+            data-caption="{{this.alt}}"
+            class="hiddengallery fancybox-hidden-img fancythumb-img"
+                href="https://www.youtube.com/embed/{{id}}"
+                data-video-id="{{id}}"
+                id="video-thumbnail"
+               >
+            <iframe width="100%" loading="lazy" height="100%" src="https://www.youtube.com/embed/{{id}}"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen class="big"
+            ></iframe>
+            </a>
+        </li>
+           {{/if}}
+           {{/each}}
+       </ul>
+
+       {{#if product.images}}
+       <ul class="show productView-thumbnails {{#gt product.images.length 3}}productView-thumbnails-withslider{{/gt}}"{{#gt product.images.length 3}} data-slick='{
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+        "dots":false,
+        "arrows":true,
+        "responsive": [
+            {
+                "breakpoint": 1400,
+                "settings": {
+                    "slidesToShow": 6,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 1366,
+                "settings": {
+                    "slidesToShow": 5,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint":1023,
+                "settings": {
+                    "slidesToShow": 5,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint":526,
+                "settings": {
+                    "slidesToShow": 15,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint":320,
+                "settings": {
+                    "slidesToShow": 10,
+                    "slidesToScroll": 1
+                }
+            }
+        ]             
+        
+    }'{{/gt}}>
+               {{#each product.images}}
+                   <li class="productView-thumbnail" data-thumb-zoom-image="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}?imbypass=on">
+                       <a class="productView-thumbnail-link dots {{#if (stripQuerystring (getImage ../product.main_image 'product_size' (cdn ../theme_settings.default_image_product))) '==' (stripQuerystring (getImage this 'product_size' (cdn ../theme_settings.default_image_product))) }}is-active is-main{{/if}}"
+                           href="{{#if ../schema}}{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}{{else}}javascript:void(0);{{/if}}"
+                           data-image-gallery-item
+                           data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                           data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                           data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                           data-link="{{stripQuerystring (getImage this (cdn ../theme_settings.default_image_product))}}"
+                           id="image-thumbnail"
+                       >
+                       {{> components/common/responsive-img
+                           image=this
+                           fallback_size=../theme_settings.productview_thumb_size
+                           lazyload=../theme_settings.lazyload_mode
+                       }}
+                       </a>
+                   </li>
+               {{/each}}
+               {{#each product.videos.list}}
+               {{#if @index '<' '1'}}
+               
+               <li class="productView-thumbnail">
+                <a class="productView-thumbnail-link videopdp"
+                    href="https://www.youtube.com/embed/{{id}}"
+                    data-image-gallery-item
+                    data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                    data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                    data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                    data-link="https://www.youtube.com/embed/{{id}}"
+                    data-video-id="{{id}}""
+                    id="video-thumbnail"
+                   
+                >
+                 <span class="video-icon">
+                    <img src="https://img.youtube.com/vi/{{id}}/sddefault.jpg" class="videodefault">
+                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/imageicon.png'}}" class="imageicon lazyload" alt="icon image">
+                </span>
+                </a>
+            </li>
+               {{/if}}
+               {{/each}}
+           </ul>
+       {{/if}}      
+
+       
+    </section>
+
+    
+    
+    <section class="productView-images ProductViewImageMain mobile" mobile-data-image-gallery>
+        <!--<img class='kesar-free' src='https://cdn11.bigcommerce.com/s-5h8rqg02f8/content/images/Free-Aloe-vera-Gel.png' alt='kesar-free' />-->
+    
+        <ul class="productView-thumbnails1"{{#gt product.images.length 2}} data-slick='{
+                "infinite": false,
+                "mobileFirst": true,
+                "dots": true,
+                "accessibility": false,
+                "slidesToShow": 1,
+                "arrows":false,
+                "drag":true,
+                "slidesToScroll": 1
+            }'{{/gt}}>
+            <li>
+                    <figure data-image-gallery-main>
+                        
+                        {{!-- Remove the surrounding a-element if there is no main image. --}}
+                        {{#if product.main_image}}
+                            <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}"
+                                target="_blank">
+                        {{/if}}
+                        {{> components/common/responsive-img
+                            image=product.main_image
+                            class="productView-image--default"
+                            fallback_size=theme_settings.zoom_size
+                            lazyload=theme_settings.lazyload_mode
+                            default_image=theme_settings.zoom_size
+                            otherAttributes="data-main-image"
+                        }}
+                        {{!-- Remove the surrounding a-element if there is no main image. --}}
+                        {{#if product.main_image}}
+                            </a>
+                        {{/if}}
+                    </figure>
+                    
+            </li>
+
+            {{#each product.images}}
+            {{#if @index '>' 0}}
+                <li>
+                    <a
+                        href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                        data-image-gallery-item
+                        data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                        data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                        data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                    >
+                    {{> components/common/responsive-img
+                        image=this
+                        fallback_size=../theme_settings.zoom_size
+                        lazyload=../theme_settings.lazyload_mode
+                    }}
+                </a>
+                </li>
+                {{/if}}
+            {{/each}}
+
+            {{#each product.videos.list}}
+               
+            <li class="product_video" style="position: relative;">
+                <a rel="gallery"
+                data-fancybox="gallery1"
+                data-options='{"loop" : true}'
+                style="display:none;"
+                data-caption="{{this.alt}}"
+                class="hiddengallery fancybox-hidden-img fancythumb-img"
+                    href="https://www.youtube.com/embed/{{id}}"
+                    data-video-id="{{id}}"
+                    id="video-thumbnail"
+                   >
+                  
+                    
+                </a>
+                <img class="productView-image--default-custom" data-sizes="auto" src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                <a class="play-button" style="display: none;" href="javascript:void(0)">
+                    <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.8617 8.75256C19.2313 9.51502 19.2313 11.485 17.8617 12.2474L2.97334 20.5363C1.64025 21.2784 0.000489169 20.3146 0.000489236 18.7888L0.000489961 2.21118C0.000490028 0.685415 1.64025 -0.278437 2.97334 0.463736L17.8617 8.75256Z" fill="#DCE9D7"></path>
+                    </svg>
+                </a>
+
+                <div class="slider-video" id="mobile-figure-video"
+                style="display:none">
+                <iframe width="100%" height="100%" loading="lazy" src=""
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen class="big"
+                        id="iframe-video"
+                        ></iframe>
+            </div>  
+            </li>
+           
+            {{/each}}
+            
+        </ul>
+        <div class="tag-section">
+            {{#each product.custom_fields}}
+            {{#if name '===' 'Product Tag'}}
+                <span class="groupBox">                        
+                    <span class="productView-info-value">{{{ sanitize value}}}</span>
+                </span>  
+                {{/if}}
+            {{/each}}
+
+            {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}  
+                {{> components/kapiva/sale-tag price=product.price}}
+            {{/or}}
+        </div>
+        <div class="mobileProductImageIcon dynamicTags">
+            <div class="imageIconProduct">
+                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/productimageicon.png'}}" class="img-fluid lazyload" alt="Product image icon" loading="lazy" width="29px" height="22px">
+            </div>
+            <div class="ProductViewtext imageIconProduct">
+                <p class="Wrpatext">100% Organic</p>
+            </div>
+            <div class="imageIconProduct">
+                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/productimageicon.png'}}" class="img-fluid lazyload" alt="Product image icon" loading="lazy" width="29px" height="22px">
+            </div>
+            <div class="ProductViewtext imageIconProduct">
+                <p class="Wrpatext">100% Organic</p>
+            </div>
+            <div class="imageIconProduct">
+                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/productimageicon.png'}}" class="img-fluid lazyload" alt="Product image icon" loading="lazy" width="29px" height="22px">
+            </div>
+        </div>
+        <div class="ReviewMobile">
+            <div class='jdgm-widget jdgm-preview-badge mobile' data-id='{{product.id}}'></div>
+        </div>
+       
+    </section>
+
+
+    <!-- new mobile page scroller end -->
+    <section class="productView-details product-data">
+        <div class="productView-product">
+            {{#if product.brand}}
+            <h2 class="productView-brand is-srOnly" {{#if schema}} itemprop="brand" itemscope
+                itemtype="http://schema.org/Brand" {{/if}}>
+                <a href="{{product.brand.url}}" {{#if schema}} itemprop="url" {{/if}}>
+                    <span{{#if schema}} itemprop="name" {{/if}}>{{product.brand.name}}</span>
+                </a>
+            </h2>
+            {{/if}}
+
+
+            <h1 class="productView-title" {{#if schema}}itemprop="name" {{/if}}>
+                {{product.title}}
+            </h1>
+            <div class="ReviewDesk">
+                <div class='jdgm-widget jdgm-preview-badge' data-id='{{product.id}}'></div>
+            </div>
+            <!-- <div class="ProductViewRating">
+                <p class="ReviewProduct">
+                    <span class="iconrating">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.835 8.403"><path id="star_fill" d="M73.435,1290.659l1.327,2.69,2.968.431-2.148,2.094.507,2.956-2.655-1.4-2.655,1.4.507-2.956-2.148-2.094,2.968-.431Z" transform="translate(-69.018 -1290.531)" fill="#80b33f" stroke="#868686" stroke-width="0.114"></path></svg>
+                    </span>
+                    <span class="avgrating">4/5</span>
+                    <span class="totalrating">(2000)</span>
+                </p>
+            </div> -->
+            <div class="productView-rating" {{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating"
+                itemscope itemtype="http://schema.org/AggregateRating" {{/if}}{{/if}}>
+                {{#if settings.show_product_rating}}
+                {{#if product.num_reviews '>' 0}}
+                {{#if schema}}
+                <meta itemprop="ratingValue" content="{{product.rating}}">
+                <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+                {{/if}}
+                {{/if}}
+                {{> components/products/ratings rating=product.rating}}
+                {{#if product.num_reviews '>' 0}}
+                <a href="javascript:void(0)" id="productReview_link">
+                    {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                </a>
+                {{else}}
+                <span id="no-review">{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+                {{/if}}
+                {{/if}}
+                {{#if settings.show_product_reviews}}
+
+                {{> components/products/modals/writeReview}}
+                {{/if}}
+            </div>
+
+
+            {{#each product.custom_fields}}
+            {{#if name '===' 'Sale Date'}}
+            <dl class="groupBox-sale">
+                <dd class="productView-info-value"><span id="sale-date">{{{ sanitize value}}}</span></dd>
+            </dl>
+            {{/if}}
+            {{/each}}
+            <p class="sale-start"><svg width="12" height="11" viewBox="0 0 12 11" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.50137 6.50105V4.00064C8.50137 2.34352 7.15801 1.00016 5.50089 1.00016C3.84376 1.00016 2.5004 2.34352 2.5004 4.00064V6.50105C2.5004 6.86539 2.40299 7.20699 2.2328 7.50121H8.76898C8.59878 7.20699 8.50137 6.86539 8.50137 6.50105ZM10.5017 8.50137H0.500081C-0.166694 8.50137 -0.166694 7.50121 0.500081 7.50121C1.05245 7.50121 1.50024 7.05342 1.50024 6.50105V4.00064C1.50024 1.79115 3.29139 0 5.50089 0C7.71038 0 9.50153 1.79115 9.50153 4.00064V6.50105C9.50153 7.05342 9.94932 7.50121 10.5017 7.50121C11.1685 7.50121 11.1685 8.50137 10.5017 8.50137ZM6.79859 10.2525C6.5302 10.7152 6.03577 11 5.50089 11C4.966 11 4.47157 10.7152 4.20318 10.2525C4.00979 9.91915 4.25033 9.50153 4.63575 9.50153H6.36602C6.75144 9.50153 6.99199 9.91915 6.79859 10.2525Z"
+                        fill="#0E3118" />
+                </svg>
+                Limited time offers, ends in:<span id="sale-countdown"></span></p>
+
+
+            {{#if product.call_for_price}}
+            <p class="productView-price">
+                <span>{{product.call_for_price}}</span>
+            </p>
+            {{/if}}
+
+            {{{region name="product_below_price"}}}
+            {{#if product.description}}
+                  <div class="DescriptionWrap" itemprop="description">
+                      {{> components/products/description}}
+                      <div class="read_more_link"><a class="toggle-more" href="javascript:void(0)"></a></div>
+                  </div>
+                {{/if}}
+            <div class="productView-price">
+                <div class="mrp-price"> MRP (incl. of all taxes)</div>
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{> components/products/price price=product.price schema_org=schema}}
+                {{else}}
+                {{> components/common/login-for-pricing}}
+                {{/or}}
+            </div>
+            {{product.detail_messages}}
+            <dl class="productView-info ProductWraper">
+                {{#if products.sku}}
+                <dt class="productView-info-name sku-label is-srOnly" {{#unless product.sku}} style="display: none;"
+                    {{/unless}}>{{lang 'products.sku'}}</dt>
+                <dd class="productView-info-value is-srOnly" data-product-sku{{#if schema}} itemprop="sku" {{/if}}>
+                    {{product.sku}}</dd>
+                {{/if}}
+                {{#if products.upc}}
+                <dt class="productView-info-name upc-label" {{#unless product.upc}} style="display: none;" {{/unless}}>
+                    {{lang 'products.upc'}}</dt>
+                <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                {{/if}}
+                {{#if schema}}
+                {{#if product.mpn}}
+                <meta itemprop="mpn" content="{{product.mpn}}" />{{/if}}
+                {{#if product.gtin}}
+                <meta itemprop="gtin" content="{{product.gtin}}" />{{/if}}
+                {{/if}}
+                {{#if product.condition}}
+                <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                <dd class="productView-info-value">{{product.condition}}</dd>
+                {{/if}}
+                {{#if product.availability}}
+                <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                <dd class="productView-info-value">{{product.availability}}</dd>
+                {{/if}}
+                {{#all product.weight theme_settings.show_product_weight}}
+                <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                {{/all}}
+                {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
+                <dt class="productView-info-name">{{lang 'products.width'}}</dt>
+                <dd class="productView-info-value" data-product-width>
+                    {{product.width}}
+                    {{#if settings.measurements.length '==' 'Centimeters'}}
+                    ({{lang 'products.measurement.metric'}})
+                    {{else}}
+                    ({{lang 'products.measurement.imperial'}})
+                    {{/if}}
+                </dd>
+                <dt class="productView-info-name">{{lang 'products.height'}}</dt>
+                <dd class="productView-info-value" data-product-height>
+                    {{product.height}}
+                    {{#if settings.measurements.length '==' 'Centimeters'}}
+                    ({{lang 'products.measurement.metric'}})
+                    {{else}}
+                    ({{lang 'products.measurement.imperial'}})
+                    {{/if}}
+                </dd>
+                <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
+                <dd class="productView-info-value" data-product-depth>
+                    {{product.depth}}
+                    {{#if settings.measurements.length '==' 'Centimeters'}}
+                    ({{lang 'products.measurement.metric'}})
+                    {{else}}
+                    ({{lang 'products.measurement.imperial'}})
+                    {{/if}}
+                </dd>
+                {{/all}}
+                {{#if product.min_purchase_quantity}}
+                <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.purchase_units'
+                    quantity=product.min_purchase_quantity}}</dd>
+                {{/if}}
+                {{#if product.max_purchase_quantity}}
+                <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.purchase_units'
+                    quantity=product.max_purchase_quantity}}</dd>
+                {{/if}}
+                {{#if product.gift_wrapping_available}}
+                <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                {{/if}}
+                {{#if product.shipping}}
+                {{#if product.shipping.calculated}}
+                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                {{else}}
+                {{#if product.shipping.price.value '===' 0}}
+                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                {{else}}
+                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.shipping_fixed'
+                    amount=product.shipping.price.formatted}}</dd>
+                {{/if}}
+                {{/if}}
+                {{/if}}
+
+                {{#if settings.bulk_discount_enabled}}
+                <div class="productView-info-bulkPricing">
+                    {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                </div>
+                {{/if}}
+            </dl>
+        </div>
+    </section>
+
+    <section class="productView-details product-options">
+        <div class="productView-options">
+            {{#if product.release_date }}
+            <p>{{product.release_date}}</p>
+            {{/if}}
+            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                data-cart-item-add>
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="product_id" class="product_id" value="{{product.id}}" />
+                <div data-product-option-change style="display:none;" class="ProductOption">
+                    {{inject 'showSwatchNames' theme_settings.show_product_swatch_names}}
+                    {{#each product.options}}
+                    {{{dynamicComponent 'components/products/options'}}}
+                    {{/each}}
+                </div>
+
+            
+                {{#if product.out_of_stock}}
+                <a href="javascript:void(0);" class="button button--small pdp-outofstock disabled">Out of stock</a>
+                {{else}}
+                {{> components/products/add-to-cart}}
+                {{/if}}
+            </form>
+            {{#if settings.show_wishlist}}
+            <div class="ProductWhislistWrap productWhislist_{{product.id}}" data-product-id="{{product.id}}">
+                <form action="{{product.add_to_wishlist_url}}" class="form form-wishlist form-action" data-wishlist-add
+                    method="post">
+                    <input name="variation_id" value="" type="hidden">
+                    <button class="button button-wishlist" type="submit">
+                        <span class="heart-icon">
+                            <svg viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.2547 1.76153C19.1159 0.625613 17.5532 0 15.8543 0C14.5844 0 13.4214 0.369224 12.3975 1.09733C11.8809 1.46486 11.4127 1.9145 11 2.43932C10.5874 1.91466 10.1191 1.46486 9.60234 1.09733C8.57864 0.369224 7.41563 0 6.14571 0C4.44676 0 2.88394 0.625613 1.7451 1.76153C0.619858 2.88418 0 4.41788 0 6.08032C0 7.79138 0.693375 9.35765 2.18201 11.0096C3.5137 12.4873 5.42766 13.9873 7.64407 15.7243C8.40089 16.3175 9.25876 16.9899 10.1495 17.7061C10.3848 17.8957 10.6868 18 11 18C11.313 18 11.6152 17.8957 11.8501 17.7064C12.7409 16.99 13.5993 16.3173 14.3564 15.7238C16.5725 13.9872 18.4865 12.4873 19.8182 11.0094C21.3068 9.35765 22 7.79138 22 6.08016C22 4.41788 21.3801 2.88418 20.2547 1.76153Z">
+                                </path>
+                            </svg>
+                        </span>
+                    </button>
+                </form>
+            </div>
+            {{/if}}
+            <div class="CustomerReview desktop">
+                <p class="ReviewText">10k cusomters reduced their blood sugar levels by 20%</p>
+            </div>
+        </div>
+
+    
+        {{#if theme_settings.copon-text}}
+        <div class="notification-bar">{{theme_settings.copon-text}}</div>
+        <!--<div class="notification-bar">Get 5% cashback on prepaid orders.</div>-->
+        {{/if}}
+        <!--<div class="notification-bar">Get 5% cashback on prepaid orders.</div>-->
+        
+       
+
+        <!-- <div class="pincode-search-wrap">
+            <div class="form">
+                <input type="text" class="input" placeholder="Enter delivery pincode">
+                <input type="submit" class="submit" value="Check Delivery">
+            </div>
+            <div class="result-wrap"></div>
+            <span id="dilvery-date"><img class="loader-img lazyload" style="display: none;"
+                    src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{cdn 'customcdn:s-2qk49wb9fq/content/images/pincode-loader.gif'}}"></span>
+        </div> -->
+    </section>
+    {{!--
+    <article class="productView-description" {{#if schema}} itemprop="description" {{/if}}>
+        {{#if theme_settings.show_product_details_tabs}}
+        {{> components/products/description-tabs}}
+        {{else}}
+        {{> components/products/description}}
+        {{/if}}
+    </article>
+    --}}
+    {{#if product.description}}
+    <div class="DescriptionWrap mobile">
+        {{> components/products/description}}
+        <div class="read_more_link"><a class="toggle-more" href="javascript:void(0)"></a></div>
+    </div>
+    {{/if}}
+    <div class="CustomerReview mobile">
+        <p class="ReviewText">10k cusomters reduced their blood sugar levels by 20%</p>
+    </div>
+    
+</div>
+
+<div class="main-side">
+    <div class="product-popup">
+        <div class="popup-content">
+            <button class="modal-close" type="button">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+let lastUrl = document.querySelectorAll(".productView-thumbnails1 li figure a")[0].getAttribute("href"); 
+
+new MutationObserver(() => {
+  const url = document.querySelectorAll(".productView-thumbnails1 li figure a")[0].getAttribute("href"); 
+  
+  if (url !== lastUrl) {
+    lastUrl = url;
+    document.querySelectorAll(".productView-thumbnails1 .slick-dots li")[0].click();
+    
+   
+  }
+}).observe(document, {subtree: true, childList: true})
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+        if(screen.width < 1024){
+
+        var setIint = setInterval(function(){
+              if(document.querySelectorAll(".product_video").length > 0){
+              
+                  
+                  if(document.querySelectorAll(".productView-thumbnails1 .slick-dots li").length > 0){
+                    clearInterval(setIint);
+                    var ele =  document.querySelectorAll(".productView-thumbnails1 .slick-dots")
+                    
+                    var lastele =  ele[0].lastElementChild;
+                      lastele.classList.add("videoicon");
+                      lastele.classList.add("video-icon");
+                    
+                    var html= '';
+                    html+='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="28" height="32" viewBox="0 0 28 32"><defs></defs>'
+                    html+='<path d="M1.691,32.000 C0.711,32.000 -0.000,31.209 -0.000,30.118 L-0.000,1.863 C-0.000,0.640 0.834,0.000 1.659,0.000 C2.014,0.000 2.372,0.107 2.722,0.317 L27.015,14.910 C27.645,15.290 28.000,15.867 27.991,16.496 C27.983,17.125 27.611,17.692 26.973,18.053 L2.714,31.714 C2.375,31.904 2.031,32.000 1.691,32.000 ZM2.006,2.221 L1.999,29.813 L25.712,16.468 L2.006,2.221 Z" class="cls-1"/>'
+                    html+='</svg>'
+                    document.querySelectorAll(".videoicon button")[0].innerHTML = html;
+                      mobileMainThumbVideo()
+                    
+                  }
+                  else{
+                   // document.querySelectorAll(".splide__arrows")[0].classList.add("arrowpdp");   
+                  }
+              }
+             
+           },50);
+           setTimeout(() => {
+            clearInterval(setIint);
+           },3000);
+       
+        function mobileMainThumbVideo(){
+      var youtube = document.querySelectorAll(".videoicon.video-icon");
+  
+      //var imgThumbClick = document.querySelectorAll(".fancythumb .play-button");
+      var imgThumbClick = document.querySelectorAll(".product_video .play-button");
+
+      var videotag = document.querySelectorAll(".product_video #video-thumbnail");
+      for (var i = 0; i < youtube.length; i++) {
+        var id = videotag[i].getAttribute("data-video-id");
+        var source = "https://img.youtube.com/vi/" + id + "/sddefault.jpg";
+
+     
+
+              if (document.querySelectorAll(".productView-image-main").length > 0)
+                document.querySelectorAll(".productView-image-main")[0].classList.add("saletagimageleft");
+              var imgThumb = document.querySelectorAll(".product_video .productView-image--default-custom")[0];
+              imgThumbClick[0].style.display = "block";
+              imgThumb.setAttribute("src", source);
+              
+              videotag[0].setAttribute("href", "https://www.youtube.com/embed/" + id + "?origin=https://www.kapiva.in")
+              
+              setScriptOfYoutube()
+              videotag[0].innerHTML = "";
+             
+     
+        imgThumbClick[i].addEventListener("click", function () {
+
+          this.style.display = "none";
+          document.querySelectorAll(".product_video .productView-image--default-custom")[0].style.display = "none";
+          document.querySelectorAll(".product_video .slider-video")[0].style.display = "block";
+          document.querySelectorAll(".play-button")[0].style.display = "none";
+          document.querySelectorAll(".productView-image")[0].classList.add("videoclicked");
+             let intervalvideo = setInterval(() => {
+              if(document.querySelectorAll(".iframeYoutube").length > 0){
+                clearInterval(intervalvideo);
+              var player;
+              player = new YT.Player('mobile-figure-video', {
+                width: '100%',
+                videoId: id,
+                playerVars: {
+                  'autoplay': 1,
+                  'playsinline': 1
+                },
+                events: {
+                  'onReady': onPlayerReady
+                }
+              });
+              // 4. The API will call this function when the video player is ready.
+              function onPlayerReady(event) {
+                event.target.playVideo();
+              }
+            }
+            },0)
+        });
+      };
+    }
+}
+});
+</script>

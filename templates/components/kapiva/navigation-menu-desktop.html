@@ -1,0 +1,27 @@
+<nav class="navPages">
+    <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+    	<li class="navPages-item">
+            <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} shopMenu_a"
+               href="javascript:void(0)"
+               data-collapsibleShop="navPages-shopMenu"
+            >
+                Shop
+                <i class="icon navPages-action-moreIcon" aria-hidden="true">                    
+                </i>
+            </a>
+        </li>
+
+        {{#unless theme_settings.hide_content_navigation}}
+            {{#each pages}}
+                 <li class="navPages-item navPages-item-page">
+                     <a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
+                        href="{{url}}"
+                        aria-label="{{name}}" {{#if name '==' 'Blog'}} target="_blank" {{/if}}
+                     >
+                         {{name}}
+                     </a>
+                 </li>
+             {{/each}}
+        {{/unless}}
+    </ul>
+</nav>

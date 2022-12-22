@@ -1,0 +1,56 @@
+{{#partial "page"}}
+<div class="login">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    {{#if forms.login.error}}
+        {{> components/common/alert/alert-error forms.login.error}}
+    {{/if}}
+    {{#if forms.login.success}}
+        {{> components/common/alert/alert-success forms.login.success}}
+    {{/if}}
+    <div class="login-row">
+        <form class="login-form form" action="{{urls.auth.check_login}}" method="post">
+			<h1 class="page-heading">{{lang 'login.heading' }}</h1>
+            {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
+            {{inject 'enterPass' (lang 'forms.validate.common.password')}}
+            <div class="form-field">
+                <label class="form-label" for="login_email">{{lang 'login.field_email'}}</label>
+                <input class="form-input" name="login_email" id="login_email" type="email">
+            </div>
+            <div class="form-field">
+                <label class="form-label" for="login_pass">{{lang 'login.field_password'}}</label>
+                <input class="form-input" id="login_pass" type="password" name="login_pass" autocomplete="off">
+            </div>
+            <div class="form-actions">
+                <input type="submit" class="button button--primary" value="{{lang 'login.submit_value' }}">
+                <a class="forgot-password btn-underline" href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+            </div>
+            
+        </form>
+        {{#if settings.account_creation_enabled}}
+            <div class="new-customer">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">{{lang 'login.new_customer.heading' }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p class="new-customer-intro">Create an account with us and you'll be able to:</p>
+                        <ul class="new-customer-fact-list">
+                            <li class="new-customer-fact">Get 5% Kapiva Cashback on every order</li>
+                            <li class="new-customer-fact">1 Kapiva Cash = Re. 1</li>
+                            <li class="new-customer-fact">Check out faster</li>
+                            <li class="new-customer-fact">Save multiple shipping addresses</li>
+                            <li class="new-customer-fact">Access your order history</li>
+                            <li class="new-customer-fact">Track new orders</li>
+                            <li class="new-customer-fact">Save items to your wishlist</li>
+                        </ul>
+                        <a href="{{urls.auth.create_account}}"><button class="button button--primary">{{lang 'login.new_customer.create_account' }}</button></a>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+<script src="https://kapiva.app/app/js/sqxTp1lqc5.js" type="text/javascript"></script>
+        <div id="custom_widget_sqxTp1lqc5"></div>
+</div>
+{{/partial}}
+{{> layout/base}}

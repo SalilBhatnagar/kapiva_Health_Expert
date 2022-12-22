@@ -1,0 +1,25 @@
+{{#partial "page"}}
+    
+   {{!--  <h2 class="page-heading">{{lang 'account.addresses.heading' }}</h2>--}}
+    <div class="top-page">
+       <p class="left-text">My account<br/></p>
+       <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+   </div>
+    <div class="order-page"> 
+        {{> components/account/navigation account_page='addresses'}}
+
+        <div class="account account--fixedLarge">
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+            <div class="account-body">
+                {{#if customer.error}}
+                    {{>components/common/alert/alert-error customer.error}}
+                {{/if}}
+                {{#if customer.success}}
+                    {{>components/common/alert/alert-success customer.success}}
+                {{/if}}
+                {{> components/account/address-list }}
+            </div>
+        </div>
+    </div>
+{{/partial}}
+{{> layout/base}}

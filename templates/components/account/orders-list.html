@@ -1,0 +1,58 @@
+<h3 class="account-heading">{{lang 'account.orders.heading' }}</h3>
+
+<table cellspacing="0" cellpadding="0" border="0">
+ <tbody> 
+   <tr class="account-listItem heading">
+     <th align="left" width="100">ORDER</th> <th class="border-lft" align="left" width="100">ITEMS</th> 
+     <th class="border-lft" align="left" width="100">TOTAL</th> <th class="border-lft" align="left" width="180">ORDER PLACED</th> <th class="border-lft" align="left" width="180">LAST UPDATE</th> <th class="border-lft" align="left" width="150">TRACKING</th> <th class="border-lft" align="left" width="150">STATUS</th> <th class="border-lft" width="150">CANCEL ORDER</th>
+    </tr>
+    </tr>
+    
+    {{#each orders}}
+    <tr class="account-listItem">
+        <td align="left" class="order" number={{this.id}}>
+          <strong><a href="{{this.details_url}}">{{lang 'account.orders.list.order_number' number=this.id}}</a></strong>
+        </td>
+        <td align="left" class="item">
+            {{lang 'account.orders.list.product_details' num_products=this.items.length cost=this.total.formatted }}
+        </td>
+        <td align="left" class="total">
+            {{lang 'account.orders.list.product_cost' cost=this.total.formatted }}
+        </td>
+        <td align="left" class="place-order">
+            <span>{{this.date}}</span>
+        </td>
+        <td align="left" class="last-date-order">
+         <span>{{this.last_update_date}}</span>
+        </td>
+        <td align="left" class="tracking-link track_{{this.id}}">
+         
+        </td>
+        <td align="left" class="status">
+              <h6 class="account-orderStatus-label order-{{this.status}}">{{this.status}}</h6>
+                    
+                    {{#if ../settings.returns_enabled}}
+                        {{#if this.return_url}}
+                            <a class="account-orderStatus-action" href="{{this.return_url}}">
+                                {{lang 'account.orders.return_items' }}
+                            </a>
+                        {{/if}}
+                    {{/if}}
+        </td> 
+        <td align="left" class="cancle-link cancle_{{this.id}}">
+         
+        </td>
+    </tr>
+    {{/each}}
+     
+</tbody>
+ </table>
+
+ <!--<div class="woot-widget-holder woot-elements--right woot--hide"><iframe data-src="https://app.limechat.ai/widget?website_token=vUkiLx4cqqJVqRM5ocVvkEoc&amp;cw_conversation=eyJhbGciOiJIUzI1NiJ9.eyJzb3VyY2VfaWQiOiI3MTgxMzBmMi05MzcwLTQ3ZTItYTljZC0yYjIyM2E1ZjRlODkiLCJpbmJveF9pZCI6MTY1fQ.zMi3P7brGl_QJ5xp_ceFKesaG09DSGS-hSGrCsSNroE" id="chatwoot_live_chat_widget" src="https://app.limechat.ai/widget?website_token=vUkiLx4cqqJVqRM5ocVvkEoc&amp;cw_conversation=eyJhbGciOiJIUzI1NiJ9.eyJzb3VyY2VfaWQiOiI3MTgxMzBmMi05MzcwLTQ3ZTItYTljZC0yYjIyM2E1ZjRlODkiLCJpbmJveF9pZCI6MTY1fQ.zMi3P7brGl_QJ5xp_ceFKesaG09DSGS-hSGrCsSNroE" style=""></iframe></div>-->
+ <!--<script>-->
+ <!--  $(document).on("click", ".cancel_button", function(){-->
+ <!--      $(".woot-widget-holder").removeClass("woot--hide");-->
+ <!--  })-->
+ <!--</script>-->
+ 
+ 

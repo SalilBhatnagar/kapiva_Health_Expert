@@ -1,0 +1,760 @@
+
+
+<link rel="stylesheet" class="searchTapCss" type="text/css" href="{{cdn 'assets/scss/searchtap/wizzyFrontend.min.css'}}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    img.topproduct-image, img.product-item-image {
+    max-width: 100%;
+    }
+    
+    .wizzy-autocomplete-wrapper {
+    top: 55px;
+    }
+    
+    .wizzy-search-filters-left-wrapper, .wizzy-filters-header {
+      transition: 200ms;
+    }
+    
+    @media (max-width: 768px) {
+        .wizzy-common-select-container .wizzy-common-select-options {
+            top: auto;
+            bottom: 52px;
+        }
+    }
+    @media (max-width: 768px) {
+      .wizzy-common-select-container .wizzy-common-select-options {
+          left: 0;
+          bottom: 52px;
+      }
+      }
+    </style>
+
+
+
+<script type="text/template" id="wizzy-autocomplete-topproducts">
+
+    <div class="wizzy-autocomplete-top-products ">
+        <p class="top-products-title">Top Products</p>
+
+        <ul class="autocomplete-top-products productGrid">
+            [[#products]]
+                
+                <li class="topproduct-item product" title="[[& name ]]" data-id="[[id]]"
+                    [[#groupId]]data-groupId="[[groupId]]"[[/groupId]]>
+                    <div class="card">
+                        <figure class="card-figure" >
+                            <a href="[[&url]]" class="topproduct-item-link card-figure__link kapiva-curve small overflow-hidden">
+                                <div class="card-img-container load">
+                                    <img src="[[ mainImage ]]" class="topproduct-image card-image kapiva-curve big loaded lazyautosizes lazyloaded" />
+                                </div>
+                                <div class="tag-section">
+                                    <span class="topproduct-item-discount">
+                                        <span class="groupBox">
+                                            
+                                                [[#discountPercentage]]
+                                                <span class="saleSavingTag">
+                                                    [[discountPercentage]]% off
+                                                     </span>
+                                                [[/discountPercentage]]
+                                           
+                                        </span>
+                                        <span class="groupBox">
+                                            [[#labels]]
+                                            <span class="productView-info-value">[[labels]]</span>
+                                            [[/labels]]
+                                        </span>
+
+                                    </span>
+                                </div>
+                            </a>
+                        </figure>
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a  href="[[&url]]" class="topproduct-item-link topproduct-title" >
+                                   [[& name ]]
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="card-text" data-test-info-type="price">
+                            
+                            <p class="topproduct-price">
+                                 [[#price]]
+                                <span class="topproduct-original-price">
+                                    ₹[[ price ]]
+                                </span>
+                                [[/price]]₹[[ sellingPrice ]]
+                                </p>
+                        </div>   
+                        
+                    </div>
+                    
+                </li><!-- ending of topproduct-item -->
+
+            [[/products]]
+        </ul><!-- ending of autocomplete-top-products -->
+    </div><!-- ending of top-products -->
+
+</script>
+
+
+<script type="text/template" id="wizzy-autocomplete-suggestions">
+    <div class="wizzy-autocomplete-suggestions">
+        [[#hasSuggestions]]
+            <ul class="autocomplete-suggestions-list">
+                [[#suggestions]]
+                    [[#isHead]]
+                        [[#label]]
+                            <li class="autocomplete-item-head" data-index="[[index]]">
+                                [[&label]]
+                            </li><!-- ending of autocomplete-item-head -->
+                        [[/label]]
+                    [[/isHead]]
+                    [[^isHead]]
+                        <li class="autocomplete-item">
+                            <a data-selectable="true" data-searchterm="[[&searchTerm]]" href="#"
+                               class="autocomplete-link" data-index="[[index]]">
+                            [[&label]]
+                                [[#hasLabelPath]]
+                                    <ul class="autocomplete-item-path">
+                                        <li>in</li>
+                                        [[#labelPath]]
+                                            <li>[[&label]]</li>
+                                        [[/labelPath]]
+                                    </ul>
+                                [[/hasLabelPath]]
+                                <span class="autocomplete-text-wrapper"></span>
+                            </a><!-- ending of autocomplete-link -->
+                        </li><!-- ending of autocomplete-item -->
+                    [[/isHead]]
+                [[/suggestions]]
+            </ul>
+        [[/hasSuggestions]]
+        [[^hasSuggestions]]
+            <div class="autocomplete-no-results">
+                <p>No Results Found</p>
+            </div>
+        [[/hasSuggestions]]
+    </div><!-- ending of autocomplete-suggestions -->
+
+</script>
+
+
+<script type="text/template" id="wizzy-autocomplete-wrapper">
+    <div class="wizzy-autocomplete-wrapper
+    onLeft
+    [[^topProducts]]withoutTopProducts[[/topProducts]] [[^hasSuggestions]]withoutSuggestions[[/hasSuggestions]]"
+         style="display: [[^isMenuHidden]]flex[[/isMenuHidden]]">
+        [[#topProducts]]
+            [[&topProducts]]
+        [[/topProducts]]
+        [[#suggestions]]
+            [[&suggestions]]
+        [[/suggestions]]
+        [[^suggestions]]
+            [[^topProducts]]
+                <div class="autocomplete-no-results">
+                    <p>No Results Found</p>
+                </div>
+            [[/topProducts]]
+        [[/suggestions]]
+    </div><!-- ending of wizzy-autocomplete-wrapper -->
+</script>
+
+
+
+
+<script type="text/template" id="wizzy-progress">
+	<div class="wizzy-progress-container [[#isForFilter]][[^isPaginating]]for-filter[[/isPaginating]][[/isForFilter]]
+	    [[#isPaginating]]for-pagination[[/isPaginating]]">
+	    <div class="wizzy-progress">
+		<div class="wizzy-lds-ellipsis">
+		    <div></div>
+		    <div></div>
+		    <div></div>
+		    <div></div>
+		</div><!-- ending of wizzy-lds-ellipsis -->
+	    </div><!-- ending of wizzy-progress -->
+	</div><!--ending of wizzy-progress-container -->
+	<div class="wizzy-progress-bg [[#isForFilter]][[^isPaginating]]for-filter[[/isPaginating]][[/isForFilter]]
+	    [[#isPaginating]]for-pagination[[/isPaginating]]"></div><!-- ending of wizzy-progress-bg -->
+</script>
+
+
+<script type="text/template" id="wizzy-common-select">
+   <div class="wizzy-common-select-wrapper">
+      <div class="wizzy-common-select-container">
+          <div class="wizzy-common-select-overlay"></div>
+         <div class="wizzy-common-select-selector">
+             <span class="wizzy-common-select-label">
+                 [[#label]]
+                    [[&label]]
+                 [[/label]]
+             </span>
+             <span class="wizzy-common-select-selectedItem">
+                 [[&selectedItem]]
+             </span>
+         </div>
+
+
+          <div class="wizzy-common-select-options">
+              [[#items]]
+                <div class="wizzy-common-select-option [[#isSelected]]selected[[/isSelected]]" title="[[&label]]">
+                    [[&label]]
+                </div>
+              [[/items]]
+          </div>
+      </div>
+   </div>
+</script>
+
+
+<script type="text/template" id="wizzy-facet-category-item">
+    <li class="wizzy-facet-list-item facet-category-hierarchy-item [[#isSelected]]active[[/isSelected]]"
+        data-key="[[ key ]]" data-term="[[& label ]]" title="[[& label ]]">
+          <span class="wizzy-facet-list-item-label">
+             <span class="wizzy-facet-list-item-checkbox">
+                    <input type="checkbox" class="wizzy-facet-list-item-checkbox-input" [[#isSelected]]checked[[/isSelected]] />
+                    <div class="checkbox-indicator"></div>
+             </span>
+             [[& label ]]
+          </span>
+          <span class="wizzy-facet-list-item-count">
+             ([[ count ]])
+          </span>
+
+          [[#childrenHTML]]
+                <ul class="wizzy-facet-list facet-child-list">
+                    [[&childrenHTML]]
+                </ul>
+          [[/childrenHTML]]
+    </li>
+</script>
+
+
+
+<script type="text/template" id="wizzy-facet-block">
+    <div class="wizzy-filters-facet-block
+    facet-block-[[ divKey ]]
+    facet-block-[[#isLeft]]left [[#leftFacetCollapsible]]collapsible[[/leftFacetCollapsible]]
+    [[#leftDefaultCollapsed]]collapsed[[/leftDefaultCollapsed]]
+    [[#firstLeftDefaultOpened]]first-opened[[/firstLeftDefaultOpened]][[/isLeft]][[^isLeft]]top[[/isLeft]]"
+         data-key="[[ key ]]" [[#parentKey]]data-parentKey="[[parentKey]]" [[/parentKey]]>
+      <div class="wizzy-facet-head facet-head-[[divKey]]" title="[[& title ]]">
+          <span class="facet-head-title">
+              [[& title ]]
+          </span>
+          <span class="facet-head-right">
+
+          </span>
+      </div>
+      <div class="wizzy-facet-body facet-body-[[divKey]]">
+        <div class="facet-search-wrapper">
+            <input type="text" class="facet-head-search-input" placeholder="Search [[ title ]]" />
+            [[#withSearch]]
+                <div class="facet-head-search">
+                    <a href="#" class="facet-head-search-icon" title="Search [[ title ]]"></a>
+                </div>
+            [[/withSearch]]
+        </div>
+
+         <ul class="wizzy-facet-list">
+             [[#items]]
+                [[&html]]
+             [[/items]]
+         </ul>
+      </div>
+   </div>
+</script>
+
+
+
+
+<script type="text/template" id="wizzy-facet-item-common">
+    <li class="wizzy-facet-list-item [[#isSwatch]]facet-has-swatch[[/isSwatch]] [[#isSelected]]active[[/isSelected]]"
+        data-key="[[ key ]]" data-term="[[& label ]]" title="[[& label ]]">
+      <span class="wizzy-facet-list-item-label">
+        <span class="wizzy-facet-list-item-checkbox">
+            <input type="checkbox" class="wizzy-facet-list-item-checkbox-input" [[#isSelected]]checked[[/isSelected]] />
+            <div class="checkbox-indicator"></div>
+        </span>
+
+[[#isSwatch]]
+   <span class="wizzy-facet-item-swatch-wrapper [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+       [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]">
+       <span class="wizzy-facet-item-swatch [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+           [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]"
+             style="[[#isVisualSwatch]][[#isURLSwatch]]background-image:url([[swatchValue]]);[[/isURLSwatch]]
+             [[^isURLSwatch]]background-color:[[swatchValue]];[[/isURLSwatch]][[/isVisualSwatch]]">
+           [[#value]]
+                <span class="wizzy-facet-swatch-individual-value">[[value]]</span>
+           [[/value]]
+           [[^isVisualSwatch]]
+                <span class="wizzy-facet-swatch-value">[[swatchValue]]</span>
+           [[/isVisualSwatch]]
+       </span>
+   </span>
+[[/isSwatch]]
+
+
+        <span class="facet-item-label-value">[[& label ]]</span>
+      </span>
+      <span class="wizzy-facet-list-item-count">
+       ([[ count ]])
+      </span>
+   </li>
+</script>
+
+
+
+
+<script type="text/template" id="wizzy-selected-facet-item-common">
+    <li class="wizzy-selected-facet-list-item [[#isSwatch]]facet-has-swatch[[/isSwatch]]" data-facetKey="[[facetKey]]"
+        data-key="[[ key ]]" data-term="[[& label ]]" title="[[& label ]]">
+      <span class="wizzy-selected-facet-list-item-label">
+            
+            
+            [[#isSwatch]]
+   <span class="wizzy-facet-item-swatch-wrapper [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+       [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]">
+       <span class="wizzy-facet-item-swatch [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+           [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]"
+             style="[[#isVisualSwatch]][[#isURLSwatch]]background-image:url([[swatchValue]]);[[/isURLSwatch]]
+             [[^isURLSwatch]]background-color:[[swatchValue]];[[/isURLSwatch]][[/isVisualSwatch]]">
+           [[#value]]
+                <span class="wizzy-facet-swatch-individual-value">[[value]]</span>
+           [[/value]]
+           [[^isVisualSwatch]]
+                <span class="wizzy-facet-swatch-value">[[swatchValue]]</span>
+           [[/isVisualSwatch]]
+       </span>
+   </span>
+[[/isSwatch]]
+
+            
+            
+            
+        <span class="facet-item-label-value">[[& label ]]</span>
+      </span>
+      <span class="wizzy-selected-facet-delete"></span>
+   </li>
+</script>
+
+
+
+<script type="text/template" id="wizzy-facet-range-above-item">
+    <li class="wizzy-facet-list-item facet-aboveRange-item [[#isSelected]]active[[/isSelected]]" data-key="[[ key ]]"
+        data-term="[[ value ]][[&symbol]] &amp; above">
+       <span class="wizzy-facet-list-item-label">
+        <span class="wizzy-facet-list-item-checkbox">
+            <input type="checkbox" class="wizzy-facet-list-item-checkbox-input" [[#isSelected]]checked[[/isSelected]] />
+            <div class="checkbox-indicator"></div>
+        </span>
+        [[ value ]][[&symbol]] [[&sText]]
+      </span>
+       <span class="wizzy-facet-list-item-count">
+       ([[ count ]])
+      </span>
+   </li>
+</script>
+
+
+
+
+
+<script type="text/template" id="wizzy-facet-range-item">
+   <li class="wizzy-facet-list-item facet-range-item" data-key="[[ key ]]" data-term="[[ label ]]">
+      <div class="wizzy-facet-range-slider" data-min="[[ min ]]" data-max="[[ max ]]" data-avg="[[ avg ]]">
+
+      </div>
+   </li>
+</script>
+
+
+
+<script type="text/template" id="wizzy-selected-facets-block">
+   <div class="wizzy-filters-selected-facets-block">
+       <ul class="wizzy-selected-facet-list">
+           [[#items]]
+                [[&html]]
+           [[/items]]
+       </ul>
+   </div>
+</script>
+
+
+
+
+<script type="text/template" id="wizzy-search-empty-results">
+   
+   <div class="wizzy-search-empty-results-wrapper">
+      <div class="wizzy-empty-results-summary">
+          <p>You searched for <span class="wizzy-empty-searched-query">[[ query ]]</span></p>
+      </div>
+      <div class="wizzy-empty-results-icon"></div>
+      <div class="wizzy-empty-results-content">
+          <h2>We couldn't find any matches!</h2>
+          <p>Please check the spelling or try searching for something else.</p>
+
+          [[#lastRequestId]]
+            <p class="wizzy-req-ref-id">Ref ID: [[ lastRequestId ]]</p>
+          [[/lastRequestId]]
+      </div>
+   </div>
+   <div class="searchresultPage">
+    <div class="container">
+        <ul class="wizzy-search-results-list productGrid emptyResults">
+
+        </ul>
+    </div>
+   </div>
+</script>
+
+
+<script type="text/template" id="wizzy-search-pagination">
+
+   <div class="wizzy-pagination-container">
+      <ul class="wizzy-pagination-list">
+          <li class="[[^isPrevActive]]inactive[[/isPrevActive]] pagination-arrow previous-arrow pagination "><a href="#"><span
+                          class="text">Previous</span></a></li>
+            [[#items]]
+          <li class="[[#isSelected]]active[[/isSelected]] pagination " title="[[ value ]]" data-page="[[value]]"><a href="#"><span
+                          class="text">[[ value ]]</span></a></li>
+            [[/items]]
+         <li class="[[^isNextActive]]inactive[[/isNextActive]] pagination-arrow next-arrow pagination "><a href="#"><span
+                         class="text">Next</span></a></li>
+      </ul>
+   </div>
+
+</script>
+
+
+
+
+<script type="text/template" id="wizzy-search-results-product">
+
+    <li class="wizzy-result-product wizzy-product-[[id]] product
+        [[#groupId]]has-variations wizzy-group-product-[[groupId]][[/groupId]]"
+            title="[[& name ]]" data-id="[[id]]" [[#groupId]]data-groupId="[[groupId]]"[[/groupId]]>
+
+      <span class="wizzy-product-variation-loader-bg"></span>
+      <span class="wizzy-product-variation-loader"></span>
+
+      <div class="card">
+        <figure class="card-figure">
+            <a href="[[&url]]" class="wizzy-result-product-item card-figure__link kapiva-curve small overflow-hidden">
+                <div class="result-product-item-image card-img-container load">
+                    <img src="[[ mainImage ]]" class="product-item-image card-image kapiva-curve big loaded lazyautosizes lazyloaded" />
+                </div>
+            
+                <div class="tag-section">
+                    <span class="groupBox">
+                        
+                            [[#discountPercentage]]
+                            <span class="product-item-discount">
+                                [[discountPercentage]]% off
+                                  </span>
+                            [[/discountPercentage]]
+                      
+                    </span>
+                    <span class="groupBox">
+                        [[#labels]]
+                        <span class="productView-info-value">[[labels]]</span>
+                        [[/labels]]
+                    </span>
+                </div>
+            </a>
+        </figure>
+        <div class="card-body">
+            <h3 class="card-title">
+                <a class="product-item-title" href="[[&url]]">
+                    [[& name ]]
+                </a>
+            </h3>  
+        </div>
+    
+
+
+
+
+
+      <a class="wizzy-result-product-item">
+         
+         <div class="result-product-item-info">
+          
+            <!-- [[#subTitle]]
+            <p class="product-item-sub-title">[[&subTitle]]</p>
+            [[/subTitle]] -->
+            [[#swatches]]
+             <div class="product-item-swatch-group
+             [[#isPrimary]]swatch-group-primary[[/isPrimary]] swatch-group-[[key]]"
+                  data-swatchKey="[[key]]">
+               [[#values]]
+                 <div data-variationId="[[variationId]]" title="[[#value]][[value]][[/value]]"
+                      class="product-item-swatch-item
+                      [[#isSelected]]swatch-selected[[/isSelected]]
+                      [[#inStock]]swatch-in-stock[[/inStock]]">
+
+[[#isSwatch]]
+   <span class="wizzy-facet-item-swatch-wrapper [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+       [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]">
+       <span class="wizzy-facet-item-swatch [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+           [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]"
+             style="[[#isVisualSwatch]][[#isURLSwatch]]background-image:url([[swatchValue]]);[[/isURLSwatch]]
+             [[^isURLSwatch]]background-color:[[swatchValue]];[[/isURLSwatch]][[/isVisualSwatch]]">
+           [[#value]]
+                <span class="wizzy-facet-swatch-individual-value">[[value]]</span>
+           [[/value]]
+           [[^isVisualSwatch]]
+                <span class="wizzy-facet-swatch-value">[[swatchValue]]</span>
+           [[/isVisualSwatch]]
+       </span>
+   </span>
+[[/isSwatch]]
+
+               </div>
+               [[/values]]
+            </div><!-- ending of product-item-swatch-group -->
+            [[/swatches]]
+            <div class="wizzy-product-item-price-reviews-wrapper">
+
+                <div class="wizzy-product-item-reviews">
+                    [[#reviews]]
+                 </span><span class="product-item-review-wrapper">&#x2605;</span>
+                    [[/reviews]]
+                   [[#avgRatings]]
+                   [[#totalReviews]]<span class="product-item-reviews-totalReviews"><span>([[totalReviews]])</span></span>[[/totalReviews]]
+                   [[/avgRatings]]
+                </div>
+               <div class="wizzy-product-item-price [[#hasSwatches]]with-swatches[[/hasSwatches]]">
+                
+              [[#price]]
+              <span class="product-item-original-price">
+                ₹[[ price ]]
+                           </span>
+              [[/price]]
+              ₹[[ sellingPrice ]]
+           </div>
+
+           <div class="wizzy-product-actions">
+            <div class="product_item-actions actions Prod-AddToCart">
+                <div class="actions-primary">
+                        <div class="wizzy-product-add-to-cart">
+                           <form data-role="tocart-form" class="wizzy-tocart-form buy-now"
+                                 action="[[ cart.action ]]" method="post">
+                               <input type="hidden"
+                                      class="wizzy-tocart-productid" name="product" value="[[id]]">
+                               <input type="hidden"
+                                      class="wizzy-tocart-uenc" name="uenc" value="[[ cart.uenc ]]">
+                               <input type="hidden"
+                                      class="wizzy-tocart-responseId"
+                                      name="searchResponseId"
+                                      value="[[ cart.searchResponseId ]]">
+                               <input name="form_key" type="hidden" value="[[ cart.formKey ]]">
+                               <button type="button" title="Add to Cart"
+                                       class="action tocart primary wizzy-tocart-button"
+                                       data-objectid="[[id]]" onclick="searchByNow(this)">
+                                   <span>Buy Now</span>
+                               </button>
+                           </form>
+                        </div>
+                    </div>
+
+                <div class="actions-secondary" data-role="add-to-links">
+                        <div class="wizzy-product-add-to-wishlist">
+                            <button
+                               class="action towishlist wizzy-towishlist-button"
+                               title="Add to Wish List"
+                               aria-label="Add to Wish List"
+                               data-post=''
+                               data-productid="[[id]]"
+                               data-groupid="[[#groupId]][[groupId]][[/groupId]]"
+                               data-action="add-to-wishlist"
+                               role="button">
+                               <div class="heart-icon searchAddtoCart" data-productid="[[id]]" onclick="searchAddtocart(this)">
+                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 367" width="38" height="38"><path class="" d="M332.66,104.44C330.5,90.93,320,81.85,306.48,81.85H104.77l-.06-.72L103.5,68.76c-.24-2.35-.46-4.69-.68-7-.59-6.14-1.19-12.48-2-18.74-1-8-7.27-13.81-14.87-13.89C75,29,65,29,55.15,29.09c-7.73.1-14.15,6.45-14.94,14.77a17.23,17.23,0,0,0,4.14,13.27,15.64,15.64,0,0,0,11.49,5.18c4.74.08,9.36.06,14.25,0h.75l.36,3.58c.66,6.61,1.3,13.08,1.93,19.55l3.3,34.29q1.72,17.92,3.46,35.85,1.14,11.73,2.3,23.44c1.57,15.87,3.2,32.29,4.65,48.43,1.9,21.07,16.94,35.79,36.58,35.79H273.75c17.59,0,31.85-12.3,35.5-30.59,8.18-41.06,15.72-79.24,23-116.72A34.09,34.09,0,0,0,332.66,104.44ZM127,229.77c-2.82,0-4.32-.73-4.71-4.68q-2.3-22.82-4.49-45.65l-6.25-63.94c31.93,0,62.72.24,92.55.45,29.68.21,60.3.42,92.09.45-3.64,18.38-7.53,36.85-11.29,54.71-3.72,17.64-7.56,35.87-11.17,54-.87,4.39-2.26,4.61-4.65,4.61C219,229.79,177.13,229.79,127,229.77Z"></path><path class="" d="M262.44,274.84a28.24,28.24,0,0,0-20.3,7.85A29.85,29.85,0,0,0,232.7,304c-.19,16,12.85,29.19,29.06,29.48h.52c15.67,0,28.61-12.8,29-28.78C291.62,288.45,279,275.33,262.44,274.84Z"></path><path class="" d="M140.7,274.84h-.24a29.34,29.34,0,0,0,0,58.67h.21A28.89,28.89,0,0,0,161,325.14a29.24,29.24,0,0,0,.18-41.76A28.77,28.77,0,0,0,140.7,274.84Z"></path></svg>
+                                <div id="pro-count"></div>
+                            </div>
+                               
+                            </button>
+                        </div>
+                    </div>
+
+                    </div>
+                </div><!-- ending of wizzy-product-actions -->
+
+            </div><!-- ending of wizzy-product-item-price-reviews-wrapper -->
+         </div><!-- ending of result-product-item-info -->
+      </a><!-- ending of wizzy-result-product-item -->
+    </div>
+   </li><!-- ending of wizzy-result-product -->
+
+</script>
+
+
+
+<script type="text/template" id="wizzy-search-results">
+
+    <ul class="wizzy-search-results-list productGrid">
+        [[#products]]
+            [[& html ]]
+        [[/products]]
+    </ul><!-- ending of wizzy-search-results-list -->
+
+</script>
+
+
+<script type="text/template" id="wizzy-search-sort">
+
+   <div class="wizzy-sort-container">
+       <select class="wizzy-sort-select" id="wizzy-sort-select">
+         [[#options]]
+            <option value="[[ field ]]"
+                    data-order="[[order]]"
+                    [[#isSelected]]selected[[/isSelected]]>
+           [[ label ]]
+           </option>
+         [[/options]]
+      </select>
+   </div>
+
+</script>
+
+
+<script type="text/template" id="wizzy-search-summary">
+
+   <div class="wizzy-search-summary-container">
+      [[#query]]
+        [[#total]]
+            <p class="wizzy-summary-head">[[ total ]] Results found for <strong>"[[query]]"</strong>:</p>
+        [[/total]]
+      [[/query]]
+   </div>
+
+</script>
+
+
+
+<script type="text/template" id="wizzy-search-wrapper">
+    <div class="resultwizzy">
+        <div class="container">
+            <div class="wizzy-search-wrapper [[#inOnCategoryPage]]wizzy-category-page[[/inOnCategoryPage]]
+            [[#hasFacets]]has-facets[[/hasFacets]]
+            [[#hasLeftFacets]]has-left-facets[[/hasLeftFacets]]
+            [[#hasTopFacets]]has-top-facets[[/hasTopFacets]]">
+    
+          <!-- <div class="wizzy-search-summary-wrapper">
+             [[#summary]]
+                [[&summary]]
+             [[/summary]]
+          </div> -->
+    
+          <div class="wizzy-search-results-wrapper">
+              [[#hasFacets]]
+                    <a href="#" class="wizzy-filters-mobile-entry [[^sort]]only-filters[[/sort]]">Filters</a>
+              [[/hasFacets]]
+    
+             [[#hasLeftFacets]]
+                 <div class="wizzy-search-filters-left page-sidebar">
+    
+                     <div class="wizzy-filters-bg"></div>
+                     <div class="wizzy-filters-close-btn"></div>
+                     <div class="kapivafilter">
+                        <div class="wizzy-filters-header">
+                            <p class="header-title">Filters</p>
+                            [[#hasFilters]]
+                               <a href="#" class="wizzy-filters-clear-all">Clear All</a>
+                            [[/hasFilters]]
+                        </div>
+                        
+                        <div class="wizzy-search-filters-left-wrapper">
+                            [[#leftFacets]]
+                               [[&html]]
+                            [[/leftFacets]]
+       
+                            <div class="wizzy-search-filters-left-mobile-extra">
+                            </div><!-- ending of wizzy-search-filters-left-mobile-extra -->
+                        </div>
+                     </div>
+                     
+    
+                 </div><!-- ending of wizzy-search-filters-->
+              [[/hasLeftFacets]]
+    
+             <div class="wizzy-search-results-container page-content">
+    
+                <div class="wizzy-search-filters-top">
+    
+                   <div class="search-filters-top-wrapper">
+                       <div class="wizzy-search-filters-list-top">
+                           [[#topFacets]]
+                                [[&html]]
+                           [[/topFacets]]
+    
+                       </div><!-- ending of wizzy-search-filters-list-top -->
+                       <div class="wizzy-search-summary-wrapper">
+                        [[#summary]]
+                           [[&summary]]
+                        [[/summary]]
+                     </div>
+                       <div class="wizzy-search-sort-wrapper">
+                           [[#sort]]
+                                [[&sort]]
+                           [[/sort]]
+                       </div><!-- ending of wizzy-search-sort-wrapper -->
+                   </div><!-- ending of search-filters-top-wrapper-->
+    
+                    <div class="filters-list-top-values-wrapper">
+    
+                    </div><!-- ending of filters-list-top-values-wrapper -->
+    
+                    <div class="wizzy-selected-filters">
+                        [[&selectedFacets]]
+                    </div><!-- ending of wizzy-selected-filters -->
+    
+                </div><!-- ending of wizzy-search-filters-->
+    
+                <div class="wizzy-search-results">
+                    [[& products ]]
+                </div><!-- ending of wizzy-search-filters-->
+    
+                 <div class="wizzy-search-pagination">
+                     [[& pagination ]]
+                 </div>
+    
+             </div><!-- ending of wizzy-search-results-->
+    
+          </div><!-- ending of wizzy-search-results-container -->
+       </div><!-- ending of wizzy-search-wrapper-->
+    
+        <div class="wizzy-scroll-to-top-wrapper">
+                <div class="wizzy-scroll-to-top-button">
+    
+                </div><!-- ending of wizzy-scroll-to-top-button -->
+            </div><!-- ending of wizzy-scroll-to-top-wrapper -->
+        </div>
+    </div>
+    
+   
+
+</script>
+
+
+
+<!-- 
+
+[Wizzy Integration Insturctions]
+1. Following two Window level objects must be present on all the pages before loading wizzyyFrontend.min.js file. 
+2. window.wizzyUserConfig will have actual user id if the user is logged in, otherwise it needs to be a blank value.
+3. Make sure to analyze and change window.wizzyConfig as required. Check each and every object and update according to the need.
+
+- configs.general.dom (This will be the class where search results are going to be replaced)
+- configs.general.searchEndpoint (This will be the path where search results are being rendered)
+
+--->  
+<script>
+    window.wizzyUserConfig = JSON.parse('{"loggedInUser":{"id":""}}');
+    window.wizzyConfig = JSON.parse('{"credentials":{"apiKey":"bGg1Ymd3K0NSY1N4VmF6UmVrbHIzenBIckpSMjZiaVNjZnFsVERQTElITmVZVWlSaEJmTkF2TnpOTFl2U21wTUxGS3pkWnVLRWpWNkIzTXVISTRobEE9PQ==","storeId":"f8fd60749f7e11ec94060a0c8095feae"},"search":{"addToCart":{"formAction":"URL_HERE","formKey":"","display":true},"addToWishlist":{"postData":{"action":"URL_HERE","data":{"product":0,"uenc":"UNIQUE_CODE,"}},"display":true},"enabled":true,"input":{"placeholder":"Search entire store here..."},"configs":{"general":{"dom":".columns","searchEndpoint":"\/search","noOfProducts":"12","includeOutOfStock":false,"behaviour":"search_as_you_type","formSubmissionBehaviour":"replace_columns_on_same_page"},"facets":{"configs":{"1": {"key": "categories", "label": "Categories", "position":"left"},"2": {"key": "Ingredient", "label": "Ingredient", "position":"left"},"3": {"key": "Solution", "label": "Solution", "position":"left"},"4": {"key": "Product Type", "label": "Product Type", "position":"left"}},"categoryDisplay":"hierarchy","leftFacets":{"collapsible":true,"defaultCollapsed":false,"firstLeftDefaultOpened":false}},"sorts":{"configs":[{"field":"relevance","label":"Recommended","order":"asc"},{"field":"sellingPrice","label":"Price Low to High","order":"asc"},{"field":"sellingPrice","label":"Price High to Low","order":"desc"},{"field":"discountPercentage","label":"Better Discount","order":"desc"},{"field":"createdAt","label":"Recently Launched","order":"desc"}]},"swatches":{"configs":[]},"pagination":{"type":"numbered_pagination","moveToTopWidget":{"add":false}}},"view":{"domSelector":".columns","templates":{"summary":"#wizzy-search-summary","wrapper":"#wizzy-search-wrapper","results":"#wizzy-search-results","product":"#wizzy-search-results-product","emptyResults":"#wizzy-search-empty-results","facets":{"common":"#wizzy-facet-block","item":"#wizzy-facet-item-common","rangeItem":"#wizzy-facet-range-item","commonRangeAboveItem":"#wizzy-facet-range-above-item","categoryItem":"#wizzy-facet-category-item","selectedItem":"#wizzy-selected-facet-item-common","selectedCommon":"#wizzy-selected-facets-block"},"pagination":"#wizzy-search-pagination","sort":"#wizzy-search-sort"}}},"common":{"isOnCategoryPage":false,"isOnCategoryListing":false,"isOnProductViewPage":false,"categoryUrlKey":"","currentProductId":"","view":{"templating": {"mustache":{"delimiters": ["[[", "]]"]}},"templates":{"progress":"#wizzy-progress","select":"#wizzy-common-select","literals":{"sortBy":"Sort By"}}},"templateAttributes":[]},"autocomplete":{"enabled":true,"configs":{"general":{"openCategoryPage":false}},"menu":{"suggestionsCount":"07","alignment":"right","noResultsBehaviour":"hide_menu","noResultsText":"No results found.","firstSection":"others","categories":{"title":"Categories"},"others":{"title":"Others"},"view":{"menu":".wizzy-autocomplete-wrapper","selectable":"selectable","searchterm":"searchterm","position":"right","text-wrapper":".autocomplete-text-wrapper","wrapper":".wizzy-body-end-wrapper","topProductsBlock":".wizzy-autocomplete-top-products","suggestionLink":".autocomplete-link","templates":{"wrapper":"#wizzy-autocomplete-wrapper","suggestions":"#wizzy-autocomplete-suggestions","products":"#wizzy-autocomplete-topproducts"}}},"topProducts":{"suggestTopProduts":true,"count":"3","title":"Top Products"},"pages":{"title":""}},"pageStore":[],"store":{"currency":{"code":"INR","symbol":"₹"}},"analytics": {"enabled": false, "endpoints":{"clicks":"", "sessions":"", "views":""}}}');
+    </script>
+<!-- <script src="{{cdn 'assets/js/searchtap/wizzyFrontend.min.js'}}" type="text/javascript"></script> -->
+

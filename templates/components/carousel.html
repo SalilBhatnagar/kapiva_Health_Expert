@@ -1,0 +1,40 @@
+<section class="heroCarousels slider-container">
+    <!-- custom banner -->
+     <div class="banner-slide">
+        <div class="glider-contain">
+            <ul class="slider banner-slider">
+                <li class="Carousel-slide is-loading">
+                    <div class="Carousel-image">
+                        <img  src="{{cdn 'webdav:images/Homepage/bannerimagenew.webp'}}"  class="img-fluid lazyload" loading="lazy" alt="Banner image"  width="auto" height="auto" >
+                    </div>
+                    <!-- <div class="Carousel-content">
+                        <p class="carousel-heading">KAPIVA NEW LOOK SALE</p>
+                        <h3 class="carousel-sub-heading">CELEBRATE MODERN AYURVEDA</h3>
+                        <div class="carousel-head-offer">
+                            <sup class="sup-offer">Upto</sup><span class="offer-banner">30% OFF</span>
+                        </div>
+                        <p class="offer-date">30th April - 5th May</p>
+                        <a href="javascript:void(0)" class="banner-btn">SHOP NOW</a>
+                        <div class="strip-express">
+                            <img  src="{{cdn 'webdav:images/Homepage/stripimage.png'}}"  class="img-fluid lazyload" loading="lazy" alt="strip image"  width="auto" height="auto" >
+                        </div>
+                    </div> -->
+                </li>
+            </ul> 
+            <!-- <div  class="dots glider-dots-main coman-dots"></div> -->
+        </div>
+        
+         
+    </div>
+</section>
+
+<script>
+    setTimeout(function(){
+    new Glider(document.querySelector('.banner-slider'), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      scrollLock:true,
+      draggable: true,
+    });
+},4000);
+    </script>

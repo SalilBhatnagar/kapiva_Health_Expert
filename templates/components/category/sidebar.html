@@ -1,0 +1,27 @@
+<div class="mobile-filter-popup">
+    <div class="pagesidefilter">
+        <div class="pageleft"><p>Filter by</p></div>
+        <div class="pageright" onclick="closeFilterPopup()"><p>Close X</p></div>
+    </div>
+<nav>
+    <!-- {{#if category.subcategories}}
+        <div class="sidebarBlock">
+            <h2 class="sidebarBlock-heading">{{category.name}}</h2>
+            <ul class="navList">
+                {{#each category.subcategories}}
+                <li class="navList-item">
+                    <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}} -->
+
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+    {{/if}}
+</nav>
+<div class="apply-all" onclick="closeFilterPopup()"><a class="apply-btn">Apply Filter</a></div>
+</div>

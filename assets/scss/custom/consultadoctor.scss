@@ -1,0 +1,634 @@
+.consultDoctor{
+    .doc-con-intro {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: 35px;
+    }
+    .doc-con-intro:before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-image: url('https://clone.kapiva.in/wp-content/uploads/2020/12/leaf.png');
+        position: absolute;
+        background-repeat: no-repeat;
+        top: 0;
+        right: 0;
+        background-size: contain;
+        background-position: top right;
+    }
+    .dc-text {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #94A67A;
+    }
+
+    .doc-con-intro .dc-text>* {
+        z-index: 1;
+    }
+
+    .doc-con-intro .dc-img {
+        min-width: 50%;
+    }
+
+    .doc-con-intro .dc-img img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media (min-width: 769px) {
+        .doc-con-intro {
+            flex-direction: row;
+        }
+        .consultation_last_section .book_consultation_button {
+            margin-top: 15px !important;
+        }
+    }
+    .doctor_banner_new {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .doctor_banner_new .vc_column-inner {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .dc-text {
+        color: #FFFEF0;
+    }
+
+    .dc-text1 {
+        display: flex ;
+        flex-wrap: wrap;
+        justify-content: center;
+        @include breakpoint(1366px){
+            margin-top: -10%;
+        }
+    }
+    .doc-con-intro .dc-text .banner_text{
+        font-size:15px;
+        font-weight:400;
+        margin-bottom: 0px;
+        @include breakpoint(1366px){
+            width: 80%;
+            font-size:18px;
+            
+        }
+    }
+    .book_consultation_button {
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .1em;
+        border: none;
+        padding: 13px 20px 8px 20px;
+        border-radius: 8px;
+        color: #fffef0;
+        background-color: #374325;
+        margin: 5px 6px;
+        width: 325px;
+        text-align: center;
+        vertical-align:middle;
+        @include breakpoint(569px){
+            width: 350px;
+        }
+        @include breakpoint(1024px) {
+            width: 400px;
+        }
+        span{
+            display:inline-block;
+            vertical-align:middle;
+            font-weight:700;
+        }
+    }
+
+    .book_consultation_button:hover {
+        background-color: #FFFEF0;
+        border-color: #374325;
+        color: #374325;
+    }
+    .container{
+        @include breakpoint(1100px){
+            max-width:920px;
+        }
+        @include breakpoint(1440px){
+            max-width:1160px;
+        }
+    }
+    .doctorScience{
+        p{
+            margin:0;
+        }
+        .wpb_wrappers{
+            text-align:center;
+            p{
+                
+            
+                font-weight:400;
+                font-size:15px;
+                color:#777777;
+            }
+        }
+        .MainDoctor{
+            padding:0 20px;
+            display:flex;
+            flex-wrap:wrap;
+        }
+        .col-sm-4{
+            width:100%;
+            text-align:center;
+            margin-top: 20px;
+            @include breakpoint("small"){
+                width:20%;
+            }
+            p{
+                
+                font-weight:400;
+                font-size:15px;
+                color:#777777;
+                 margin-top:10px;
+                 margin-bottom:15px;
+                @include breakpoint("small"){
+                    margin-top:15px;
+                    margin-bottom:0;
+                }
+            }
+        }
+    }
+    .whyKapiva{
+        margin-top:35px;
+        .kapivamobile{
+            display:block;
+            @include breakpoint(1024px){
+                display:none;
+            }
+        }
+        .kapivadesk{
+            display:none;
+            @include breakpoint(1024px){
+                display:block;
+            }
+        }
+        .why_kapiva {
+            @include breakpoint(1024px){
+                padding-top: 30px;
+                padding-bottom: 30px;
+                background-image: url("https://assets.kapiva.in/wp-content/uploads/2020/12/1920-x-260-2.png");
+                background-position: center center;
+                background-size: 100% 100%;
+            }
+            @include breakpoint(1366px){
+                padding-top: 57px;
+                padding-bottom: 57px;
+            }
+        }
+        .whykapivaText{
+            @include breakpoint(1024px){
+                max-width:51%;
+            }
+            p{
+                width:62%;
+                text-align:center;
+                margin-left:auto;
+            }
+        }
+
+        p{
+            
+            font-weight:400;
+            font-size:17px;
+            color:#ffffff;
+            margin:0;
+            line-height: 1.8;
+        }
+        .why-kapiva-text-white{
+            background-color: #94A67A;
+            .why-kapiva-textmobile{
+                font-size:15px;
+                padding:10px 0;
+                line-height: 1.5;
+                text-align:center;
+                max-width:85%;
+                z-index:10;
+                margin:0 auto;
+                position:relative;
+            }
+        }
+        
+        .why-kapiva-intro {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .why-kapiva-intro:before {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 130px;
+            background-image: url('https://clone.kapiva.in/wp-content/uploads/2020/12/why_kapiva_small_leaf.png');
+            position: absolute;
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+            background-size: contain;
+            background-position: top left;
+        }
+
+        .why-kapiva-intro:after {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 130px;
+            background-image: url('https://clone.kapiva.in/wp-content/uploads/2020/12/why_kapiva_big_leaf.png');
+            position: absolute;
+            background-repeat: no-repeat;
+            bottom: 0;
+            right: 0;
+            background-size: contain;
+            background-position: bottom right;
+        }
+    }
+    .slick-next,.slick-prev{
+        background-color:rgba(227,228,198,0.5);
+        height: 40px;
+        width: 40px;
+        border-radius:50%;
+        &:before{
+            content:'';
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-position: center;
+            background-size: 40%;
+        }
+    }
+    .kapivaDoctor{
+        padding-top:60px;
+        padding-bottom:40px;
+        .doctor-wrapper{
+            .slick-dots{
+                bottom:-40px;
+            }
+            .how-container{
+                display:flex;
+                flex-wrap:wrap;
+                .left-container{
+                    width:100%;
+                    @include breakpoint(569px){
+                        width:45%;
+                    }
+                    @include breakpoint(1440px){
+                        width:50%;
+                    }
+                    .left-content{
+                        width:300px;
+                        height:auto;
+                        margin:0 auto;
+                        @include breakpoint("small"){
+                            height:300px;
+                        }
+                        @include breakpoint(1440px){
+                             height:350px;
+                        }
+                    }
+                }
+                .right-container{
+                    width:100%;
+                    @include breakpoint(569px){
+                        width:45%;
+                    }
+                    @include breakpoint(1440px){
+                        width:50%;
+                    }
+                    .right-content{
+                        margin: 0 auto;
+                        width: 250px;
+                        @include breakpoint(569px){
+                            margin:inherit;
+                            width:100%;
+                        }
+                        h5{
+                            font-weight: 600;
+                            font-size: 24px;
+                            color: #111111;
+                            margin: 25px 0 0 0;
+                           
+                        }
+                        .designation{
+                            margin:0;
+                            
+                            font-weight: 400;
+                            font-size: 19px;
+                            padding-bottom: 20px;
+                            color: #000000;
+                        }
+                        .description{
+                            
+                            color: #777777;
+                            font-weight: 400;
+                            font-size: 15px;
+                            line-height:1.6;
+                            
+                        }
+                        .lang_text{
+                            
+                            font-weight: 500;
+                            font-size: 15px;
+                            color: #111111;
+                            strong{
+                                font-weight: 700;
+                                font-size: 15px;
+                                color: #111111;
+                            
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*testimonial*/
+    .customertestimonial{
+        margin-bottom:25px;
+        @include breakpoint(1024px){
+            margin-bottom:-100px;
+        }
+        .wpb_column{
+            @include breakpoint(1024px){
+                background-image: url("https://assets.kapiva.in/wp-content/uploads/2020/12/CT_BG-new.png");
+                background-position: center center;
+                background-size: 100% 100%;
+                padding-bottom: 195px;
+                padding-top: 1px;
+            }
+            .wpb_wrappersinner{
+                text-align:center;
+                
+                h3{
+                    font-size:28px;
+                    margin-bottom:25px;
+                    font-weight:500;
+                    margin-top:25px;
+                    @include breakpoint(1024px){
+                        margin-top: 2.25rem;
+                        margin-bottom: 0.75rem;
+                    }
+                }
+            }
+        }
+        .testimonialinner{
+            position:relative;
+            @include breakpoint(768px){
+                padding: 0 30px;
+            }
+            @include breakpoint(1024px){
+                top:-185px;
+            }
+            @include breakpoint(1366px){
+                padding: 0;
+            }
+            .slick-list{
+                padding-bottom:27px;
+            }
+            .image-above-center{
+                border: 3px solid #D8D8D8;
+                background-color:#ffffff;
+                border-radius: 25px;
+                padding: 15px;
+                box-shadow: 10px 20px 10px 0px rgba(0,0,0,0.1);
+                height:340px;
+                text-align:center;
+                margin:0 40px;
+                @include breakpoint(569px){
+                    margin:0 10px;
+                }
+                @include breakpoint(1024px){
+                    margin:0 15px;
+                }
+                @include breakpoint(1200px){
+                    height:370px;
+                }
+                .amely-testimonial-carousel__img{
+                    img{
+                        width:120px;
+                        margin:0 auto;
+                    }
+                    .box-cite{
+                        min-height:55PX;
+                        height:55PX;
+                        margin-top:15px;
+                        @include breakpoint(1024px){
+
+                        }
+                        .amely-testimonial-carousel__cite{
+                            font-size:15px;
+                            font-weight:600;
+                            color: #333333;
+                            @include breakpoint(1024px){
+                                font-size:18px;
+                            }
+                        }
+                        .amely-testimonial-carousel__sub-cite{
+                            font-size:13px;
+                            font-weight:400;
+                            color: #777777;
+                            @include breakpoint(1024px){
+                                font-size:15px;
+                            }
+
+                        }
+                    }
+                }
+                .testimonialinnerwraper{
+                    .amely-testimonial-carousel__text{
+                        font-size:14px;
+                        font-weight:400;
+                        line-height: 20px;
+                        color: #777777;  
+                        
+                        @include breakpoint(1024px){
+                            margin-top: 15px;
+                            
+                        }
+                        @include breakpoint(1366px){
+                            line-height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*book section*/
+    .booksection{
+        background-color: #94a67a;
+        margin-top: 40px;
+        .bookDoctorHead{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            @include breakpoint(768px){
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+            .bookdoctormain{
+                display:flex;
+                flex-wrap:wrap;
+                align-items:center;
+                .bookdoctorleft{
+                    width:100%;
+                    @include breakpoint(768px){
+                        width:50%;
+                    }
+                    p{
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: #ffffff;
+                        margin:0;
+                        max-width: 100%;
+                        text-align: center;
+                        margin-bottom:35px;
+                        @include breakpoint(768px){
+                            max-width: 85%;
+                            font-size: 18px;
+                            margin-bottom:0px;
+                        }
+                    }
+                }
+                .bookdoctorright{
+                    width:100%;
+                    text-align: center;
+                    @include breakpoint(768px){
+                        width:50%;
+                        text-align: right;
+                    }
+                    .book_consultation_button{
+                        margin: 10px 6px;
+                    }
+                }
+            }
+        }
+    }
+    /**/
+    .HowtoWork{
+       /* background-color:#f0ecb9;*/
+       .Howworkmake{
+            background-color:#f0ecb9;
+            padding: 25px 0 90px 0;
+            @include breakpoint("medium"){
+                
+            }
+            h3{
+                text-align:center;
+                @include breakpoint("large"){
+                    font-size:25px;
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                }
+            }
+       }
+        .HOwWorkMainHead{
+            padding:0 15px;
+            margin-top:-80px;
+            @include breakpoint("medium"){
+                
+            }
+            .mainHowwork{
+                .slick-dots{
+                    bottom:-35px;
+                }
+                .Sec1Howwork{
+                    
+                    justify-content:space-between;
+                    padding:0 10px;
+                    margin:0 -10px;
+                    @include breakpoint(568px){
+                        display:flex;
+                        flex-wrap:wrap;
+                        max-width:1300px;
+                        
+                    }
+                    @include breakpoint("medium"){
+                        margin:0 auto;
+                    }
+                    .MainSection{
+                        
+                        width:100%;
+                        margin-bottom: 20px;
+                        display:flex;
+                        margin: 0 10px;
+                        @include breakpoint(568px){
+                            width: 48%;
+                            
+                        }
+                        @include breakpoint("medium"){
+                            width: 22%;
+                            
+                        }
+                        span{
+                            /*color:#b0c494;
+                            font-size:40px;
+                            display:block;
+                            margin-right:5px;
+                            line-height:1;*/
+                            width: 60px;
+                            margin-right: 5px;
+                        }
+                    }
+                    .MainHeadWraper{
+                        display:flex;
+                        flex-wrap:wrap;
+                        padding:30px 10px;
+                        background-color:#829369;
+                        border-radius: 10px;
+                        
+                        box-shadow: 9px 0px 7.69px -3.69px rgba(39,14,16,0.34);
+                    }
+                    .MainWraperHow{
+                        width:20%;
+                        padding-left: 10px;
+                        @include breakpoint("medium"){
+                            width: 29%;
+                        }
+                    }
+
+                    .mainDoctorPera{
+                        text-align: center;
+                        width:80%;
+                        color:#ffffff;
+                        align-self: center;
+                        @include breakpoint("medium"){
+                            width: 60%;
+                            text-align: left;
+                            margin-left: 15px;
+
+                        }
+                        p{
+                            margin:0;
+                            font-size:14px;
+                            @include breakpoint("small"){
+                                font-size:16px;
+                            }
+                            @include breakpoint("large"){
+                                font-size:20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+    

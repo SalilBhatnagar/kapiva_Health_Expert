@@ -1,0 +1,16 @@
+
+<div class="product-space">
+    <div class="productCarousel">
+        {{#each products}}
+        <div data-product-slide class="productCarousel-slide">
+            {{> components/kapiva/card-newproduct settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+        </div>
+        {{/each}}
+    </div>
+    
+    {{#if products.length '>' 1}}
+            {{> components/carousel-content-announcement}}
+        {{/if}}
+</div>
+
+

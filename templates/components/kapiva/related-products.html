@@ -1,0 +1,6 @@
+<h2 class="page-heading">Frequently bought together</h2>
+{{#if settings.data_tag_enabled}}
+    {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
+{{else}}
+    {{> components/products/carousel products=product.related_products columns=6}}
+{{/if}}

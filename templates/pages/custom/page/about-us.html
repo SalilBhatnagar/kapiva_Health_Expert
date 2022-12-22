@@ -1,0 +1,71 @@
+
+{{#partial "hero"}}
+
+<main class="full-page">  
+<!-- <section class="page"> -->
+    {{#unless theme_settings.hide_page_heading }}
+        <h1 class="page-heading">{{ page.title }}</h1>
+    {{/unless}}
+
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    
+    <div id="about-us-page">
+
+        {{> components/kapiva/about-us-banner}}
+        
+        {{> components/kapiva/about-us-kapiva}}
+    
+        {{> components/kapiva/your-simple-guide}}
+        
+        <div class="new-doc">
+        {{> components/kapiva/doc-cons-section}}
+        </div>
+    
+        <div class="newproduct-section">
+            {{#if products.new}}
+                <div class="CatSlider-Wrap newproduct-section">
+                    {{> components/kapiva/new-custom products=products.new columns=theme_settings.homepage_new_products_column_count}}
+                </div>
+            {{/if}}
+        </div>
+        
+        {{> components/kapiva/about-us-founders}}
+    
+    </div>
+
+<!-- </section> -->
+</main>
+
+{{/partial}}
+
+
+{{> layout/base}}

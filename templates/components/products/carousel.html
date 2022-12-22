@@ -1,0 +1,31 @@
+<section class="productCarousel data-productCarousel owl-carousel owl-theme">
+    {{#each products}}
+    <div data-product-slide class="productCarousel-slide related_products">
+        {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</section>
+{{#if products.length '>' 1}}
+        {{> components/carousel-content-announcement}}
+    {{/if}}
+<script>
+    $(document).ready(function () {
+      $('.data-productCarousel.owl-carousel').owlCarousel({
+            items:3,
+            loop:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                550:{
+                    items:2
+                },
+                960:{
+                    items:3
+                }
+            }
+        });
+    });
+         
+</script>

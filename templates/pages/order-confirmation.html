@@ -1,0 +1,922 @@
+{{#partial "head"}}
+{{{ checkout.checkout_head }}}
+<style type="text/css">
+  @font-face {
+    font-family: "FoundersGrotesk";
+    src: url("{{cdn 'assets/fonts/custom-fonts/Founders-Grotesk-Regular.woff2'}}") format("woff2"),
+    url("{{cdn 'assets/fonts/custom-fonts/Founders-Grotesk-Regular.woff'}}") format("woff"),
+    url("{{cdn 'assets/fonts/custom-fonts/Founders-Grotesk-Regular.otf'}}") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+
+  }
+
+  @font-face {
+    font-family: "FoundersGrotesk-semibold";
+    src: url("{{cdn 'assets/fonts/custom-fonts/Founders-Grotesk-Semibold.woff2'}}") format("woff2"),
+    url("{{cdn 'assets/fonts/custom-fonts/Founders-Grotesk-Semibold.woff'}}") format("woff"),
+    url("{{cdn 'assets/fonts/custom-fonts/Founders-Grotesk-Semibold.otf'}}") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+
+  }
+
+  @font-face {
+    font-family: "RecoletaAlt-SemiBold";
+    src: url("{{cdn 'assets/fonts/custom-fonts/Recoleta-Alt-SemiBold.woff2'}}") format("woff2"),
+    url("{{cdn 'assets/fonts/custom-fonts/Recoleta-Alt-SemiBold.woff'}}") format("woff"),
+    url("{{cdn 'assets/fonts/custom-fonts/Recoleta-Alt-SemiBold.otf'}}") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+</style>
+{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
+{{ getFontsCollection }}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript">
+  window.language = {
+    {
+      {
+        langJson 'optimized_checkout'
+      }
+    }
+  };
+</script>
+
+{{{head.scripts}}}
+
+{{/partial}}
+
+{{#partial "page"}}
+<header class="checkoutHeader optimizedCheckout-header">
+  <div class="checkoutHeader-content">
+    <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+    <h2 class="checkoutHeader-heading">
+      <a class="checkoutHeader-link" href="{{urls.home}}">
+        {{#if checkout.header_image}}
+        <img alt="{{settings.store_logo.title}}" class="checkoutHeader-logo" id="logoImage"
+          src="{{ checkout.header_image }}" />
+        {{ else }}
+        <span class="header-logo-text">{{settings.store_logo.title}}</span>
+        {{/if}}
+      </a>
+    </h2>
+  </div>
+</header>
+
+{{{ checkout.order_confirmation_content }}}
+
+{{{ footer.scripts }}}
+
+{{/partial}}
+
+{{> layout/empty}}
+<link preload rel="stylesheet" href="{{cdn 'assets/scss/custom/slick.min.css'}}" crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
+
+<link preload rel="stylesheet" href="{{cdn 'assets/scss/custom/owl.carousel.min.css'}}">
+<link preload rel="stylesheet" href="{{cdn 'assets/scss/custom/owl.theme.default.min.css'}}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script defer="defer" src="{{cdn 'assets/js/owl.carousel.min.js'}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<input type="hidden" value="{{customer.id}}" class="customer_id">
+<script>
+  $(document).ready(function () {
+    var cat_id = cat_name = p_id = p_name = p_price = p_quantity = '';
+    var discounted_amount = '';
+    var Coupon_Code_Applied = '';
+    var Coupon_Code_Applied_Name = '';
+    var Coupon_Code_Applied_Amount = '';
+    var Purchase_Amount = '';
+    var Phone_Number = '';
+    var Email_Address = '';
+    var First_Name = '';
+    var Last_Name = '';
+    var Order_Address_City = Order_Address_Pin = Payment_Status = '';
+    var payment_method = [];
+    setInterval(function () {
+      if ($('[data-test="order-confirmation-order-status-text"] span').length !== 0) {
+        $('[data-test="order-confirmation-order-status-text"] span').replaceWith(
+          'You will receive an email with your purchase details shortly. Please also check your Spam folder.<br/>We will deliver your order soon! You can make the cash payment when it is delivered to you.<br/> In case of questions or concerns regarding the same, email us at <a target="_top" href="mailto:info@kapiva.in">info@kapiva.in</a> or call us at <a href="tel:8080177000">+91-8080 177 000</a>.'
+          );
+      }
+    }, 1000);
+
+    fetch('/api/storefront/order/{{checkout.order.id}}', {
+        credentials: 'include'
+      })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (orderData) {
+
+        var order_id = orderData['orderId'];
+        user_email = orderData['billingAddress']['email'];
+        total_price = orderData['baseAmount'];
+        var products = [];
+
+        let transaction = {
+          'event': 'purchase',
+          'transactionId': orderData['orderId'],
+          'transactionTotal': orderData['orderAmount'],
+          'transactionTax': orderData['taxTotal'],
+          'transactionShipping': orderData['shippingCostTotal'],
+          'transactionProducts': []
+        };
+
+
+        for (var i = 0; i < orderData['lineItems']['physicalItems'].length; i++) {
+          var obj = {
+            "orderedItemId": orderData['lineItems']['physicalItems'][i]['productId'],
+            "orderedItemSku": orderData['lineItems']['physicalItems'][i]['sku'],
+            "orderedItemPrice": orderData['lineItems']['physicalItems'][i]['salePrice'],
+            "orderedItemQuantity": orderData['lineItems']['physicalItems'][i]['quantity'],
+            "orderedItemGTIN": "None"
+          };
+
+          products.push(obj);
+
+
+          // for transactions
+          let lineItem = {
+            'id': orderData['lineItems']['physicalItems'][i]['productId'],
+            'sku': orderData['lineItems']['physicalItems'][i]['sku'],
+            'name': orderData['lineItems']['physicalItems'][i]['name'],
+            'price': orderData['lineItems']['physicalItems'][i]['salePrice'],
+            'quantity': orderData['lineItems']['physicalItems'][i]['quantity']
+          }
+          transaction.transactionProducts.push(lineItem)
+        }
+        var selector = localStorage.getItem('oid');
+        if (selector != order_id) {
+          localStorage.removeItem('oid');
+          localStorage.setItem('oid', order_id);
+          window.dataLayer = window.dataLayer || [];
+          dataLayer.push({
+            orderedItems: products
+          });
+          dataLayer.push(transaction);
+        }
+        $.ajax({
+          type: "POST",
+          url: "https://bg-sync-api-dev.kapiva.in/api/getorderdetails.php",
+          async: false,
+          headers: {
+            oid: order_id
+          },
+          success: function (html) {
+            var paymentMethod = JSON.parse(html);
+            payment_method.push(paymentMethod.method);
+          },
+        });
+
+        if (orderData['coupons'].length > 0) {
+          Coupon_Code_Applied = "true";
+          Coupon_Code_Applied_Name = orderData['coupons'][0]['code'];
+          Coupon_Code_Applied_Amount = orderData['coupons'][0]['discountedAmount'];
+        } else {
+          Coupon_Code_Applied = "false";
+          Coupon_Code_Applied_Name = "NULL";
+          Coupon_Code_Applied_Amount = 0;
+        }
+        var ids = '';
+        Purchase_Amount = orderData['orderAmount'];
+        Phone_Number = Number(orderData['billingAddress']['phone']);
+        Email_Address = orderData['billingAddress']['email'];
+        First_Name = orderData['billingAddress']['firstName'];
+        Last_Name = orderData['billingAddress']['lastName'];
+        Order_Address_City = orderData['billingAddress']['city'];
+        Order_Address_Pin = orderData['billingAddress']['postalCode'];
+        Payment_Status = orderData['status'];
+        for (var i = 0; i < orderData['lineItems']['physicalItems'].length; i++) {
+
+          var alldata = orderData['lineItems']['physicalItems'][i];
+          var Product_Id = alldata['productId'];
+          var Product_Name = alldata['name'];
+          var Product_Price = alldata['salePrice'];
+          var Product_Quantity = alldata['quantity'];
+          if (p_id == '' && p_name == '' && p_price == '' && p_quantity == '') {
+            p_id = Product_Id.toString();
+            p_name = Product_Name;
+            p_price = Product_Price.toString();
+            p_quantity = Product_Quantity.toString();
+          } else {
+            p_id = p_id + ',' + Product_Id;
+            p_name = p_name + ',' + Product_Name;
+            p_price = p_price + ',' + Product_Price;
+            p_quantity = p_quantity + ',' + Product_Quantity;
+          }
+          if (ids == '') {
+            ids = Product_Id;
+          } else {
+            ids = ids + ',' + Product_Id;
+          }
+        }
+        var query = `query ExtendedProductsById {
+          site {
+            products(entityIds: [` + ids + `]) {
+              edges {
+                node {
+                  id
+                  entityId
+                  name
+                  inventory{
+                  isInStock 
+                  aggregated{
+                    availableToSell
+                    warningLevel
+                  }
+                }
+                  categories
+                  {
+                  edges
+                    {
+                      node
+                      {
+                        id
+                        name
+                        
+                      }
+                    } 
+                  }
+                  
+                  prices (includeTax:true){
+                    price {
+                      ...MoneyFields
+                    }
+                    priceRange {
+                      min {
+                        ...MoneyFields
+                      }
+                      max {
+                        ...MoneyFields
+                      }
+                    }
+                    salePrice {
+                      ...MoneyFields
+                    }
+                    retailPrice {
+                      ...MoneyFields
+                    }
+                    saved {
+                      ...MoneyFields
+                    }
+                    bulkPricing {
+                      minimumQuantity
+                      maximumQuantity
+                      ... on BulkPricingFixedPriceDiscount {
+                        price
+                      }
+                      ... on BulkPricingPercentageDiscount {
+                        percentOff
+                      }
+                      ... on BulkPricingRelativePriceDiscount {
+                        priceAdjustment
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        fragment MoneyFields on Money {
+              value
+              currencyCode
+            }`;
+        $.ajax({
+          url: "/graphql",
+          contentType: "application/json",
+          type: 'POST',
+          async: false,
+          headers: {
+            'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+          },
+          data: JSON.stringify({
+            query: query
+          }),
+          success: function (productsData) {
+            var getdata = productsData.data.site.products.edges;
+            $(getdata).each(function (index, value) {
+              var alldata = value.node;
+              if (alldata) {
+
+                if (alldata.prices.saved != null) {
+                  if (discounted_amount == '') {
+                    discounted_amount = alldata.prices.saved.value;
+                    discounted_amount = discounted_amount.toString();
+                  } else {
+                    discounted_amount = discounted_amount + ',' + alldata.prices.saved.value;
+                  }
+                } else {
+                  if (discounted_amount == '') {
+                    discounted_amount = 0;
+                    discounted_amount = discounted_amount.toString();
+                  } else {
+                    discounted_amount = discounted_amount + ',' + 0;
+                  }
+                }
+                var category = alldata.categories.edges;
+                var category_id = '';
+                var category_name = '';
+                $(category).each(function (index, value) {
+                  if (category_id == '' && category_name == '') {
+                    var cat_id = value.node.id;
+                    var splited_url = atob(cat_id);
+                    var categoryid = splited_url.split("Category:");
+                    category_id = categoryid[1];
+                    category_name = value.node.name
+                  } else {
+                    var splited_url = atob(value.node.id);
+                    var categoryid = splited_url.split("Category:");
+                    var catid = categoryid[1];
+                    category_id = category_id + ',' + catid;
+                    category_name = category_name + ',' + value.node.name;
+                  }
+
+                })
+                if (cat_id == '' && cat_name == '') {
+                  cat_id = category_id;
+                  cat_name = category_name;
+                } else {
+                  cat_id = cat_id + ',' + category_id;
+                  cat_name = cat_name + ',' + category_name;
+                }
+
+              }
+            });
+          },
+        });
+        webengage.track("Payment success", {
+          "Product_Id": p_id,
+          "Product_Name": p_name,
+          "Product_Price": p_price,
+          "Discounted_amount": discounted_amount,
+          "Product_Quantity": p_quantity,
+          "Purchase_Amount": Purchase_Amount,
+          "Phone_Number": Phone_Number,
+          "Email_Address": Email_Address,
+          "First_Name": First_Name,
+          "Last_Name": Last_Name,
+          "Cashback_Earned_Amount": Coupon_Code_Applied_Amount,
+          "Payment_Mode": payment_method[0],
+          "Payment_Status": Payment_Status,
+          "Coupon_Code_Applied": Coupon_Code_Applied,
+          "Coupon_Code_Applied_Name": Coupon_Code_Applied_Name,
+          "Coupon_Code_Applied_Amount": Coupon_Code_Applied_Amount
+
+
+        });
+
+        webengage.track("Delivery_Details", {
+          "Product_Id": p_id,
+          "Product_Name": p_name,
+          "Category_ID": cat_id,
+          "Category_Name": cat_name,
+          "Price": p_price,
+          "Quantity": p_quantity,
+          "Cart_Amount": Purchase_Amount,
+          "Purchase_Amount": Purchase_Amount,
+          "Order_Address_City": Order_Address_City,
+          "Order_Address_Pin": Order_Address_Pin,
+          "Coupon_Code_Applied": Coupon_Code_Applied,
+          "Coupon_Code_Applied_Name": Coupon_Code_Applied_Name,
+          "Coupon_Code_Applied_Amount": Coupon_Code_Applied_Amount
+
+        });
+      });
+
+
+let u_id=document.getElementsByClassName("customer_id")[0].value;
+       
+  });
+  CountAddToCart()
+
+  function CountAddToCart() {
+    var setinterval = setInterval(function () {
+      var len = document.getElementsByClassName("bag-icon").length;
+      if (len > 0) {
+        clearInterval(setinterval);
+        fetch('/api/storefront/carts?include=', {
+          'credentials': 'include',
+          'headers': {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }).then(function (response) {
+          response.json().then(function (data) {
+            if (data.length != 0) {
+              var getid = data[0]['lineItems']['physicalItems'];
+
+              getid.forEach(function (value, key) {
+                var pid = value.productId;
+
+                var qty = value.quantity;
+                var bagIcon = document.getElementsByClassName("bag-icon");
+                document.querySelectorAll('.bag-icon').forEach(item => {
+                  //  bagIcon.forEach(function (value,key) {
+
+                  var p_id = item.getAttribute("data-product-id");
+                  if (p_id != undefined && p_id == pid && qty != null) {
+                    let el = item;
+    
+                    item.parentElement.querySelectorAll('#pro-count')[0].textContent = qty;
+                    item.parentElement.parentElement.parentElement.parentElement.classList.add(
+                      "fill-Prod-add-to-cart");
+                    item.parentElement.querySelectorAll('#pro-count')[0].classList.add(
+                    "fill-count");
+                  }
+
+                })
+              })
+            }
+          })
+        })
+      }
+    }, 200)
+  }
+  var interval = setInterval(function () {
+    var len3 = document.querySelectorAll(".browsing_history .productCarousel").length;
+
+    //var len3 = document.querySelectorAll(".Prod-AddToCart .buy-now.tranding_buy_now_add_to_cart").length;
+
+    if (len3 > 0) {
+
+      clearInterval(interval);
+      //buynow trending products
+      document.querySelectorAll('.Prod-AddToCart .buy-now.tranding_buy_now_add_to_cart').forEach(item => {
+        item.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          var discount = this.parentElement.parentElement.parentElement.querySelectorAll(
+            ".card-figure .card-figure__link .tag-section .groupBox .saleSavingTag")[0].textContent;
+          let discount_pr = discount.trim();
+          var pro_id = this.getAttribute("data-product-id");
+          if (this.classList.contains('disabled') == false) {
+            var cart_quantity = localStorage.getItem('cart-quantity');
+
+
+            axios({
+              url: '/remote/v1/cart/add',
+              method: 'post',
+              dataType: 'json',
+              data: {
+                action: 'add',
+                "product_id": pro_id,
+                "qty[]": 1
+              }
+            }).then((result) => {
+              if (result.data.data.cart_item) {
+                buyNow(pro_id, discount_pr)
+                window.location.href = '/checkout';
+              }
+            });
+          }
+        });
+      });
+      //end buynow trending products
+
+      //addtocart trending product
+      document.querySelectorAll('#trand-card-addtocart-button').forEach(item => {
+        item.addEventListener('click', function (value, index) {
+
+          value.preventDefault();
+          var pro_id = this.getAttribute("data-product-id");
+          var discount = this.parentElement.parentElement.parentElement.parentElement.parentElement
+            .parentElement.parentElement.parentElement.querySelectorAll(
+              ".card-figure .card-figure__link .tag-section .groupBox .saleSavingTag")[0].textContent;
+          let discount_pr = discount.trim();
+          var cart_quantity = localStorage.getItem('cart-quantity');
+
+          axios({
+            url: '/remote/v1/cart/add',
+            method: 'post',
+            dataType: 'json',
+            data: {
+              action: 'add',
+              "product_id": pro_id,
+              "qty[]": 1
+            }
+          }).then((result) => {
+            if (result.data.data.cart_item) {
+
+            }
+            fetch('/api/storefront/carts?include=', {
+              'credentials': 'include',
+              'headers': {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              response.json().then(function (data) {
+                if (data.length != 0) {
+                  var getid = data[0]['lineItems']['physicalItems'];
+                  getid.forEach(function (value, key) {
+                    var pid = value.productId;
+
+                    var qty = value.quantity;
+
+                    if (pro_id != undefined && pro_id == pid) {
+                      let tranding = document.getElementsByClassName("tranding_" + pid)[0];
+                      tranding.parentElement.querySelectorAll('#pro-count')[0].textContent =
+                        qty;
+                      tranding.parentElement.parentElement.parentElement.parentElement
+                        .classList.add("fill-Prod-add-to-cart");
+                      tranding.parentElement.querySelectorAll('#pro-count')[0].classList
+                        .add("fill-count");
+
+                    }
+
+                  });
+                  addToCart(pro_id, discount_pr)
+                }
+              });
+            });
+
+          });
+        });
+      });
+      //end addtocart trending product
+    }
+  }, 1000);
+
+  function addToCart(pro_id, discount_pr) {
+
+    var p_id = '';
+    var p_name = '';
+    var mrp = '';
+    var discounted_price = '';
+    var Quantity = '';
+    var total_item_in_cart = '';
+    var cart_value = '';
+
+    fetch('/api/storefront/carts?productId=' + pro_id, {
+      'credentials': 'include',
+      'headers': {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      response.json().then(function (data) {
+        if (data) {
+          cart_value = data[0].cartAmount;
+          var getquantity = data[0]['lineItems']['physicalItems'];
+          getquantity.forEach(function (value, key) {
+            if (value.productId == pro_id) {
+              Quantity = value.quantity;
+            }
+            if (total_item_in_cart == '') {
+              total_item_in_cart = value.quantity;
+            } else {
+              total_item_in_cart = total_item_in_cart + value.quantity;
+            }
+
+          })
+        }
+
+
+
+        var query = `query productById{
+                       site {
+                         product(entityId: ` + pro_id + `) {
+                           id
+                           entityId
+                           name
+                           categories
+                           {
+                           edges
+                             {
+                               node
+                               {
+                                 id
+                                 name
+                                 
+                               }
+                             } 
+                           }
+                           prices (includeTax:true){
+                             price {
+                               ...MoneyFields
+                             }
+                             
+                             salePrice {
+                               ...MoneyFields
+                             }
+                             retailPrice {
+                               ...MoneyFields
+                             }
+                            
+                           }
+                         }
+                       }
+                     }
+   
+                     fragment MoneyFields on Money {
+                       value
+                       currencyCode
+                     }`;
+        axios({
+          url: '/graphql',
+          method: 'post',
+          contentType: "application/json",
+          headers: {
+            'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+          },
+          data: {
+            query: query
+          }
+        }).then((result) => {
+          var alldata = result.data.data.site.product;
+
+          if (alldata != null) {
+            p_id = alldata.entityId;
+
+            p_name = alldata.name;
+            if (alldata.prices.retailPrice != null) {
+              mrp = alldata.prices.retailPrice.value;
+            }
+            if (alldata.prices.salePrice != null) {
+              discounted_price = alldata.prices.salePrice.value;
+            } else {
+              discounted_price = 0;
+            }
+
+            var category = alldata.categories.edges;
+            var category_ID = [];
+            var category_NAME = [];
+            category.forEach(function (value, index) {
+              category_ID.push(value.node.id);
+              category_NAME.push(value.node.name);
+
+            })
+            var categories = {
+              category_ID,
+              category_NAME
+            };
+            var category_id = '';
+            var category_name = '';
+            category.forEach(function (value, index) {
+              if (category_id == '' && category_name == '') {
+                var cat_id = value.node.id;
+                var splited_url = atob(cat_id);
+                var categoryid = splited_url.split("Category:");
+                category_id = categoryid[1];
+                category_name = value.node.name
+              } else {
+                var splited_url = atob(value.node.id);
+                var categoryid = splited_url.split("Category:");
+                var catid = categoryid[1];
+                category_id = category_id + ',' + catid;
+                category_name = category_name + ',' + value.node.name;
+              }
+
+            })
+
+            webengage.track("add to cart", {
+              "Product_ID": p_id,
+              "Product_Name": p_name,
+              "Category_ID": category_id,
+              "Category_Name": category_name,
+              "MRP": mrp,
+              "Discount": discount_pr,
+              "Discount_Price": discounted_price,
+              "Quantity": Quantity,
+              "Total_Item_in_cart": total_item_in_cart,
+              "Cart_value": cart_value
+            });
+            var productObject = {
+              "Product_ID": p_id,
+              "Product_Name": p_name,
+              "categories": categories,
+              "price": mrp,
+              "salePrice": discounted_price,
+              "Quantity": Quantity
+            };
+
+            dataLayer.push({
+              ecommerce: null
+            }); // Clear the previous ecommerce object.
+            dataLayer.push({
+              'event': 'addToCart',
+              'ecommerce': {
+                'currencyCode': 'INR',
+                'add': { // 'add' actionFieldObject measures.
+                  'products': [{ //  adding a product to a shopping cart.
+                    'name': p_name,
+                    'id': p_id,
+                    'price': discounted_price,
+                    'brand': 'Kapiva',
+                    'quantity': Quantity
+                  }]
+                }
+              }
+            });
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              addToCartProduct: productObject
+            });
+
+            fbq('track', 'AddToCart', {
+              content_ids: p_id,
+              content_type: 'product',
+              value: discounted_price,
+              currency: 'INR',
+              quantity: Quantity
+            });
+
+          }
+        });
+      });
+    });
+  }
+
+  function buyNow(pro_id, discount_pr) {
+    var p_id = '';
+    var p_name = '';
+    var mrp = '';
+    var discounted_price = '';
+    var Quantity = '';
+    var total_item_in_cart = '';
+    var cart_value = '';
+
+    fetch('/api/storefront/carts?productId=' + pro_id, {
+      'credentials': 'include',
+      'headers': {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      response.json().then(function (data) {
+        if (data) {
+
+          cart_value = data[0].cartAmount;
+          var getquantity = data[0]['lineItems']['physicalItems'];
+          getquantity.forEach(function (value, index) {
+            if (value.productId == pro_id) {
+              Quantity = value.quantity;
+            }
+            if (total_item_in_cart == '') {
+              total_item_in_cart = value.quantity;
+            } else {
+              total_item_in_cart = total_item_in_cart + value.quantity;
+            }
+
+          })
+        }
+        var query = `query productById{
+                        site {
+                          product(entityId: ` + pro_id + `) {
+                            id
+                            entityId
+                            name
+                            categories
+                            {
+                            edges
+                              {
+                                node
+                                {
+                                  id
+                                  name
+                                  
+                                }
+                              } 
+                            }
+                            prices (includeTax:true){
+                              price {
+                                ...MoneyFields
+                              }
+                              salePrice {
+                                ...MoneyFields
+                              }
+                              retailPrice {
+                                ...MoneyFields
+                              }
+                            }
+                          }
+                        }
+                      }
+    
+                      fragment MoneyFields on Money {
+                        value
+                        currencyCode
+                      }`;
+        axios({
+          url: '/graphql',
+          method: 'post',
+          contentType: "application/json",
+          headers: {
+            'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+          },
+          data: {
+            query: query
+          }
+        }).then((result) => {
+          var alldata = result.data.data.site.product;
+          if (alldata != null) {
+            p_id = alldata.entityId;
+
+            p_name = alldata.name;
+            if (alldata.prices.retailPrice != null) {
+              mrp = alldata.prices.retailPrice.value;
+            }
+            if (alldata.prices.salePrice != null) {
+              discounted_price = alldata.prices.salePrice.value;
+            } else {
+              discounted_price = 0;
+            }
+
+            var category = alldata.categories.edges;
+            var category_ID = [];
+            var category_NAME = [];
+            category.forEach(function (value, index) {
+
+              category_ID.push(value.node.id);
+              category_NAME.push(value.node.name);
+
+            })
+            var categories = {
+              category_ID,
+              category_NAME
+            };
+            var category_id = '';
+            var category_name = '';
+            category.forEach(function (value, index) {
+              if (category_id == '' && category_name == '') {
+                var cat_id = value.node.id;
+                var splited_url = atob(cat_id);
+                var categoryid = splited_url.split("Category:");
+                category_id = categoryid[1];
+                category_name = value.node.name
+              } else {
+                var splited_url = atob(value.node.id);
+                var categoryid = splited_url.split("Category:");
+                var catid = categoryid[1];
+                category_id = category_id + ',' + catid;
+                category_name = category_name + ',' + value.node.name;
+              }
+
+            })
+
+            webengage.track("buy now", {
+              "Product_ID": p_id,
+              "Product_Name": p_name,
+              "Category_ID": category_id,
+              "Category_Name": category_name,
+              "MRP": mrp,
+              "Discount": discount_pr,
+              "Discount_Price": discounted_price,
+              "Quantity": Quantity,
+              "Total_Item_in_cart": total_item_in_cart,
+              "Cart_value": cart_value
+            });
+
+            var productObject = {
+              "Product_ID": p_id,
+              "Product_Name": p_name,
+              "categories": categories,
+              "price": mrp,
+              "salePrice": discounted_price,
+              "Quantity": Quantity
+            };
+
+            dataLayer.push({
+              ecommerce: null
+            }); // Clear the previous ecommerce object.
+            dataLayer.push({
+              'event': 'buyNow',
+              'ecommerce': {
+                'currencyCode': 'INR',
+                'add': { // 'add' actionFieldObject measures.
+                  'products': [{ //  adding a product to a shopping cart.
+                    'name': p_name,
+                    'id': p_id,
+                    'price': discounted_price,
+                    'brand': 'Kapiva',
+                    'quantity': Quantity
+                  }]
+                }
+              }
+            });
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              buyNowProduct: productObject
+            });
+            fbq('track', 'buyNow', {
+              content_ids: p_id,
+              content_type: 'product',
+              value: discounted_price,
+              currency: 'INR',
+              quantity: Quantity
+            });
+            window.location.href = '/checkout';
+          }
+        });
+      });
+    });
+  }
+          
+</script>

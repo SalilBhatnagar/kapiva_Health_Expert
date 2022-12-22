@@ -1,0 +1,106 @@
+<section class="blog-block blog-home">
+  <div class="what-expect-flower-left">
+    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/Homepage/what-expect-flower-plant.png'}}"
+      class="img-fluid lazyload" alt="Kapiva blog image" loading="lazy" width="341px" height="426px">
+  </div>
+  <div class="container">
+    <div class="heading-wrap">
+      <h3 class="heading-homepage">Kapiva<span> blog</span></h3>
+    </div>
+    <div class="blog-Carousel glider-contain">
+      <ul class="blog-Carousel-data">
+        <li class="blog-Carousels-inner">
+          <div class="wrap is-loading">
+            <div class="image">
+              <div class="img">
+                <!-- <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/Homepage/blogimage1.webp'}}" class="img-fluid lazyload" alt=""> -->
+              </div>
+            </div>
+            <div class="body-copy">
+              <div class="tags green">Hair Care</div>
+                <div class="title">
+                  <a href="https://blog.kapiva.in/digestion/ayurvedic-remedies-for-common-digestive-issues/"
+                    class="stretched-link" target="_blank">11 Beneficial Herbs For
+                    Maintaining Healthy Liver </a>
+                </div>
+                <small>12 June 2022</small>
+            </div>
+          </div>
+        </li>
+        <li class="blog-Carousels-inner">
+          <div class="wrap is-loading">
+            <div class="image">
+              <div class="img">
+                <!-- <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/Homepage/blogimage2.webp'}}" class="img-fluid lazyload" alt=""> -->
+              </div>
+            </div>
+            <div class="body-copy">
+              <div class="tags light">Skin Care</div>
+                <div class="title">
+                  <a href="https://blog.kapiva.in/sleep/how-to-get-enough-deep-sleep/" class="stretched-link"
+                    target="_blank">How To Prevent Obesity In
+                    Children And Young Adults</a>
+                </div>
+                <small>12 June 2022</small>
+            </div>
+          </div>
+        </li>
+        <li class="blog-Carousels-inner">
+          <div class="wrap is-loading">
+            <div class="image">
+              <div class="img">
+                <!-- <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/Homepage/blogimage3.webp'}}" class="img-fluid lazyload" alt=""> -->
+              </div>
+            </div>
+            <div class="body-copy">
+              <div class="tags orange">Detox</div>
+                <div class="title">
+                  <a href="https://blog.kapiva.in/hair-care/what-to-eat-for-healthy-looking-hair/" class="stretched-link"
+                    target="_blank">Effective Home Remedies To Get Rid Of Lice Naturally</a>
+                </div>
+                <small>12 June 2022</small>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+    <div class="my-4 position-relative">
+      <div class="text-center artical-subheading">
+        <a href="https://blog.kapiva.in/" class="btn btn-underline" target="_blank">Read all articles</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  setTimeout(function () {
+    new Glider(document.querySelector('.blog-Carousel-data'), {
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 375,
+          settings: {
+            slidesToShow: '1.3',
+            slidesToScroll: '1',
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: '3',
+            slidesToScroll: '1',
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
+        }
+      ]
+    });
+  }, 4000);
+</script>

@@ -1,0 +1,142 @@
+---
+customer:
+    orders:
+        limit: 10
+---
+
+{{#partial "page"}}
+   {{!--  <h1 class="page-heading">{{lang 'account.orders.heading' }}</h1>--}}
+   <div class="top-page">
+       <p class="left-text">My account <a href="javascript:void(0)" class="fancy cancel-Order d-none">Cancel Order</a><br/>
+        <!--<span>To Cancel Order Click on Chat now Bubble at Bottom</span>-->
+        <!--<span>We will be migrating your pending order history and wallet history soon to our new website for a smoother Modern Ayurvedic journey.</span></p>-->
+       <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+   </div>
+<div class="order-page"> 
+{{> components/account/navigation account_page='orders'}}
+
+<div class="account account--fixed">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    {{#if customer.store_credit.value '>' 0}}
+    <div class="account-head">
+        
+            <div class="alertBox alertBox--storeCredit">
+                {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+            </div>
+       
+    </div>
+     {{/if}}
+    <div class="account-body">
+        <section class="account-content">
+            {{#if customer.orders.length}}
+                {{> components/account/orders-list orders=customer.orders}}
+                {{> components/common/small-paginator pagination.orders}}
+            {{else}}
+                {{> components/common/alert/alert-info (lang 'account.orders.none')}}
+            {{/if}}
+          
+        </section>
+    </div>
+</div>
+</div>
+
+{{/partial}}
+{{> layout/base}}
+<div class="Kapivamodelpopup swal2-modal">
+    <div class="modalcancel">
+        <div class="modal-overlay modal-toggle"></div> 
+        <div class="modal-wrapper modal-transition">
+            <div class="modal-content">
+                
+                <p class="firstmodalpera">Sad to know that you are cancelling your orders</p>
+                <div class="modaldeta">
+                    <p class="secondmodalpera">If you can help us with the reason for cancellation:<span class="startmodalinner">*</span></p>
+                    
+ 
+<div class="modaloption">
+    <input type="radio" id="order01" class="comanradiomodal" name="cancelrsn" value="Order Placed by mistake">
+<label for="order01">Order Placed by mistake</label><br>
+<input type="radio" id="order02" class="comanradiomodal" name="cancelrsn" value="Order Placed by mistake">
+<label for="order02">Product price too high</label><br>
+<input type="radio" id="order03" class="comanradiomodal" name="cancelrsn" value="Delivery Time too high">
+ <label for="order03">Delivery Time too high</label><br>
+ <input type="radio" id="order04" class="comanradiomodal" name="cancelrsn" value="Delivery Cost too high">
+ <label for="order04">Delivery Cost too high</label><br>
+ <input type="radio" id="order05" class="comanradiomodal"  name="cancelrsn" value="Found Alternative Products at cheaper price">
+ <label for="order05">Found Alternative Products at cheaper price</label><br>
+ <input type="radio" id="order06" class="comanradiomodal" name="cancelrsn" value="Want to change Shipping Address">
+ <label for="order06">Want to change Shipping Address</label><br>
+ <input type="radio" id="order7" class="comanradiomodal" name="cancelrsn" value="Want to change Payment method">
+ <label for="order7">Want to change Payment method</label><br>
+ <input type="radio" id="order8" class="comanradiomodal" name="cancelrsn" value="Product Quality issue">
+<label for="order8">Product Quality issue</label><br>
+ <input type="radio" id="order9" class="comanradiomodal" name="cancelrsn" value="Others">
+<label for="order9">Others</label>
+ 
+</div>
+
+
+
+<div class="modaloptionnew">
+    <label for="w3review" class="kapivanew">Remark:</label>
+        <textarea id="w3review" class="getremark" name="w3review" rows="4" cols="40"></textarea>
+</div>
+
+
+                    
+                    
+                </div>
+                <div class="modalbtn">
+                    <button class="Btn_close swal2-confirm button confirmordercancel  btnconfirmclick">Confirm Cancellation</button>
+                    <button class="modal-close2 modal-toggle swal2-cancel button">Close</button>
+                </div>
+            </div>
+            <div class="modal-contentconfirm">
+                
+                <p class="firstpera">Cancellation Confirmation</p>
+                <p>Hi,
+                    Your order <span class="modalorderid"></span> has been cancelled successfully. You will receive your refund amount within 7 working days if your order is prepaid.</p>
+
+                        <p>We are sorry to know that we didn't meet your expectations for this order. We appreciate your valuable feedback.
+                        But we hope that we will see you again with new orders.</p>
+                        
+                        <p>You can find your order details in Your  Orders Page.</p>
+                        
+                <div>
+                    
+                    <button class=" modal-toggle swal2-cancel button modalokconfirm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<script>
+    document.querySelectorAll('.cancel-Order').forEach(item => {
+      item.addEventListener('click', function (value, index) {
+    
+        document.querySelectorAll(".woot--bubble-holder.woot-elements--right")[0].click();
+    })
+});
+document.addEventListener('DOMContentLoaded', () => {
+       
+        var setinterval = setInterval(function(){
+            var length = document.querySelectorAll(".woot--bubble-holder.woot-elements--right").length;
+            if(length > 0){
+                clearInterval(setinterval);
+                 var len = document.querySelectorAll(".account-listItem").length;
+              if(len > 0){
+                document.querySelectorAll(".cancel-Order")[0].classList.remove("d-none");
+              }
+                 
+            }
+            setTimeout(function(){
+               clearInterval(setinterval); 
+            },12000);
+        },500);
+    })
+     if(document.querySelectorAll(".alertBox.alertBox--storeCredit strong").length > 0){
+    var credit = document.querySelectorAll(".alertBox.alertBox--storeCredit strong")[0].innerHTML;
+    var editcredit = credit.replace("₹", "");
+    document.querySelectorAll(".alertBox.alertBox--storeCredit strong")[0].innerHTML = editcredit;
+}
+</script>

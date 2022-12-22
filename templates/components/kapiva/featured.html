@@ -1,0 +1,31 @@
+<h2 class="page-heading text-center">{{lang 'products.featured' }}</h2>
+<div class="product-space">
+<ul class="owl-carousel owl-theme productCarousel" data-product-type="featured" {{#if settings.data_tag_enabled}} data-list-name="Featured Products" {{/if}}>
+    {{#each products}}
+        <li class="productCarousel-slide" data-product-slide>
+                {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+        </li>
+    {{/each}}
+</ul>
+</div>
+<script>
+    $(document).ready(function () {
+      $('.featured-section .owl-carousel').owlCarousel({
+            items:3,
+            loop:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                550:{
+                    items:2
+                },
+                960:{
+                    items:3
+                }
+            }
+        });
+    });
+         
+</script>

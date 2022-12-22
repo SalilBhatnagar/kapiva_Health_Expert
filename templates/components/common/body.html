@@ -1,0 +1,9 @@
+<main class="body {{page_type}}-body columns {{page.title}}_page" id="main-content" role="main" data-currency-code="{{currency_selector.active_currency_code}}">
+    {{#block "hero"}} {{/block}}
+    <div class="container">
+        {{#block "page"}} {{/block}}
+    </div>
+    {{#block "bottom-full"}} {{/block}}
+    {{> components/common/modal/modal}}
+    {{> components/common/alert/alert-modal}}
+</main>

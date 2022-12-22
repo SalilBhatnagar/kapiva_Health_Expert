@@ -1,0 +1,1453 @@
+<div class="previewCartWrapper">
+    <div class="previewCart">
+        <div class="previewCart_hd">
+            <h3>YOUR CART </h3>
+            <button class="modal-close" type="button" title="Close" data-previewCart-close onclick="closeModelClose()">
+                <span class="aria-description--hidden">Close</span>
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="previewCart_outer">
+            <div class="previewCart_body">
+                {{#if cart.items.length}}
+                <div class="previewCart_detail">
+                    <ul class="previewCartList">
+                        {{#each (limit cart.items 100)}}
+                        <li class="previewCartItem" data-item-row data-cart-itemid="{{id}}" product_id="{{product_id}}">
+                            <div class="previewCartItem-image">
+                                {{#if type '==' 'GiftCertificate'}}
+                                <img alt="GiftCertificate" title="GiftCertificate"
+                                    src="{{cdn ../theme_settings.default_image_gift_certificate}}">
+                                {{else}}
+                                {{> components/common/responsive-img
+                                image=image
+                                fallback_size=../theme_settings.productthumb_size
+                                lazyload=../theme_settings.lazyload_mode
+                                default_image=../theme_settings.default_image_product
+                                }}
+                                {{/if}}
+                            </div>
+                            <div class="previewCartItem-content">
+                                <span class="previewCartItem-brand is-srOnly">
+                                    {{brand.name}}
+                                </span>
+
+                                <h6 class="previewCartItem-name">
+                                    <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                                    {{#or can_modify (if type '==' 'GiftCertificate')}}
+                                    <button class="cart-remove icon" data-cart-itemid="{{id}}"
+                                        data-confirm-delete="{{lang 'cart.confirm_delete'}}"
+                                        aria-label="{{lang 'cart.remove_item' name=name}}">
+                                        <svg class="removeitem" data-cart-itemid="{{id}}" quantity="{{quantity}}"
+                                            productid="{{product_id}}" sku = "{{sku}}" product_price ={{price.formatted}}>
+                                            <use xlink:href="#icon-close"></use>
+                                        </svg>
+                                    </button>
+                                    {{/or}}
+                                </h6>
+                                <div class="cart-detail-box">
+                                    <div class="form-increment">
+                                        {{#if can_modify}}
+                                        <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}"
+                                            data-action="dec">
+                                            <span class="is-srOnly" name="{{name}}">{{lang 'products.quantity_decrease'
+                                                name=name}}</span>
+                                            <i class="icon" aria-hidden="true"><svg class="iconremove"
+                                                    data-cart-itemid="{{id}}" productid="{{product_id}}"
+                                                    price="{{price.formatted}}" quantity="{{quantity}}" sku = "{{sku}}">
+                                                    <use xlink:href="#icon-remove" />
+                                                </svg></i>
+                                        </button>
+                                        {{/if}}
+                                        <input class="form-input form-input--incrementTotal cart-item-qty-input"
+                                            id="qty-{{id}}" name="qty-{{id}}" type="tel" value="{{quantity}}"
+                                            data-quantity-min="{{min_purchase_quantity}}"
+                                            data-quantity-max="{{max_purchase_quantity}}"
+                                            data-quantity-min-error="{{lang 'products.quantity_min' quantity=min_purchase_quantity}}"
+                                            data-quantity-max-error="{{lang 'products.quantity_max' quantity=max_purchase_quantity}}"
+                                            min="1" productid="{{product_id}}" pattern="[0-9]*"
+                                            data-cart-itemid="{{id}}" data-action="manualQtyChange"
+                                            aria-label="{{name}}" aria-live="polite" {{#unless can_modify}}
+                                            disabled{{/unless}}>
+                                        {{#if can_modify}}
+                                        <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}"
+                                            data-action="inc">
+                                            <span class="is-srOnly">{{lang 'products.quantity_increase'
+                                                name=name}}</span>
+                                            <i class="icon" aria-hidden="true"><svg class="addicon"
+                                                    productid="{{product_id}}" price="{{price.formatted}}"
+                                                    currency="{{symbol}}" data-cart-itemid="{{id}}"
+                                                    quantity="{{quantity}}"
+                                                    sku="{{sku}}"
+                                                    product-name="{{name}}">
+                                                    <use xlink:href="#icon-add" />
+                                                </svg></i>
+                                        </button>
+                                        {{/if}}
+                                    </div>
+                                    <span class="previewCartItem-price">
+                                        {{#if quantity '>' 1}}
+                                        {{quantity}} &times;
+                                        {{/if}}
+                                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                        <span{{#if price_discounted}} class="price--discounted" {{/if}}>
+                                            {{price.formatted}}
+                                    </span>
+                                    {{#if price_discounted}}
+                                    {{price_discounted.formatted}}
+                                    {{/if}}
+                                    {{else}}
+                                    {{> components/common/login-for-pricing}}
+                                    {{/or}}
+                                    </span>
+                                </div>
+
+                                {{#if options}}
+                                <dl class="definitionList">
+                                    {{#each options}}
+                                    <dt class="definitionList-key">{{name}}:</dt>
+                                    <dd class="definitionList-value">
+                                        {{#if is_file}}
+                                        <a href="/viewfile.php?attributeId={{id}}&cartitem={{../id}}">{{value}}</a>
+                                        {{else}}
+                                        {{{ sanitize value}}}
+                                        {{/if}}
+                                    </dd>
+                                    {{/each}}
+                                </dl>
+
+                                {{/if}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+
+                    <!--<div class="sample_products">-->
+                    <!--    <select class="freeSample">-->
+                    <!--        <option value="">Choose free sample</option>-->
+                    <!--        <option value="483">Aloe Vera Juice Sample</option>-->
+                    <!--        <option value="484">Amla Juice Sample</option>-->
+                    <!--    </select>-->
+                    <!--</div>-->
+                </div>
+
+                <div class="previewCartAction_wrap">
+                    <div class="action_top">
+                        <div class="box">{{lang 'cart.checkout.subtotal'}}</div>
+                        <div class="box subtotal">
+                            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                            <span>{{cart.sub_total.formatted}}</span>
+                            {{else}}
+                            {{> components/common/login-for-pricing}}
+                            {{/or}}
+                        </div>
+                    </div>
+                    <div class="action_btm">
+                        <div class="previewCartAction">
+                            {{#if cart.show_primary_checkout_button}}
+                            <div class="previewCartAction-checkout">
+                                <a href="{{urls.checkout.single_address}}" class="button button--small button--primary">
+                                    Checkout
+                                </a>
+                            </div>
+                            {{/if}}
+
+                            <div
+                                class="previewCartAction-viewCart{{#unless cart.show_primary_checkout_button}} previewCartAction-viewCart--sole{{/unless}}">
+                                <a href="{{urls.cart}}" class="button button--small button--action">
+                                    {{lang 'cart.preview.view_cart'}}
+                                </a>
+                            </div>
+
+                            {{#if cart.show_multiple_address_shipping}}
+                            <div class="previewCartAction-checkoutMultiple">
+                                <a href="{{urls.checkout.multiple_address}}">
+                                    {{lang 'cart.preview.checkout_multiple'}}
+                                </a>
+                            </div>
+                            {{/if}}
+                        </div>
+                        {{#if cart.additional_checkout_buttons}}
+                        <div class="previewCart-additionalCheckoutButtons">
+                            {{#each cart.additional_checkout_buttons}}
+                            {{{this}}}
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                {{else}}
+                <div role="alert" aria-live="polite" aria-atomic="false" class="previewCart-emptyBody">
+                    <div>{{lang 'cart.checkout.empty_cart'}}.<br />
+                        Fill it with our products.</div>
+                    <a href="/" class="btn_custom">Shop now</a>
+                </div>
+                {{/if}}
+                {{> components/kapiva/cart-bestseller }}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var checkedfree = 0;
+
+    fetch('/api/storefront/carts?include=',
+        {
+            'credentials': 'include',
+            'headers': {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(function (response) {
+            response.json().then(function (data) {
+                var cartItems = [];
+                var gaCartItems = [];
+                if (data.length != 0) {
+                    var cartid = data[0]['id'];
+
+                    localStorage.removeItem("cart-id");
+                    localStorage.setItem("cart-id", cartid);
+                    var getid = data[0]['lineItems']['physicalItems'];
+                    var data1 = JSON.stringify(data, null, 3);
+                    var quantity = '';
+                    getid.forEach(function (value, key) {
+
+                        var pid = value.productId;
+                        var qty = value.quantity;
+
+                        if (quantity == '') {
+                            quantity = qty;
+                        } else {
+                            quantity = parseInt(quantity) + qty;
+                        }
+                        ////////////////////Updated:Code Start GTM Code//////////////
+                        var cartItemsObject = {
+                            "id": value.productId,
+                            // "Product_Name": value.name,
+                            "quantity": value.quantity,
+                            "sku": value.sku
+                        };
+
+                        var gaCartItemsObject =
+
+                        {
+                            item_id: value.sku,
+                            item_name: value.name,
+                            currency: "INR",
+                            discount: (value.originalPrice - value.salePrice) * value.quantity,
+
+                            item_brand: "Kapiva",
+                            price: value.salePrice * value.quantity,
+                            quantity: value.quantity
+                        }
+                        cartItems.push(cartItemsObject);
+                        gaCartItems.push(gaCartItemsObject);
+                        ////////////////////Updated:Code End GTM Code//////////////
+
+                        document.querySelectorAll('.previewCartItem').forEach(item => {
+
+                            var pid = item.getAttribute("product_id")
+
+                            document.querySelectorAll("body .bs_addtocart").forEach(addtocart => {
+                                var id = addtocart.getAttribute("product_id");
+
+                                if (pid == id) {
+                                    addtocart.classList.add("added");
+                                }
+                            })
+
+                        });
+                    });
+                    document.querySelectorAll(".cart-quantity")[0].textContent = quantity;
+                    ////////////////////Updated:Code End GTM Code//////////////
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+
+                        'cartItems': cartItems
+                    });
+
+                    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+                    dataLayer.push({
+                        event: "view_cart",
+                        ecommerce: {
+                            currency: "INR",
+                            value: data[0]['cartAmount'],
+                            items: gaCartItems
+
+
+                        }
+                    });
+                    ////////////////////Updated:Code End GTM Code//////////////
+                }
+            });
+        });
+
+    var theRandomNumber = sessionStorage.getItem("randomnumber");
+    if (!theRandomNumber) {
+        var theRandomNumber = Math.floor(Math.random() * 3) + 1;
+        sessionStorage.setItem("randomnumber", theRandomNumber);
+    }
+    document.querySelectorAll("body .bs_addtocart").forEach(addtocart => {
+        var data = addtocart.parentElement.parentElement.parentElement.getAttribute("value");
+
+        if (data == theRandomNumber) {
+            addtocart.parentElement.parentElement.parentElement.style.display = "";
+            var id = addtocart.getAttribute("product_id");
+            addtocart.classList.add("cartp_" + id);
+            var query = `query productById{
+            site {
+                product(entityId: `+ id + `) {
+                inventory{
+                aggregated{
+                    availableToSell
+                }
+                }
+                }
+            }
+            }`;
+            axios({
+                url: '/graphql',
+                method: 'post',
+                contentType: "application/json",
+                headers: {
+                    'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                },
+                data: {
+                    query: query
+                }
+            }).then((result) => {
+                var alldata = result.data.data.site.product;
+
+                if (alldata != null) {
+                    if (alldata.inventory.aggregated != null)
+                        var pro_stock = alldata.inventory.aggregated.availableToSell;
+                    if (pro_stock == 0) {
+                        document.querySelectorAll(".cartp_" + id)[0].classList.add("disabled");
+
+                        var old_element = document.getElementsByClassName("cartp_" + id)[0];
+                        var new_element = old_element.cloneNode(true);
+                        old_element.parentNode.replaceChild(new_element, old_element);
+                        var bscartoutofstock = document.getElementsByClassName("cartp_" + id);
+                        bscartoutofstock[0].innerHTML = '<a href="javascript:void(0);" class="btn_custom button button--primary" disabled="disabled">Out of stock</a>';
+
+                    }
+                }
+            });
+        }
+    });
+
+    document.querySelectorAll('svg.removeitem').forEach(item => {
+        item.addEventListener('click', function (value, index) {
+
+            var count = document.querySelectorAll(".cart-quantity")[0].textContent;
+            var qty = this.getAttribute("quantity");
+            var product_id = this.getAttribute("productid");
+            var product_sku = this.getAttribute("sku");
+            var product_price = this.getAttribute("product_price");
+            var name = this.parentElement.parentElement.querySelector("a").textContent.trim();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'itemRemovedFromCartComplete',
+                'removedFromCartProductName': name
+            });
+
+            //////////////////////////////Updated:Code Start GTM Code////////////////////////////////////
+            dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+            dataLayer.push({
+                event: "remove_from_cart",
+                ecommerce: {
+                    items: [
+                        {
+                            item_id: product_sku,
+                            item_name: name,
+                            currency: "INR",
+                            item_brand: "Kapiva",
+                            price: product_price.replace(/\D+/g, ''),
+                            quantity: qty
+                        }
+                    ]
+                }
+            });
+            //////////////////////////////Updated:Code End GTM Code////////////////////////////////////
+            if (count != 0) {
+                var val = parseInt(count) - parseInt(qty);
+
+                document.querySelectorAll(".cart-quantity")[0].textContent = val;
+                if (val == 0) {
+                    document.querySelectorAll(".subtotal span")[0].textContent = "₹0.00";
+                }
+                document.querySelectorAll("body .bs_addtocart").forEach(removecart => {
+                    var id = removecart.getAttribute("product_id");
+                    if (product_id == id) {
+                        removecart.classList.remove("added");
+                    }
+                })
+
+            }
+
+            var dataid = this.getAttribute("data-cart-itemid");
+            var cartId = localStorage.getItem("cart-id");
+
+            this.parentElement.parentElement.parentElement.parentElement.remove();
+
+            setTimeout(function () {
+                if (document.querySelectorAll("svg.removeitem").length == 0) {
+
+                    document.querySelectorAll(".cart-quantity")[0].textContent = 0;
+                    document.getElementById("cart-preview-dropdown").classList.remove("is-open");
+                    document.getElementById("cart-preview-dropdown").classList.remove("f-open-dropdown");
+                }
+            }, 1000);
+
+            return fetch('/api/storefront/carts/' + cartId + '/items/' + dataid, {
+                method: "DELETE",
+                credentials: "same-origin",
+                headers: { "Content-Type": "application/json" }
+
+            }).then(function (response) {
+                response.json().then(function (data) {
+                    var prc = data['cartAmount'];
+                    var finalprice = new Intl.NumberFormat('en-IN', {
+                        style: 'currency',
+                        currency: 'INR'
+                    }).format(prc);
+                    document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+                });
+                let selector = document.querySelectorAll("article.card[data-product-id='" + product_id + "']");
+                let searchSelector = document.querySelectorAll(".wizzy-result-product[data-id='" + product_id + "']");
+
+                if (selector.length > 0) {
+
+                    selector[0].querySelectorAll(".fillCount_" + product_id)[0].textContent = '';
+                    selector[0].querySelectorAll(".ProductWhislistWrap")[0].classList.remove("fill-Prod-add-to-cart");
+                    selector[0].querySelectorAll(".fillCount_" + product_id)[0].classList.remove("fill-count");
+                }
+                if (searchSelector.length > 0) {
+
+                    searchSelector[0].querySelectorAll(".fillCount_" + product_id)[0].textContent = '';
+                    searchSelector[0].querySelectorAll(".searchAddtoCart ")[0].classList.remove("addedtocardkapiva");
+                    searchSelector[0].querySelectorAll(".fillCount_" + product_id)[0].classList.remove("fill-count");
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('svg.addicon').forEach(addicon => {
+        addicon.addEventListener('click', function (value, index) {
+
+            var id = this.getAttribute("data-cart-itemid");
+
+            var dataid = this.getAttribute("productid");
+            var cartId = localStorage.getItem("cart-id");
+            var count = this.getAttribute("quantity");
+            var quantity = parseInt(count) + 1;
+            var price = this.getAttribute("price");
+            var product_sku = this.getAttribute("sku");
+            var product_name = this.getAttribute("product-name");
+          //  var name = this.parentElement.parentElement.querySelector(".is-srOnly").getAttribute("name").trim();
+            if (count >= 1) {
+                var val = parseInt(count) + 1;
+                this.setAttribute("quantity", val);
+                this.parentElement.parentElement.parentElement.querySelectorAll(".icon .iconremove")[0].setAttribute("quantity", val);
+                this.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = val + "×" + price;
+                this.parentElement.parentElement.parentElement.querySelectorAll(".cart-item-qty-input")[0].value = val;
+            }
+            var cnt = document.querySelectorAll(".cart-quantity")[0].textContent;
+            document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(cnt) + 1;
+            var subtotal = document.querySelectorAll(".subtotal span")[0].textContent;
+            var price1 = price.split("₹");
+            var price2 = price1[1].split(".");
+            var price3 = price2[0].replace(",", "");
+            var sub = subtotal.split("₹");
+            var spl = sub[1].split(".");
+            var spl2 = spl[0].replace(",", "");
+            var total = parseInt(spl2) + parseInt(price3);
+            var finalprice = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR'
+            }).format(total);
+            document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+            var data = {};
+            data.id = id;
+            data.quantity = quantity;
+
+            var items = [data];
+
+            var items = [{
+                id: items[0]['id'],
+                quantity: items[0]['quantity']
+            }];
+
+  //////////////////////////////Updated:Code Start GTM Code////////////////////////////////////
+  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+            dataLayer.push({
+                event: "add_to_cart",
+                ecommerce: {
+                    items: [
+                        {
+                            item_id: product_sku,
+                            item_name: product_name,
+                            currency: "INR",
+                            item_brand: "Kapiva",
+                            price: price.replace(/\D+/g, ''),
+                            quantity: 1
+                        }
+                    ]
+                }
+            });
+            //////////////////////////////Updated:Code End GTM Code////////////////////////////////////
+
+            axios({
+                url: '/remote/v1/cart/update',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    action: 'update-qty', "items": items
+                },
+
+            }).then((result) => { });
+            let selector = document.querySelectorAll("article.card[data-product-id='" + dataid + "']");
+            let searchSelector = document.querySelectorAll(".wizzy-result-product[data-id='" + dataid + "']");
+            if (selector.length > 0) {
+                selector[0].querySelectorAll(".fillCount_" + dataid)[0].textContent = parseInt(count) + 1;
+            }
+            if (searchSelector.length > 0) {
+                searchSelector[0].querySelectorAll(".fillCount_" + dataid)[0].textContent = parseInt(count) + 1;
+            }
+        });
+
+    });
+
+    document.querySelectorAll('svg.iconremove').forEach(iconremove => {
+        iconremove.addEventListener('click', function (value, index) {
+
+            var id = this.getAttribute("data-cart-itemid");
+            var cartId = localStorage.getItem("cart-id");
+            var count = this.getAttribute("quantity");
+            var price = this.getAttribute("price");
+            var product_id = this.getAttribute("productid");
+            var quantity = parseInt(count) - 1;
+            var product_sku = this.getAttribute("sku");
+            var name = this.parentElement.parentElement.querySelector(".is-srOnly").getAttribute("name").trim();
+            document.querySelectorAll("body .bs_addtocart").forEach(removecart => {
+                var id = removecart.getAttribute("product_id");
+                if (product_id == id) {
+                    removecart.classList.remove("added");
+                }
+            })
+
+            var data = {};
+            data.id = id;
+            data.quantity = quantity;
+
+            var items = [data];
+
+            var val = parseInt(count) - 1;
+
+
+            this.setAttribute("quantity", val);
+            this.parentElement.parentElement.parentElement.querySelectorAll(".button .icon .addicon")[0].setAttribute("quantity", val);
+            if (val == 1) {
+                this.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = price;
+            } else {
+                this.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = val + "×" + price;
+            }
+            this.parentElement.parentElement.parentElement.querySelectorAll(".cart-item-qty-input")[0].value = val;
+            setTimeout(function () {
+                if (document.querySelectorAll("svg.removeitem").length == 0) {
+                    document.querySelectorAll(".cart-quantity")[0].textContent = 0;
+                    document.querySelectorAll("#cart-preview-dropdown")[0].classList.remove("is-open");
+                    document.querySelectorAll("#cart-preview-dropdown")[0].classList.remove("f-open-dropdown");
+                }
+            }, 1000);
+            var subtotal = document.querySelectorAll(".subtotal span")[0].textContent;
+            var price1 = price.split("₹");
+            var price2 = price1[1].split(".");
+            var price3 = price2[0].replace(",", "");
+            var sub = subtotal.split("₹");
+            var spl = sub[1].split(".");
+            var spl2 = spl[0].replace(",", "");
+            var total = parseInt(spl2) - parseInt(price3);
+            var finalprice = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR'
+            }).format(total);
+            document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+            var cnt = document.querySelectorAll(".cart-quantity")[0].textContent;
+            document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(cnt) - 1;
+
+            var items = [{
+                id: items[0]['id'],
+                quantity: items[0]['quantity']
+            }];
+
+            if (val == 0) {
+                this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'itemRemovedFromCartComplete',
+                    'removedFromCartProductName': name
+                });
+            }
+
+            
+            //////////////////////////////Updated:Code Start GTM Code////////////////////////////////////
+            dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+            dataLayer.push({
+                event: "remove_from_cart",
+                ecommerce: {
+                    items: [
+                        {
+                            item_id: product_sku,
+                            item_name: name,
+                            currency: "INR",
+                            item_brand: "Kapiva",
+                            price: price.replace(/\D+/g, ''),
+                            quantity: 1
+                        }
+                    ]
+                }
+            });
+            //////////////////////////////Updated:Code End GTM Code////////////////////////////////////
+
+
+            axios({
+                url: '/remote/v1/cart/update',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    action: 'update-qty', "items": items
+                },
+
+            }).then((result) => {
+                let selector = document.querySelectorAll("article.card[data-product-id='" + product_id + "']");
+                let searchSelector = document.querySelectorAll(".wizzy-result-product[data-id='" + product_id + "']");
+
+                if (selector.length > 0) {
+                    if (quantity > 0) {
+                        selector[0].querySelectorAll(".fillCount_" + product_id)[0].textContent = quantity;
+                    } else {
+                        selector[0].querySelectorAll(".fillCount_" + product_id)[0].textContent = '';
+                        selector[0].querySelectorAll(".ProductWhislistWrap")[0].classList.remove("fill-Prod-add-to-cart");
+                        selector[0].querySelectorAll(".fillCount_" + product_id)[0].classList.remove("fill-count");
+                    }
+                }
+                if (searchSelector.length > 0) {
+                    if (quantity > 0) {
+                        searchSelector[0].querySelectorAll(".fillCount_" + product_id)[0].textContent = quantity;
+                    } else {
+                        searchSelector[0].querySelectorAll(".fillCount_" + product_id)[0].textContent = '';
+                        searchSelector[0].querySelectorAll(".searchAddtoCart ")[0].classList.remove("addedtocardkapiva");
+                        searchSelector[0].querySelectorAll(".fillCount_" + product_id)[0].classList.remove("fill-count");
+                    }
+                }
+            });
+
+
+
+            var ttl = document.querySelectorAll(".cart-quantity")[0].textContent;
+
+        })
+    })
+
+    document.querySelectorAll('.bs_addtocart').forEach(bsaddtocart => {
+        bsaddtocart.addEventListener('click', function (event) {
+            event.preventDefault();
+            var thisdata = this;
+            this.querySelectorAll(".bs_buttonAddtocart")[0].classList.add("sendloadingaddtocart")
+            var pro_id = this.getAttribute("product_id");
+
+            if (this.classList.contains("added")) {
+                fetch('/api/storefront/carts?productId=' + pro_id,
+                    {
+                        'credentials': 'include',
+                        'headers': {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(function (response) {
+                        response.json().then(function (data) {
+
+                            var getdata = data[0]['lineItems']['physicalItems'];
+                            var totalitems = '';
+                            getdata.forEach(function (value, key) {
+                                if (totalitems == '') {
+                                    totalitems = value.quantity;
+                                } else {
+                                    totalitems += value.quantity;
+                                }
+                                var pid = value.productId;
+
+                                if (pro_id == pid) {
+                                    var formData = new FormData();
+                                    formData.append("action", "add");
+                                    formData.append("product_id", pro_id);
+                                    formData.append("qty", 1);
+
+                                    let selector = document.querySelectorAll("div.bs_addtocart[product_id='" + pro_id + "']")[0];
+                                    if (selector != undefined) {
+                                        let dataAttributes = selector.getAttribute("data-attr-option");
+
+                                        if (dataAttributes != undefined) {
+                                            let arr = JSON.parse(dataAttributes);
+                                            var result = Object.entries(arr);
+
+                                            result.forEach(function (value, key) {
+
+                                                formData.append("attribute[" + value[0] + "]", value[1]);
+                                            })
+                                        }
+                                    }
+                                    axios({
+                                        url: '/remote/v1/cart/add',
+                                        method: 'post',
+                                        dataType: 'json',
+                                        data: formData
+                                    }).then((response) => {
+                                        var count = 0;
+
+                                        document.querySelectorAll('svg.addicon').forEach(item => {
+
+                                            var add = item.getAttribute("quantity");
+
+                                            if (item.getAttribute("productid") == pro_id) {
+
+                                                var count = item.getAttribute("quantity");
+                                                var price = item.getAttribute("price");
+                                                var price1 = price.split("₹");
+
+                                                if (price1[1] == undefined) {
+                                                    price1[1] = price1[0]
+                                                }
+
+                                                var subtotal = document.querySelectorAll(".subtotal span")[0].textContent;
+                                                var sub = subtotal.split("₹");
+                                                var spl = sub[1].split(".");
+                                                var spl2 = spl[0].replace(",", "");
+                                                var total = parseInt(spl2) + parseInt(price1[1]);
+
+                                                var finalprice = new Intl.NumberFormat('en-IN', {
+                                                    style: 'currency',
+                                                    currency: 'INR'
+                                                }).format(total);
+                                                document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+                                                if (count >= 1) {
+                                                    var val = parseInt(count) + 1;
+                                                    item.setAttribute("quantity", val);
+
+                                                    item.parentElement.parentElement.parentElement.querySelectorAll(".icon .iconremove")[0].setAttribute("quantity", val);
+                                                    item.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = val + "×" + price;
+                                                    item.parentElement.parentElement.parentElement.querySelectorAll(".cart-item-qty-input")[0].value = val;
+                                                }
+
+                                            }
+                                        });
+                                        var cnt = document.querySelectorAll(".cart-quantity")[0].textContent;
+                                        document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(cnt) + 1;
+                                    });
+                                    //gtm addtocart
+                                    var productObject = {
+                                        "Product_ID": value.productId,
+                                        "Product_Name": value.name,
+                                        "price": value.listPrice,
+                                        "salePrice": value.salePrice,
+                                        "Quantity": value.quantity,
+
+                                    };
+                                    window.dataLayer = window.dataLayer || [];
+                                    window.dataLayer.push({ event: 'addToCart', productObject });
+
+                                    window.dataLayer.push({
+                                        'event': 'sideBarAddToCartButtonClick'
+                                    });
+
+                                       //////////////////////////////////////////Updated:Code Start GTM Code////////////////////////////////////////////////
+                                       dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+                                        dataLayer.push({
+                                            'event': 'add_to_cart1',
+                                            'ecommerce': {
+
+                                                'items': {                                // 'add' actionFieldObject measures.
+                                                    'products': [{                        //  adding a product to a shopping cart.
+                                                        'item_name': value.name,
+                                                        'item_id': value.sku,
+                                                        'discount': value.originalPrice - value.salePrice,
+                                                        'currency': 'INR',
+                                                        'price': value.listPrice,
+                                                        'item_brand': 'Kapiva',
+                                                        'quantity': value.quantity
+                                                    }]
+                                                }
+                                            }
+                                        });
+                                        ///////////////////////////////////////Updated:Code End GTM Code//////////////////////////////////////////////////
+
+
+                                }
+
+                            });
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push({
+                                'numberOfItemsInCart': totalitems
+                            });
+                        });
+                    });
+            } else {
+                this.classList.add("added");
+                var pro_id = this.getAttribute("product_id");
+
+                var formData = new FormData();
+                formData.append("action", "add");
+                formData.append("product_id", pro_id);
+                formData.append("qty", 1);
+
+                let selector = document.querySelectorAll("div.bs_addtocart[product_id='" + pro_id + "']")[0];
+                if (selector != undefined) {
+                    let dataAttributes = selector.getAttribute("data-attr-option");
+
+                    if (dataAttributes != undefined) {
+                        let arr = JSON.parse(dataAttributes);
+                        var result = Object.entries(arr);
+
+                        result.forEach(function (value, key) {
+
+                            formData.append("attribute[" + value[0] + "]", value[1]);
+                        })
+                    }
+                }
+                axios({
+                    url: '/remote/v1/cart/add',
+                    method: 'post',
+                    dataType: 'json',
+                    data: formData
+                }).then((response) => {
+
+                    fetch('/api/storefront/carts?include=lineItems.physicalItems.options',
+                        {
+                            'credentials': 'include',
+                            'headers': {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(function (response) {
+                            response.json().then(function (data) {
+
+
+                                if (data[0]['cartAmount'] != undefined) {
+                                    var total1 = data[0]['cartAmount'];
+
+                                    var finalprice = new Intl.NumberFormat('en-IN', {
+                                        style: 'currency',
+                                        currency: 'INR'
+                                    }).format(total1);
+                                  
+
+                                }
+
+                                var getdata = data[0]['lineItems']['physicalItems'];
+
+                                var html = '';
+                                var totalitems = '';
+                                getdata.forEach(function (value, key) {
+                                    var dataid = value.id;
+
+                                    var options = value.options;
+                                    var pid = value.productId;
+                                    if (pid == pro_id) {
+
+                                        var len = document.querySelectorAll(".previewCartList").length;
+                                        if (len == 0) {
+                                            html += '<div class="previewCart_detail">'
+                                            html += '<ul class="previewCartList">'
+                                            html += '<li class="previewCartItem removeproductdata" data-item-row data-cart-itemid="' + value.id + '" product_id="' + value.productId + '">'
+                                            html += '<div class="previewCartItem-image">'
+                                            html += '<img src="' + value.imageUrl + '" alt="' + value.name + '" title="' + value.name + '" data-sizes="auto" srcset="' + value.imageUrl + '"'
+                                            html += 'data-srcset=' + value.imageUrl + '" class="lazyautosizes ls-is-cached lazyloaded" sizes="114px">'
+                                            html += '</div>'
+                                            html += '<div class="previewCartItem-content">'
+                                            html += '<span class="previewCartItem-brand">'
+                                            html += '</span>'
+                                            html += '<h6 class="previewCartItem-name">'
+                                            html += '<a href="' + value.url + '" alt="' + value.name + '" title="' + value.name + '">' + value.name + '</a>'
+                                            html += '<button class="cart-remove icon" data-cart-itemid="" data-confirm-delete="Are you sure you want to delete this item?"aria-label="Remove'
+                                            html += '' + value.name + '">'
+                                            html += '<svg class="removeitem remove_' + value.productId + '" data-cart-itemid="' + value.id + '" quantity="' + value.quantity + '" onclick="removeproduct(\'' + value.id + '\',' + value.quantity + ',' + value.productId + ',' + value.salePrice + ')"><use xlink:href="#icon-close"></use></svg>'
+                                            html += '</button>'
+                                            html += '</h6>'
+                                            html += '<div class="cart-detail-box">'
+                                            html += '<div class="form-increment">'
+                                            html += '<button class="button button--icon" data-cart-update="" data-cart-itemid="' + value.id + '" data-action="dec">'
+                                            html += '<span class="is-srOnly">Decrease Quantity of ' + value.name + ')</span>'
+                                            html += '<i class="icon" aria-hidden="true"><svg class="iconremove minuscount_' + value.productId + '"" data-cart-itemid="' + value.id + '" productid="' + value.productId + '" price="' + value.salePrice + '" quantity="' + value.quantity + '" onclick="minuscount(\'' + value.id + '\',' + value.productId + ')"><use xlink:href="#icon-remove"></use></svg></i>'
+                                            html += '</button>'
+                                            html += '<input class="form-input form-input--incrementTotal cart-item-qty-input" id="' + value.id + '" name="qty-6928fe15-da84-446e--58a90ec15a82"'
+                                            html += 'type="tel" value="1" data-quantity-min="" data-quantity-max="" data-quantity-min-error="The minimum purchasable quantity is null"'
+                                            html += 'data-quantity-max-error="The maximum purchasable quantity is null" min="1" pattern="[0-9]*" data-cart-itemid="' + value.id + '"'
+                                            html += 'data-action ="manualQtyChange" aria-label="' + value.name + '" aria-live="polite">'
+                                            html += '<button class="button button--icon" data-cart-update="" data-cart-itemid="' + value.id + '" data-action="inc">'
+                                            html += '<span class="is-srOnly">Increase Quantity of ' + value.name + '</span>'
+                                            html += '<i class="icon" aria-hidden="true"><svg class="addicon pluscount_' + value.productId + '" productid="' + value.productId + '" price="' + value.salePrice + '" quantity="' + value.quantity + '" data-cart-itemid="' + value.id + '" onclick="pluscount(' + value.productId + ',\'' + value.id + '\',' + value.quantity + ')"><svg><use xlink:href="#icon-add"></use></svg></svg></i>'
+                                            html += '</button>'
+                                            html += '</div>'
+                                            html += '<span class="previewCartItem-price">'
+                                            html += '<span>₹' + value.salePrice + '</span>'
+                                            html += '</span>'
+                                            html += '</div>'
+                                            if (options.length > 0) {
+                                                html += '<dl class="definitionList">'
+                                                options.forEach(function (option, key) {
+                                                    html += '<dt class="definitionList-key">' + option.name + '</dt>'
+                                                    html += '<dd class="definitionList-value">' + option.value + '</dd>'
+                                                });
+                                                html += '</dl>'
+                                            };
+                                            html += '</div>'
+                                            html += '</li>'
+                                            html += '</ul>'
+                                            html += '</div>'
+                                            html += '<div class="previewCartAction_wrap">'
+                                            html += '<div class="action_top">'
+                                            html += '<div class="box">Subtotal</div>'
+                                            html += '<div class="box subtotal">'
+                                            html += '<span>₹' + value.salePrice + '</span>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '<div class="action_btm">'
+                                            html += '<div class="previewCartAction">'
+                                            html += '<div class="previewCartAction-checkout">'
+                                            html += '<a href="/checkout" class="button button--small button--primary">Checkout</a>'
+                                            html += '</div>'
+
+                                            html += '<div class="previewCartAction-viewCart">'
+                                            html += '<a href="/cart.php" class="button button--small button--action">View Cart</a>'
+                                            html += '</div>'
+
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '</div>'
+
+                                        } else {
+                                            //  html += '<li class="previewCartItem removeproductdata" data-item-row data-cart-itemid="' + value.id + '" product_id="' + value.productId + '">'
+                                            html += '<div class="previewCartItem-image">'
+                                            html += '<img src="' + value.imageUrl + '" alt="' + value.name + '" title="' + value.name + '" data-sizes="auto" srcset="' + value.imageUrl + '"'
+                                            html += 'data-srcset=' + value.imageUrl + '" class="lazyautosizes ls-is-cached lazyloaded" sizes="114px">'
+                                            html += '</div>'
+                                            html += '<div class="previewCartItem-content">'
+                                            html += '<span class="previewCartItem-brand">'
+                                            html += '</span>'
+                                            html += '<h6 class="previewCartItem-name">'
+                                            html += '<a href="' + value.url + '" alt="' + value.name + '" title="' + value.name + '">' + value.name + '</a>'
+                                            html += '<button class="cart-remove icon" data-cart-itemid="" data-confirm-delete="Are you sure you want to delete this item?"aria-label="Remove'
+                                            html += '' + value.name + '">'
+                                            html += '<svg class="removeitem remove_' + value.productId + '" data-cart-itemid="' + value.id + '" quantity="' + value.quantity + '" onclick="removeproduct(\'' + value.id + '\',' + value.quantity + ',' + value.productId + ',' + value.salePrice + ')"><use xlink:href="#icon-close"></use></svg>'
+                                            html += '</button>'
+                                            html += '</h6>'
+                                            html += '<div class="cart-detail-box">'
+                                            html += '<div class="form-increment">'
+                                            html += '<button class="button button--icon" data-cart-update="" data-cart-itemid="' + value.id + '" data-action="dec">'
+                                            html += '<span class="is-srOnly">Decrease Quantity of ' + value.name + ')</span>'
+                                            html += '<i class="icon" aria-hidden="true"><svg class="iconremove minuscount_' + value.productId + '"" data-cart-itemid="' + value.id + '" productid="' + value.productId + '" price="' + value.salePrice + '" quantity="' + value.quantity + '" onclick="minuscount(\'' + value.id + '\',' + value.productId + ')"><use xlink:href="#icon-remove"></use></svg></i>'
+                                            html += '</button>'
+                                            html += '<input class="form-input form-input--incrementTotal cart-item-qty-input" id="' + value.id + '" name="qty-6928fe15-da84-446e--58a90ec15a82"'
+                                            html += 'type="tel" value="1" data-quantity-min="" data-quantity-max="" data-quantity-min-error="The minimum purchasable quantity is null"'
+                                            html += 'data-quantity-max-error="The maximum purchasable quantity is null" min="1" pattern="[0-9]*" data-cart-itemid="' + value.id + '"'
+                                            html += 'data-action ="manualQtyChange" aria-label="' + value.name + '" aria-live="polite">'
+                                            html += '<button class="button button--icon" data-cart-update="" data-cart-itemid="' + value.id + '" data-action="inc">'
+                                            html += '<span class="is-srOnly">Increase Quantity of ' + value.name + '</span>'
+                                            html += '<i class="icon" aria-hidden="true"><svg class="addicon pluscount_' + value.productId + '" productid="' + value.productId + '" price="' + value.salePrice + '" data-cart-itemid="' + value.id + '" quantity="' + value.quantity + '" onclick="pluscount(' + value.productId + ',\'' + value.id + '\',' + value.quantity + ')"><svg><use xlink:href="#icon-add"></use></svg></svg></i>'
+                                            html += '</button>'
+                                            html += '</div>'
+                                            html += '<span class="previewCartItem-price">'
+                                            html += '<span>₹' + value.salePrice + '</span>'
+                                            html += '</span>'
+                                            html += '</div>'
+                                            if (options.length > 0) {
+                                                html += '<dl class="definitionList">'
+                                                options.forEach(function (option, key) {
+                                                    html += '<dt class="definitionList-key">' + option.name + '</dt>'
+                                                    html += '<dd class="definitionList-value">' + option.value + '</dd>'
+                                                });
+                                                html += '</dl>'
+                                            };
+                                            html += '</div>'
+                                            //  html += '</li>'
+
+                                        }
+
+                                        //gtm addtocart
+                                        var productObject = {
+                                            //  "Product_ID": value.productId,
+                                            "Product_ID": value.sku,           ///////////////////Updated:Code GTM Code////////////// 
+                                            "Product_Name": value.name,
+                                            "price": value.listPrice,
+                                            "salePrice": value.salePrice,
+                                            "Quantity": value.quantity,
+                                            //   "Product_Sku":value.sku
+                                        };
+                                        window.dataLayer = window.dataLayer || [];
+                                        window.dataLayer.push({ addToCartProduct: productObject });
+
+                                        //////////////////////////////////////////Updated:Code Start GTM Code////////////////////////////////////////////////
+                                        dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+                                        dataLayer.push({
+                                            'event': 'add_to_cart',
+                                            'ecommerce': {
+
+                                                'items': {                                // 'add' actionFieldObject measures.
+                                                    'products': [{                        //  adding a product to a shopping cart.
+                                                        'item_name': value.name,
+                                                        'item_id': value.sku,
+                                                        'discount': value.originalPrice - value.salePrice,
+                                                        'currency': 'INR',
+                                                        'price': value.listPrice,
+                                                        'item_brand': 'Kapiva',
+                                                        'quantity': value.quantity
+                                                    }]
+                                                }
+                                            }
+                                        });
+                                        ///////////////////////////////////////Updated:Code End GTM Code//////////////////////////////////////////////////
+
+
+                                    }
+                                    if (totalitems == '') {
+                                        totalitems = value.quantity;
+                                    } else {
+                                        totalitems += value.quantity;
+                                    }
+                                });
+                                window.dataLayer = window.dataLayer || [];
+                                window.dataLayer.push({
+                                    'numberOfItemsInCart': totalitems
+                                });
+
+                                var count = document.querySelectorAll(".cart-quantity")[0].textContent;
+                                document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(count) + 1;
+                                var len = document.querySelectorAll(".previewCartList").length;
+                                if (len == 0) {
+
+                                    document.querySelector(".previewCart-emptyBody").remove();
+                                    var nodeexi = document.querySelector(".previewCart_body");
+                                    var cartData = document.querySelector(".cart_bestseller");
+                                    var div = document.createElement("div");
+                                    div.innerHTML = html;
+                                    nodeexi.prepend(div);
+
+                                } else {
+                                    var newItem = document.querySelector(".previewCartList");
+                                    var node = document.createElement("li");
+                                    node.className = "previewCartItem removeproductdata";
+                                    node.innerHTML = html;
+                                    newItem.append(node);
+                                     document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+
+
+                                }
+                            })
+                        });
+                })
+            }
+
+            setTimeout(function () {
+                thisdata.querySelectorAll(".bs_buttonAddtocart")[0].classList.remove("sendloadingaddtocart")
+
+                //webengage code start
+                var p_id = '';
+                var p_name = '';
+                var category_id = '';
+                var category_name = '';
+                var mrp = '';
+                var discount = '';
+                var discounted_price = '';
+                var Quantity = '';
+                var discount_price = "10% OFF";
+                var pro_sku = '';
+                // if(this.parentElement.parentElement.parentElement.querySelectorAll(".card-figure .card-figure__link .tag-section").length > 0){
+                // var discount = this.parentElement.parentElement.parentElement.querySelectorAll(".card-figure .card-figure__link .tag-section .groupBox .saleSavingTag")[0].text();
+                // discount_price = discount.trim();
+                //    }
+                var total_item_in_cart = '';
+                var cart_value = '';
+                fetch('/api/storefront/carts?productId=' + pro_id,
+                    {
+                        'credentials': 'include',
+                        'headers': {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(function (response) {
+                        response.json().then(function (data) {
+                            if (data) {
+
+                                cart_value = data[0].cartAmount;
+                                total_item_in_cart = data[0].lineItems.physicalItems.length;
+                                var getquantity = data[0]['lineItems']['physicalItems'];
+                                getquantity.forEach(function (value, key) {
+                                    if (value.productId == pro_id) {
+                                        Quantity = value.quantity;
+                                        pro_sku = value.sku;
+                                    }
+                                })
+                            }
+
+
+
+                            var query = `query productById{
+  site {
+    product(entityId: `+ pro_id + `) {
+      id
+      entityId
+      name
+      inventory{
+       isInStock
+       aggregated{
+         availableToSell
+         warningLevel
+       }
+     }
+      categories
+      {
+       edges
+        {
+          node
+          {
+            id
+            name
+            
+          }
+        } 
+      }
+      prices (includeTax:true){
+        price {
+          ...MoneyFields
+        }
+        priceRange {
+          min {
+            ...MoneyFields
+          }
+          max {
+            ...MoneyFields
+          }
+        }
+        salePrice {
+          ...MoneyFields
+        }
+        retailPrice {
+          ...MoneyFields
+        }
+        saved {
+          ...MoneyFields
+        }
+        bulkPricing {
+          minimumQuantity
+          maximumQuantity
+          ... on BulkPricingFixedPriceDiscount {
+            price
+          }
+          ... on BulkPricingPercentageDiscount {
+            percentOff
+          }
+          ... on BulkPricingRelativePriceDiscount {
+            priceAdjustment
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment MoneyFields on Money {
+  value
+  currencyCode
+}`;
+                            axios({
+                                url: '/graphql',
+                                method: 'post',
+                                contentType: "application/json",
+                                headers: {
+                                    'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                                },
+                                data: {
+                                    query: query
+                                }
+                            }).then((result) => {
+                                var alldata = result.data.data.site.product;
+
+                                p_id = alldata.entityId;
+
+                                p_name = alldata.name;
+                                if (alldata.prices.retailPrice != null) {
+                                    mrp = alldata.prices.retailPrice.value;
+                                }
+                                if (alldata.prices.salePrice != null) {
+                                    discounted_price = alldata.prices.salePrice.value;
+                                } else {
+                                    discounted_price = 0;
+                                }
+
+                                var category = alldata.categories.edges;
+                                var category_id = '';
+                                var category_name = '';
+                                category.forEach(function (value, index) {
+                                    if (category_id == '' && category_name == '') {
+                                        category_id = value.node.id;
+                                        category_name = value.node.name
+                                    }
+                                    else {
+                                        category_id = category_id + ',' + value.node.id;
+                                        category_name = category_name + ',' + value.node.name;
+                                    }
+
+                                })
+
+                                webengage.track("add to cart", {
+                                    "Product_ID": p_id,
+                                    "Product_Name": p_name,
+                                    "Category_ID": category_id,
+                                    "Category_Name": category_name,
+                                    "MRP": mrp,
+                                    "Discount": discount,
+                                    "Discount_Price": discounted_price,
+                                    "Quantity": Quantity,
+                                    "Total_Item_in_cart": total_item_in_cart,
+                                    "Cart_value": cart_value,
+                                    "Product_Sku": pro_sku,
+                                });
+
+                                ////////////////////Updated:Code Start GTM Code//////////////
+
+                                // dataLayer.push({
+                                //     event: "add_to_cart",
+                                //     ecommerce: {
+                                //         items: [
+                                //             {
+                                //                 item_id: pro_sku,
+                                //                 item_name: p_name,
+                                //                 currency: "INR",
+                                //                 discount: mrp - discounted_price,
+                                //                 item_brand: "Kapiva",
+                                //                 item_variant: "green",
+                                //                 price: discounted_price,
+                                //                 quantity: Quantity
+                                //             }
+                                //         ]
+                                //     }
+                                // });
+
+                                ////////////////////Updated:Code End GTM Code//////////////
+                                fbq('track', 'AddToCart', {
+                                    content_ids: p_id,
+                                    content_type: 'product',
+                                    value: discounted_price,
+                                    currency: 'INR',
+                                    quantity: Quantity
+                                });
+                            });
+                        });
+                    });
+            }, 3000);
+
+        });
+    });
+
+
+
+    function minuscount(id, pid) {
+
+        document.querySelectorAll("svg.iconremove").forEach(item => {
+
+            if (item.classList.contains("minuscount_" + pid)) {
+                var cn = item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-name .cart-remove .removeitem")[0].getAttribute("quantity");
+                item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-name .cart-remove .removeitem")[0].setAttribute("quantity", parseInt(cn) - 1);
+
+                var cartId = localStorage.getItem("cart-id");
+                var count = item.getAttribute("quantity");
+                var price = item.getAttribute("price");
+                var quantity = parseInt(count) - 1;
+                var data = {};
+                data.id = id;
+                data.quantity = quantity;
+
+                var items = [data];
+
+                var val = parseInt(count) - 1;
+
+                if (val == 0) {
+                    item.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+                    document.querySelectorAll(".bs_addtocart")[0].classList.remove("added");
+                }
+                item.setAttribute("quantity", val);
+                item.parentElement.parentElement.parentElement.querySelectorAll(".button .icon .addicon")[0].setAttribute("quantity", val);
+                if (val == 1) {
+                    item.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = "₹" + price;
+                } else {
+                    item.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = val + "×" + "₹" + price;
+                }
+                item.parentElement.parentElement.parentElement.querySelectorAll(".cart-item-qty-input")[0].value = val;
+
+                setTimeout(function () {
+                    if (document.querySelectorAll("svg.removeitem").length == 0) {
+                        document.querySelectorAll(".cart-quantity")[0].textContent = 0;
+                        document.querySelectorAll("#cart-preview-dropdown").classList.remove("is-open");
+                        document.querySelectorAll("#cart-preview-dropdown").classList.remove("f-open-dropdown");
+                    }
+                }, 1000);
+
+                var subtotal = document.querySelectorAll(".subtotal span")[0].textContent;
+
+                var sub = subtotal.split("₹");
+                var spl = sub[1].split(".");
+                var spl2 = spl[0].replace(",", "");
+                var total = parseInt(spl2) - parseInt(price);
+
+                var finalprice = new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
+                    currency: 'INR'
+                }).format(total);
+                document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+                var items = [{
+                    id: items[0]['id'],
+                    quantity: items[0]['quantity']
+                }];
+                axios({
+                    url: '/remote/v1/cart/update',
+                    method: 'post',
+                    dataType: 'json',
+                    data: {
+                        action: 'update-qty', "items": items
+                    },
+
+                }).then((result) => {
+                    var count = document.querySelectorAll(".cart-quantity")[0].textContent;
+                    document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(count) - 1;
+                });
+
+            }
+        });
+    }
+    function pluscount(id, dataid, qty) {
+        var cartId = localStorage.getItem("cart-id");
+
+        document.querySelectorAll("svg.addicon").forEach(item => {
+            if (item.classList.contains("pluscount_" + id)) {
+                var cn = item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-name .cart-remove .removeitem")[0].getAttribute("quantity");
+                item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-name .cart-remove .removeitem")[0].setAttribute("quantity", parseInt(cn) + 1);
+
+                var count = item.getAttribute("quantity");
+
+                var price = item.getAttribute("price");
+                if (count >= 1) {
+                    var val = parseInt(count) + 1;
+                    item.setAttribute("quantity", val);
+                    item.parentElement.parentElement.parentElement.querySelectorAll(".icon .iconremove")[0].setAttribute("quantity", val);
+                    item.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".previewCartItem-price")[0].textContent = val + "×" + "₹" + price;
+                    item.parentElement.parentElement.parentElement.querySelectorAll(".cart-item-qty-input")[0].value = val;
+                }
+
+                var subtotal = document.querySelectorAll(".subtotal span")[0].textContent;
+
+                var sub = subtotal.split("₹");
+                var spl = sub[1].split(".");
+                var spl2 = spl[0].replace(",", "");
+                var total = parseInt(spl2) + parseInt(price);
+                var finalprice = new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
+                    currency: 'INR'
+                }).format(total);
+                document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+            }
+        });
+        var cnt = document.querySelectorAll(".cart-quantity")[0].textContent;
+        document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(cnt) + 1;
+        var quantity = parseInt(qty) + 1;
+        var data = {};
+        data.id = dataid;
+        data.quantity = quantity;
+
+        var items = [data];
+
+        var items = [{
+            id: items[0]['id'],
+            quantity: items[0]['quantity']
+        }];
+        axios({
+            url: '/remote/v1/cart/update',
+            method: 'post',
+            dataType: 'json',
+            data: {
+                action: 'update-qty', "items": items
+            },
+
+        }).then((result) => { });
+
+    }
+    function removeproduct(id, quantity, pid, price) {
+        var count = document.querySelectorAll(".cart-quantity")[0].textContent;
+        // var data = document.querySelectorAll('remove_'+id+'')[0].getAttribute("quantity");
+
+        setTimeout(function () {
+            if (document.querySelectorAll("svg.removeitem").length == 0) {
+                document.querySelectorAll(".cart-quantity")[0].textContent = 0;
+                document.querySelectorAll("#cart-preview-dropdown")[0].classList.remove("is-open");
+                document.querySelectorAll("#cart-preview-dropdown")[0].classList.remove("f-open-dropdown");
+            }
+        }, 1000);
+        var fprice = '';
+        document.querySelectorAll("svg.removeitem").forEach(item => {
+
+            if (item.classList.contains("remove_" + pid)) {
+                var qty = item.getAttribute("quantity");
+
+                fprice = parseInt(price) * parseInt(qty);
+
+                var items = [{
+                    id: id,
+                    quantity: 0
+                }];
+                axios({
+                    url: '/remote/v1/cart/update',
+                    method: 'post',
+                    dataType: 'json',
+                    data: {
+                        action: 'update-qty', "items": items
+                    },
+
+                }).then((result) => {
+                    var count = document.querySelectorAll(".cart-quantity")[0].textContent;
+                    document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(count) - 1;
+                });
+                if (count > 0) {
+                    document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(count) - qty;
+                }
+
+            }
+        });
+        var cartId = localStorage.getItem("cart-id");
+        document.querySelectorAll(".bs_addtocart")[0].classList.remove("added");
+
+        document.querySelectorAll(".removeproductdata")[0].remove();
+        var subtotal = document.querySelectorAll(".subtotal span")[0].textContent;
+        var sub = subtotal.split("₹");
+        var spl = sub[1].split(".");
+        var spl2 = spl[0].replace(",", "");
+        var total = parseInt(spl2) - parseInt(fprice);
+        var finalprice = new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR'
+        }).format(total);
+        document.querySelectorAll(".subtotal span")[0].textContent = finalprice;
+        var cnt = document.querySelectorAll(".cart-quantity")[0].textContent;
+        document.querySelectorAll(".cart-quantity")[0].textContent = parseInt(cnt) - 1;
+        var ttl = parseInt(cnt) - 1;
+
+    }
+
+    function closeModelClose() {
+        document.querySelectorAll("#cart-preview-dropdown")[0].classList.remove("is-open");
+        document.querySelectorAll("#cart-preview-dropdown")[0].classList.remove("f-open-dropdown");
+    }
+
+
+
+</script>

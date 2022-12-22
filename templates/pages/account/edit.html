@@ -1,0 +1,24 @@
+{{inject 'passwordRequirements' settings.password_requirements}}
+{{#partial "page"}}
+<div class="account">    
+  {{!--   <h2 class="page-heading">{{lang 'account.settings.heading' }}</h2> --}}
+            <div class="top-page">
+                <p class="left-text">My account<br/></p>
+                 <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+            </div>
+    <div class="order-page">
+        {{> components/account/navigation account_page='settings'}}
+       <div class="account">
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+              {{#if forms.edit_account.error}}
+            {{> components/common/alert/alert-error forms.edit_account.error}}
+            {{/if}}
+            {{#if forms.edit_account.success}}
+            {{> components/common/alert/alert-success forms.edit_account.success}}
+            {{/if}}
+            {{> components/account/edit-account}}
+        </div>
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

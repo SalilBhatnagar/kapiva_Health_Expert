@@ -1,0 +1,40 @@
+{{#partial "page"}}
+<div class="account" data-pagination-wishlist>
+ {{#if wishlist.is_editable}}        
+    {{/if}}
+    
+    {{!-- <h2 class="page-heading">{{lang 'account.wishlists.view_heading' name=wishlist.name}}</h2>--}}
+       <div class="top-page">
+             <p class="left-text">My account<br/>
+        <span>We will be migrating your pending order history and wallet history soon to our new website for a smoother Modern Ayurvedic journey.</span></p>
+             <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+        </div>
+     <div class="order-page">
+        
+    {{#if wishlist.is_editable}}
+        {{> components/account/navigation account_page='wishlists'}}
+    {{/if}}
+    <div class="account" >
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    {{#if wishlist.is_editable}}
+        {{#if wishlist.is_public '>' 0}}
+            <div class="panel share-wishlist">
+                <div class="panel-body">
+                    
+                    <h5>{{lang 'account.wishlists.share_intro'}}</h5>
+                    <input class="form-input" value="{{settings.base_url}}{{wishlist.share_url}}" readonly>
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+
+    {{#if wishlist.items}}
+        {{> components/account/wishlist-item-list show_remove=wishlist.is_editable}}
+    {{else}}
+        {{> components/common/alert/alert-info (lang 'account.wishlists.empty_wishlist')}}
+    {{/if}}
+</div>
+</div>
+ </div>
+{{/partial}}
+{{> layout/base}}

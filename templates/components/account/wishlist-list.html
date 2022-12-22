@@ -1,0 +1,17 @@
+<table class="table table--line wishlists-table">
+    <thead class="table-thead">
+        <tr>
+            <th>{{lang 'account.wishlists.name'}}</th>
+            <th>{{lang 'account.wishlists.num_items'}}</th>                        
+        </tr>
+    </thead>
+    <tbody class="table-tbody">
+    {{#each customer.wishlists}}
+        <tr>
+            <td><a href="{{view_url}}">{{{name}}}</a></td>
+            <td>{{num_items}}</td>            
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+

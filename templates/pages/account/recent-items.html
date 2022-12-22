@@ -1,0 +1,27 @@
+{{#partial "page"}}
+<div class="account">    
+    {{!-- <h2 class="page-heading">{{lang 'account.recent_items.heading' }}</h2> --}}
+    <div class="top-page">
+             <p class="left-text">My account<br/></p>
+             <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+        </div>
+    <div class="order-page"> 
+	    {{> components/account/navigation account_page='recent_items'}}
+        <div class="account account--fixed">
+        	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+            <div class="account-body">
+                <div class="account-content">
+	    {{#unless customer.recently_viewed_products.items}}
+	        {{> components/common/alert/alert-info (lang 'account.recent_items.no_items')}}
+	    {{/unless}}
+
+	    <form action="{{urls.compare}}" method="post" class="recent-view">
+	        {{> components/products/grid products=customer.recently_viewed_products.items show_compare=customer.recently_viewed_products.show_compare}}
+	    </form>
+	    </div>
+	    </div>
+	    </div>
+	</div>
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,125 @@
+<section class="recognised-in-media">
+    <div class="container">    
+        <h3><span>Recognized in the media</span></h3>
+        <div class="row">
+                <div class="col-md-4 MediaBox MediaBox-0">
+                    <div class="wrap">
+                        <p>“Kapiva sets itself apart due to the unique sourcing and manufacturing story of all its products. Its main focus is on quality control and sustainability.”</p>
+                        <p><b>- Inc42</b></p>
+                    </div> 
+                </div>
+                <div class="col-md-4 MediaBox MediaBox-1">
+                    <div class="wrap">
+                        <p>“Kapiva is helping bring the wisdom of India’s ancient food traditions to modern-day consumers. ”</p>
+                        <p><b>- Your Story</b></p>
+                    </div>
+                </div>
+                <div class="col-md-4 MediaBox MediaBox-2">
+                    <div class="wrap">
+                        <p>“Kapiva is rolling out breakfast porridges, gummies, shakes and effervescents promising a daily dose of immunity to users”</p>
+                        <p><b>- Business Standard</b></p>
+                    </div>
+                </div>
+                <div class="col-md-4 MediaBox MediaBox-3">
+                    <div class="wrap">
+                        <p>“An omnichannel brand with a presence in 6,000 retail outlets pan India, Kapiva is also available on its own website and on Amazon, Flipkart, BigBasket, Pharmeasy.”</p>
+                        <p><b>- The Hindu</b></p>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <ul class="slider-pagi recognised__pagination splide__pagination">
+        
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {   
+    var items = document.querySelectorAll(".MediaBox"),
+        tab = [], _currIndex;
+        
+        // add values to the array
+        for(var i = 0; i < items.length; i++){
+            
+           tab.push(items[i]);
+         }
+         var pagination = document.querySelectorAll(".recognised__pagination")[0];
+   
+       
+        document.querySelectorAll(".row .MediaBox").forEach(data => {
+          var curSlide = tab.indexOf(data);
+          if(screen.width > 991){
+            if(curSlide < 3){
+                data.classList.add("active");
+            }
+           if(curSlide < 2){
+               
+               const para = document.createElement("li");
+                para.className = "recognised-pagi__elem recognised-pagi__elem-"+curSlide;
+                para.setAttribute("index",curSlide);
+                if (curSlide == 0) para.classList.add("active");
+                pagination.append(para);
+           }
+        }else if(screen.width > 640){
+            if(curSlide < 2){
+               data.classList.add("active");
+               const para = document.createElement("li");
+                para.className = "recognised-pagi__elem recognised-pagi__elem-"+curSlide;
+                para.setAttribute("index",curSlide);
+                if (curSlide == 0) para.classList.add("active");
+                pagination.append(para);
+           }
+        }else{
+            if(curSlide < 1){
+               data.classList.add("active");
+           }
+           const para = document.createElement("li");
+                para.className = "recognised-pagi__elem recognised-pagi__elem-"+curSlide;
+                para.setAttribute("index",curSlide);
+                if (curSlide == 0) para.classList.add("active");
+                pagination.append(para);
+        }
+        })
+    
+
+    document.querySelectorAll(".recognised-pagi__elem").forEach(slideclick => {
+        slideclick.addEventListener("click", function(){
+            var index = this.getAttribute("index");
+              document.querySelectorAll('.MediaBox').forEach(data => {
+                  data.classList.remove("active");
+              })
+              document.querySelectorAll(".recognised-pagi__elem").forEach(slideclick1 => {
+                slideclick1.classList.remove("active");
+              });
+              this.classList.add("active");
+            if(screen.width > 991){
+             
+              if(index == 0){
+                 document.querySelectorAll('.MediaBox')[0].classList.add("active");
+                 document.querySelectorAll('.MediaBox')[1].classList.add("active");
+                 document.querySelectorAll('.MediaBox')[2].classList.add("active");
+              }else{
+                document.querySelectorAll('.MediaBox')[1].classList.add("active");
+                 document.querySelectorAll('.MediaBox')[2].classList.add("active");
+                 document.querySelectorAll('.MediaBox')[3].classList.add("active");
+              }
+            }else if(screen.width > 640){
+                if(index == 0){
+                 document.querySelectorAll('.MediaBox')[0].classList.add("active");
+                 document.querySelectorAll('.MediaBox')[1].classList.add("active");
+              }else{
+                document.querySelectorAll('.MediaBox')[2].classList.add("active");
+                 document.querySelectorAll('.MediaBox')[3].classList.add("active");
+              }
+            }else{
+                document.querySelectorAll('.MediaBox').forEach(data => {
+                  data.classList.remove("active");
+              })
+              document.querySelectorAll(".recognised-pagi__elem").forEach(slideclick1 => {
+                slideclick1.classList.remove("active");
+              });
+               
+                 document.querySelectorAll('.MediaBox-'+index)[0].classList.add("active");
+            }
+        })
+    })
+});  
+    </script>

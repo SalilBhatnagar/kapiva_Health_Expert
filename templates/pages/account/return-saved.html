@@ -1,0 +1,23 @@
+{{#partial "page"}}
+<div class="account">    
+    <h2 class="page-heading is-srOnly">{{lang 'account.returns.heading'}}</h2>
+    <div class="top-page">
+         <p class="left-text">My account<br/></p>
+         <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+    </div>
+    <div class="order-page">
+    {{> components/account/navigation account_page='returns'}}
+    <div class="account account-row">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <p>
+            {{lang 'account.returns.successful'}}
+        </p>
+        {{#if return.instructions}}
+            <h3>{{lang 'account.returns.instructions'}}</h3>
+            <p>{{nl2br return.instructions}}</p>
+        {{/if}}
+    </div>
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

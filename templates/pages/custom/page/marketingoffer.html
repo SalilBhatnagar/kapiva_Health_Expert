@@ -1,0 +1,97 @@
+{{#partial "page"}}
+
+
+
+<section class="page offer-market">
+    {{#unless theme_settings.hide_page_heading }}
+        <h1 class="page-heading">{{ page.title }}</h1>
+    {{/unless}}
+
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+
+    {{{region name="page_builder_content"}}}
+
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</section>
+
+{{/partial}}
+{{#partial "bottom-full"}}
+    <div class="feastivalComboOffer">
+        <div class="combowraper">
+            <div class="festiiner">
+                <a href="/shop-all/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer1.jpg'}}"  class="lazyload">
+                </a>
+            </div>
+            <div class="festiiner">
+                <a href="/shop-all/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer2.jpg'}}"  class="lazyload">
+                </a>
+            </div>
+
+            <div class="festiiner">
+                <a href="/shop-all/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer3.jpg'}}"  class="lazyload">
+                </a>
+            </div>
+            <div class="festiiner">
+                <a href="/shop-all/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer4.jpg?V1'}}"  class="lazyload">
+                </a>
+            </div>
+            <div class="festiiner">
+                <a href="/shop-all/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer5.jpg'}}"  class="lazyload">
+                </a>
+            </div>
+            <div class="festiiner">
+                <a href="/shop-all/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer6.jpg'}}"  class="lazyload">
+                </a>
+            </div>
+            <div class="festivalofferinner">
+                <div class="festiiner feastleft">
+                    <a href="/shop-all/">
+                        <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer7.jpg'}}"  class="lazyload">
+                    </a>
+                </div>
+                <div class="festiiner feastright">
+                    <a href="/shop-all/?sort=newest/">
+                        <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer8.jpg'}}"  class="lazyload">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="festiiner">
+                <a href="/solution/"></a>
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer9.jpg'}}"  class="lazyload">
+                </div>
+            </div>
+            <div class="festiiner">
+                <a href="/terms-and-condition/">
+                    <img src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/marketingoffer/Layer10.jpg'}}"  class="lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+        
+    {{/partial}}
+{{> layout/base}}

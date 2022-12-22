@@ -1,0 +1,2384 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}"
+        data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}} 
+</div> 
+{{/if}}
+<header class="header main-header {{page_type}}" role="banner"> 
+    <div class="announcementBlock">
+        <div class="announcement-block">
+            <!-- <p class="announcement-block-wrap">Get Flat 5% Off On All Orders!</p>  -->
+            <!-- {{#if template '==' 'pages/home'}}
+              <s="consult-a-doctor">
+                <a class="free-consultation-link-top-header" href="/consult-a-doctor/">Book Your Consultation Now</a>
+        
+            {{/if}} -->
+            <!-- <p class="announcement-block-wrap">21 days for good habit, 60 days for good health!</p>
+            <p><a href="https://www.kapiva.in/login.php" class="free-consultation-link-top-header">Get 5% cashback on all orders! Login/Signup NOW</a></p> -->
+          </div>
+          <a href="javascript:void(0)" class="close-btn">X</a>
+        </div>
+        
+    </div>
+    <div class="HeaderWrap">
+        <a href="javascript:void(0)" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>
+        <div class="HeaderLogo">
+            {{#if page_type '===' 'default'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+            {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+            {{/if}}
+        </div>
+        <div class="navPages-container desktop-hide" id="menu" data-menu>
+            {{> components/kapiva/navigation-menu}}
+        </div>
+        <div class="RighrtHeader-Wrap">
+            <div class="HeaderSearch">
+                {{> components/kapiva/quick-search}}
+            </div>
+           {{#if page.title "==" "Men's Health EBP combo"}}
+            {{else if  page.title "==" "Men's Health TBP combo"}}
+            {{else if  page.title "==" "Men's Health SBP combo"}}
+            {{else if  page.title "==" "Men's Health ED combo"}}
+            {{else if  page.title "==" "Men's Health TD combo"}}
+            {{else if  page.title "==" "Men's Health SD combo"}}
+            {{else if  page.title "==" "Men's Health EGM combo"}}
+            {{else if  page.title "==" "Men's Health TGM combo"}}
+            {{else if  page.title "==" "Men's Health SGM combo"}}
+            {{else if  page.title "==" "Men's Health EVA combo"}}
+            {{else if  page.title "==" "Men's Health TVA combo"}}
+            {{else if  page.title "==" "Men's Health SVA combo"}}
+            {{else}}
+            <div class="header-search-suggestion">
+                    <ul>
+                        <li>
+                            <div class="search-suggestion">                            	
+                                <a href="/skin-food-page/">
+	                                <div class="image">
+	                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Homepage/headericon/Skin-Care.webp'}}" class="kapiva-curve small lazyload" alt="" loading="lazy" width="20px">
+	                                </div>
+	                                <div class="search-text">
+	                                    <span>Skin</span>
+	                                </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="search-suggestion">                                
+                                <a href="/solution/hair/">
+	                                <div class="image">
+	                                       <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Homepage/headericon/SDP.png'}}" class="kapiva-curve small lazyload" alt="" loading="lazy" width="20px">
+	                                </div>
+	                                <div class="search-text">
+	                                    <!-- <span>Hair</span> -->
+                                      <span>DIET PLAN</span>
+	                                </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="search-suggestion">                                
+                                <a href="/weight-management/">
+	                                <div class="image">
+	                                
+	                                     <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Homepage/headericon/Weight-Management.webp'}}" class="kapiva-curve small lazyload" alt="" loading="lazy" width="20px">
+	                                </div>
+	                                <div class="search-text">
+	                                    <span>WEIGHT</span>
+	                                </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                          <div class="search-suggestion">                                
+                              <a href="/solution/mens-care/">
+                                <div class="image">
+                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Homepage/MensHealth.webp'}}" class="kapiva-curve small lazyload" alt="" loading="lazy" width="20px">
+                                </div>
+                                <div class="search-text">
+                                    <span>Men's Health</span>
+                                </div>
+                              </a>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="search-suggestion">                                
+                              <a href="/consult-a-doctor/?utm_source=top-nav&utm_medium=sticky-banner-4">
+                                <div class="image">
+                                    <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'customcdn:s-5h8rqg02f8/content/images/Homepage/consultdoctor.webp'}}" class="kapiva-curve small lazyload" alt="" loading="lazy" width="35px" style="margin-top:-4px;">
+                                </div>
+                                <div class="search-text">
+                                    <span>Consult A Doctor</span>
+                                </div>
+                              </a>
+                          </div>
+                      </li>
+                    </ul>
+                </div>
+                
+                      {{/if}}
+            <div class="NavLinks">
+                {{> components/kapiva/navigation}}
+            </div>
+        </div>
+    </div>
+    <div class="navPage-subMenu" id="navPages-shopMenu" aria-hidden="true" tabindex="-1">
+        <div class="megaMenu_custom">
+            {{> components/kapiva/navigation-list-desktop}}
+        </div>
+    </div>
+    
+</header>
+
+{{{region name="header_bottom"}}}
+<input type="hidden" name="product_id" class="productID" value="{{product.id}}" />
+<input type="hidden" name="customer_id" class="customer_id" value="{{customer.id}}" />
+<input type="hidden" name="customer_email" class="customer_email" value="{{customer.email}}" />
+<input type="hidden" name="customer_phone" class="customer_phone" value="{{customer.phone}}" />
+<input type="hidden" name="cardproduct_id" class="cardproductid" value="{{product.id}}" />
+<script  src="{{cdn 'assets/js/axios.min.js'}}"></script>
+<script>
+     
+ 
+    var trackinterval = setInterval(function(){
+
+let maincontentlength = document.querySelectorAll(".trackOrder").length;
+
+if(maincontentlength > 0){
+ 
+    clearInterval(trackinterval);
+    
+    let url = window.location.href;
+    if(url.includes("?orderId")){
+      let splitUrl = url.split('?orderId=');
+      let order_id = splitUrl[1];
+      let length = order_id.length;
+      document.querySelectorAll(".form-input.track_input")[0].value = order_id;
+       var numeric = !isNaN(order_id);
+            
+            if(numeric != false){
+      if(length > 5){
+        document.querySelector(".loader-img").style.display = "inline";
+        document.querySelectorAll(".track_order")[0].classList.remove("disable-button"); 
+        document.querySelectorAll(".track_order")[0].style.cursor = "pointer";
+        setTimeout(function(){
+        trackOrder(order_id,length);
+        },2500);
+      }else{
+                document.querySelectorAll(".error_message")[0].textContent = "The order ID should be 6 digits.";
+                            document.querySelector(".loader-img").style.display = "none";
+            }
+    }else{
+                document.querySelectorAll(".error_message")[0].textContent = "The order ID should be number only.";
+                            document.querySelector(".loader-img").style.display = "none";
+              }
+    }
+    
+
+let track = document.querySelectorAll('.track_order')[0];
+track.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.querySelector(".loader-img").style.display = "inline";
+    document.querySelectorAll(".error_message")[0].textContent = " ";
+    var order_id = this.parentElement.querySelectorAll("input.form-input")[0].value;
+    var len = this.parentElement.querySelectorAll("input.form-input")[0].value.length;
+    trackOrder(order_id,len);
+        });
+    
+        //function for track order
+        function trackOrder(order_id,len){
+         
+        
+            if(len >= 6){
+            var numeric = !isNaN(order_id);
+            
+            if(numeric != false){
+              window.history.replaceState(null, null, "?orderId="+order_id);
+
+                axios.get('https://bg-sync-api-dev.kapiva.in/api/checkdata.php', {
+                params: {
+                    order_id: order_id
+                }
+            })
+            .then(function (response) {
+                var Data = response.data;
+                var track_id = Data.tracking_number;
+                          var method = Data.comments;
+                          var message = Data.message;
+                          if(message == "success"){
+                          if (track_id != null) {
+                              let shipping_method = method.toUpperCase();
+                              if(shipping_method.includes("GOSWIFT")){
+                                document.querySelector(".loader-img").style.display = "none";
+                                window.open("https://app.goswift.in/track/"+track_id, "_blank");
+                              }else if(shipping_method.includes("SHIPROCKET")){
+                                document.querySelector(".loader-img").style.display = "none";
+                                window.location.href = "https://shiprocket.co/tracking/"+track_id, "_blank";
+                               // window.open("https://shiprocket.co/tracking/"+track_id, "_blank");
+                              }
+                              else if(shipping_method.includes("PICKRR")){
+                                  document.querySelector(".loader-img").style.display = "none";
+                                  window.location.href = "https://www.pickrr.com/tracking/#/?tracking_id="+track_id, "_blank";
+                                  //  window.open("https://www.pickrr.com/tracking/#/?tracking_id="+track_id, "_blank");
+                              }else{
+                                  document.querySelector(".loader-img").style.display = "none";
+                                   window.location.href = "https://shiprocket.co/tracking/"+track_id, "_blank";
+                                 // window.open("https://shiprocket.co/tracking/"+track_id, "_blank");
+                              }
+                            }
+                            if(Data.order_message == "order_check"){
+                            var date =  new Date(Data.date_created).getTime();
+                              // Get today's date and time
+                              var now = new Date().getTime();
+                              
+                              var status = Data.custom_status;
+                              
+                              
+                              // Find the distance between now and the count down date
+                              var distance = now - date;
+                            
+                              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            
+                            
+                              if((days > 1 && status == "Order Dispatched") || (days > 1 && status == "Processing") || (days > 1 && status == "Awaiting Pickup") || (days > 1 && status == "Pending Payment") || (days > 1 && status == "Order Placed")){
+                                document.querySelectorAll(".error_message")[0].textContent = "Order No. “"+order_id+"” has not been dispatched yet. We sincerely regret the delay in dispatching your order, please recheck within next 48 hours.";
+                              document.querySelector(".loader-img").style.display = "none";
+                            }else if(status == "Cancelled"){
+                                document.querySelectorAll(".error_message")[0].textContent = "Order No. “"+order_id+"” has been cancelled. Please connect with our Customer Service team if it has not been cancelled by you.";
+                              document.querySelector(".loader-img").style.display = "none";
+                            }else if((days <= 1 && status == "Order Dispatched") || (days <= 1 && status == "Processing") || (days <= 1 && status == "Awaiting Pickup") || (days <= 1 && status == "Pending Payment") || (days <= 1 && status == "Order Placed")){
+                                document.querySelectorAll(".error_message")[0].textContent = "Order No. “"+order_id+"” has not been dispatched yet. Please check the order status again after 48 hours.";
+                              document.querySelector(".loader-img").style.display = "none";
+                            }else if(status == 'Pending Payment'){
+                                document.querySelectorAll(".error_message")[0].textContent = "Order No. “"+order_id+"”  status has Pending Payment.";
+                              document.querySelector(".loader-img").style.display = "none";
+                            }else if(status == 'Incomplete'){
+                                document.querySelectorAll(".error_message")[0].textContent = "Order No. “"+order_id+"”  status has Incomplete.";
+                              document.querySelector(".loader-img").style.display = "none";
+                            }else{
+                              document.querySelectorAll(".error_message")[0].textContent = "Order details not found. Kindly enter the correct order ID or wait for 48 hours for tracking details.";
+                              document.querySelector(".loader-img").style.display = "none";  
+                            }
+                              
+                            }
+                          }else{
+                            document.querySelectorAll(".error_message")[0].textContent = "Order details not found. Kindly enter the correct order ID or wait for 48 hours for tracking details";
+                            document.querySelector(".loader-img").style.display = "none";
+                          }
+                });
+              }else{
+                document.querySelectorAll(".error_message")[0].textContent = "The order ID should be number only.";
+                            document.querySelector(".loader-img").style.display = "none";
+              }
+            }else{
+                document.querySelectorAll(".error_message")[0].textContent = "The order ID should be 6 digits.";
+                            document.querySelector(".loader-img").style.display = "none";
+            }
+        }
+
+        document.querySelectorAll('input.track_input').forEach(track_input => {
+            track_input.onkeyup = function(event) {
+
+    if(document.querySelectorAll("input.track_input")[0].value){
+
+      var len = document.querySelectorAll("input.track_input")[0].value.length;
+      if(len > 5){
+        document.querySelectorAll(".track_order")[0].classList.remove("disable-button"); 
+        document.querySelectorAll(".track_order")[0].style.cursor = "pointer";
+      }
+
+};
+};
+
+});
+
+}
+setTimeout(function(){
+clearInterval(trackinterval);
+},5000);
+},1000);
+
+
+ //buynow webengage code
+var buynowint = setInterval(function(){
+  var leng = document.querySelectorAll(".add_to_cart_product.quick-buy").length;
+  if(leng > 0){
+      clearInterval(buynowint);
+ var x = document.querySelectorAll(".add_to_cart_product.quick-buy");
+  x[0].addEventListener('click', function(e){
+    var totalcount = document.querySelectorAll(".form-increment .form-input--incrementTotalPdp")[0].value;
+    var numQty = parseFloat(totalcount);
+      
+      if(totalcount > 0 && Number.isInteger(numQty) == true){
+  var pid = document.getElementsByClassName("productID")[0].value;
+  this.classList.add("sendloadingbuynowpdp")
+  const form = document.querySelector('[data-cart-item-add]');
+  const formData = new FormData(form);
+ axios({
+     url: '/remote/v1/cart/add',
+     method: 'post',
+     dataType: 'json',
+     data: formData,
+   }).then((result) => {
+     if (result.data.data.cart_item) {
+
+      var p_id = '';
+      var p_name = '';
+      var category_id = '';
+      var category_name = '';
+      var mrp = '';
+      var discounted_price = '';
+      var Quantity = '';
+      var total_item_in_cart = '';
+      var cart_value = '';
+      var discount = '';
+    
+      if(document.querySelectorAll(".productView-image-main .productView-image .saleSavingTag").length != 0){
+      var dis = document.querySelectorAll(".productView-image-main .productView-image .saleSavingTag")[0].textContent;
+       discount = dis.trim();
+    }
+      fetch('/api/storefront/carts?productId=' + pid,
+      {
+          'credentials': 'include',
+          'headers': {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+          }
+      }).then(function (response) {
+          response.json().then(function (data) {
+          if (data) {
+              cart_value = data[0].cartAmount;
+              total_item_in_cart = data[0].lineItems.physicalItems.length;
+              var getquantity = data[0]['lineItems']['physicalItems'];
+                      getquantity.forEach(function (value, index) {
+                              if(value.productId == pid){
+                                  Quantity = value.quantity; 
+                              }
+                          })
+          }
+
+          var query = `query productById{
+              site {
+              product(entityId: `+ pid + `) {
+              entityId
+              name
+              inventory{
+              isInStock
+              aggregated{
+                  availableToSell
+                  warningLevel
+              }
+              }
+              categories
+              {
+              edges
+                  {
+                  node
+                  {
+                      id
+                      name
+                      
+                  }
+                  } 
+              }
+              prices (includeTax:true){
+                  price {
+                  ...MoneyFields
+                  }
+                  
+                  salePrice {
+                  ...MoneyFields
+                  }
+                  retailPrice {
+                  ...MoneyFields
+                  }
+                  basePrice {
+                        ...MoneyFields
+                        }
+              }
+              
+              }
+              }
+              }
+              
+              fragment MoneyFields on Money {
+              value
+              currencyCode
+              }`;
+              axios({
+                  url: '/graphql',
+                  method: 'post',
+                  contentType: "application/json",
+                  headers: {
+                      'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                 },
+                  data: {
+                    query:query
+                  }
+                }).then((result) => {     
+              var alldata = result.data.data.site.product;
+              if(alldata != null){
+              p_id = alldata.entityId;
+
+              p_name = alldata.name;
+              if (alldata.prices.retailPrice != null) {
+                  mrp = alldata.prices.retailPrice.value;
+              }else{
+                mrp = alldata.prices.basePrice.value;
+              }
+              if (alldata.prices.salePrice != null) {
+                  discounted_price = alldata.prices.salePrice.value;
+              }else{
+                  discounted_price = 0;
+              }
+
+              var category = alldata.categories.edges;
+
+
+              var category_ID = [];
+              var category_NAME = [];
+              category.forEach(function (value, index) {
+
+                  category_ID.push(value.node.id);
+                  category_NAME.push(value.node.name);
+
+              })
+              var categories = { category_ID, category_NAME };
+                          var category_id = '';
+                              var category_name = '';
+                              category.forEach(function (value, index) {
+                              if(category_id == '' && category_name == ''){
+                                  var cat_id = value.node.id;
+                                  var splited_url = atob(cat_id);
+                                  var categoryid = splited_url.split("Category:");
+                                      category_id = categoryid[1];
+                                  category_name = value.node.name
+                                  }
+                                  else{
+                                      var splited_url = atob(value.node.id);
+                                      var categoryid= splited_url.split("Category:");
+                                      var catid = categoryid[1];
+                                      category_id = category_id+','+catid;
+                                      category_name = category_name+','+value.node.name;
+                                  }
+
+                              })
+
+              var products = [];
+              var obj = {
+                  "Product_ID": p_id,
+                  "Product_Name": p_name,
+                  "categories": categories,
+                  "MRP": mrp,
+                  "Discount": discount,
+                  "Discount_Price": discounted_price,
+                  "Quantity": Quantity
+              };
+              
+              products.push(obj);
+              dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+              dataLayer.push({
+                  'event': 'buyNow',
+                  'ecommerce': {
+                      'currencyCode': 'INR',
+                      'add': {                                // 'add' actionFieldObject measures.
+                      'products': [{                        //  adding a product to a shopping cart.
+                          'name': p_name,
+                          'id': p_id,
+                          'price': discounted_price,
+                          'brand': 'Kapiva',
+                          'quantity': Quantity
+                      }]
+                      }
+                  }
+                  });
+                  var productObject = {
+                  "Product_ID": p_id,
+                  "Product_Name": p_name,
+                  "categories": categories,
+                  "price": mrp,
+                  "salePrice": discounted_price,
+                  "Quantity": Quantity
+              };
+              window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({buyNowProduct : productObject});
+                  
+                   window.location.href = '/checkout';
+              
+                  fbq('track', 'buyNow', {
+                              content_ids: p_id,
+                              content_type: 'product',
+                              value: discounted_price,
+                              currency: 'INR',
+                                  quantity: Quantity
+                              }); 
+              webengage.track("buy now", {
+                  "Product_ID": p_id,
+                  "Product_Name": p_name,
+                  "Category_ID": category_id,
+                  "Category_Name": category_name,
+                  "MRP": Number(mrp),
+                  "Discount": discount,
+                  "Discount_Price": discounted_price,
+                  "Quantity": Quantity,
+                  "Total_Item_in_cart": total_item_in_cart,
+                  "Cart_value": cart_value,
+                  "Total_Item_in_cart": total_item_in_cart,
+                  "Cart_value": cart_value
+              });
+             
+            
+              }
+
+          });
+          });
+      });
+     
+}
+    });
+  }
+      })
+  }
+},10);
+  //end buynow webengage code
+ 
+
+ //addtocart webengage function
+ function addToCart(pro_id, discount_pr) {
+var p_id = '';
+var p_name = '';
+var mrp = '';
+var discounted_price = '';
+var Quantity = '';
+var total_item_in_cart = '';
+var cart_value = '';
+
+
+  fetch('/api/storefront/carts?productId=' + pro_id, {
+    'credentials': 'include',
+    'headers': {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then(function (response) {
+    response.json().then(function (data) {
+      if (data) {
+        cart_value = data[0].cartAmount;
+        var getquantity = data[0]['lineItems']['physicalItems'];
+        getquantity.forEach(function (value, key) {
+          if (value.productId == pro_id) {
+            Quantity = value.quantity;
+          }
+          if (total_item_in_cart == '') {
+            total_item_in_cart = value.quantity;
+          } else {
+            total_item_in_cart = total_item_in_cart + value.quantity;
+          }
+          
+        })
+                 window.dataLayer = window.dataLayer || [];
+                 window.dataLayer.push({
+                      'numberOfItemsInCart': total_item_in_cart
+                   });
+      }
+
+
+
+      var query = `query productById{
+                   site {
+                     product(entityId: ` + pro_id + `) {
+                       id
+                       entityId
+                       name
+                       categories
+                       {
+                       edges
+                         {
+                           node
+                           {
+                             id
+                             name
+                             
+                           }
+                         } 
+                       }
+                       prices (includeTax:true){
+                         price {
+                           ...MoneyFields
+                         }
+                         
+                         salePrice {
+                           ...MoneyFields
+                         }
+                         retailPrice {
+                           ...MoneyFields
+                         }
+                         basePrice {
+                           ...MoneyFields
+                         }
+                        
+                       }
+                     }
+                   }
+                 }
+
+                 fragment MoneyFields on Money {
+                   value
+                   currencyCode
+                 }`;
+      axios({
+        url: '/graphql',
+        method: 'post',
+        contentType: "application/json",
+        headers: {
+          'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+        },
+        data: {
+          query: query
+        }
+      }).then((result) => {
+        var alldata = result.data.data.site.product;
+
+        if (alldata != null) {
+          p_id = alldata.entityId;
+
+          p_name = alldata.name;
+          if (alldata.prices.retailPrice != null) {
+            mrp = alldata.prices.retailPrice.value;
+          }else{
+            mrp = alldata.prices.basePrice.value;
+            
+          }
+          if (alldata.prices.salePrice != null) {
+            discounted_price = alldata.prices.salePrice.value;
+          } else {
+            discounted_price = 0;
+          }
+
+          var category = alldata.categories.edges;
+          var category_ID = [];
+          var category_NAME = [];
+          category.forEach(function (value, index) {
+            category_ID.push(value.node.id);
+            category_NAME.push(value.node.name);
+
+          })
+          var categories = {
+            category_ID,
+            category_NAME
+          };
+          var category_id = '';
+          var category_name = '';
+          category.forEach(function (value, index) {
+            if (category_id == '' && category_name == '') {
+              var cat_id = value.node.id;
+              var splited_url = atob(cat_id);
+              var categoryid = splited_url.split("Category:");
+              category_id = categoryid[1];
+              category_name = value.node.name
+            } else {
+              var splited_url = atob(value.node.id);
+              var categoryid = splited_url.split("Category:");
+              var catid = categoryid[1];
+              category_id = category_id + ',' + catid;
+              category_name = category_name + ',' + value.node.name;
+            }
+
+          })
+          var productObject = {
+            "Product_ID": p_id,
+            "Product_Name": p_name,
+            "categories": categories,
+            "price": mrp,
+            "salePrice": discounted_price,
+            "Quantity": Quantity
+          };
+
+          dataLayer.push({
+            ecommerce: null
+          }); // Clear the previous ecommerce object.
+          dataLayer.push({
+            'event': 'addToCart',
+            'ecommerce': {
+              'currencyCode': 'INR',
+              'add': { // 'add' actionFieldObject measures.
+                'products': [{ //  adding a product to a shopping cart.
+                  'name': p_name,
+                  'id': p_id,
+                  'price': discounted_price,
+                  'brand': 'Kapiva',
+                  'quantity': Quantity
+                }]
+              }
+            }
+          });
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            addToCartProduct: productObject
+          });
+         
+          webengage.track("add to cart", {
+              "Product_ID": p_id,
+              "Product_Name": p_name,
+              "Category_ID": category_id,
+              "Category_Name": category_name,
+              "MRP": Number(mrp),
+              "Discount": discount_pr,
+              "Discount_Price": discounted_price,
+              "Quantity": Quantity,
+              "Total_Item_in_cart": total_item_in_cart,
+              "Cart_value": cart_value
+          });
+          
+
+
+           fbq('track', 'AddToCart', {
+           content_ids: p_id,
+           content_type: 'product',
+           value: discounted_price,
+           currency: 'INR',
+            quantity: Quantity
+          });
+
+        }
+      });
+    });
+  });
+
+}
+//end
+
+//buynow webengage function
+function buyNow(pro_id, discount_pr) {
+      var p_id = '';
+      var p_name = '';
+      var mrp = '';
+      var discounted_price = '';
+      var Quantity = '';
+      var total_item_in_cart = '';
+      var cart_value = '';
+        fetch('/api/storefront/carts?productId=' + pro_id, {
+          'credentials': 'include',
+          'headers': {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }).then(function (response) {
+          response.json().then(function (data) {
+            if (data) {
+
+              cart_value = data[0].cartAmount;
+              var getquantity = data[0]['lineItems']['physicalItems'];
+              getquantity.forEach(function (value, index) {
+                if (value.productId == pro_id) {
+                  Quantity = value.quantity;
+                }
+                if (total_item_in_cart == '') {
+                  total_item_in_cart = value.quantity;
+                } else {
+                  total_item_in_cart = total_item_in_cart + value.quantity;
+                }
+
+              })
+            }
+            var query = `query productById{
+                    site {
+                      product(entityId: ` + pro_id + `) {
+                        id
+                        entityId
+                        name
+                        categories
+                        {
+                        edges
+                          {
+                            node
+                            {
+                              id
+                              name
+                              
+                            }
+                          } 
+                        }
+                        prices (includeTax:true){
+                          price {
+                            ...MoneyFields
+                          }
+                          salePrice {
+                            ...MoneyFields
+                          }
+                          retailPrice {
+                            ...MoneyFields
+                          }
+                          basePrice {
+                           ...MoneyFields
+                         }
+                        }
+                      }
+                    }
+                  }
+
+                  fragment MoneyFields on Money {
+                    value
+                    currencyCode
+                  }`;
+            axios({
+              url: '/graphql',
+              method: 'post',
+              contentType: "application/json",
+              headers: {
+                'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+              },
+              data: {
+                query: query
+              }
+            }).then((result) => {
+              var alldata = result.data.data.site.product;
+              if (alldata != null) {
+                p_id = alldata.entityId;
+
+                p_name = alldata.name;
+                if (alldata.prices.retailPrice != null) {
+                  mrp = alldata.prices.retailPrice.value;
+                }else{
+                  mrp = alldata.prices.basePrice.value;
+                }
+                if (alldata.prices.salePrice != null) {
+                  discounted_price = alldata.prices.salePrice.value;
+                } else {
+                  discounted_price = 0;
+                }
+
+                var category = alldata.categories.edges;
+                var category_ID = [];
+                var category_NAME = [];
+                category.forEach(function (value, index) {
+
+                  category_ID.push(value.node.id);
+                  category_NAME.push(value.node.name);
+
+                })
+                var categories = {
+                  category_ID,
+                  category_NAME
+                };
+                var category_id = '';
+                var category_name = '';
+                category.forEach(function (value, index) {
+                  if (category_id == '' && category_name == '') {
+                    var cat_id = value.node.id;
+                    var splited_url = atob(cat_id);
+                    var categoryid = splited_url.split("Category:");
+                    category_id = categoryid[1];
+                    category_name = value.node.name
+                  } else {
+                    var splited_url = atob(value.node.id);
+                    var categoryid = splited_url.split("Category:");
+                    var catid = categoryid[1];
+                    category_id = category_id + ',' + catid;
+                    category_name = category_name + ',' + value.node.name;
+                  }
+
+                })
+                var productObject = {
+                  "Product_ID": p_id,
+                  "Product_Name": p_name,
+                  "categories": categories,
+                  "price": mrp,
+                  "salePrice": discounted_price,
+                  "Quantity": Quantity
+                };
+
+               
+                dataLayer.push({
+                  ecommerce: null
+                }); // Clear the previous ecommerce object.
+                dataLayer.push({
+                  'event': 'buyNow',
+                  'ecommerce': {
+                    'currencyCode': 'INR',
+                    'add': { // 'add' actionFieldObject measures.
+                      'products': [{ //  adding a product to a shopping cart.
+                        'name': p_name,
+                        'id': p_id,
+                        'price': discounted_price,
+                        'brand': 'Kapiva',
+                        'quantity': Quantity
+                      }]
+                    }
+                  }
+                });
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                  buyNowProduct: productObject
+                });
+                window.location.href = '/checkout';
+                webengage.track("buy now", {
+                  "Product_ID": p_id,
+                  "Product_Name": p_name,
+                  "Category_ID": category_id,
+                  "Category_Name": category_name,
+                  "MRP": Number(mrp),
+                  "Discount": discount_pr,
+                  "Discount_Price": discounted_price,
+                  "Quantity": Quantity,
+                  "Total_Item_in_cart": total_item_in_cart,
+                  "Cart_value": cart_value
+                });
+              
+                
+                fbq('track', 'buyNow', {
+                  content_ids: p_id,
+                  content_type: 'product',
+                  value: discounted_price,
+                  currency: 'INR',
+                  quantity: Quantity
+                });
+                
+              }
+            });
+          });
+        });
+      
+    }
+    //end
+
+//wizzybuynow
+function searchByNow(tag){
+  tag.classList.add("sendloadingbuynow")
+  var discount_pr = '';
+  if(tag.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".card-figure .wizzy-result-product-item .tag-section .groupBox .product-item-discount").lenght > 0){
+    var discount = tag.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".card-figure .wizzy-result-product-item .tag-section .groupBox .product-item-discount")[0].textContent;
+    var discount1 = discount.slice(1, -1); 
+     discount_pr = discount1.trim();
+  }
+            var pro_id = tag.getAttribute("data-objectid");
+            if (tag.classList.contains('disabled') == false) {
+              var cart_quantity = localStorage.getItem('cart-quantity');
+              var count = document.getElementsByClassName("cart-quantity")[0].textContent;
+              var formData = new FormData();
+                formData.append("action","add");
+                formData.append("product_id",pro_id);
+                formData.append("qty",1);
+                if(tag.classList.contains("has_options")){
+                var GraphQL_Query = `query productById{
+                  site {
+                  product(entityId: `+ pro_id + `) {
+                  entityId
+                  name
+                  productOptions(first: 50) {
+                    edges {
+                      node {
+                        entityId
+                        displayName
+                        isRequired
+                        isVariantOption
+                        ... on CheckboxOption {
+                          checkedByDefault
+                        }
+                        ... on MultipleChoiceOption {
+                          values(first: 10) {
+                            edges {
+                              node {
+                                entityId
+                                label
+                                isDefault
+                                ... on SwatchOptionValue {
+                                  hexColors
+                                  imageUrl(width: 200)
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                 }
+                  
+                  }
+                  }
+                  }`;
+                  axios({
+                    url: '/graphql',
+                    method: 'post',
+                    contentType: "application/json",
+                    async: false,
+                    headers: {
+                      'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                   },
+                    data: {
+                      query:GraphQL_Query
+                    }
+                  }).then((result) => {     
+                      var optionData = result.data.data.site.product.productOptions.edges;
+                      var variant_attr = [];
+                      if(optionData != undefined && optionData.length > 0){
+                        var variants = optionData;
+                       
+                        variants.forEach(function(variant,index){
+                            var is_default = false;
+                            if(variant.node.isVariantOption){
+                              let  variant_values = variant.node.values.edges;
+                                variant_values.forEach(function(variant_value){
+                                    if(variant_value.node.isDefault){
+                                        is_default = true;
+                                        formData.append("attribute["+variant.node.entityId+"]",variant_value.node.entityId);
+                                             let obj = {
+                                                  optionId: variant.node.entityId,
+                                                  optionValue: variant_value.node.entityId,
+                                                }
+                                                variant_attr.push(obj);  
+                
+                                    }
+                                });
+                            }else{
+                                is_default = true;
+                            }
+                
+                            if(is_default == false){
+                              formData.append("attribute["+variants[index].node.entityId+"]",variants[index].node.values.edges[0].node.entityId);
+                                let obj = {
+                                  optionId: variants[index].node.entityId,
+                                  optionValue: variants[index].node.values.edges[0].node.entityId,
+                                }
+                                variant_attr.push(obj); 
+                            }
+                        });
+              axios({
+                url: '/remote/v1/cart/add',
+                method: 'post',
+                dataType: 'json',
+                data: formData
+              }).then((result) => {
+                if (result.data.data.cart_item) {
+                  buyNow(pro_id, discount_pr)
+                }
+              }).catch(function (error) {
+                tag.classList.remove("sendloadingbuynow")
+           });
+          }
+        });
+      }else{
+        axios({
+                url: '/remote/v1/cart/add',
+                method: 'post',
+                dataType: 'json',
+                data: formData
+              }).then((result) => {
+                if (result.data.data.cart_item) {
+                  buyNow(pro_id, discount_pr)
+                }
+              }).catch(function (error) {
+                tag.classList.remove("sendloadingbuynow")
+           });
+      }
+            }
+ }
+ //end
+
+ //wizzy addtocart
+ function searchAddtocart(tag){
+  tag.classList.add("sendloadingaddtocart");
+    var Data = tag;
+        event.preventDefault();
+        var count = document.getElementsByClassName("cart-quantity")[0].textContent;
+        var pro_id = tag.getAttribute("data-productid");
+        var discount_pr = '';
+        if(tag.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".card-figure .wizzy-result-product-item .tag-section .groupBox .product-item-discount").lenght > 0){
+          var discount = tag.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".card-figure .wizzy-result-product-item .tag-section .groupBox .product-item-discount")[0].textContent;
+          var discount1 = discount.slice(1, -1); 
+          discount_pr = discount1.trim();
+        }
+        var formData = new FormData();
+                formData.append("action","add");
+                formData.append("product_id",pro_id);
+                formData.append("qty",1);
+                if(tag.classList.contains("has_options")){
+                var GraphQL_Query = `query productById{
+                  site {
+                  product(entityId: `+ pro_id + `) {
+                  entityId
+                  name
+                  productOptions(first: 50) {
+                    edges {
+                      node {
+                        entityId
+                        displayName
+                        isRequired
+                        isVariantOption
+                        ... on CheckboxOption {
+                          checkedByDefault
+                        }
+                        ... on MultipleChoiceOption {
+                          values(first: 10) {
+                            edges {
+                              node {
+                                entityId
+                                label
+                                isDefault
+                                ... on SwatchOptionValue {
+                                  hexColors
+                                  imageUrl(width: 200)
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                 }
+                  
+                  }
+                  }
+                  }`;
+                  axios({
+                    url: '/graphql',
+                    method: 'post',
+                    contentType: "application/json",
+                    async: false,
+                    headers: {
+                      'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                   },
+                    data: {
+                      query:GraphQL_Query
+                    }
+                  }).then((result) => {     
+                      var optionData = result.data.data.site.product.productOptions.edges;
+                      var variant_attr = [];
+                      if(optionData != undefined && optionData.length > 0){
+                        var variants = optionData;
+                       
+                        variants.forEach(function(variant,index){
+                            var is_default = false;
+                            if(variant.node.isVariantOption){
+                              let  variant_values = variant.node.values.edges;
+                                variant_values.forEach(function(variant_value){
+                                    if(variant_value.node.isDefault){
+                                        is_default = true;
+                                        formData.append("attribute["+variant.node.entityId+"]",variant_value.node.entityId);
+                                             let obj = {
+                                                  optionId: variant.node.entityId,
+                                                  optionValue: variant_value.node.entityId,
+                                                }
+                                                variant_attr.push(obj);  
+                
+                                    }
+                                });
+                            }else{
+                                is_default = true;
+                            }
+                
+                            if(is_default == false){
+                              formData.append("attribute["+variants[index].node.entityId+"]",variants[index].node.values.edges[0].node.entityId);
+                                let obj = {
+                                  optionId: variants[index].node.entityId,
+                                  optionValue: variants[index].node.values.edges[0].node.entityId,
+                                }
+                                variant_attr.push(obj); 
+                            }
+                        });
+        axios({
+          url: '/remote/v1/cart/add',
+          method: 'post',
+          dataType: 'json',
+          data: formData
+        }).then((result) => {
+          if (result.data.data.cart_item) {
+                       document.querySelector(".cart-quantity").textContent = parseInt(count) + 1;
+                          if (count == 0) {
+                              document.querySelectorAll(".cart-icon")[0].click();
+                          }
+              }else{
+                   Data.classList.remove("sendloadingaddtocart");
+              }
+             
+              fetch('/api/storefront/carts?include=',
+              {
+                  'credentials': 'include',
+                  'headers': {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  }
+              }).then(function (response) {
+                  response.json().then(function (data) {
+                    if (data.length != 0) {
+                          var getid = data[0]['lineItems']['physicalItems'];
+                          
+                              getid.forEach(function (value,key) {
+                                var pid = value.productId;
+                               var qty = value.quantity;
+                              if (pid != undefined && pid == pro_id){
+                                Data.classList.remove("sendloadingaddtocart");
+                                Data.querySelectorAll('#pro-count')[0].textContent = qty;
+                                Data.classList.add("addedtocardkapiva");
+                                Data.parentElement.querySelectorAll('#pro-count')[0].classList.add("fill-count");
+                              }
+                            });
+                        }
+                        });
+                    });
+                    addToCart(pro_id, discount_pr)
+        
+      });
+    }
+  });
+}else{
+  axios({
+          url: '/remote/v1/cart/add',
+          method: 'post',
+          dataType: 'json',
+          data: formData
+        }).then((result) => {
+          if (result.data.data.cart_item) {
+                       document.querySelector(".cart-quantity").textContent = parseInt(count) + 1;
+                          if (count == 0) {
+                              document.querySelectorAll(".cart-icon")[0].click();
+                          }
+              }else{
+                   Data.classList.remove("sendloadingaddtocart");
+              }
+             
+              fetch('/api/storefront/carts?include=',
+              {
+                  'credentials': 'include',
+                  'headers': {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  }
+              }).then(function (response) {
+                  response.json().then(function (data) {
+                    if (data.length != 0) {
+                          var getid = data[0]['lineItems']['physicalItems'];
+                          
+                              getid.forEach(function (value,key) {
+                                var pid = value.productId;
+                               var qty = value.quantity;
+                              if (pid != undefined && pid == pro_id){
+                                Data.classList.remove("sendloadingaddtocart");
+                                Data.querySelectorAll('#pro-count')[0].textContent = qty;
+                                Data.classList.add("addedtocardkapiva");
+                                Data.parentElement.querySelectorAll('#pro-count')[0].classList.add("fill-count");
+                              }
+                            });
+                        }
+                        });
+                    });
+                    addToCart(pro_id, discount_pr)
+        
+      });
+}
+  
+    }
+     document.addEventListener( 'DOMContentLoaded', function() {
+      document.getElementsByClassName("header")[0].style.position = "fixed";
+    });
+</script>
+<script>
+  let stateCheck1 = setInterval(() => {
+
+ if (document.readyState === 'complete') {
+  clearInterval(stateCheck1);
+   
+        //wizzy library
+    var url = window.location.href;
+  let result = url.includes("/search");
+   var check = 0;
+  if(check == 0 && result == true){
+  //wizzy css
+  let link = document.createElement("link");
+  link.type = "text/css";
+  link.className = "wizzyCss";
+  link.rel = "stylesheet",
+  link.href = "{{cdn 'assets/scss/wizzy/wizzyFrontend.min.css'}}";
+  document.getElementsByTagName("head")[0].appendChild(link);
+  //wizzy js
+  let script = document.createElement("script");
+ script.type = "text/javascript";
+  script.src = "{{cdn 'assets/js/wizzy/wizzyFrontend.min.js'}}";
+  script.className = "wizzyscript";
+  document.getElementsByTagName("head")[0].appendChild(script);
+  check++;
+  window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+        "eventAction": "view_item_list"
+        });
+  SearchCount()           
+}
+  }
+}, 100);
+
+   //set count of addtocart
+    SearchCount()
+    function SearchCount() {
+      var setinterval = setInterval(function () {
+        var len = document.getElementsByClassName("searchAddtoCart").length;
+        if (len > 0) {
+          clearInterval(setinterval);
+          fetch('/api/storefront/carts?include=', {
+            'credentials': 'include',
+            'headers': {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          }).then(function (response) {
+            response.json().then(function (data) {
+              if (data.length != 0) {
+                var getid = data[0]['lineItems']['physicalItems'];
+
+                getid.forEach(function (value, key) {
+                  var pid = value.productId;
+
+                  var qty = value.quantity;
+                  var bagIcon = document.getElementsByClassName("searchAddtoCart");
+                  document.querySelectorAll('.searchAddtoCart').forEach(item => {
+                    //  bagIcon.forEach(function (value,key) {
+
+                    var p_id = item.getAttribute("data-productid");
+                    if (p_id != undefined && p_id == pid && qty != null) {
+                      let el = item;
+                  
+                      item.querySelectorAll('#pro-count')[0].textContent = qty;
+                      item.classList.add("addedtocardkapiva");
+                      item.querySelectorAll('#pro-count')[0].classList.add("fill-count");
+                    }
+
+                  })
+                })
+              }
+            })
+          })
+        }
+      }, 200)
+    }
+   //end set count of addtocart
+        //code for wizzy webenage
+document.querySelectorAll('#search_query_adv').forEach(item => {
+  
+
+item.onkeyup = function(event) {
+var query = this.value; 
+ 
+ 
+ 
+var querylength = query.length;
+var data = setInterval(function() {
+var len = document.querySelectorAll(".wizzy-result-product.product").length;
+if(len > 0 && querylength > 2){
+   clearInterval(data);
+   
+var ids = [];
+ var titles = [];
+ var products = [];
+
+    document.querySelectorAll('.wizzy-result-product.product').forEach(item => {
+        
+        var id = item.getAttribute("data-id");
+        var name = item.getAttribute("title");
+        
+        var object = {
+            "product_id" : id,
+            "product_title": name
+        };
+         products.push(object);
+         ids.push(id);
+  })
+
+ var id = document.querySelectorAll('.wizzy-result-product.product')[0].getAttribute("data-id");
+ var name = document.querySelectorAll('.wizzy-result-product.product')[0].getAttribute("title");
+      
+     
+               
+//  fbq('track', 'Search', {
+//                   content_ids: ids,
+//                   content_type: 'product_group',
+//                   search_string: query
+//                   });
+                  // var count = document.querySelectorAll(".wizzy-summary-head")[0].textContent;
+                 // const myArray = count.split("Results");
+            //      webengage.track("Search",{            
+            //       "Search_term_entered" : query,
+            //       "Search_term_total_results_shown" : Number(myArray[0]),
+            //       "search_top_product_id": Number(id),
+            //       "search_top_product_title": name,
+            //       "Search_term_products" : products
+            //   });
+            //  setTimeout(() => {
+            //   if(document.querySelectorAll(".judgeme_script").length == 0){
+            //   var judgeme_script = document.createElement('script');
+            //   judgeme_script.setAttribute('src','https://cdn.judge.me/judgeme_widget_v2.js');
+            //   judgeme_script.className = "judgeme_script";
+            //   document.head.appendChild(judgeme_script);
+            //   }
+            //   if(document.querySelectorAll(".judgeme_priscript").length == 0){
+            //   var judgeme_priscript = document.createElement('script');
+            //   judgeme_priscript.setAttribute('src','https://cdn.judge.me/widget_preloader.js');
+            //   judgeme_priscript.className = "judgeme_priscript";
+            //   document.head.appendChild(judgeme_priscript);
+            //   }
+            //   },1000);
+              
+                } 
+                var width =screen.width;
+
+              
+                var interval = setInterval(function(){
+                  var len = document.querySelectorAll(".wizzy-summary-head").length;
+                  if(len > 0){
+                      clearInterval(interval);
+                      if(width > 1024){
+                        document.querySelectorAll('.product').forEach(product => {
+                            product.querySelectorAll(".card .card-figure a")[0].setAttribute("target","_blank");
+                            product.querySelectorAll(".card .card-body .card-title a")[0].setAttribute("target","_blank");
+                          });
+                      }
+                    }
+                },200)
+               // CountAddToCart()
+               
+               
+},2000);
+}
+      if(screen.width > 1024){
+      var check = 0;
+      item.onmousedown = function(event) {
+        var query = this.value; 
+
+          var snap = document.querySelectorAll(".wizzyscript").length;
+          
+          if(check == 0 && snap == 0){
+              //wizzy css
+            let link = document.createElement("link");
+            link.type = "text/css";
+            link.className = "wizzyCss";
+            link.rel = "stylesheet",
+            link.href = "{{cdn 'assets/scss/wizzy/wizzyFrontend.min.css'}}";
+            document.getElementsByTagName("head")[0].appendChild(link);
+            //wizzy js
+            let script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "{{cdn 'assets/js/wizzy/wizzyFrontend.min.js'}}";
+            script.className = "wizzyscript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            check++;
+            SearchCount()
+      }
+          
+      }
+      }else{
+        var check = 0;
+      item.onfocus = function(event) {
+        var query = this.value; 
+
+          var snap = document.querySelectorAll(".wizzyscript").length;
+          
+          if(check == 0 && snap == 0){
+              //wizzy css
+            let link = document.createElement("link");
+            link.type = "text/css";
+            link.className = "wizzyCss";
+            link.rel = "stylesheet",
+            link.href = "{{cdn 'assets/scss/wizzy/wizzyFrontend.min.css'}}";
+            document.getElementsByTagName("head")[0].appendChild(link);
+            //wizzy js
+            let script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "{{cdn 'assets/js/wizzy/wizzyFrontend.min.js'}}";
+            script.className = "wizzyscript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            check++;
+            SearchCount()
+      }
+
+      }
+}
+});
+//end code for wizzy webengage
+ //wizzy empty products
+ function wizzyTopProducts(url){
+   
+   var query =  `query CategoryByUrl {
+           site {
+               route(path:  "`+ url +`") {
+               node {       
+                   ... on Category {
+                   products(first: 9, sortBy: NEWEST) {
+                       edges {
+                       node { 
+                           entityId
+                           name
+                           path
+                           inventory{
+                           isInStock
+                           }
+                           defaultImage {
+                           url(width: 1200)
+                           }
+                           brand {
+                           name
+                           defaultImage {
+                               url(width: 200)
+                           }
+                           }
+                           reviewSummary {
+                            summationOfRatings
+                            numberOfReviews
+                           }
+                           customFields{
+                            edges {
+                              node {
+                                name
+                                value
+                              }
+                            }
+                          }
+                           prices(includeTax:true) {
+                           price {
+                               ...PriceFields
+                           }
+                           salePrice {
+                               ...PriceFields
+                               }
+                               retailPrice {
+                                   ...PriceFields
+                               }
+                           }
+                       }
+                       }
+                   }
+                   }
+               }
+               }
+           }
+           }
+
+           fragment PriceFields on Money {
+           value
+           currencyCode
+           }`
+         
+           axios({
+           url: '/graphql',
+           method: 'post',
+           async: false,
+           contentType: "application/json",
+           headers: {
+               'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+          },
+           data: {
+             query:query
+           }
+         }).then((result) => {   
+             
+          const alldata = result.data.data.site.route.node;
+         
+                  if(alldata != null){
+                    const products = alldata.products.edges;
+                      var html = '';
+
+          
+           
+               var variant_sku = '';
+               products.forEach(function(value,index){
+               const image = value.node.defaultImage.url;     
+               const pid = value.node.entityId;     
+               const name = value.node.name; 
+               let retail_price = '';
+               let sale_price = '';
+                const customFields = value.node.customFields.edges;
+               if(value.node.prices.retailPrice != null && value.node.prices.salePrice != null){
+                 retail_price = value.node.prices.retailPrice.value; 
+                sale_price = value.node.prices.salePrice.value; 
+               }else if(retail_price == null && sale_price == null){
+                     retail_price = value.node.prices.price.value;
+                     sale_price = value.node.prices.price.value;
+               }else if(retail_price == null){
+                 retail_price = value.node.prices.price.value;
+               }else{
+                 sale_price = value.node.prices.price.value;
+               }
+               const path = value.node.path;  
+               const instock = value.node.inventory.isInStock;
+               const numberofreview = value.node.reviewSummary.numberOfReviews;
+            const reviewcount = value.node.reviewSummary.summationOfRatings;
+            var total = '';
+           if(retail_price && sale_price){
+               const discount_price = retail_price - sale_price;
+          
+          const discount = (discount_price * 100) / retail_price;
+         
+          const discount_round = discount.toPrecision(2);
+          
+          const total = discount_round + "% OFF";
+         }
+         html+='<li class="wizzy-result-product wizzy-product-'+pid+' product" title="'+name+'" data-id="'+pid+'" onclick="productView('+name+')">'
+
+       html+='<span class="wizzy-product-variation-loader-bg"></span>'
+       html+='<span class="wizzy-product-variation-loader"></span>'
+
+       html+='<div class="card">'
+           html+='<figure class="card-figure">'
+               html+='<a href="'+path+'" class="wizzy-result-product-item card-figure__link kapiva-curve small overflow-hidden">'
+                   html+='<div class="result-product-item-image card-img-container load">'
+                       html+='<img src="'+image+'" class="product-item-image card-image kapiva-curve big loaded lazyautosizes lazyloaded" sizes="325px">'
+                       html+='</div>'
+           
+                       html+='<div class="tag-section">'
+                        html+='<div class="jdgm-widget jdgm-preview-badge" data-id="'+pid+'"></div>'
+                     
+                       html+='</div>'
+                       html+='</a>'
+                       html+='</figure>'
+                       html+='<div class="card-body">'
+                           html+='<h3 class="card-title  card-comman">'
+                               html+='<a class="product-item-title" href="'+path+'">'+name+'</a>'
+                               html+='</h3>'  
+                               
+                               html += '<div class="kapiva-products-deta">'
+                                customFields.forEach(function(value,index){
+                              if(value.node.name == "Solution New")
+                              html +='<p class="card-ingredients card-details card-comman">' + value.node.value + '</p>'
+                              if(value.node.name == "Ingredient New")
+                              html +='<p class="card-ingredients-details card-details card-comman">' + value.node.value + '</p>'
+                            });
+                              html += '</div>'
+                           
+                               html+='</div>'
+
+                               html+='<a class="wizzy-result-product-item">'
+        
+                                   html+='<div class="result-product-item-info">'
+
+                                    
+               html+='<div class="wizzy-product-item-price card-comman">'
+               
+                   html+='<span class="product-item-original-price">₹'+retail_price+'</span>₹'+sale_price+' </div>'
+                   html+='<div class="wizzy-product-actions">'
+           html+='<div class="product_item-actions actions Prod-AddToCart">'
+               html+='<div class="actions-primary">'
+                       html+='<div class="wizzy-product-add-to-cart">'
+                          html+='<form data-role="tocart-form" class="wizzy-tocart-form buy-now" action="URL_HEREproduct/'+pid+'/" method="post">'
+                              html+='<input type="hidden" class="wizzy-tocart-productid" name="product" value="'+pid+'">'
+                              html+='<input type="hidden" class="wizzy-tocart-uenc" name="uenc" value="VVJMX0hFUkVwcm9kdWN0LzIxMS8=">'
+                              html+='<input type="hidden" class="wizzy-tocart-responseId" name="searchResponseId" value="059171d8-a51d-11ec-a231-0a6a11aebf00">'
+                              html+='<input name="form_key" type="hidden" value="">'
+                              html+='<button type="button" title="Add to Cart" class="action tocart primary wizzy-tocart-button" data-objectid="'+pid+'" onclick="searchByNow(this)">'
+                               html+='<span>Buy Now</span>'
+                              html+='</button>'
+                          html+='</form>'
+                       html+='</div>'
+                   html+='</div>'
+
+               html+='<div class="actions-secondary" data-role="add-to-links">'
+                       html+='<div class="wizzy-product-add-to-wishlist">'
+                           html+='<button class="action towishlist wizzy-towishlist-button" title="Add to Wish List" aria-label="Add to Wish List" data-post="{&quot;action&quot;:&quot;URL_HERE&quot;,&quot;data&quot;:{&quot;product&quot;:'+pid+',&quot;uenc&quot;:&quot;aHR0cDovL2xvY2FsaG9zdDozMDAwL3NlYXJjaD9xPWFtbGE,&quot;,&quot;searchResponseId&quot;:&quot;059171d8-a51d-11ec-a231-0a6a11aebf00&quot;}}" data-productid="'+pid+'" data-groupid="" data-action="add-to-wishlist" role="button">'
+                              html+='<div class="heart-icon searchAddtoCart" data-productid="'+pid+'" onclick="searchAddtocart(this)"><span class="cart-icon-view"><img src="https://cdn11.bigcommerce.com/s-5h8rqg02f8/content/images/Homepage/add-to-cart-btn.png"></span><div id="pro-count" class="fillCount_[[id]]"></div>'
+                           html+='</div>'
+                              
+                           html+='</button>'
+                       html+='</div>'
+                   html+='</div>'
+                   html+='</div>'
+               html+='</div>'
+           html+='</div>'
+        html+='</div>'
+     html+='</a>'
+   html+='</div>'
+  html+='</li>'
+   });
+    
+       var Trend = document.querySelectorAll(".wizzy-search-results-list.productGrid.emptyResults");
+       Trend[0].innerHTML = html;
+      setTimeout(() => {
+                window.jdgmCacheServer.reloadAll();
+                // jdgmCacheServer.reloadPreviewBadges();
+            },2000)
+                  }
+           })
+           .catch(function (error) {
+           console.log(error);
+       })
+       .then(function () {
+        
+       }); 
+}
+//wizzy product view GA events
+function productView(name){
+  window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+                'event': "Product Viewed via Wizzy",
+                'eventCategory': "Product Viewed via Wizzy",
+                'eventAction': "click", 
+                'eventLabel': name
+          });
+        
+          window.dataLayer = window.dataLayer || [];
+       
+          window.dataLayer.push({
+               
+            'event': "wizzy productView", 
+            'wizzy_viewedItem': name
+               
+          });
+} 
+
+//staticpage addtocart buyNow
+
+function staticbuynow(data){
+let pro_id = data.getAttribute("data-product-id");
+data.classList.add("sendloadingbuynow")
+let Data = data;
+ var formData = new FormData();
+              formData.append("action","add");
+              formData.append("product_id",pro_id);
+              formData.append("qty",1);
+              let discount_pr = '';
+if(data.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".rightdeta .cardwrap .price .priceold .discount").length > 0){
+              var discount = data.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".rightdeta .cardwrap .price .priceold .discount")[0].textContent;
+               discount_pr = discount.trim();
+               }
+               
+              let str1 = discount_pr.replace("(", "");
+              let str2 = str1.replace(")", "");
+              let discount_data = str2.trim();
+              var GraphQL_Query = `query productById{
+                  site {
+                  product(entityId:  `+pro_id+`) {
+                  entityId
+                  name
+                  productOptions(first: 50) {
+                    edges {
+                      node {
+                        entityId
+                        displayName
+                        isRequired
+                        isVariantOption
+                        ... on CheckboxOption {
+                          checkedByDefault
+                        }
+                        ... on MultipleChoiceOption {
+                          values(first: 10) {
+                            edges {
+                              node {
+                                entityId
+                                label
+                                isDefault
+                                ... on SwatchOptionValue {
+                                  hexColors
+                                  imageUrl(width: 200)
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                 }
+                  
+                  }
+                  }
+                  }`;
+                  axios({
+                    url: '/graphql',
+                    method: 'post',
+                    contentType: "application/json",
+                    async: false,
+                    headers: {
+                      'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                  },
+                    data: {
+                      query:GraphQL_Query
+                    }
+                  }).then((result) => {  
+                      
+                      var optionData = result.data.data.site.product.productOptions.edges;
+                      if(optionData != undefined && optionData.length > 0){
+                        var variants = optionData;
+                       
+                        variants.forEach(function(variant,index){
+                            var is_default = false;
+                            if(variant.node.isVariantOption){
+                              let  variant_values = variant.node.values.edges;
+                                variant_values.forEach(function(variant_value){
+                                    if(variant_value.node.isDefault){
+                                        is_default = true;
+                                        formData.append("attribute["+variant.node.entityId+"]",variant_value.node.entityId);
+                                    }
+                                });
+                            }else{
+                                is_default = true;
+                            }
+                
+                            if(is_default == false){
+                              formData.append("attribute["+variants[index].node.entityId+"]",variants[index].node.values.edges[0].node.entityId); 
+                            }
+                        });
+
+                            axios({
+                                url: '/remote/v1/cart/add',
+                                method: 'post',
+                                dataType: 'json',
+                                data: formData
+                              }).then((result) => {
+                                if (result.data.data.cart_item) {
+                                  buyNow(pro_id, discount_data)
+                                }else{
+                                       Data.classList.remove("sendloadingbuynow");
+                                  }
+                              }).catch(function (error) {
+                                data.classList.remove("sendloadingbuynow")
+                          });
+                                   
+       
+      }else{
+        axios({
+                url: '/remote/v1/cart/add',
+                method: 'post',
+                dataType: 'json',
+                data: formData
+              }).then((result) => {
+                if (result.data.data.cart_item) {
+                  buyNow(pro_id, discount_pr)
+                }else{
+                     Data.classList.remove("sendloadingbuynow");
+              }
+              }).catch(function (error) {
+                data.classList.remove("sendloadingbuynow")
+           });
+
+      }
+ });
+}
+function staticaddtocart(Data){
+    let pro_id = Data.getAttribute("data-product-id");
+     Data.classList.add("sendloadingaddtocart");
+      var count = document.getElementsByClassName("cart-quantity")[0].textContent;
+     var formData = new FormData();
+              formData.append("action","add");
+              formData.append("product_id",pro_id);
+              formData.append("qty",1);
+               let discount_pr = '';
+if(Data.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".rightdeta .cardwrap .price .priceold .discount").length > 0){
+              var discount = Data.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(".rightdeta .cardwrap .price .priceold .discount")[0].textContent;
+               discount_pr = discount.trim();
+               }
+               
+              let str1 = discount_pr.replace("(", "");
+              let str2 = str1.replace(")", "");
+              let discount_data = str2.trim();
+             
+             var GraphQL_Query = `query productById{
+                  site {
+                  product(entityId: `+pro_id+`) {
+                  entityId
+                  name
+                  productOptions(first: 50) {
+                    edges {
+                      node {
+                        entityId
+                        displayName
+                        isRequired
+                        isVariantOption
+                        ... on CheckboxOption {
+                          checkedByDefault
+                        }
+                        ... on MultipleChoiceOption {
+                          values(first: 10) {
+                            edges {
+                              node {
+                                entityId
+                                label
+                                isDefault
+                                ... on SwatchOptionValue {
+                                  hexColors
+                                  imageUrl(width: 200)
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                 }
+                  
+                  }
+                  }
+                  }`;
+                  axios({
+                    url: '/graphql',
+                    method: 'post',
+                    contentType: "application/json",
+                    async: false,
+                    headers: {
+                      'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+                  },
+                    data: {
+                      query:GraphQL_Query
+                    }
+                  }).then((result) => {  
+                     
+                      var optionData = result.data.data.site.product.productOptions.edges;
+                      if(optionData != undefined && optionData.length > 0){
+                        var variants = optionData;
+                       
+                        variants.forEach(function(variant,index){
+                            var is_default = false;
+                            if(variant.node.isVariantOption){
+                              let  variant_values = variant.node.values.edges;
+                                variant_values.forEach(function(variant_value){
+                                    if(variant_value.node.isDefault){
+                                        is_default = true;
+                                        formData.append("attribute["+variant.node.entityId+"]",variant_value.node.entityId);
+                                    }
+                                });
+                            }else{
+                                is_default = true;
+                            }
+                
+                            if(is_default == false){
+                              formData.append("attribute["+variants[index].node.entityId+"]",variants[index].node.values.edges[0].node.entityId); 
+                            }
+                        });
+
+                            axios({
+                                url: '/remote/v1/cart/add',
+                                method: 'post',
+                                dataType: 'json',
+                                data: formData
+                              }).then((result) => {
+                                      if (result.data.data.cart_item) {
+                  addToCart(pro_id, discount_pr)
+                   if (count == 0) {
+                                document.getElementsByClassName("cart-icon")[0].click();
+                            }
+                    document.getElementsByClassName("cart-quantity")[0].textContent = parseInt(count) + 1;
+                    fetch('/api/storefront/carts?include=',
+                      {
+                          'credentials': 'include',
+                          'headers': {
+                              'Accept': 'application/json',
+                              'Content-Type': 'application/json'
+                          }
+                      }).then(function (response) {
+                          response.json().then(function (data) {
+                            if (data.length != 0) {
+                                  var getid = data[0]['lineItems']['physicalItems'];
+                                  
+                                      getid.forEach(function (value,key) {
+                                        var pid = value.productId;
+                                       var qty = value.quantity;
+                                      if (pid != undefined && pid == pro_id){
+                                        Data.classList.remove("sendloadingaddtocart");
+                                        Data.querySelectorAll('.Count')[0].textContent = qty;
+                                        Data.classList.add("addedtocardkapiva");
+                                        Data.querySelectorAll('.Count')[0].classList.add("fill-count");
+                                      }
+                                    });
+                                }
+                                });
+                            });
+                }else{
+                   Data.classList.remove("sendloadingaddtocart");
+              }
+                              }).catch(function (error) {
+                                Data.classList.remove("sendloadingaddtocart")
+                          });
+                                   
+       
+      }else{
+        axios({
+                url: '/remote/v1/cart/add',
+                method: 'post',
+                dataType: 'json',
+                data: formData
+              }).then((result) => {
+                if (result.data.data.cart_item) {
+                  addToCart(pro_id, discount_pr)
+                   if (count == 0) {
+                                document.getElementsByClassName("cart-icon")[0].click();
+                            }
+                    document.getElementsByClassName("cart-quantity")[0].textContent = parseInt(count) + 1;
+                    fetch('/api/storefront/carts?include=',
+              {
+                  'credentials': 'include',
+                  'headers': {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  }
+              }).then(function (response) {
+                  response.json().then(function (data) {
+                    if (data.length != 0) {
+                          var getid = data[0]['lineItems']['physicalItems'];
+                          
+                              getid.forEach(function (value,key) {
+                                var pid = value.productId;
+                               var qty = value.quantity;
+                              if (pid != undefined && pid == pro_id){
+                                Data.classList.remove("sendloadingaddtocart");
+                                Data.querySelectorAll('.Count')[0].textContent = qty;
+                                Data.classList.add("addedtocardkapiva");
+                                Data.querySelectorAll('.Count')[0].classList.add("fill-count");
+                              }
+                            });
+                        }
+                        });
+                    });
+                }else{
+                   Data.classList.remove("sendloadingaddtocart");
+              }
+              }).catch(function (error) {
+                Data.classList.remove("sendloadingaddtocart")
+           });
+
+      }
+ });
+}
+
+
+//start homepageAddtocart
+function homepageAddtocart(thisData){
+      
+      let productId = thisData.getAttribute("product_id");
+      let count = document.querySelector(".cart-quantity").textContent;
+      let discount_pr = thisData.getAttribute("discountPr");
+      thisData.querySelectorAll(".button .heart-icon a")[0].classList.add("sendloadingaddtocart");
+       var formData = new FormData();
+       formData.append("action","add");
+       formData.append("product_id",productId);
+       formData.append("qty",1);
+
+
+       var GraphQL_Query = `query productById{
+        site {
+        product(entityId: `+ productId + `) {
+        entityId
+        name
+        productOptions(first: 50) {
+          edges {
+            node {
+              entityId
+              displayName
+              isRequired
+              isVariantOption
+              ... on CheckboxOption {
+                checkedByDefault
+              }
+              ... on MultipleChoiceOption {
+                values(first: 10) {
+                  edges {
+                    node {
+                      entityId
+                      label
+                      isDefault
+                      ... on SwatchOptionValue {
+                        hexColors
+                        imageUrl(width: 200)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+       }     
+        }
+        }
+        }`;
+        axios({
+          url: '/graphql',
+          method: 'post',
+          contentType: "application/json",
+          async: false,
+          headers: {
+            'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+         },
+          data: {
+            query:GraphQL_Query
+          }
+        }).then((result) => {
+            
+            var optionData = result.data.data.site.product.productOptions.edges;
+            var variant_attr = [];
+            if(optionData != undefined && optionData.length > 0){
+              var variants = optionData;
+             
+              variants.forEach(function(variant,index){
+                  var is_default = false;
+                  if(variant.node.isVariantOption){
+                    let  variant_values = variant.node.values.edges;
+                      variant_values.forEach(function(variant_value){
+                          if(variant_value.node.isDefault){
+                              is_default = true;
+                              formData.append("attribute["+variant.node.entityId+"]",variant_value.node.entityId);
+                                   let obj = {
+                                        optionId: variant.node.entityId,
+                                        optionValue: variant_value.node.entityId,
+                                      }
+                                      variant_attr.push(obj);  
+      
+                          }
+                      });
+                  }else{
+                      is_default = true;
+                  }
+      
+                  if(is_default == false){
+                    formData.append("attribute["+variants[index].node.entityId+"]",variants[index].node.values.edges[0].node.entityId);
+                      let obj = {
+                        optionId: variants[index].node.entityId,
+                        optionValue: variants[index].node.values.edges[0].node.entityId,
+                      }
+                      variant_attr.push(obj); 
+                  }
+              });
+              axios({
+              url: '/remote/v1/cart/add',
+              method: 'post',
+              dataType: 'json',
+              data: formData
+              }).then((result) => {
+                
+                if (result.data.data.cart_item) {
+                  
+                    
+                   document.querySelector(".cart-quantity").textContent = parseInt(count) + 1;
+                     if (count == 0) {
+                         document.querySelectorAll(".cart-icon")[0].click();
+                     }
+                     thisData.querySelectorAll(".button .heart-icon a")[0].classList.remove("sendloadingaddtocart");
+                        fetch('/api/storefront/carts?include=', {
+                      'credentials': 'include',
+                      'headers': {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                      }
+                    }).then(function (response) {
+                      response.json().then(function (data) {
+                        if (data.length != 0) {
+                          var getid = data[0]['lineItems']['physicalItems'];
+                          getid.forEach(function (value, key) {
+                            var pid = value.productId;
+
+                            var qty = value.quantity;
+
+                            if (productId != undefined && productId == pid) {
+                            
+                              let tranding = document.getElementsByClassName("tranding_" + pid)[0];
+                              thisData.querySelectorAll("#pro-count")[0].classList.add("fill-count");
+                              thisData.classList.add("fill-Prod-add-to-cart");
+                              thisData.querySelectorAll("#pro-count")[0].textContent = qty;
+                              addToCart(productId, discount_pr)
+                            }
+                          });
+                        }
+                      });
+                    });
+                  }else{
+                    thisData.querySelectorAll(".button .heart-icon a")[0].classList.remove("sendloadingaddtocart");
+                  }
+                  
+                }).catch(function (error) {
+                  thisData.querySelectorAll(".button .heart-icon a")[0].classList.remove("sendloadingaddtocart");
+               });
+    }else{
+        axios({
+              url: '/remote/v1/cart/add',
+              method: 'post',
+              dataType: 'json',
+              data: formData
+              }).then((result) => {
+                
+                if (result.data.data.cart_item) {
+                  
+                    
+                  document.querySelector(".cart-quantity").textContent = parseInt(count) + 1;
+                     if (count == 0) {
+                         document.querySelectorAll(".cart-icon")[0].click();
+                     }
+                     fetch('/api/storefront/carts?include=', {
+                      'credentials': 'include',
+                      'headers': {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                      }
+                    }).then(function (response) {
+                      response.json().then(function (data) {
+                        if (data.length != 0) {
+                          var getid = data[0]['lineItems']['physicalItems'];
+                          getid.forEach(function (value, key) {
+                            var pid = value.productId;
+
+                            var qty = value.quantity;
+
+                            if (productId != undefined && productId == pid) {
+                            
+                              let tranding = document.getElementsByClassName("tranding_" + pid)[0];
+                              thisData.querySelectorAll("#pro-count")[0].classList.add("fill-count");
+                              thisData.classList.add("fill-Prod-add-to-cart");
+                              thisData.querySelectorAll("#pro-count")[0].textContent = qty;
+                              addToCart(productId, discount_pr)
+                            }
+                          });
+                        }
+                      });
+                    });
+                     thisData.querySelectorAll(".button .heart-icon a")[0].classList.remove("sendloadingaddtocart");
+                  }else{
+                    thisData.querySelectorAll(".button .heart-icon a")[0].classList.remove("sendloadingaddtocart");
+                  }
+                }).catch(function (error) {
+                  thisData.querySelectorAll(".button .heart-icon a")[0].classList.remove("sendloadingaddtocart");
+               });  
+    }
+  });
+  }
+  //end homepageAddtocart
+
+  //start homepageBuynow
+  function homepageBuynow(thisData){
+      let productId = thisData.getAttribute("product_id");
+      let count = document.querySelector(".cart-quantity").textContent;
+      let discount_pr = thisData.getAttribute("discountPr");
+       thisData.classList.add("sendloadingbuynow");
+       var formData = new FormData();
+       formData.append("action","add");
+       formData.append("product_id",productId);
+       formData.append("qty",1);
+
+
+       var GraphQL_Query = `query productById{
+        site {
+        product(entityId: `+ productId + `) {
+        entityId
+        name
+        productOptions(first: 50) {
+          edges {
+            node {
+              entityId
+              displayName
+              isRequired
+              isVariantOption
+              ... on CheckboxOption {
+                checkedByDefault
+              }
+              ... on MultipleChoiceOption {
+                values(first: 10) {
+                  edges {
+                    node {
+                      entityId
+                      label
+                      isDefault
+                      ... on SwatchOptionValue {
+                        hexColors
+                        imageUrl(width: 200)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+       }
+        
+        }
+        }
+        }`;
+        axios({
+          url: '/graphql',
+          method: 'post',
+          contentType: "application/json",
+          async: false,
+          headers: {
+            'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+         },
+          data: {
+            query:GraphQL_Query
+          }
+        }).then((result) => {
+            
+            var optionData = result.data.data.site.product.productOptions.edges;
+            var variant_attr = [];
+            if(optionData != undefined && optionData.length > 0){
+              var variants = optionData;
+             
+              variants.forEach(function(variant,index){
+                  var is_default = false;
+                  if(variant.node.isVariantOption){
+                    let  variant_values = variant.node.values.edges;
+                      variant_values.forEach(function(variant_value){
+                          if(variant_value.node.isDefault){
+                              is_default = true;
+                              formData.append("attribute["+variant.node.entityId+"]",variant_value.node.entityId);
+                                   let obj = {
+                                        optionId: variant.node.entityId,
+                                        optionValue: variant_value.node.entityId,
+                                      }
+                                      variant_attr.push(obj);  
+      
+                          }
+                      });
+                  }else{
+                      is_default = true;
+                  }
+      
+                  if(is_default == false){
+                    formData.append("attribute["+variants[index].node.entityId+"]",variants[index].node.values.edges[0].node.entityId);
+                      let obj = {
+                        optionId: variants[index].node.entityId,
+                        optionValue: variants[index].node.values.edges[0].node.entityId,
+                      }
+                      variant_attr.push(obj); 
+                  }
+              });
+              axios({
+              url: '/remote/v1/cart/add',
+              method: 'post',
+              dataType: 'json',
+              data: formData
+              }).then((result) => {
+                if (result.data.data.cart_item) {
+                  buyNow(productId, discount_pr)
+                  document.querySelector(".cart-quantity").textContent = parseInt(count) + 1;
+                     
+                     thisData.classList.remove("sendloadingbuynow");
+                  }else{
+                    thisData.classList.remove("sendloadingbuynow");
+                  }
+                }).catch(function (error) {
+                  thisData.classList.remove("sendloadingbuynow");
+               });
+    }else{
+        axios({
+              url: '/remote/v1/cart/add',
+              method: 'post',
+              dataType: 'json',
+              data: formData
+              }).then((result) => {
+                if (result.data.data.cart_item) {
+                  buyNow(productId, discount_pr)
+                  document.querySelector(".cart-quantity").textContent = parseInt(count) + 1;
+                     
+                     thisData.classList.remove("sendloadingbuynow");
+                  }else{
+                    thisData.classList.remove("sendloadingbuynow");
+                  }
+                }).catch(function (error) {
+                  thisData.classList.remove("sendloadingbuynow");
+               });  
+    }
+  });
+  }
+  //end homepageBuynow
+</script>
+

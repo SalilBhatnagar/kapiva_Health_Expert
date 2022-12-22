@@ -1,0 +1,209 @@
+<div class="box menu_left">
+    <ul class="navPage-subMenu-list">
+    {{#each categories}}
+        {{#if name '==' 'Solution'}}        
+        <li class="navPage-subMenu-item">
+            {{#if children}} 
+                <a class="navPage-subMenu-action navPages-action"
+                           href="{{url}}"
+                           aria-label="{{lang 'category.view_all.name' category=name}}"
+                        >
+                    {{name}}
+                </a>        
+                <ul class="navPage-childList">
+                    {{#each children}}
+                    {{#if name '==' 'Weight Loss'}}
+                     <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="/weight-management/"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a> 
+                                {{else if name '==' 'Digestion'}}
+                                 <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="/digestion-page/"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a> 
+                                {{else if name '==' 'Skin'}}
+                                 <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="/skin-food-page/"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a> 
+                                    {{else}}
+                        <li class="navPage-childList-item">
+                            {{#if children}}
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="{{url}}"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a>
+                                <ul class="navPage-childList" id="navPages-{{id}}">
+                                    {{#each children}}
+                                    
+                                    <li class="navPage-childList-item">
+                                        <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                           href="{{url}}"
+                                           aria-label="{{name}}"
+                                        >
+                                            {{name}}
+                                        </a>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            {{else}}
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="{{url}}"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a>
+                            {{/if}}
+                        </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+                {{else}}
+                <a class="navPages-action{{#if is_active}} activePage{{/if}}"
+                   href="{{url}}"
+                   aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            {{/if}}
+            <ul>
+                <li class="navPage-subMenu-item inner-li">
+            <a class="navPage-subMenu-action navPages-action"
+                           href="/solution/mens-care/"
+                        >
+                    Men
+                </a>  
+                </li>
+                 <li class="navPage-subMenu-item inner-li">
+             <a class="navPage-subMenu-action navPages-action"
+                           href="/solution/womens-care/"
+                        >
+                    Women
+                </a>  
+                </li>
+                <li class="navPage-subMenu-item inner-li">
+             <a class="navPage-subMenu-action navPages-action"
+                           href="/product/combos/"
+                        >
+                    Combos
+                </a>  
+                </li>
+                </ul>
+        </li>
+        {{else if name '==' 'Ingredients'}}
+        <li class="navPage-subMenu-item">
+            {{#if children}} 
+                <a class="navPage-subMenu-action navPages-action"
+                           href="{{url}}"
+                           aria-label="{{lang 'category.view_all.name' category=name}}"
+                        >
+                    {{name}}
+                </a>        
+                <ul class="navPage-childList">
+                    {{#each children}}
+                        <li class="navPage-childList-item">
+                            {{#if children}}
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="{{url}}"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a>
+                                <ul class="navPage-childList" id="navPages-{{id}}">
+                                    {{#each children}}
+                                    <li class="navPage-childList-item">
+                                        <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                           href="{{url}}"
+                                           aria-label="{{name}}"
+                                        >
+                                            {{name}}
+                                        </a>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            {{else}}
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="{{url}}"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <a class="navPages-action{{#if is_active}} activePage{{/if}}"
+                   href="{{url}}"
+                   aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            {{/if}}
+        </li>
+        {{else if name '==' 'Product'}}
+        <li class="navPage-subMenu-item">
+            {{#if children}} 
+                <a class="navPage-subMenu-action navPages-action"
+                           href="{{url}}"
+                           aria-label="{{lang 'category.view_all.name' category=name}}"
+                        >
+                    {{name}}
+                </a>        
+                <ul class="navPage-childList">
+                    {{#each children}}
+                        <li class="navPage-childList-item">
+                            {{#if children}}
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="{{url}}"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a>
+                                <ul class="navPage-childList" id="navPages-{{id}}">
+                                    {{#each children}}
+                                    <li class="navPage-childList-item">
+                                        <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                           href="{{url}}"
+                                           aria-label="{{name}}"
+                                        >
+                                            {{name}}
+                                        </a>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            {{else}}
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                       href="{{url}}"
+                                       aria-label="{{name}}"
+                                    >
+                                    {{name}}
+                                </a>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <a class="navPages-action{{#if is_active}} activePage{{/if}}"
+                   href="{{url}}"
+                   aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            {{/if}}
+        </li>
+        {{/if}}
+    {{/each}}
+    </ul>
+</div>
+
+

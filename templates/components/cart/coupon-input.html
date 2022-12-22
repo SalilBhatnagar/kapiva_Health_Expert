@@ -1,0 +1,128 @@
+<!-- <div class="cart-total-value">
+
+    <button class="coupon-code-add">{{lang 'cart.coupons.add_coupon'}}</button>
+
+    <button class="coupon-code-cancel" style="display: none;">{{lang 'cart.coupons.cancel'}}</button>
+</div> -->
+
+<div class="cart-form coupon-code">
+  <form class="form form--hiddenLabels coupon-form" method="post" action="{{urls.cart}}">
+    <label class="form-label" for="couponcode">{{lang 'cart.coupons.coupon_code'}}</label>
+    <input class="form-input" data-error="{{lang 'cart.coupons.empty_error'}}"  id="couponcode" type="text" name="couponcode" value="" placeholder="{{lang 'cart.coupons.coupon_code'}}">
+    <input class="btn_check" type="submit" value="Apply">
+    <div class="copon_data">
+    <ul>
+    </ul>    
+    </div>
+    <input class="button button--primary button--small" type="submit" value="{{lang 'cart.coupons.button'}}">
+    <input type="hidden" name="action" value="applycoupon">
+</form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script>
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  var groupID=0;
+  if(document.querySelectorAll('#customer-group-id').length > 0){
+   groupID=document.querySelectorAll('#customer-group-id')[0].textContent;
+}
+  if(groupID.length === 0)
+  {
+    groupID=0;
+  }
+  
+  axios({
+              url: "https://bg-sync-api-dev.kapiva.in/api/coupon.php",
+              method: 'post',
+              contentType: "application/json",
+              headers:{'gid' : groupID},
+            }).then((result) => {     
+                var data = result.data;
+    if(result.status == "fail"){
+    var currentDate = new Date();
+   var couponBlock='';
+  
+    for(var i=0;i<data['data'].length;i++)
+   {
+      var coupons=data['data'][i];
+     
+        const value = moment(coupons['expires']).format('MM/DD/YYYY h:mm a');
+        var dt=new Date(value);
+       if(currentDate<dt)
+          {
+            couponBlock+='<label class="code_input"><strong>'+coupons['code']+'</strong><br>Save '+parseInt(coupons['amount'])+'% off <br>Expires on : '+value+'  <input type="radio" class="coupon_code" value="'+coupons['code']+'" name="coupon"> <span class="checkmark"></span></label>';
+              
+         }
+      
+   }
+   if(couponBlock != ''){
+   var newItem = document.querySelector('.copon_data ul');
+                            var node = document.createElement("li");
+                            node.innerHTML = couponBlock;
+                            newItem.append(node);
+                          }
+                        }
+   
+});
+
+var setcpninterval = setInterval(function(){
+var len = document.querySelectorAll('.coupon_code').length;
+if(len > 0){
+  clearInterval(setcpninterval)
+  document.querySelectorAll('.coupon_code').forEach(item => {
+            item.addEventListener('click', function (e) {
+ 
+    
+     document.querySelectorAll('.coupon_code').forEach(couponremove => {
+      couponremove.removeAttribute("checked");
+     });
+      if(item.classList.contains("checked")) {
+        e.preventDefault(); 
+      document.getElementById('couponcode').value = '';
+      item.removeAttribute("checked");
+      item.classList.remove("checked");
+     }else{
+      var code=document.querySelector('.coupon_code:checked').value;
+      document.getElementById('couponcode').value = code;
+      document.querySelectorAll('.coupon_code').forEach(couponremove => {
+      couponremove.classList.contains("checked");
+     });
+     item.classList.add("checked");
+     item.setAttribute("checked","checked");
+    }
+  });
+});
+}
+setTimeout(function(){
+  clearInterval(setcpninterval)
+},9000)
+},1000);
+});
+document.querySelectorAll('#couponcode').forEach(track_input => {
+            track_input.onkeyup = function(e) {
+              var code=document.querySelector('.coupon_code:checked').value;
+              document.querySelectorAll('.coupon_code').forEach(item => {
+        var input = document.getElementById('couponcode').value;
+     
+        if(item.value != input){
+      document.querySelectorAll(".coupon_code")[0].removeAttribute("checked");
+      document.querySelectorAll(".coupon_code")[0].classList.remove("checked");
+        }else{
+          
+            if(input == item.value){
+              
+              item.classList.add("checked");
+              item.setAttribute("checked","checked");
+             return false;
+            }
+        }
+      }) 
+            };
+          });
+
+</script>
+
+
+

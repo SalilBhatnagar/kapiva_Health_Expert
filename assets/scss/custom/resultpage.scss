@@ -1,0 +1,1062 @@
+.swpageHeading{
+    .page-heading{
+        font-size:20px;
+        margin: 0 0 15px 0;
+        @include breakpoint("xlarge"){
+            font-size:28px;
+            margin: 0 0 3rem;
+        }
+    }
+}
+.BoldHeading{
+    font-weight:bold;
+}
+.combo_page{
+    margin-top:0;
+}
+.Doctorbtn{
+    .drbtn{
+        padding:7px 7px;
+        background: #60975f;
+        border-color: #60975f;
+        font-weight: 700;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+        border-radius:25px;
+        text-align:center;
+       margin:0;
+    }
+}
+.sexualwellnesspage{
+    background-color:#cccccc; 
+    padding:5px 0 40px 0;
+    @include breakpoint("small"){
+        padding:40px 0 40px 0;
+    }
+    .container{
+        @include breakpoint("xlarge"){
+            max-width:1280px;
+        }
+        @include breakpoint("xxlarge"){
+            max-width:1400px;
+        }
+    }
+    .NumberKapivaHeading{
+        width: 25px;
+        height: 25px;
+        background: #000000;
+        border-radius: 50%;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 13px;
+        font-family: Verdana, sans-serif;
+        @include displayflexjustifycenter();
+        margin-right: 15px;
+        justify-content: center;
+    }
+    .welnesspagemain{
+        @include  displayflexaligncenterwrap();
+        align-items:inherit;
+        .leftwelness{
+            width:100%;
+            background-color:#ffffff;
+            border-radius:10px;
+            @include breakpoint("medium"){
+                padding:0px 15px;
+            }
+        }
+        .rightwelness{
+            width:100%;
+            margin-top:10px;
+            @include breakpoint("medium"){
+                margin-top:25px;
+            }
+        }
+        .rightwelnessinner{
+            padding:10px;
+            background-color: #e7e7e7;
+            border-radius:10px;
+            @include breakpoint("medium"){
+                padding:15px 20px;
+            }
+        }
+        .leftwelnessinner{
+            padding:10px;
+            @include breakpoint("xxlarge"){
+                padding:15px 40px;
+            }
+        }
+        .welnessbanner{
+            width:40%;
+            text-align: center;
+            @include breakpoint("small"){
+                width:25%;
+                margin:0 auto;
+                text-align: inherit;
+            }
+            &.desk{
+                display:none;
+                @include breakpoint("small"){
+                    display:block;
+                }
+            }
+        }  
+
+        .drbanner{
+            @include displayflexaligncenterwrap();
+            @include breakpoint("small"){
+                justify-content:space-between;
+            }
+            @include breakpoint("medium"){
+                padding:40px 0 15px 0; 
+            }
+            .Mobiledrbanner{
+                @include displayflexaligncenter();
+                @include breakpoint("small"){
+                    display:none;
+                }
+                .welnessbanner{
+                    width:100%;
+                }
+            }
+            .drbannerleft{
+                width:100%;
+                @include breakpoint("small"){
+                    width:50%;
+                }
+            }
+
+            .DRadviceMain{
+                margin:5px 0 10px 0;
+                @include breakpoint("medium"){
+                    margin:50px 0 30px 0;
+                }
+                .DRadvice{
+                    @include displayflexaligncenterwrap();
+                    align-items:self-start;
+                    .Drwrap{
+                        @include displayflexaligncenter();
+                        align-items: start;
+                        max-width:100%;
+                        span{
+                            width:25px;
+                            height:25px;
+                            background:#000000;
+                            border-radius:50%;
+                            color:#ffffff;
+                            font-weight:bold;
+                            font-size:13px;
+                            @include displayflexjustifycenter();
+                            @include breakpoint("small"){
+                                height:25px;
+                            }
+                            @include breakpoint("medium"){
+                                font-size: 14px;
+                                height: 30px;
+                                width: 60px;
+                            }
+                            @include breakpoint("large"){
+                                width:40px;
+                                height:30px;
+                            }
+                        }
+                        p{
+                            margin:0 0 0px 5px;
+                            font-size:12px;
+                            @include breakpoint("medium"){
+                                margin:0 0 25px 10px;
+                                font-size:15px;
+                            }
+                        }
+                    }
+                }
+            }
+            .mobiles{
+                display:block;
+                @include breakpoint("small"){
+                    display:none;
+                }
+                .DRadvice.row{
+                    margin:0;
+                    background-color:rgba(157,189,159,0.35);
+                    border-radius:15px;
+                    padding:10px 10px 0 10px;
+                    .col-lg-6{
+                        padding:0;
+                        align-items: center;
+                        margin-bottom:10px;
+                    }
+                }
+            }
+            .desks{
+                display:none;
+                @include breakpoint("small"){
+                    display:block;
+                }
+            }
+
+            .namesolution{
+                font-weight:bold;
+                margin:5px 0 5px 0;
+                font-size:12px; 
+                text-align:center;
+                @include breakpoint(425px){
+                    font-size:14px; 
+                }
+                @include breakpoint(460px){
+                    font-size:15px; 
+                }
+                @include breakpoint("small"){
+                    margin:0 0 20px 0;
+                    font-size:14px; 
+                    text-align:inherit;
+                }
+                @include breakpoint("large"){
+                    font-size:15px;    
+                }
+            }
+            .drbannertextinner{
+                text-align: center;
+                @include displayflexjustifycenter();
+                align-items: initial;
+                &.desk{
+                    display:none;
+                    @include breakpoint("small"){
+                        display:block;
+                        display: flex;
+                    }
+                }
+                &.mobile{
+                    width: 100%;
+                    @include breakpoint("small"){
+                        display:none;
+                    }
+                }
+                .kapivaline{
+                    width:1px;
+                    height:50px;
+                    background-color:#60975f;
+                    display:block;
+                    margin:0px auto;
+                }
+                .name{
+                    &:nth-child(1){
+                        margin:0 5px 20px 0;
+                    }
+                    &:nth-child(3){
+                        margin:0 0 20px 5px;
+                    }
+                    p{
+                        margin:0;
+                        color:#60975f;
+                        font-weight:bold;
+                        font-size:13px;
+                        @include breakpoint("large"){
+                            font-size:16px;
+                        }
+                        &.first{
+                            font-size:11px;
+                            font-weight:normal;
+                        }
+                    }
+                }
+            }
+        }
+        .advice{
+            margin:15px 0 20px 0;
+            font-size:12px;
+            @include breakpoint("medium"){
+                margin:15px 0 25px 0;
+                max-width:80%;
+                font-size:16px;
+            }
+            span{
+                font-weight:bold;
+            }
+        }
+        .review{
+            font-weight:bold;
+            li{
+                margin-bottom:5px;
+                font-size:13px;
+                @include breakpoint("medium"){
+                    font-size:15px;
+                }
+                svg{
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+            }
+        }
+        .drtextbottom{
+            .desk{
+                display:none;
+                @include breakpoint("small"){
+                    display:block;
+                }
+            }
+            .mobile{
+                @include breakpoint("small"){
+                    display:none;
+                }
+            }
+            
+            
+            .productIconMain{
+                .row {
+                    margin:0;
+                }
+               .col-lg-3{
+                   width:25%;
+                   padding:0;
+               }
+               .label{
+                   p{
+                        font-size:12px;
+                        text-align: center;
+                        margin: 0;
+                   }
+               }
+                .icon{
+                    @include displayflexjustifycenter();
+                    width: auto;
+                    height: auto;
+                    padding: 10px 10px 0 10px;
+                    margin: 0 auto;
+                    @include breakpoint("large") {
+                        // width: 125px;
+                        // height: 125px;
+                    }
+                    @include breakpoint("xxlarge") {
+                        // width: 150px;
+                        // height: 150px;
+                    }
+                }
+            }
+        }
+        .rightwelnessinner{
+            .rightmainheading{
+                text-align:center;
+                margin:0 0 8px 0;
+                font-size:20px;
+                display: flex;
+                justify-content:center;
+                @include breakpoint("medium"){
+                    margin:25px 0 35px 0;
+                    padding-top: 10px;
+                    font-size: 28px;
+                }
+            }
+            .ProductDetaMain{
+                @include displayflexjustialigncenterwrap();
+                align-items: start;
+                .leftDeta{
+                    width:100%;
+                    @include breakpoint("small"){
+                        width:40%;
+                    }
+                    .cardswelness{
+                        img{
+                            border-radius:15px;
+                        }
+                    }
+                    
+                    .form-action{
+                        position: fixed;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 1000;
+                        width: 100%;
+                        @include displayflexaligncenter();
+                        // flex-direction: row-reverse;
+                        @include breakpoint("small"){
+                            margin:15px 0 0 0;
+                            z-index:1;
+                            position: relative;
+                            // flex-direction: initial;
+                        }
+                        .button{
+                            font-size:16px;
+                            width:50%;
+                            border-radius:0;
+                            padding:15px 0;
+                            height:50px;
+                            @include breakpoint("small"){
+                               height:auto;
+                               border-radius: 56px;
+                            }
+                        }
+                        .add_to_cart_product{
+                            &:after {
+                                  content: "";
+                                  display: block;
+                                  width: 1.2em;
+                                  height: 1.2em;
+                                  position: absolute;
+                                  left: calc(50% - 0.75em);
+                                  top: calc(50% - 0.75em);
+                                  border: 0.15em solid transparent;
+                                  border-right-color: white;
+                                  border-radius: 50%;
+                                  animation: button-anim 0.7s linear infinite;
+                                  opacity: 0;
+                                }
+                                &.sendloadingbuynow {
+                                  color: transparent !important;
+                                  background-image: none;
+                                }
+                                &.sendloadingbuynow::after {
+                                  opacity: 1;
+                                }
+                        }
+                        #form-action-addToCart{
+                            color: #78bf95;
+                            background-color: #78bf95;
+                            position: relative;
+                            @include breakpoint("small"){
+                                background-color: #0e3118;
+                                border-color: #0e3118;
+                                color: #dce9d7;
+                            }
+                            &:hover{
+                                @include hovereffectbutton();
+                            }
+                            .fill-count{
+                                position: absolute;
+                                top: 50%;
+                                right: 50%;
+                                height: 20px;
+                                width: 20px;
+                                font-size: 11px;
+                                line-height: 20px;
+                                background-color: #e5fff0;
+                                border-radius: 50%;
+                                color: #0e3118;
+                                transform: translate(-50%,-50%);
+                                margin-left: -21px;
+                                margin-right: -35px;
+                                margin-top: -11px;
+                                @include breakpoint("small"){
+                                    display:none;
+                                }
+                            }
+                               &:after {
+                                  content: "";
+                                  display: block;
+                                  width: 1.2em;
+                                  height: 1.2em;
+                                  position: absolute;
+                                  left: calc(50% - 0.75em);
+                                  top: calc(50% - 0.75em);
+                                  border: 0.15em solid transparent;
+                                  border-right-color: white;
+                                  border-radius: 50%;
+                                  animation: button-anim 0.7s linear infinite;
+                                  opacity: 0;
+                                }
+                                &.sendloadingaddtocart {
+                                  color: transparent !important;
+                                  background-image: none;
+                                }
+                                &.sendloadingaddtocart::after {
+                                  opacity: 1;
+                                }
+                            &:before{
+                                content:'';
+                                background-image: url("https://cdn11.bigcommerce.com/s-5h8rqg02f8/content/images/addtocard.svg");
+                                background-repeat: no-repeat;
+                                width: 35px;
+                                height: 35px;
+                                position: absolute;
+                                top: 50%;
+                                transform: translate(-50%,-50%);
+                                left: 50%;
+                                @include breakpoint("small"){
+                                    display:none;
+                                }
+                            }
+                            span.addTocartText{
+                                display:none;
+                                @include breakpoint("small"){
+                                    display:block;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                .rightdeta{
+                    width:100%;
+                    @include breakpoint("small"){
+                        width: 50%;
+                        padding-left:25px;
+                    }
+                    @include breakpoint("xxlarge"){
+                        width:30%;
+                    }
+                    .cardwrap{
+                        h3{
+                            margin:15px 0 15px 0;
+                            font-size:20px;
+                            text-align: center;
+                            
+                            @include breakpoint("medium"){
+                                margin:0 0 15px 0;
+                            }
+                        }
+                    }
+                    .pdpiconmain{
+                        max-width: 40%;
+                        padding:15px 0 10px 0;
+                        @include breakpoint("xlarge"){
+                            padding:10px 0 20px 0;
+                        }
+                    }
+                }
+                .subheading{
+                    margin-bottom:5px;
+                    @include breakpoint("large"){
+                        margin-bottom:15px;
+                    }
+                    li{
+                        font-size:12px;
+                        list-style-type: disc;
+                        margin:0 0 10px 15px;
+                        @include breakpoint("medium"){
+                            font-size: 16px;
+                        }
+                    }
+                    
+                }
+            }
+            .solutionwork{
+                @include breakpoint("small"){
+                    margin-top:15px;
+                }
+                @include breakpoint("medium"){
+                    margin-top:35px;
+                }
+                .solutionworkinner{
+                    padding:10px 6px;
+                    text-align:center;
+                    background-color:#e8efe9;
+                    border-radius:15px;
+                    h4{
+                        font-weight:bold;
+                        margin:5px 0 20px 0;
+                        font-size:20px;
+                    }
+                    ul{
+                        text-align: left;
+                    }
+                    li{
+                        list-style-type: disc;
+                        margin:0 0 10px 15px;
+                        font-size:12px;
+                        @include breakpoint("medium"){
+                            font-size:16px;
+                        }
+                    }
+                }
+            }
+        }
+        .cardswelness{
+            .card-image{
+                border-radius:25px;
+            }
+        }
+        .productreview{
+            margin:10px 0;
+            .reviewicon{
+                display:inline-block;
+                width:15px;
+                height:15px;
+            }
+            svg{
+                width:15px;
+                height:15px;
+                fill: gold;
+                &.empty{
+                    fill: gray;
+                }
+            }
+            .reviewcount{
+                font-size: 12px;
+                color: #0e3118;
+                display:block;
+                @include breakpoint("large"){
+                    font-size:16px;
+                }
+            }
+        }
+        .price{
+            .pricetext{
+                font-size:14px;
+                color:#0e3118;
+                margin-bottom:5px;
+                @include breakpoint("large"){
+                    font-size:16px;
+                }
+            }
+            .priceold{
+                font-weight: 600;
+                color: rgba(14,49,24,0.2);
+                font-size:15px;
+                font-family: Georgia,sans-serif;
+                @include breakpoint("large"){
+                    font-size:23px;
+                }
+                .linethrough{
+                    text-decoration: line-through;
+                }
+                .pricenew,.discount{
+                    color: #0e3118;
+                    font-size:15px;
+                    @include breakpoint("large"){
+                        font-size:16px;
+                    }
+                }
+
+            }
+        }
+    }
+    .bottomProducts{
+        .productreview{
+            margin:5px 0;
+            .reviewicon{
+                display:inline-block;
+                width:15px;
+                height:15px;
+            }
+            svg{
+                width:15px;
+                height:15px;
+                fill: gold;
+                &.empty{
+                    fill: gray;
+                }
+            }
+            .reviewcount{
+                font-size: 12px;
+                color: #0e3118;
+                display:block;
+                @include breakpoint("large"){
+                    font-size:16px;
+                }
+            }
+        }
+        .price{
+            .pricetext{
+                font-size:14px;
+                color:#0e3118;
+                margin-bottom:5px;
+                @include breakpoint("large"){
+                    font-size:16px;
+                }
+            }
+            .priceold{
+                font-weight: 600;
+                color: rgba(14,49,24,0.2);
+                font-size:15px;
+                font-family: Georgia,sans-serif;
+                @include breakpoint("large"){
+                    font-size:23px;
+                }
+                .linethrough{
+                    text-decoration: line-through;
+                }
+                .pricenew,.discount{
+                    color: #0e3118;
+                    font-size:15px;
+                    @include breakpoint("large"){
+                        font-size:16px;
+                    }
+                }
+
+            }
+        }
+        h4{
+            text-align:center;
+            font-size:20px;
+            margin:15px 0 15px 0;
+            @include breakpoint("large"){
+                font-size:27px;
+                margin:50px 0 25px 0;
+            }
+        }
+        .IndivisualProducts{
+            .ProductsInner{
+                .cardswelness{
+                    width:100%;
+                    @include breakpoint("small"){
+                        width:33.33%;
+                    }
+                }
+                .card-figures{
+                    img{
+                        border-radius: 15px;
+                    }
+                }
+               .cardwrap{
+                   h3{
+                       margin:15px 0 15px 0;
+                       font-size:20px;
+                       text-align:center;
+                       @include breakpoint("medium"){
+                        font-size:20px;
+                        margin:20px 0 15px 0;
+                       }
+                   }
+               }
+            }
+        }
+    }
+    .productsection{
+        margin:5px 0 0 0;
+        @include breakpoint("small"){
+            margin:25px 0 0 0;
+        }
+        .WrapMainProduct{
+            background-color:#ffffff;
+            border-radius:15px;
+            padding:20px 15px;
+            @include breakpoint("medium"){
+                padding:20px 40px;
+            }
+            .insideproductsection{
+                text-align:center;
+                h4{
+                    color:#0e3118;
+                    font-size:20px;
+                    margin:0 0 15px 0;
+                    @include breakpoint("medium"){
+                        font-size:30px;
+                        margin:25px 0 15px 0;
+                    }
+                }
+                .innerwrapsection{
+                    margin-bottom:10px;
+                    @include breakpoint("medium"){
+                        margin-bottom:55px;
+                    }
+                    .splide__pagination{
+                        bottom:5px;
+                        display:none;
+                        @include breakpoint("medium"){
+                            bottom:0;
+                        }
+                        li{
+                            line-height: 0;
+                        }
+                        .splide__pagination__page{
+                            width: 16px;
+                            margin:0 5px 0 0;
+                        }
+                    }
+                    .splide__arrows{
+                        .splide__arrow{
+                            background: transparent;
+                            top: 32%;
+                        }
+                        .splide__arrow--next{
+                            right:-15px;
+                        }
+                        .splide__arrow--prev{
+                            left: -15px;
+                        }
+                    }
+                    .col-lg-3{
+                        width:50%;
+                        @include breakpoint("small"){
+                            width:25%;
+                        }
+                    }
+                    .icons{
+                        img{
+                            border-radius:10px;
+                        }
+                    }
+                    h6{
+                        font-size:20px;
+                        margin:15px 0 10px;
+                        text-transform:inherit;
+                        @include breakpoint("medium"){
+                            margin:15px 0 20px;
+                        }
+                    }
+                    p{
+                        font-size:12px;
+                        text-align:left;
+                        margin:0;
+                        @include breakpoint("medium"){
+                            font-size:14px;
+                        }
+                    }
+                }
+            }
+            .dietplane{
+                margin:0px 0;
+                text-align:center;
+                @include breakpoint("large"){
+                    margin:45px 0 30px 0;
+                }
+                p{
+                    margin:5px 0 5px 0px;
+                    text-align:center;
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+            }
+            .insidework{
+                h4{
+                    margin:0px 0 20px 0;
+                    font-weight:bold;
+                    text-align:center;
+                    display:flex;
+                }
+                .col-md-6{
+                    margin-bottom:10px;
+                    @include breakpoint("small"){
+                        max-width:100%;
+                        flex: 0 0 100%;
+                    }
+                    @include breakpoint("medium"){
+                        margin:0;
+                        max-width:50%;
+                        flex: 0 0 50%;
+                    }
+                }
+                li{
+                    list-style-type: disc;
+                    font-size:12px;
+                    margin:0 0 10px 15px;
+                    @include breakpoint("medium"){
+                        font-size:16px;
+                    }
+                }
+                .insideleft,.insideright{
+                    @include breakpoint("medium"){
+                        min-height:325px;
+                    }
+                    @include breakpoint(1900px){
+                        min-height:300px;
+                    }
+                }
+                .insideleft{
+                    background-color:#e8eaed;
+                    border-radius: 15px;
+                    padding:20px 10px 20px 10px;
+                    @include breakpoint("large"){
+                        padding:20px;
+                    }
+                }
+                .insideright{
+                    // background-color:#eddfda;
+                    // border-radius: 15px;
+                    // padding:20px 10px 20px 10px;
+                    position: relative;
+                    @include breakpoint("large"){
+                        padding:20px;
+                    }
+                    .aharHeading{
+                        margin-bottom:10px;
+                        position:absolute;
+                        left:10px;
+                        top:10px;
+                    }
+                    .rows{
+                        img{
+                            border-radius:15px;
+                        }
+                    }
+                }   
+            }
+            .drconsultHealth{
+                border-radius: 15px;
+                background-color: #e8efe9;
+                a {
+                    display: block;
+                    cursor: pointer;
+                    padding:15px 10px;
+                    border-radius:15px;
+                    @include breakpoint("medium"){
+                        margin:45px 0 0 0;
+                        padding:35px 0;
+                    }
+                    &:hover {
+                        color: #333;
+                    }
+                }
+                .desk{
+                    display:none;
+                    @include breakpoint("small"){
+                        display:block;
+                    }
+                }
+                .mobile{
+                    @include breakpoint("small"){
+                        display:none;
+                    }
+                }
+                .doctorname{
+                    font-weight:bold;
+                    font-size: 12px;
+                    margin: 10px 0 0 0;
+                    text-align:right;
+                    @include breakpoint("medium"){
+                        font-size:18px;
+                        text-align:inherit;
+                    }
+                }
+                .Doctorwrap{
+                    @include displayflexjustialigncenterwrap();
+                    justify-content:space-between;
+                    align-items:inherit;
+                    flex-direction: row-reverse;
+                    @include breakpoint("small"){
+                        max-width:80%;
+                        flex-direction:inherit;
+                        margin:0 auto;
+                    }
+                    @include breakpoint("large"){
+                        max-width:70%;
+                    }
+                    @include breakpoint("xxlarge"){
+                        max-width:50%;
+                    }
+                    .DrMobile{
+                        background-color:#ffffff;
+                        padding:15px 10px;
+                        width: 100%;
+                        margin: 10px 0 0 0;
+                        border-radius: 10px;
+                        text-align:center;
+                        p{
+                            margin:0;
+                            font-weight:bold;
+                        }
+                    }
+                    .doctordata{
+                        width:60%;
+                        background-color: #ffffff;
+                        border-radius: 15px;
+                        padding:10px;
+                        @include breakpoint("small"){
+                            width:60%;
+                            padding:20px 30px;
+                        }
+                        .Doctorspce{
+                            font-weight:bold;
+                            p{
+                                font-size:12px;
+                            }
+                        }
+                        .col-lg-3{
+                            padding:0 5px;
+                            @include breakpoint("medium"){
+                                padding:0 15px;
+                            }
+                        }
+                        h5{
+                            font-size:16px;
+                            margin: 10px 0 20px 0px;
+                            text-transform:unset;
+                            display:flex;
+                            @include breakpoint("small"){
+                                margin:0 0 30px 0;
+                            }
+                            @include breakpoint("medium"){
+                                font-size:22px;
+                            }
+                            .NumberKapivaHeading{
+                                width:40px;
+                            }
+                            // span{
+                            //     display:block;
+                            // }
+                        }
+                    }
+                    .doctorimage{
+                        width:35%;
+                        @include breakpoint("small"){
+                            width:25%;
+                        }
+                        img{
+                            border-radius: 15px;
+                        }
+                    }
+                }
+            }
+            .testimonialHealthtach{
+                padding-bottom: 25px;
+                padding:0 0 25px 0;
+                @include breakpoint("medium"){
+                    padding:25px 0 35px 0;
+                }
+                @include breakpoint("medium"){
+                    padding:25px 0 35px 0;
+                }
+                .ProductTestimonial{
+                    margin:0 -5px;
+                    @include breakpoint("medium"){
+                        margin:0 -10px;
+                    }
+                }
+                .splide__pagination{
+                    bottom:-20px;
+                    @include breakpoint("medium"){
+                        bottom:-40px;
+                    }
+                }
+                
+                .splide__arrows{
+                    display:none;
+                }
+                .Testimonial-Slides{
+                    padding:0 5px;
+                    @include breakpoint("medium"){
+                        padding:0 10px;
+                    }
+                    .textReview{
+                        margin:0;
+                        font-size: 12px;
+                        min-height:75px;
+                        @include breakpoint("medium"){
+                            margin-bottom: 15px;
+                            font-size: 19px;
+                            min-height:265px;
+                        }
+                    }
+                    .reviewdeta{
+                        margin-bottom:10px;
+                        font-size:12px;
+                        font-weight:bold;
+                    }
+                    .starrating{
+                        margin-bottom:10px;
+                        @include breakpoint("medium"){
+                            margin-bottom:20px;
+                        }
+                        svg{
+                            width:20px;
+                            height:20px;
+                            fill: gold;
+                        }
+                    }
+                    .kapiva-curve{
+                        padding:35px 20px;
+                        text-align:center;
+                        border-top-left-radius: 75px;
+                        border-bottom-right-radius: 25px;
+                        background: #fef9cf;
+                        &.gray{
+                            background: #dedff1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

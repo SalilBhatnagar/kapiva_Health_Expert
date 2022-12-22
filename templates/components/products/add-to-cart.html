@@ -1,0 +1,58 @@
+<div id="add-to-cart-wrapper" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+    {{#if theme_settings.show_product_quantity_box}}
+        {{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
+        <div class="form-field form-field--increments">
+            <label class="form-label form-label--alternate"
+                   for="qty[]">{{lang 'products.quantity'}}</label>
+                <div class="form-increment" data-quantity-change>
+                    <button class="button button--icon minus" data-action="dec">
+                        <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                        
+
+                    </button>
+                    <input class="form-input form-input--incrementTotal form-input--incrementTotalPdp"
+                           id="qty[]"
+                           name="qty[]"
+                           type="tel"
+                           value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                           data-quantity-min="{{product.min_purchase_quantity}}"
+                           data-quantity-max="{{product.max_purchase_quantity}}"
+                           min="1"
+                           pattern="[0-9]*"
+                           aria-live="polite">
+                    <button class="button button--icon plus" data-action="inc">
+                        
+
+                    </button>
+                </div>
+        </div>
+    {{/if}}
+
+    <div class="alertBox productAttributes-message" style="display:none">
+        <div class="alertBox-column alertBox-icon">
+            <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+        </div>
+        <p class="alertBox-column alertBox-message"></p>
+    </div>
+    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+        <div class="form-action Buynowmobile">
+            <button class="button button--primary add_to_cart_product quick-buy" type="button" value="Buy Now">
+              Buy Now
+            </button>
+          <!-- <input class="button button--primary add_to_cart_product quick-buy" type="button" value="Buy Now" data-wait-message="{{lang 'products.adding_to_cart'}}"> -->
+          <!-- <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span> -->
+            <button
+                    id="form-action-addToCart"
+                    
+                    class="button button--primary add_to_cart_product"
+                    type="submit" 
+                    value=""
+            ><span class="addTocartText">{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}
+                <img src="{{cdn 'assets/img/loading.svg'}}" data-src="{{cdn 'webdav:images/pdppageimage/add-to-cart-btn.png'}}" class="img-fluid lazyload" alt="add to cart button" loading="lazy" width="90px" height="81px">
+            </span>
+            <div id="countinnermain" class="pdpCount"></div>
+           </button>
+            <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span>
+        </div>
+    {{/or}}
+</div>

@@ -1,0 +1,19 @@
+{{#partial "page"}}
+    
+    <h2 class="page-heading is-srOnly">{{lang 'account.payment_methods.heading' }}</h2>
+    <div class="top-page">
+       <p class="left-text">My account<br/></p>
+       <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+   </div>
+    <div class="order-page">
+        {{> components/account/navigation account_page='payment_methods'}}
+
+    <div class="account account--fixedLarge">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <div class="account-body">
+            {{> components/account/payment-methods-list }}
+        </div>
+    </div>
+    </div>
+{{/partial}}
+{{> layout/base}}

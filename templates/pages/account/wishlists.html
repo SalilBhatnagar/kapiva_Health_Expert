@@ -1,0 +1,19 @@
+{{#partial "page"}}
+{{#if settings.show_wishlist}}
+    <div class="account">        
+       {{!-- <h2 class="page-heading">{{lang 'account.wishlists.heading' }}</h2> --}}
+       <div class="top-page">
+             <p class="left-text">My account<br/></p>
+             <p><a class="logout" href="login.php?action=logout">Sign out</a></p>
+        </div>
+        <div class="order-page">
+            {{> components/account/navigation account_page='wishlists'}}
+           <div class="account"> 
+              {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+              {{> components/account/wishlist-list}} 
+            </div>
+         </div>
+    </div>
+{{/if}}
+{{/partial}}
+{{> layout/base}}
